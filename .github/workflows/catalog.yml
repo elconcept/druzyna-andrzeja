@@ -1,0 +1,85 @@
+name: Katalog propozycji i GitHub Pages
+
+on:
+  schedule:
+    - cron: '31 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'catalog/**'
+      - 'scripts/catalog.py'
+      - 'web/**'
+      - 'tests/test_catalog.py'
+      - 'sources.toml'
+      - '.github/workflows/catalog.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: catalog-pages-main
+  cancel-in-progress: false
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Uruchom testy ekstrakcji
+        run: python -m unittest discover -s tests -p 'test_catalog.py' -v
+      - name: Pobierz aktualny awesome-legaltech i metryki GitHub
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/catalog.py
+      - name: Zapisz snapshot katalogu, bez dotykania źródeł
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- catalog/proposals.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: refresh awesome-legaltech catalog'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo 'Katalog bez zmian.'
+          fi
+      - name: Zbuduj statyczną stronę
+        run: |
+          mkdir -p site/data
+          cp web/index.html web/styles.css web/app.js site/
+          cp catalog/proposals.json site/data/proposals.json
+          touch site/.nojekyll
+          echo "Wpisów: $(python -c 'import json;print(json.load(open("catalog/proposals.json"))["count"])')" >> "$GITHUB_STEP_SUMMARY"
+      - name: Skonfiguruj Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Spróbuj ustawić domenę dan.xlap.pl w konfiguracji Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -f cname='dan.xlap.pl' -f build_type='workflow' > /dev/null; then
+            echo 'Ustawiono domenę dan.xlap.pl w Pages.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '::warning::Ustaw domenę dan.xlap.pl ręcznie w Settings > Pages; zweryfikuj również DNS.'
+            echo 'Nie udało się ustawić domeny przez Pages API; wymagane Settings > Pages.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Opublikuj na GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
