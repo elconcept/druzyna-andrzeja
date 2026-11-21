@@ -38,6 +38,6 @@ Usunięcie repozytorium z listy przestaje je synchronizować, usuwa submoduł `_
 
 **Zatwierdzanie:** wybierz przy repozytorium GitHub „Kopiuj wpis TOML”, wklej do [sources.toml](https://github.com/elconcept/druzyna-andrzeja/edit/main/sources.toml) i zatwierdź commit. Dopiero istniejący workflow sync.yml doda je do katalogów _vendor i _workbench. Strona publiczna nie może modyfikować sources.toml i nie ma dostępu do tokenu GitHub. Linki spoza GitHub pozostają propozycjami informacyjnymi, nie są automatycznie submodułami.
 
-**Publikacja:** workflow próbuje włączyć GitHub Pages i ustawić domenę dan.xlap.pl przez Pages API. W DNS potrzebny jest CNAME dan → elconcept.github.io. Jeżeli domena nie zostanie ustawiona automatycznie, sprawdź Settings → Pages → Custom domain w repozytorium. W publikacji przez Actions plik CNAME sam nie ustawia domeny.
+**Publikacja:** workflow próbuje włączyć GitHub Pages i ustawić domenę dan.xlap.pl przez Pages API. W DNS potrzebny jest CNAME dan → elconcept.github.io. W tym repo GITHUB_TOKEN nie ma uprawnienia do pierwszego włączenia Pages. Właściciel może użyć jednorazowo polecenia **bash scripts/enable-pages.sh** z zalogowanym gh CLI albo włączyć źródło GitHub Actions w Settings → Pages. Skrypt ustawi również domenę przez Pages API. W publikacji przez Actions plik CNAME sam nie ustawia domeny.
 
 **Test parsera:** python3 -m unittest discover -s tests -p 'test_catalog.py' -v.
