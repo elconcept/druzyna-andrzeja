@@ -1,0 +1,33 @@
+# Weryfikowany benchmark dla polskiego prawa.
+# Kod źródłowy pozostaje w repozytorium autora; nie publikujemy kopii w _workbench,
+# ponieważ w upstream nie znaleziono jawnego pliku LICENSE.
+version = 1
+
+[benchmark]
+id = "polishlawllm"
+title = "PolishLawLLM Benchmark"
+jurisdiction = "PL"
+source = "https://github.com/PiotrTyrakowski/PolishLawLLM-Benchmark"
+revision = "52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6"
+license_status = "not_declared"
+engine = "python"
+task_types = ["exams", "judgments"]
+
+[dataset]
+format = "jsonl"
+path = "benchmarks/tasks"
+status = "missing"
+# Brak produkcyjnych data/tasks w publicznym upstream. Test fixtures to nie złoty benchmark.
+
+[execution]
+default_mode = "smoke"
+result_retention_days = 7
+require_api_key_for_real_evaluation = true
+require_nonempty_tasks = true
+# Reprodukowalność: model, provider, dataset hash, upstream SHA, rok i parametry wywołania.
+
+[results]
+store = "github-actions-artifact"
+firestore = "not_configured"
+# Oryginalny uploader i frontend wspierają Firestore.
+# Publikacja wyników po ustawieniu Firebase Admin credentials i ocenie formatu danych.
