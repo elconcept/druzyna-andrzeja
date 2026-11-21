@@ -1,6 +1,6 @@
 # Drużyna Andrzeja
 
-Publiczny agregator repozytoriów do analizy kodu.
+Publiczny agregator repozytoriów i narzędzi **wyłącznie dotyczących prawa polskiego** do selekcji i analizy kodu. Serwis: [dan.xlap.pl](https://dan.xlap.pl).
 
 - `sources.toml` — jedyna, edytowana ręcznie lista źródeł.
 - `_vendor/<nazwa>/` — upstream **1:1**, przypięty jako submodule Git (nie edytować).
@@ -30,7 +30,7 @@ Usunięcie repozytorium z listy przestaje je synchronizować, usuwa submoduł `_
 
 ## Katalog propozycji — https://dan.xlap.pl
 
-- **catalog/feeds.toml** — lista katalogów zewnętrznych w TOML. Aktualnie importuje Vaquill-AI/awesome-legaltech. Zmiana tej listy nie dodaje submodułów.
+- **catalog/feeds.toml** — lista katalogów zewnętrznych w TOML. Aktualnie importuje **wyłącznie** [awesome-legaltech-pl](https://github.com/apiotrowski-afk/awesome-legaltech-pl): README, KOMERCYJNE i ARCHIWUM. `jurisdiction = "PL"` jest obowiązkowe, a importer odrzuca globalną listę. Opisy źródłowe na licencji CC BY 4.0, z podaniem autora i linku. Zmiana tej listy nie dodaje submodułów.
 - **scripts/catalog.py** — import pozycji z README, łączenie powtórzonych URL i pobieranie metryk GitHub: gwiazdek, contributorów, otwartych PR, ostatnich commitów, forków i stanu archiwizacji.
 - **catalog/proposals.json** — automatycznie generowany snapshot. Nie edytować ręcznie.
 - **web/** — interfejs do wyszukiwania, tagowania, filtrowania i sortowania propozycji.
