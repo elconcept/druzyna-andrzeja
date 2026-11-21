@@ -86,12 +86,20 @@ def parse_readme(md: str, feed_name: str) -> list[dict]:
         except ValueError:
             continue
         tags = [x for x in (section, subsection) if x]
+        tags.append("Prawo polskie")
+        if feed_name.endswith("komercyjne"):
+            tags.append("Komercyjne")
+        if feed_name.endswith("archiwum"):
+            tags.append("Archiwalne")
         rest = line[m.end():]
         for tag in INLINE_TAG.findall(rest):
             if tag not in tags:
                 tags.append(tag)
         if "Archived" in section or re.search(r"\[Archived\b", line, re.I):
             tags.append("Archived")
+        # International-only format not implemented in Polish law.
+        if url == "https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html":
+            continue
         entries.append({
             "id": hashlib.sha256(url.encode("utf-8")).hexdigest()[:16],
             "name": title.strip(),
@@ -107,14 +115,14 @@ def parse_readme(md: str, feed_name: str) -> list[dict]:
 
 def read_feeds() -> list[dict]:
     data = tomllib.loads(FEEDS.read_text(encoding="utf-8"))
-    if data.get("version") != 1 or not isinstance(data.get("feed"), list):
-        raise ValueError("Expected version = 1 and [[feed]] in catalog/feeds.toml")
+    if data.get("version") != 1 or data.get("jurisdiction") != "PL" or not isinstance(data.get("feed"), list):
+        raise ValueError("Expected version = 1, jurisdiction = 'PL', and [[feed]]")
     result = []
     for f in data["feed"]:
         if not isinstance(f, dict) or not all(isinstance(f.get(k), str) for k in ("name", "url")):
             raise ValueError("Each feed requires string name and url")
-        if not f["url"].startswith("https://raw.githubusercontent.com/"):
-            raise ValueError("Feed must be a raw.githubusercontent.com HTTPS URL")
+        if not f["url"].startswith("https://raw.githubusercontent.com/apiotrowski-afk/awesome-legaltech-pl/main/"):
+            raise ValueError("Catalog must use approved Polish-law source only (awesome-legaltech-pl)")
         result.append(f)
     return result
 
@@ -253,7 +261,7 @@ def build(no_metadata: bool = False, markdown_file: str | None = None) -> dict:
             time.sleep(0.10)
 
     result = {
-        "schema": 1, "generated_at": now(),
+        "schema": 1, "jurisdiction": "PL", "generated_at": now(),
         "feeds": [{"name": f["name"], "url": f["url"]} for f in feeds],
         "count": len(entries),
         "github_count": sum(1 for p in entries if p["github"]),
