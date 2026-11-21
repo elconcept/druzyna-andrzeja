@@ -43,7 +43,8 @@ async function copyApproval(item) {
   const pieces = url.pathname.replace(/^\/|\/$/g, "").split("/");
   if (pieces.length !== 2) return;
   const repo = pieces[1].replace(/\.git$/i, "");
-  const slug = repo.toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
+  let slug = (pieces[0] + "-" + repo).toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 100);
+  if (!/^[a-z]/.test(slug)) slug = "repo-" + slug;
   const code = '[[' + 'repo]]\nname = "' + slug + '"\nurl = "' + item.url + '.git"\n';
   try {
     await navigator.clipboard.writeText(code);
@@ -70,7 +71,7 @@ function card(item) {
   top.append(identity, state);
   root.append(top, el("p", "description", item.description || "Brak opisu w źródłowej liście."));
   const tags = el("div", "tags");
-  const tagList = [...new Set((item.tags || []).filter(Boolean))];
+  const tagList = [...new Set([...(item.tags || []), ...(item.metrics?.github_topics || [])].filter(Boolean))];
   if (item.github) tagList.push("GitHub");
   else tagList.push("Źródło zewnętrzne");
   for (const name of [...new Set(tagList)].slice(0, 6)) {
@@ -129,8 +130,8 @@ function filter() {
   visible = proposals.filter((p) => {
     if (kind === "github" && !p.github || kind === "external" && p.github) return false;
     if (status === "approved" && !p.approved || status === "pending" && p.approved) return false;
-    if (tag && !(p.tags || []).includes(tag)) return false;
-    if (query && ![p.name, p.url, p.description, ...(p.tags || [])].join(" ").toLocaleLowerCase("pl").includes(query)) return false;
+    if (tag && ![...(p.tags || []), ...(p.metrics?.github_topics || [])].includes(tag)) return false;
+    if (query && ![p.name, p.url, p.description, ...(p.tags || []), ...(p.metrics?.github_topics || [])].join(" ").toLocaleLowerCase("pl").includes(query)) return false;
     return true;
   }).sort((a, b) => compare(a, b, $("sort").value));
   shown = 60;
@@ -162,7 +163,7 @@ async function start() {
     $("count-gh").textContent = number(proposals.filter((p) => p.github).length);
     $("count-approved").textContent = number(proposals.filter((p) => p.approved).length);
     $("checked-at").textContent = date(data.generated_at);
-    const tags = [...new Set(proposals.flatMap((p) => p.tags || []))].sort((a, b) => a.localeCompare(b, "pl"));
+    const tags = [...new Set(proposals.flatMap((p) => [...(p.tags || []), ...(p.metrics?.github_topics || [])]))].sort((a, b) => a.localeCompare(b, "pl"));
     for (const tag of tags) {
       const option = document.createElement("option");
       option.value = option.textContent = tag;
