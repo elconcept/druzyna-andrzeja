@@ -1,0 +1,171 @@
+name: PolishLawLLM — smoke i oceny modeli
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [smoke, evaluate]
+        default: smoke
+        required: true
+      model_id:
+        type: string
+        default: gemini-2.5-flash
+        required: false
+      task_type:
+        type: choice
+        options: [exams, judgments]
+        default: exams
+      year:
+        type: string
+        required: false
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/benchmark-polishlawllm.yml'
+      - 'benchmarks/polishlawllm.toml'
+      - 'tests/test_accept_request.py'
+      - 'scripts/accept_request.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: polishlawllm-main
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: github.event_name == 'push' || inputs.mode == 'smoke'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/checkout@v4
+        with:
+          repository: PiotrTyrakowski/PolishLawLLM-Benchmark
+          ref: 52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6
+          path: _benchmark_upstream
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Testy własnego walidatora żądań
+        run: python -m unittest discover -s tests -p 'test_accept_request.py' -v
+      - name: Kompilacja i test exact match (bez dostępu do API modeli)
+        working-directory: _benchmark_upstream
+        run: |
+          python -m pip install --disable-pip-version-check pytest
+          python -m compileall -q src/benchmark_framework
+          python -m pytest src/benchmark_framework/metrics/tests/test_exact_match.py -q
+      - name: Zapisz manifest audytowy
+        run: |
+          mkdir -p benchmark-results
+          python - <<'PY'
+          import datetime as dt, json, pathlib
+          out={"benchmark":"polishlawllm","mode":"smoke",
+               "upstream_sha":"52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6",
+               "dataset_present":False,"measured_model_quality":False,
+               "status":"engine_tests_passed",
+               "timestamp":dt.datetime.now(dt.timezone.utc).isoformat()}
+          pathlib.Path("benchmark-results/smoke.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: polishlawllm-smoke
+          path: benchmark-results/smoke.json
+          retention-days: 7
+
+  evaluate:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'evaluate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/checkout@v4
+        with:
+          repository: PiotrTyrakowski/PolishLawLLM-Benchmark
+          ref: 52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6
+          path: _benchmark_upstream
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Hard gate — zweryfikowane zadania JSONL
+        env:
+          TASK_TYPE: ${{ inputs.task_type }}
+          TASK_YEAR: ${{ inputs.year }}
+        run: |
+          python - <<'PY'
+          import os,pathlib,sys,json,hashlib
+          base=pathlib.Path("benchmarks/tasks")/os.environ["TASK_TYPE"]
+          year=os.environ.get("TASK_YEAR","")
+          if year and (not year.isdigit() or len(year)!=4):
+              sys.exit("Błędny rok; użyj RRRR albo pustej wartości.")
+          files=list(base.glob("**/"+year+"/*.jsonl" if year else "**/*.jsonl"))
+          count=0
+          digest=hashlib.sha256()
+          for f in sorted(files):
+              b=f.read_bytes()
+              digest.update(f.as_posix().encode()+b)
+              for line in b.splitlines():
+                  if line.strip():
+                      json.loads(line)
+                      count+=1
+          if not count:
+              sys.exit("BRAK DANYCH: nie uruchamiam API LLM ani nie generuję fikcyjnych wyników. Potrzebne jest benchmarks/tasks/[exams|judgments]/...")
+          print("Zweryfikowano",count,"zadań; SHA256",digest.hexdigest())
+          PY
+      - name: Hard gate — klucz modelu
+        env:
+          MODEL_ID: ${{ inputs.model_id }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os,sys
+          model=os.environ["MODEL_ID"].lower()
+          key=("GEMINI_API_KEY" if model.startswith("gemini") else
+               "OPENAI_API_KEY" if model.startswith("gpt") else
+               "ANTHROPIC_API_KEY" if model.startswith("claude") else
+               "OPENROUTER_API_KEY")
+          if not os.getenv(key):
+              sys.exit("Brak klucza API w GitHub Actions secrets: "+key)
+          print("Dostawca:",key.split("_")[0])
+          PY
+      - name: Uruchom benchmark prawdziwego modelu
+        working-directory: _benchmark_upstream
+        env:
+          MODEL_ID: ${{ inputs.model_id }}
+          TASK_TYPE: ${{ inputs.task_type }}
+          TASK_YEAR: ${{ inputs.year }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r requirements.txt
+          mkdir -p data/tasks
+          cp -R ../benchmarks/tasks/. data/tasks/
+          if [ -n "$TASK_YEAR" ]; then
+            python -m src.benchmark_framework.cli "$MODEL_ID" "$TASK_TYPE" data/results data/tasks --year "$TASK_YEAR"
+          else
+            python -m src.benchmark_framework.cli "$MODEL_ID" "$TASK_TYPE" data/results data/tasks
+          fi
+          if ! find data/results -type f -name '*.jsonl' -print -quit | grep -q .; then
+            echo 'Brak wyników pomiaru, przerywam.' >&2
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: polishlawllm-results
+          path: _benchmark_upstream/data/results/
+          retention-days: 7
