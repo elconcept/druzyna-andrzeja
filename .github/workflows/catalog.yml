@@ -35,7 +35,12 @@ jobs:
           python-version: '3.12'
       - name: Uruchom testy ekstrakcji
         run: python -m unittest discover -s tests -p 'test_catalog.py' -v
-      - name: Pobierz aktualny awesome-legaltech i metryki GitHub
+      - name: Zweryfikuj skrypty interfejsu
+        run: |
+          node --check web/app.js
+          node --check web/browser.js
+          node --check deploy/worker.js
+      - name: Pobierz aktualny awesome-legaltech-pl i metryki GitHub
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/catalog.py
@@ -58,7 +63,7 @@ jobs:
               saved=true
               break
             fi
-            git commit -m 'data: refresh awesome-legaltech catalog'
+            git commit -m 'data: refresh Polish LegalTech catalog'
             if git push origin HEAD:main; then
               saved=true
               break
@@ -72,7 +77,7 @@ jobs:
       - name: Zbuduj statyczną stronę
         run: |
           mkdir -p site/data
-          cp web/index.html web/styles.css web/app.js site/
+          cp web/index.html web/styles.css web/app.js web/browser.js site/
           cp catalog/proposals.json site/data/proposals.json
           touch site/.nojekyll
           echo "Wpisów: $(python -c 'import json;print(json.load(open("catalog/proposals.json"))["count"])')" >> "$GITHUB_STEP_SUMMARY"
@@ -85,7 +90,7 @@ jobs:
       - name: Sprawdź publiczne wdrożenie dan.xlap.pl
         run: |
           mkdir -p /tmp/druzyna-public
-          for asset in index.html app.js styles.css data/proposals.json; do
+          for asset in index.html app.js browser.js styles.css data/proposals.json; do
             curl --fail --silent --show-error --retry 4 --retry-delay 3 \
               "https://dan.xlap.pl/$asset" \
               --output "/tmp/druzyna-public/$(basename "$asset")"
@@ -97,10 +102,13 @@ jobs:
           doc = json.loads((public / 'proposals.json').read_text(encoding='utf-8'))
           assert doc['schema'] == 1 and doc['jurisdiction'] == 'PL' and doc['count'] > 0
           assert len(doc['proposals']) == doc['count']
+          assert all(p.get('category') for p in doc['proposals'])
+          assert all(p.get('health') is None or (0 <= p['health']['value'] <= 100) for p in doc['proposals'])
           assert all('Prawo polskie' in p['tags'] for p in doc['proposals'])
           assert not any('afghan' in (p['name'] + ' ' + p['description'] + ' ' + p['url']).lower() for p in doc['proposals'])
           assert 'Drużyna Andrzeja' in (public / 'index.html').read_text(encoding='utf-8')
           assert 'function card(' in (public / 'app.js').read_text(encoding='utf-8')
+          assert 'openCodeBrowser' in (public / 'browser.js').read_text(encoding='utf-8')
           assert '.item' in (public / 'styles.css').read_text(encoding='utf-8')
           print(f"Public website OK: {doc['count']} proposals")
           PY
