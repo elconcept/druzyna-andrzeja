@@ -48,13 +48,31 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- catalog/proposals.json
-          if ! git diff --cached --quiet; then
+          cp catalog/proposals.json "$RUNNER_TEMP/proposals.json"
+          # Checkout jest izolowany w runnerze. Wersja źródłowa _vendor i
+          # _workbench pozostaje nietknięta; zapisujemy tylko JSON katalogu.
+          saved=false
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p catalog
+            cp "$RUNNER_TEMP/proposals.json" catalog/proposals.json
+            git add -- catalog/proposals.json
+            if git diff --cached --quiet; then
+              echo 'Katalog bez zmian.'
+              saved=true
+              break
+            fi
             git commit -m 'data: refresh awesome-legaltech catalog'
-            git pull --rebase origin main
-            git push origin HEAD:main
-          else
-            echo 'Katalog bez zmian.'
+            if git push origin HEAD:main; then
+              saved=true
+              break
+            fi
+            echo "::warning::Równoległy commit, ponawiam zapis JSON (próba $attempt/3)"
+          done
+          if [ "$saved" != true ]; then
+            echo 'Nie udało się bezpiecznie zapisać katalogu po 3 próbach.' >&2
+            exit 1
           fi
       - name: Zbuduj statyczną stronę
         run: |
