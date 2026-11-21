@@ -1,4 +1,4 @@
-name: Katalog propozycji i GitHub Pages
+name: Katalog propozycji i publikacja Cloudflare
 
 on:
   schedule:
@@ -16,8 +16,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: catalog-pages-main
@@ -27,9 +25,6 @@ jobs:
   catalog:
     runs-on: ubuntu-latest
     timeout-minutes: 35
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -81,40 +76,30 @@ jobs:
           cp catalog/proposals.json site/data/proposals.json
           touch site/.nojekyll
           echo "Wpisów: $(python -c 'import json;print(json.load(open("catalog/proposals.json"))["count"])')" >> "$GITHUB_STEP_SUMMARY"
-      - name: Skonfiguruj Pages
-        id: pages
-        uses: actions/configure-pages@v5
-        continue-on-error: true
-        with:
-          enablement: true
-      - name: Poinformuj o konieczności ręcznego włączenia Pages
-        if: steps.pages.outcome != 'success'
-        run: |
-          echo '::warning::GitHub token nie może utworzyć witryny Pages. Ustaw Settings > Pages > Build and deployment > Source: GitHub Actions i uruchom workflow ponownie.'
-          echo 'Pages wymaga ręcznego włączenia w Settings > Pages (GitHub Actions) przez właściciela repozytorium.' >> "$GITHUB_STEP_SUMMARY"
-      - name: Spróbuj ustawić domenę dan.xlap.pl w konfiguracji Pages
-        if: steps.pages.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -f cname='dan.xlap.pl' -f build_type='workflow' > /dev/null; then
-            echo 'Ustawiono domenę dan.xlap.pl w Pages.' >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo '::warning::Ustaw domenę dan.xlap.pl ręcznie w Settings > Pages; zweryfikuj również DNS.'
-            echo 'Nie udało się ustawić domeny przez Pages API; wymagane Settings > Pages.' >> "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Zachowaj stronę jako artefakt przy niewłączonym Pages
-        if: steps.pages.outcome != 'success'
+      - name: Zachowaj wersję statyczną do audytu
         uses: actions/upload-artifact@v4
         with:
-          name: legaltech-site-preview
+          name: legaltech-site
           path: site
           retention-days: 14
-      - uses: actions/upload-pages-artifact@v3
-        if: steps.pages.outcome == 'success'
-        with:
-          path: site
-      - name: Opublikuj na GitHub Pages
-        if: steps.pages.outcome == 'success'
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Sprawdź publiczne wdrożenie dan.xlap.pl
+        run: |
+          mkdir -p /tmp/druzyna-public
+          for asset in index.html app.js styles.css data/proposals.json; do
+            curl --fail --silent --show-error --retry 4 --retry-delay 3 \
+              "https://dan.xlap.pl/$asset" \
+              --output "/tmp/druzyna-public/$(basename "$asset")"
+          done
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          public = Path('/tmp/druzyna-public')
+          doc = json.loads((public / 'proposals.json').read_text(encoding='utf-8'))
+          assert doc['schema'] == 1 and doc['count'] > 0
+          assert len(doc['proposals']) == doc['count']
+          assert 'Drużyna Andrzeja' in (public / 'index.html').read_text(encoding='utf-8')
+          assert 'function card(' in (public / 'app.js').read_text(encoding='utf-8')
+          assert '.item' in (public / 'styles.css').read_text(encoding='utf-8')
+          print(f"Public website OK: {doc['count']} proposals")
+          PY
+          echo "Cloudflare Worker: https://dan.xlap.pl — HTTPS 200, HTML/CSS/JS i dane katalogu poprawne." >> "$GITHUB_STEP_SUMMARY"
