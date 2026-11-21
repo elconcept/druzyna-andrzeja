@@ -157,7 +157,7 @@ async function start() {
     const response = await fetch("./data/proposals.json", { cache: "no-cache" });
     if (!response.ok) throw new Error("HTTP " + response.status);
     const data = await response.json();
-    if (data.schema !== 1 || !Array.isArray(data.proposals)) throw new Error("Nieprawidłowy schemat katalogu");
+    if (data.schema !== 1 || data.jurisdiction !== "PL" || !Array.isArray(data.proposals)) throw new Error("Katalog nie ma potwierdzonego zakresu prawa polskiego (PL)");
     proposals = data.proposals;
     $("count-all").textContent = number(proposals.length);
     $("count-gh").textContent = number(proposals.filter((p) => p.github).length);
