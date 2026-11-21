@@ -118,6 +118,9 @@ jobs:
                       count+=1
           if not count:
               sys.exit("BRAK DANYCH: nie uruchamiam API LLM ani nie generuję fikcyjnych wyników. Potrzebne jest benchmarks/tasks/[exams|judgments]/...")
+          corpus=pathlib.Path("benchmarks/corpuses")
+          if not corpus.is_dir() or not any(corpus.rglob("*.json")):
+              sys.exit("BRAK KORPUSÓW: potrzebne są zweryfikowane akty prawne JSON w benchmarks/corpuses/<rok>/ do obliczenia oryginalnych metryk TF-IDF ROUGE.")
           print("Zweryfikowano",count,"zadań; SHA256",digest.hexdigest())
           PY
       - name: Hard gate — klucz modelu
@@ -151,9 +154,11 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           set -euo pipefail
-          python -m pip install --disable-pip-version-check -r requirements.txt
+          python -m pip install --disable-pip-version-check -r requirements.txt tqdm requests
           mkdir -p data/tasks
           cp -R ../benchmarks/tasks/. data/tasks/
+          mkdir -p data/corpuses
+          cp -R ../benchmarks/corpuses/. data/corpuses/
           if [ -n "$TASK_YEAR" ]; then
             python -m src.benchmark_framework.cli "$MODEL_ID" "$TASK_TYPE" data/results data/tasks --year "$TASK_YEAR"
           else
@@ -163,9 +168,16 @@ jobs:
             echo 'Brak wyników pomiaru, przerywam.' >&2
             exit 1
           fi
+          python -m src.benchmark_framework.calculate_metrics data/results data/results_with_metrics data/corpuses
+          if ! find data/results_with_metrics -type f -name '*.jsonl' -print -quit | grep -q .; then
+            echo 'Obliczanie metryk nie utworzyło plików, przerywam.' >&2
+            exit 1
+          fi
       - uses: actions/upload-artifact@v4
         if: success()
         with:
           name: polishlawllm-results
-          path: _benchmark_upstream/data/results/
+          path: |
+            _benchmark_upstream/data/results/
+            _benchmark_upstream/data/results_with_metrics/
           retention-days: 7
