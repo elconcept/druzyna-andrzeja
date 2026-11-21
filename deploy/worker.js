@@ -4,6 +4,7 @@
  * An explicit path allowlist prevents an open proxy.
  */
 const ORIGIN = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/main";
+const REVISION = "pl-20261121-r1";
 const ASSETS = Object.freeze({
   "/": ["/web/index.html", "text/html; charset=utf-8"],
   "/index.html": ["/web/index.html", "text/html; charset=utf-8"],
@@ -21,10 +22,10 @@ async function serve(request) {
   if (!asset) return new Response("Not Found", { status: 404 });
   let upstream;
   try {
-    upstream = await fetch(ORIGIN + asset[0], {
+    upstream = await fetch(ORIGIN + asset[0] + "?revision=" + REVISION, {
       method: "GET",
       headers: { "User-Agent": "druzyna-andrzeja-public-catalog" },
-      cf: { cacheEverything: true, cacheTtl: 300 },
+      cf: { cacheEverything: true, cacheTtl: 120 },
     });
   } catch (error) {
     return new Response("Repository source temporarily unavailable", { status: 502 });
