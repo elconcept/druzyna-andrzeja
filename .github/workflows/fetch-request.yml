@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   fetch-request:
-    if: startsWith(github.event.issue.title, 'fetch: ')
+    if: "startsWith(github.event.issue.title, 'fetch: ')"
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
