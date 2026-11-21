@@ -37,22 +37,18 @@ function notice(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => node.classList.remove("visible"), 3300);
 }
-async function copyApproval(item) {
-  if (!item.github) return;
-  const url = new URL(item.url);
-  const pieces = url.pathname.replace(/^\/|\/$/g, "").split("/");
-  if (pieces.length !== 2) return;
-  const repo = pieces[1].replace(/\.git$/i, "");
-  let slug = (pieces[0] + "-" + repo).toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 100);
-  if (!/^[a-z]/.test(slug)) slug = "repo-" + slug;
-  const code = '[[' + 'repo]]\nname = "' + slug + '"\nurl = "' + item.url + '.git"\n';
-  try {
-    await navigator.clipboard.writeText(code);
-    notice("Wpis TOML skopiowany. Dodaj go do sources.toml i zatwierdź commit na GitHub.");
-  } catch {
-    window.prompt("Skopiuj wpis do sources.toml:", code);
-  }
+function requestDownloadUrl(item) {
+  const slug = repoSlug(item);
+  if (!slug) return null;
+  const url = new URL("https://github.com/elconcept/druzyna-andrzeja/issues/new");
+  url.searchParams.set("title", "fetch: " + slug);
+  url.searchParams.set("body",
+    "Zgłoszenie pobrania publicznego repozytorium do katalogów _vendor/ i _workbench/.\n" +
+    "Repozytorium: " + item.url + "\n" +
+    "Po zapisaniu issue GitHub Actions zweryfikuje katalog prawa polskiego, licencję i rozmiar źródła.");
+  return url.href;
 }
+
 function metric(label, value, extra = "", title = "") {
   const span = el("span", "metric" + (value === "—" ? " unknown" : ""));
   if (title) span.title = title;
@@ -145,12 +141,16 @@ function card(item) {
     if (item.approved) {
       bottom.append(el("button", "", "W sources.toml"));
       bottom.lastChild.disabled = true;
+    } else if (item.metrics?.license && item.metrics.license !== "NOASSERTION" && !item.metrics?.archived) {
+      const request = link("Pobierz do warsztatu ↗", requestDownloadUrl(item), "action-link");
+      request.title = "Zapisz wstępnie wypełnione zgłoszenie na GitHub. Actions pobierze licencjonowane repozytorium automatycznie.";
+      bottom.append(request);
     } else {
-      const btn = el("button", "", "Kopiuj wpis TOML");
-      btn.type = "button";
-      btn.title = "Kopiuj blok [[repo]] do ręcznego zatwierdzenia w sources.toml";
-      btn.addEventListener("click", () => copyApproval(item));
-      bottom.append(btn);
+      const unavailable = el("button", "", "Bez licencji: tylko podgląd");
+      unavailable.type = "button";
+      unavailable.disabled = true;
+      unavailable.title = "Kopiowanie do publicznego workbench wymaga potwierdzonej licencji i niezarchiwizowanego repozytorium.";
+      bottom.append(unavailable);
     }
   }
   root.append(bottom);
