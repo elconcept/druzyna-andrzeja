@@ -187,8 +187,9 @@ def graphql(batch: list[tuple[str, str]], token: str) -> dict[str, dict]:
 
 
 def contributors(owner: str, repo: str, token: str) -> int | None:
-    # Fetch 1 contributor and read the last-page number from Link; no full pagination.
-    url = "https://api.github.com/repos/" + urllib.parse.quote(owner) + "/" + urllib.parse.quote(repo) + "/contributors?per_page=1&anon=true"
+    # Count GitHub-linked contributors; anonymous synthetic per-act authors would distort quality.
+    # Fetch 1 linked contributor and read the last-page number from Link, no full pagination.
+    url = "https://api.github.com/repos/" + urllib.parse.quote(owner) + "/" + urllib.parse.quote(repo) + "/contributors?per_page=1"
     data, headers = fetch(url, token=token)
     if not data:
         return 0
