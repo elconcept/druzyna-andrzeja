@@ -1,7 +1,7 @@
 "use strict";
 
 const $ = (id) => document.getElementById(id);
-const controls = ["search", "kind", "status", "tag", "sort"].map($);
+const controls = ["search", "kind", "status", "category", "tag", "sort"].map($);
 let proposals = [];
 let visible = [];
 let shown = 60;
@@ -54,11 +54,34 @@ async function copyApproval(item) {
   }
 }
 function metric(label, value, extra = "", title = "") {
-  const span = el("span", "metric");
+  const span = el("span", "metric" + (value === "—" ? " unknown" : ""));
   if (title) span.title = title;
-  span.append(el("span", "", label), el("b", "", value), el("span", "", extra));
+  span.append(el("span", "metric-label", label), el("b", "", value), el("span", "", extra));
   return span;
 }
+
+function health(item) {
+  const m = item.metrics || {};
+  if (!item.github || typeof m.stars !== "number" || !m.last_commit) return null;
+  if (item.health?.method === "repo-health-v1" && typeof item.health.value === "number") return item.health;
+  const days = Math.max(0, (Date.now() - Date.parse(m.last_commit)) / 86400000);
+  if (!Number.isFinite(days)) return null;
+  const cap = (value, max) => Math.min(1, Math.log1p(Math.max(0, value || 0)) / Math.log1p(max));
+  const parts = {
+    "popularność": +(25 * cap(m.stars, 1000) + 10 * cap(m.forks, 200)).toFixed(1),
+    "aktualność": +(40 * Math.exp(-days / 260)).toFixed(1),
+    "społeczność": +(20 * cap(m.contributors, 40)).toFixed(1),
+    "licencja": m.license && m.license !== "NOASSERTION" ? 5 : 0,
+  };
+  const value = Math.round(Math.max(0, Math.min(100, Object.values(parts).reduce((x,y) => x+y, 0) - (m.archived ? 35 : 0))));
+  return { value, parts, method: "repo-health-v1", archived_penalty: !!m.archived };
+}
+function repoSlug(item) {
+  if (!item.github) return null;
+  const match = item.url.match(/^https:\/\/github\.com\/([\w.-]+)\/([\w.-]+)$/i);
+  return match ? match[1] + "/" + match[2] : null;
+}
+
 function card(item) {
   const root = el("article", "item");
   const top = el("div", "item-top");
@@ -68,10 +91,16 @@ function card(item) {
   try { host = new URL(item.url).hostname.replace(/^www\./, ""); } catch { host = item.url; }
   identity.append(el("div", "item-url", item.github ? item.url.replace(/^https:\/\/github\.com\//i, "") : host));
   const state = el("span", "state" + (item.approved ? " approved" : ""), item.approved ? "ZATWIERDZONE" : "DO OCENY");
-  top.append(identity, state);
-  root.append(top, el("p", "description", item.description || "Brak opisu w źródłowej liście."));
+  const h = health(item);
+  const badge = el("span", "score-badge" + (h === null ? " none" : item.metrics?.archived ? " archived" : ""));
+  badge.append(el("strong", "", h ? String(h.value) : "—"), el("small", "", "Potencjał"));
+  badge.title = h ? "Wskaźnik techniczny (0–100): " + Object.entries(h.parts).map(([k,v]) => k + " " + v).join("; ") + (h.archived_penalty ? "; archiwizacja −35" : "") + ". Nie ocenia poprawności prawa." : "Brak wystarczających metryk GitHub.";
+  top.append(identity, badge);
+  root.append(top);
+  root.append(el("span", "category-pill", item.category || "Inne"));
+  root.append(el("p", "description", item.description || "Brak opisu w źródłowej liście."));
   const tags = el("div", "tags");
-  const tagList = [...new Set([...(item.tags || []), ...(item.metrics?.github_topics || [])].filter(Boolean))];
+  const tagList = [...new Set([...(item.tags || []), ...(item.metrics?.github_topics || [])].filter(name => name && name !== "Prawo polskie" && name !== item.category))];
   if (item.github) tagList.push("GitHub");
   else tagList.push("Źródło zewnętrzne");
   for (const name of [...new Set(tagList)].slice(0, 6)) {
@@ -79,24 +108,39 @@ function card(item) {
     badge.title = name;
     tags.append(badge);
   }
+  tags.prepend(state);
   root.append(tags);
   const stats = el("div", "metrics");
   const m = item.metrics || {};
   if (item.github) {
     stats.append(
-      metric("★", number(m.stars), "", "Gwiazdki GitHub"),
-      metric("↗", number(m.open_prs), "PR", "Otwarte pull requesty"),
-      metric("◉", number(m.contributors), "autorów", "Contributors z GitHub"),
-      metric("⑂", number(m.forks), "forków", "Forks GitHub"),
-      metric("◷", date(m.last_commit), "", "Data ostatniego commita na głównej gałęzi")
+      metric("★", number(m.stars), "gwiazdek", "Popularność: gwiazdki GitHub"),
+      metric("⑂", number(m.forks), "forków", "Liczba forków"),
+      metric("◉", number(m.contributors), "autorów", "Liczba contributorów GitHub"),
+      metric("PR", number(m.open_prs), "otwartych", "Otwarte pull requesty (nie są dowodem jakości)"),
+      metric("Issues", number(m.open_issues), "otwartych", "Otwarte zgłoszenia"),
+      metric("Commit", date(m.last_commit), "", "Ostatni commit domyślnej gałęzi"),
+      metric("Licencja", m.license && m.license !== "NOASSERTION" ? m.license : "—", "", "Identyfikator SPDX lub brak deklaracji")
     );
+    if (m.language) stats.append(metric("Kod", m.language, "", "Język główny"));
   } else {
-    stats.append(el("span", "metric", "Poza GitHub · statystyki commitów i PR niedostępne"));
+    stats.append(el("span", "metric", "Źródło spoza GitHub · metryki i ranking niedostępne"));
   }
-  if (m.archived) stats.append(el("span", "tag archived", "ARCHIWUM GH"));
+  if (m.archived) stats.append(el("span", "tag archived", "ARCHIWUM GITHUB"));
   root.append(stats);
   const bottom = el("div", "item-bottom");
-  bottom.append(link("Otwórz źródło ↗", item.url));
+  bottom.append(link("Źródło ↗", item.url, "action-link"));
+  const slug = repoSlug(item);
+  if (slug) {
+    const inspect = el("button", "action-ghost", "Przeglądaj pliki");
+    inspect.type = "button";
+    inspect.addEventListener("click", () => {
+      if (typeof window.openCodeBrowser === "function") window.openCodeBrowser(item);
+      else notice("Przeglądarka kodu jest niedostępna.");
+    });
+    bottom.append(inspect);
+    bottom.append(link("GitHub.dev ↗", "https://github.dev/" + slug, "action-link"));
+  }
   if (item.github) {
     if (item.approved) {
       bottom.append(el("button", "", "W sources.toml"));
@@ -114,7 +158,11 @@ function card(item) {
 }
 function compare(a, b, choice) {
   if (choice === "name") return a.name.localeCompare(b.name, "pl");
-  const field = { stars: "stars", contributors: "contributors", prs: "open_prs" }[choice];
+  if (choice === "health") {
+    const av = health(a)?.value ?? -1, bv = health(b)?.value ?? -1;
+    return bv - av || (b.metrics?.stars ?? -1) - (a.metrics?.stars ?? -1) || a.name.localeCompare(b.name, "pl");
+  }
+  const field = { stars: "stars", contributors: "contributors", forks: "forks", prs: "open_prs" }[choice];
   if (field) {
     const x = a.metrics?.[field], y = b.metrics?.[field];
     return (typeof y === "number" ? y : -1) - (typeof x === "number" ? x : -1) || a.name.localeCompare(b.name, "pl");
@@ -126,10 +174,11 @@ function compare(a, b, choice) {
 }
 function filter() {
   const query = $("search").value.trim().toLocaleLowerCase("pl");
-  const kind = $("kind").value, status = $("status").value, tag = $("tag").value;
+  const kind = $("kind").value, status = $("status").value, tag = $("tag").value, category = $("category").value;
   visible = proposals.filter((p) => {
     if (kind === "github" && !p.github || kind === "external" && p.github) return false;
     if (status === "approved" && !p.approved || status === "pending" && p.approved) return false;
+    if (category && p.category !== category) return false;
     if (tag && ![...(p.tags || []), ...(p.metrics?.github_topics || [])].includes(tag)) return false;
     if (query && ![p.name, p.url, p.description, ...(p.tags || []), ...(p.metrics?.github_topics || [])].join(" ").toLocaleLowerCase("pl").includes(query)) return false;
     return true;
@@ -149,7 +198,7 @@ function render() {
 async function start() {
   for (const control of controls) control.addEventListener(control.id === "search" ? "input" : "change", filter);
   $("reset").addEventListener("click", () => {
-    for (const c of controls) c.value = c.id === "sort" ? "name" : c.id === "tag" || c.id === "search" ? "" : "all";
+    for (const c of controls) c.value = c.id === "sort" ? "health" : c.id === "tag" || c.id === "category" || c.id === "search" ? "" : "all";
     filter();
   });
   $("load-more").addEventListener("click", () => { shown += 60; render(); });
@@ -168,6 +217,12 @@ async function start() {
       const option = document.createElement("option");
       option.value = option.textContent = tag;
       $("tag").append(option);
+    }
+    const categories = [...new Set(proposals.map(p => p.category || "Inne"))].sort((a,b) => a.localeCompare(b, "pl"));
+    for (const category of categories) {
+      const option = document.createElement("option");
+      option.value = option.textContent = category;
+      $("category").append(option);
     }
     filter();
   } catch (err) {
