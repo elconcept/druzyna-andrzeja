@@ -20,6 +20,9 @@ async function serve(request) {
     return new Response("Method Not Allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
   }
   const url = new URL(request.url);
+  if (url.pathname === "/api/tree" || url.pathname === "/api/file") {
+    return serveRepositoryBrowser(url);
+  }
   const asset = ASSETS[url.pathname];
   if (!asset) return new Response("Not Found", { status: 404 });
   let upstream;
@@ -67,4 +70,76 @@ async function serve(request) {
     status: 200,
     headers,
   });
+}
+
+
+// GitHub tree browser: public GET only, path constrained, no arbitrary URLs or tokens.
+async function serveRepositoryBrowser(url) {
+  const baseHeaders = {
+    "Content-Type": "application/json; charset=utf-8",
+    "X-Content-Type-Options": "nosniff",
+    "Cache-Control": "public, max-age=120",
+  };
+  const fail = (status, error) =>
+    new Response(JSON.stringify({error}), {status, headers: {"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});
+  const repo = url.searchParams.get("repo") || "";
+  const ref = url.searchParams.get("ref") || "";
+  if (!/^[A-Za-z0-9_.-]{1,100}\/[A-Za-z0-9_.-]{1,100}$/.test(repo) || !/^[a-f0-9]{40}$/i.test(ref)) {
+    return fail(400, "Nieprawidłowe repozytorium lub identyfikator commita.");
+  }
+  // Prevent this endpoint from becoming an unauthenticated arbitrary GitHub proxy:
+  // only exact repository names in the Polish-law public catalog may be opened.
+  let allowed = false;
+  try {
+    const catalogRes = await fetch(ORIGIN + "/catalog/proposals.json?browser=pl", {
+      cf: { cacheEverything: true, cacheTtl: 300 },
+    });
+    let catalog = catalogRes.ok ? await catalogRes.json() : null;
+    if (!catalog || catalog.jurisdiction !== "PL" || catalog.generated_at < MIN_PL_CATALOG_DATE) {
+      const backup = await fetch(LAST_GOOD_CATALOG, {cf: {cacheEverything: true, cacheTtl: 600}});
+      catalog = backup.ok ? await backup.json() : null;
+    }
+    allowed = !!catalog && catalog.jurisdiction === "PL" &&
+      catalog.proposals.some(p => p.github && p.url.toLowerCase() === ("https://github.com/" + repo).toLowerCase());
+  } catch {
+    return fail(503, "Katalog polskich źródeł jest chwilowo niedostępny.");
+  }
+  if (!allowed) return fail(403, "Repozytorium nie znajduje się w katalogu PL.");
+  const [owner, name] = repo.split("/");
+  const requestHeaders = { "Accept": "application/vnd.github+json", "User-Agent": "druzyna-andrzeja-readonly-browser" };
+  if (url.pathname === "/api/tree") {
+    try {
+      const github = await fetch("https://api.github.com/repos/" + owner + "/" + name + "/git/trees/" + ref + "?recursive=1", {
+        headers: requestHeaders, cf: {cacheEverything:true,cacheTtl:3600},
+      });
+      if (!github.ok) return fail(github.status === 403 ? 503 : 502, "GitHub nie zwrócił drzewa (HTTP " + github.status + "). Otwórz GitHub.dev.");
+      const data = await github.json();
+      return new Response(JSON.stringify({
+        truncated: !!data.truncated,
+        tree: (data.tree || []).slice(0, 20000).map(v => ({path:v.path,type:v.type,size:v.size ?? null})),
+      }), {headers:baseHeaders});
+    } catch {
+      return fail(502, "Nie można pobrać drzewa GitHub; otwórz GitHub.dev.");
+    }
+  }
+  const path = url.searchParams.get("path") || "";
+  if (path.length > 700 || !path || path.split("/").some(x => !x || x === "." || x === "..") || path.includes("\0")) {
+    return fail(400, "Nieprawidłowa ścieżka pliku.");
+  }
+  try {
+    const rawUrl = "https://raw.githubusercontent.com/" + owner + "/" + name + "/" + ref + "/" +
+      path.split("/").map(encodeURIComponent).join("/");
+    const response = await fetch(rawUrl, {headers:{"User-Agent":"druzyna-andrzeja-readonly-browser"},cf:{cacheEverything:true,cacheTtl:3600}});
+    if (!response.ok) return fail(502, "Plik nie jest dostępny w GitHub (HTTP " + response.status + ").");
+    if (Number(response.headers.get("content-length") || 0) > 250000) return fail(413, "Plik przekracza limit 250 KB; użyj GitHub.dev.");
+    const bytes = await response.arrayBuffer();
+    if (bytes.byteLength > 250000) return fail(413, "Plik przekracza limit 250 KB; użyj GitHub.dev.");
+    let value;
+    try { value = new TextDecoder("utf-8", {fatal:true}).decode(bytes); }
+    catch { return fail(415, "Plik binarny; użyj GitHub.dev."); }
+    if (value.includes("\0")) return fail(415, "Plik binarny; użyj GitHub.dev.");
+    return new Response(JSON.stringify({path,bytes:bytes.byteLength,content:value}), {headers:baseHeaders});
+  } catch {
+    return fail(502, "Nie można pobrać pliku; użyj GitHub.dev.");
+  }
 }
