@@ -24,6 +24,10 @@ on:
     paths:
       - '.github/workflows/benchmark-polishlawllm.yml'
       - 'benchmarks/polishlawllm.toml'
+      - 'benchmarks/corpora.toml'
+      - 'benchmarks/README.md'
+      - 'scripts/saos_candidates.py'
+      - 'tests/test_saos_candidates.py'
       - 'tests/test_accept_request.py'
       - 'scripts/accept_request.py'
 
@@ -53,7 +57,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Testy własnego walidatora żądań
-        run: python -m unittest discover -s tests -p 'test_accept_request.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_accept_request.py' -v
+          python -m unittest discover -s tests -p 'test_saos_candidates.py' -v
       - name: Kompilacja i test exact match (bez dostępu do API modeli)
         working-directory: _benchmark_upstream
         run: |
