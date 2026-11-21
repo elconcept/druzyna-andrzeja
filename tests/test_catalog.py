@@ -24,7 +24,7 @@ class CatalogTests(unittest.TestCase):
         items = catalog.parse_readme(self.SAMPLE, "test")
         self.assertEqual(len(items), 4)
         self.assertEqual(items[0]["name"], "Alpha")
-        self.assertEqual(items[0]["tags"], ["Open Source"])
+        self.assertEqual(items[0]["tags"], ["Open Source", "Prawo polskie"])
         self.assertEqual(items[1]["url"], items[0]["url"])
         self.assertNotIn("#something", [item["url"] for item in items])
 
@@ -41,6 +41,23 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(a, b)
         self.assertEqual(catalog.github_repo(a), ("org", "repo"))
         self.assertIsNone(catalog.github_repo("https://example.com/service"))
+
+    def test_commercial_archived_tags(self):
+        sample = "## Narzędzia\\n- [Polska](https://github.com/Org/repo) - aplikacja."
+        commercial = catalog.parse_readme(sample, "polskie-legaltech-komercyjne")
+        archived = catalog.parse_readme(sample, "polskie-legaltech-archiwum")
+        self.assertIn("Prawo polskie", commercial[0]["tags"])
+        self.assertIn("Komercyjne", commercial[0]["tags"])
+        self.assertIn("Archiwalne", archived[0]["tags"])
+
+    def test_no_foreign_only_legal_standard(self):
+        sample = "## Standardy\\n- [Akoma Ntoso](https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html) - international-only."
+        self.assertEqual(catalog.parse_readme(sample, "polskie-legaltech-otwarte"), [])
+
+    def test_polish_scope_sources(self):
+        feeds = catalog.read_feeds()
+        self.assertEqual(len(feeds), 3)
+        self.assertTrue(all("awesome-legaltech-pl" in f["url"] for f in feeds))
 
     def test_reject_bad_urls(self):
         with self.assertRaises(ValueError):
