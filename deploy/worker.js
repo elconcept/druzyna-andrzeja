@@ -4,9 +4,9 @@
  * An explicit path allowlist prevents an open proxy.
  */
 const ORIGIN = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/main";
-const REVISION = "pl-20261121-r5";
-const MIN_PL_CATALOG_DATE = "2026-11-21T03:02:13Z";
-const LAST_GOOD_CATALOG = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/723ea9b67379eac7f6e8718aa1bcf53cdc51f4ef/catalog/proposals.json";
+const REVISION = "pl-health-codebrowser-v6";
+const MIN_PL_CATALOG_DATE = "2026-11-21T03:22:16Z";
+const LAST_GOOD_CATALOG = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/6cb8bb38894c4e24eddfe77ea52a481aea1a72b8/catalog/proposals.json";
 const ASSETS = Object.freeze({
   "/": ["/web/index.html", "text/html; charset=utf-8"],
   "/index.html": ["/web/index.html", "text/html; charset=utf-8"],
