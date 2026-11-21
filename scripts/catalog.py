@@ -10,6 +10,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -101,6 +102,8 @@ def parse_readme(md: str, feed_name: str) -> list[dict]:
         if url == "https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html":
             continue
         entries.append({
+            "category": section if section and section != "Contents" else "Inne",
+            "subcategory": subsection or None,
             "id": hashlib.sha256(url.encode("utf-8")).hexdigest()[:16],
             "name": title.strip(),
             "url": url,
@@ -144,9 +147,10 @@ def graphql(batch: list[tuple[str, str]], token: str) -> dict[str, dict]:
         blocks.append(
             f'r{i}: repository(owner:{json.dumps(owner)}, name:{json.dumps(name)}) '
             '{ stargazerCount forkCount isArchived isPrivate pushedAt '
-            'pullRequests(states:OPEN){totalCount} '
-            'defaultBranchRef{target{... on Commit{committedDate oid}}} '
-            'primaryLanguage{name} repositoryTopics(first:12){nodes{topic{name}}} }'
+            'pullRequests(states:OPEN){totalCount} issues(states:OPEN){totalCount} '
+            'defaultBranchRef{name target{... on Commit{committedDate oid}}} '
+            'licenseInfo{spdxId} primaryLanguage{name} '
+            'repositoryTopics(first:12){nodes{topic{name}}} }'
         )
     payload = json.dumps({"query": "query {\n" + "\n".join(blocks) + "\n}"}).encode("utf-8")
     req = urllib.request.Request(
@@ -168,6 +172,9 @@ def graphql(batch: list[tuple[str, str]], token: str) -> dict[str, dict]:
             "stars": node.get("stargazerCount"),
             "forks": node.get("forkCount"),
             "open_prs": (node.get("pullRequests") or {}).get("totalCount"),
+            "open_issues": (node.get("issues") or {}).get("totalCount"),
+            "license": (node.get("licenseInfo") or {}).get("spdxId"),
+            "default_branch": (node.get("defaultBranchRef") or {}).get("name"),
             "last_commit": commit.get("committedDate"),
             "last_commit_sha": commit.get("oid"),
             "archived": node.get("isArchived"),
@@ -191,6 +198,36 @@ def contributors(owner: str, repo: str, token: str) -> int | None:
     link = headers.get("Link", "")
     m = re.search(r'[?&]page=(\d+)>;\s*rel="last"', link)
     return int(m.group(1)) if m else len(rows)
+
+
+
+def score_repo(metrics: dict, at: dt.datetime) -> dict | None:
+    """Heuristic technical-discovery score, not a legal-quality assessment.
+
+    25 pts stars (log scale), 10 forks (log), 40 freshness (exponential
+    time decay), 20 contributors (log), 5 SPDX license; -35 archived.
+    Missing metrics => no score, never invent measurements.
+    """
+    if not isinstance(metrics.get("stars"), int) or not metrics.get("last_commit"):
+        return None
+    try:
+        committed = dt.datetime.fromisoformat(metrics["last_commit"].replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    days = max(0, (at - committed).total_seconds() / 86400)
+    stars = max(0, metrics["stars"])
+    forks = max(0, metrics.get("forks") or 0)
+    contributors = max(0, metrics.get("contributors") or 0)
+    parts = {
+        "popularność": round(25 * min(1, math.log1p(stars) / math.log1p(1000))
+                              + 10 * min(1, math.log1p(forks) / math.log1p(200)), 1),
+        "aktualność": round(40 * math.exp(-days / 260), 1),
+        "społeczność": round(20 * min(1, math.log1p(contributors) / math.log1p(40)), 1),
+        "licencja": 5 if metrics.get("license") not in (None, "", "NOASSERTION") else 0,
+    }
+    value = max(0, min(100, sum(parts.values()) - (35 if metrics.get("archived") else 0)))
+    return {"value": round(value), "parts": parts, "commit_age_days": int(days),
+            "method": "repo-health-v1", "archived_penalty": bool(metrics.get("archived"))}
 
 
 def active_urls() -> set[str]:
@@ -259,6 +296,10 @@ def build(no_metadata: bool = False, markdown_file: str | None = None) -> dict:
             except (urllib.error.URLError, ValueError) as exc:
                 print("Contributors unavailable for " + key + ": " + str(exc), file=sys.stderr)
             time.sleep(0.10)
+
+    sampled_at = dt.datetime.now(dt.timezone.utc)
+    for item in entries:
+        item["health"] = score_repo(item["metrics"], sampled_at) if item["github"] else None
 
     result = {
         "schema": 1, "jurisdiction": "PL", "generated_at": now(),
