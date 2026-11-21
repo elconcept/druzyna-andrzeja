@@ -18,3 +18,7 @@ version = 1
 [[repo]]
 name = "apiotrowski-afk-legal-cite-pl"
 url = "https://github.com/apiotrowski-afk/legal-cite-pl.git"
+
+[[repo]]
+name = "erykmikolajewicz-prawobiorca"
+url = "https://github.com/erykmikolajewicz/prawobiorca.git"
