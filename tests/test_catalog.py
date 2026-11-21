@@ -43,7 +43,7 @@ class CatalogTests(unittest.TestCase):
         self.assertIsNone(catalog.github_repo("https://example.com/service"))
 
     def test_commercial_archived_tags(self):
-        sample = "## Narzędzia\\n- [Polska](https://github.com/Org/repo) - aplikacja."
+        sample = "## Narzędzia\n- [Polska](https://github.com/Org/repo) - aplikacja."
         commercial = catalog.parse_readme(sample, "polskie-legaltech-komercyjne")
         archived = catalog.parse_readme(sample, "polskie-legaltech-archiwum")
         self.assertIn("Prawo polskie", commercial[0]["tags"])
@@ -51,7 +51,7 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("Archiwalne", archived[0]["tags"])
 
     def test_no_foreign_only_legal_standard(self):
-        sample = "## Standardy\\n- [Akoma Ntoso](https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html) - international-only."
+        sample = "## Standardy\n- [Akoma Ntoso](https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html) - international-only."
         self.assertEqual(catalog.parse_readme(sample, "polskie-legaltech-otwarte"), [])
 
     def test_polish_scope_sources(self):
