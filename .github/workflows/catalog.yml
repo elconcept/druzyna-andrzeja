@@ -64,10 +64,18 @@ jobs:
           touch site/.nojekyll
           echo "Wpisów: $(python -c 'import json;print(json.load(open("catalog/proposals.json"))["count"])')" >> "$GITHUB_STEP_SUMMARY"
       - name: Skonfiguruj Pages
+        id: pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
         with:
           enablement: true
+      - name: Poinformuj o konieczności ręcznego włączenia Pages
+        if: steps.pages.outcome != 'success'
+        run: |
+          echo '::warning::GitHub token nie może utworzyć witryny Pages. Ustaw Settings > Pages > Build and deployment > Source: GitHub Actions i uruchom workflow ponownie.'
+          echo 'Pages wymaga ręcznego włączenia w Settings > Pages (GitHub Actions) przez właściciela repozytorium.' >> "$GITHUB_STEP_SUMMARY"
       - name: Spróbuj ustawić domenę dan.xlap.pl w konfiguracji Pages
+        if: steps.pages.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -77,9 +85,18 @@ jobs:
             echo '::warning::Ustaw domenę dan.xlap.pl ręcznie w Settings > Pages; zweryfikuj również DNS.'
             echo 'Nie udało się ustawić domeny przez Pages API; wymagane Settings > Pages.' >> "$GITHUB_STEP_SUMMARY"
           fi
+      - name: Zachowaj stronę jako artefakt przy niewłączonym Pages
+        if: steps.pages.outcome != 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: legaltech-site-preview
+          path: site
+          retention-days: 14
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
         with:
           path: site
       - name: Opublikuj na GitHub Pages
+        if: steps.pages.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
