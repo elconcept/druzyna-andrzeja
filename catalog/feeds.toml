@@ -1,0 +1,7 @@
+# Źródła PROPOZYCJI. Nie są klonowane ani dodawane do sources.toml.
+# Jeden wpis = jedna lista awesome. Kategorie z Markdown stają się tagami.
+version = 1
+
+[[feed]]
+name = "awesome-legaltech"
+url = "https://raw.githubusercontent.com/Vaquill-AI/awesome-legaltech/main/README.md"
