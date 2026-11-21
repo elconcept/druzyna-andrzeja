@@ -8,6 +8,7 @@
   <title>Drużyna Andrzeja — polskie prawo i LegalTech</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
+  <script src="./browser.js" defer></script>
 </head>
 <body>
   <div class="page">
@@ -52,9 +53,12 @@
           </label>
           <label><span>Typ</span><select id="kind"><option value="all">Wszystkie</option><option value="github">GitHub</option><option value="external">Poza GitHub</option></select></label>
           <label><span>Status</span><select id="status"><option value="all">Wszystkie</option><option value="pending">Do oceny</option><option value="approved">Zatwierdzone</option></select></label>
+          <label><span>Kategoria</span><select id="category"><option value="">Wszystkie kategorie</option></select></label>
           <label><span>Tag</span><select id="tag"><option value="">Wszystkie tagi</option></select></label>
-          <label><span>Sortuj</span><select id="sort"><option value="name">Nazwa A–Z</option><option value="stars">Gwiazdki ↓</option><option value="commit">Najnowszy commit</option><option value="contributors">Contributorzy ↓</option><option value="prs">Otwarte PR ↓</option></select></label>
+          <label><span>Sortuj</span><select id="sort"><option value="health" selected>Potencjał projektu ↓</option><option value="name">Nazwa A–Z</option><option value="stars">Gwiazdki ↓</option><option value="commit">Najnowszy commit</option><option value="contributors">Contributorzy ↓</option><option value="forks">Forki ↓</option><option value="prs">Otwarte PR ↓</option></select></label>
         </div>
+
+        <details class="ranking-help"><summary>Jak powstaje wskaźnik potencjału 0–100?</summary><p>Popularność: maks. 25 pkt za gwiazdki i 10 pkt za forki (skala logarytmiczna). Aktualność ostatniego commita: maks. 40 pkt, malejące z wiekiem. Społeczność: maks. 20 pkt za contributorów. Znana licencja SPDX: 5 pkt. Archiwizacja GitHub: −35 pkt. Brak danych oznacza brak oceny, a nie zero. Wskaźnik jest heurystyką do przeglądania kodu, <strong>nie oceną jakości prawnej, bezpieczeństwa ani poprawności narzędzia</strong>.</p></details>
 
         <div class="results-bar">
           <span id="result-count" aria-live="polite">Ładowanie danych…</span>
@@ -74,5 +78,13 @@
     </footer>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="code-dialog" class="code-dialog" role="dialog" aria-modal="true" aria-labelledby="code-title" hidden>
+    <div id="code-backdrop" class="code-backdrop"></div>
+    <div class="code-panel">
+      <div class="code-top"><div><small>PRZEGLĄDARKA REPOZYTORIUM / READ ONLY</small><h2 id="code-title">Podgląd kodu</h2><p id="code-ref">Odczyt z publicznego GitHub, bez klonowania</p></div><button id="code-close" type="button" aria-label="Zamknij przeglądarkę">Zamknij ×</button></div>
+      <div class="code-actions"><a id="code-github" href="#" target="_blank" rel="noreferrer">GitHub ↗</a><a id="code-dev" href="#" target="_blank" rel="noreferrer">Otwórz pełny edytor GitHub.dev ↗</a><span id="code-message" role="status"></span></div>
+      <div class="code-content"><aside class="code-sidebar"><label for="code-search">Filtr plików</label><input id="code-search" type="search" placeholder="np. prompts.py"><div id="code-tree" class="code-tree"></div></aside><div class="code-view"><div id="code-path" class="code-path">Wybierz plik z drzewa.</div><pre id="code-preview" tabindex="0">Zawartość wybranego pliku pojawi się tutaj.</pre></div></div>
+    </div>
+  </section>
 </body>
 </html>
