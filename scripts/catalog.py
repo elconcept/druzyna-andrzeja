@@ -50,7 +50,7 @@ def normalize_url(url: str) -> str:
 
 
 def github_repo(url: str) -> tuple[str, str] | None:
-    m = GH_RE.fullmatch(url)
+    m = GH_REPO.fullmatch(url)
     return (m.group(1), m.group(2)) if m else None
 
 
