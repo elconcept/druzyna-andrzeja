@@ -1,0 +1,58 @@
+# Source manifest for PolishLawLLM. External corpora are not mirrored into Git.
+# All data are Polish-language judgments. Do not treat silver LLM fields as gold.
+version = 1
+jurisdiction = "PL"
+
+[source.saos_local]
+kind = "sqlite"
+role = "primary_original_judgments"
+nas = "ds1821"
+host_path = "/volume2/docker/mcp-saos/data/saos.sqlite"
+container_path = "/data/saos.sqlite"
+service = "mcp-saos"
+sqlite_table = "judgments"
+payload_codec = "zlib-deflate-json"
+read_only = true
+full_text_field = "textContent"
+legal_references_field = "legalBases"
+# Last checked 2026-11-21: 545672 judgments, 334/334 verified windows.
+# State is dynamic; obtain current counts from mcp-saos GET /status.
+
+[source.juddges_common]
+kind = "huggingface_dataset"
+role = "external_enriched_reference"
+dataset = "JuDDGES/juddges-pl"
+config = "pl-court"
+upstream = "JuDDGES/pl-court-raw-enriched"
+split = "train"
+label_status = "silver"
+enrichment_license = "CC-BY-4.0"
+local_download = false
+# LLM extracted labels are not validated gold references.
+
+[source.juddges_administrative]
+kind = "huggingface_dataset"
+role = "external_administrative_judgments"
+dataset = "JuDDGES/juddges-pl"
+config = "pl-nsa"
+upstream = "JuDDGES/pl-nsa-enriched"
+split = "train"
+label_status = "silver"
+enrichment_license = "CC-BY-4.0"
+local_download = false
+# Separate branch: NSA/WSA, not included in SAOS.
+
+[source.juddges_validated]
+kind = "huggingface_dataset"
+role = "gold_subset_candidate"
+dataset = "JuDDGES/pl-swiss-franc-loans"
+label_status = "gold_per_publisher"
+local_download = false
+# Verify task labels are actually compatible with PolishLawLLM before use.
+
+[benchmark]
+require_human_or_source_verified_gold = true
+exclude_silver_from_test_ground_truth = true
+dedupe_keys = ["source", "source_id", "docket_number", "judgment_date"]
+split_policy = "by_case_and_related_cases"
+preserve_full_source_links = true
