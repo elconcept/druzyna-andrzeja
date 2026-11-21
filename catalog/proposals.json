@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "jurisdiction": "PL",
-  "generated_at": "2026-11-21T03:00:00Z",
+  "generated_at": "2026-11-21T03:02:13Z",
   "feeds": [
     {
       "name": "polskie-legaltech-otwarte",
@@ -21,7 +21,7 @@
   "approved_count": 0,
   "proposals": [
     {
-      "id": "https://github.com/a-szczudlo",
+      "id": "575474816efeb958",
       "name": "a-szczudlo",
       "url": "https://github.com/a-szczudlo",
       "description": "⚪ Seria otwartych audytorów Creativa Legal, każdy jako skill dla Claude, ChatGPT i Codeksa. [OpenNDA](https://github.com/a-szczudlo/OpenNDA) ocenia umowę o poufności w trzynastu punktach kontrolnych z flagami ryzyka, cross-checkiem spójności i porównaniem wersji po poprawkach. Obok niego [OpenFounders](https://github.com/a-szczudlo/OpenFounders) testuje relacje wspólników sp. z o.o., [OpenGDPR](https://github.com/a-szczudlo/OpenGDPR) skanuje zgodność z RODO, a osobny audytor bierze umowy marketingowe.",
@@ -36,7 +36,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/ad-m/cbosa",
+      "id": "9db49e652213be70",
       "name": "ad-m/cbosa",
       "url": "https://github.com/ad-m/cbosa",
       "description": "⚪ Przeszukuje CBOSA trzy razy dziennie pod kątem spraw o symbolu 648, czyli dostępu do informacji publicznej, i rozsyła powiadomienia na grupę dyskusyjną.",
@@ -49,10 +49,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 77,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 1,
+        "open_prs": 1,
+        "last_commit": "2026-11-21T00:37:54Z",
+        "last_commit_sha": "b7e08313b28a5d697eb1dbcbbf8293f19dd0a99d",
+        "archived": false,
+        "language": "PHP",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://adic4legal.pl",
+      "id": "7c8587056d7ff213",
       "name": "Adic4Legal",
       "url": "https://adic4legal.pl",
       "description": "🟣 Prowadzi kancelarię online: sprawy, klientów, dane z GUS i białej listy, powiadomienia SMS. Ma moduł do umawiania i sprzedaży konsultacji online. Od 89 zł za użytkownika miesięcznie.",
@@ -68,7 +78,7 @@
       "metrics": {}
     },
     {
-      "id": "https://advisor247.pl",
+      "id": "1fb299bdf59af30f",
       "name": "Advisor247",
       "url": "https://advisor247.pl",
       "description": "🟣 Obsługuje sprawy, terminy, dokumenty z wersjonowaniem, czas pracy i faktury, a w wyższym planie portal klienta. Rozliczenie za użytkownika.",
@@ -84,7 +94,7 @@
       "metrics": {}
     },
     {
-      "id": "https://aiact.podedworny.app",
+      "id": "52e4652a3ec3111a",
       "name": "AI Act pre-audyt",
       "url": "https://aiact.podedworny.app",
       "description": "🟠 Na podstawie 20 pytań klasyfikuje ryzyko systemu i tworzy raport PDF. Ma test kompetencji w zakresie AI. Darmowy.",
@@ -100,7 +110,7 @@
       "metrics": {}
     },
     {
-      "id": "https://aimon.pl",
+      "id": "af6679b17d75b188",
       "name": "AIMON",
       "url": "https://aimon.pl",
       "description": "🟣 Narzędzie Currendy: monitoruje projekty aktów prawnych i ocenia wpływ zmian na podstawie grafu powiązań między aktami. Od 199,90 zł brutto za stanowisko, próba przez 14 dni.",
@@ -116,7 +126,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/alght/bielik-rag",
+      "id": "370c23a1632bfeed",
       "name": "Alght/Bielik-RAG",
       "url": "https://github.com/alght/bielik-rag",
       "description": "⚪ Bada skuteczność klasyfikacji polskich tekstów prawnych w architekturze RAG na modelu Bielik.",
@@ -128,10 +138,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 177,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-19T08:21:07Z",
+        "last_commit_sha": "9abd8a99e966058b7c32d5b6a2c27698950c6fda",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/allegro/herbert",
+      "id": "07d5781c0b4daa54",
       "name": "allegro/HerBERT",
       "url": "https://github.com/allegro/herbert",
       "description": "⚪ Model BERT dla polszczyzny, trenowany na korpusach polskich z dynamicznym maskowaniem całych słów.",
@@ -144,10 +164,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 25,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 74,
+        "forks": 4,
+        "open_prs": 1,
+        "last_commit": "2021-05-31T12:56:49Z",
+        "last_commit_sha": "0be17826a1f33d97218dfe46d2b21e6432eec547",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://ttms.com/pl/oprogramowanie-do-aml",
+      "id": "db19c0ebf0eebf5e",
       "name": "AML Track",
       "url": "https://ttms.com/pl/oprogramowanie-do-aml",
       "description": "🟣 Weryfikuje klientów na podstawie CEIDG, KRS, CRBR i list sankcyjnych. Od 299 zł miesięcznie.",
@@ -163,7 +193,7 @@
       "metrics": {}
     },
     {
-      "id": "https://amlex.pl",
+      "id": "64dba00de04c69b2",
       "name": "AMLEX",
       "url": "https://amlex.pl",
       "description": "🟣 Moduły dla biur rachunkowych: procedury AML, ocena ryzyka, rejestr transakcji, kanał sygnalisty i dokumenty RODO. Około 100 zł miesięcznie za moduł, próba przez 14 dni.",
@@ -179,7 +209,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/andilabs/polish-law",
+      "id": "ff6f17d387d16456",
       "name": "andilabs/polish-law",
       "url": "https://github.com/andilabs/polish-law",
       "description": "🟢 Zbiera historię prawa polskiego od 1918 roku, razem z [zestawem danych](https://github.com/andilabs/polish-law-data).",
@@ -192,10 +222,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 9,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2022-06-07T01:36:05Z",
+        "last_commit_sha": "4e15386b4bcde0538c52a46e48fff2e785b6303e",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/andredzi/leksio-claude-plugin",
+      "id": "1fae463a6336f629",
       "name": "andredzi/leksio-claude-plugin",
       "url": "https://github.com/andredzi/leksio-claude-plugin",
       "description": "🟠 Wtyczka do systemu informacji prawnej Leksio: jedenaście narzędzi tylko do odczytu nad aktami, orzeczeniami i interpretacjami podatkowymi, brzmienie przepisu na dzień i sprawdzanie cytatów. Wymaga konta Leksio; darmowy plan daje pięć researchy miesięcznie.",
@@ -208,10 +248,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 97,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-03T20:51:18Z",
+        "last_commit_sha": "3e0554aa36ecdcf37d98f68144cabb2b0b02bb38",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/andrii-mazurchuk/kontrakt-guard",
+      "id": "b7e8cdaf9c3b302d",
       "name": "andrii-mazurchuk/kontrakt-guard",
       "url": "https://github.com/andrii-mazurchuk/kontrakt-guard",
       "description": "🟢 Audytuje umowę o pracę klauzula po klauzuli na podstawie tekstów jednolitych prawa pracy. Każdy znaleziony przepis przechodzi ocenę trafności, a odpowiedź powstaje tylko z tego, co ją przeszło — bez podstawy w korpusie narzędzie odmawia zamiast zgadywać. Ma własny dwuwarstwowy zestaw testów jakości.",
@@ -223,10 +273,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 121,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-08-27T11:44:57Z",
+        "last_commit_sha": "5da663402739b38a29f8a0ed09b97e3e3b73a300",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://anonima.uniqsoft.pl",
+      "id": "336ab3c8622cf720",
       "name": "anonima",
       "url": "https://anonima.uniqsoft.pl",
       "description": "🟣 Anonimizuje online dokumenty prawne przed użyciem AI.",
@@ -242,7 +302,7 @@
       "metrics": {}
     },
     {
-      "id": "https://anonimizer.pl",
+      "id": "5359a2ed32103cfd",
       "name": "Anonimizer",
       "url": "https://anonimizer.pl",
       "description": "🟠 Lokalnie anonimizuje PDF, DOCX, XLSX i skany przed wysłaniem do modelu językowego. Pięć dokumentów miesięcznie za darmo, Pro 99 zł.",
@@ -258,7 +318,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/ansvar-systems/polish-law-mcp",
+      "id": "bda93ae9c5524e6a",
       "name": "Ansvar-Systems/polish-law-mcp",
       "url": "https://github.com/ansvar-systems/polish-law-mcp",
       "description": "⚪ Zbiera przepisy o ochronie danych i cyberbezpieczeństwie, jako serwer MCP. Repozytorium zarchiwizowane.",
@@ -271,10 +331,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 11,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 8,
+        "forks": 2,
+        "open_prs": 11,
+        "last_commit": "2026-07-07T03:55:24Z",
+        "last_commit_sha": "2d7052196669f46118be059f4190904573fe4f77",
+        "archived": true,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://anylawyer.com",
+      "id": "30c6c0282d1efeae",
       "name": "AnyLawyer",
       "url": "https://anylawyer.com",
       "description": "🟣 Analizuje umowy z cytowaniami, przeszukuje Dziennik Ustaw i Monitor Polski, monitoruje zmiany prawa i działa jako dodatek do Worda. Próba przez 14 dni.",
@@ -290,7 +360,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/apatryda/polish-law",
+      "id": "2db5970a67610e44",
       "name": "apatryda/polish-law",
       "url": "https://github.com/apatryda/polish-law",
       "description": "🟢 Tłumaczy akty prawne najpierw na Markdown, potem na Catalę, czyli język rules-as-code z Inrii. Układ katalogów odwzorowuje hierarchię źródeł prawa: konstytucja, ustawy, umowy międzynarodowe, rozporządzenia, akty prawa miejscowego.",
@@ -303,10 +373,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 58,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-08-26T22:14:47Z",
+        "last_commit_sha": "e344c65172bbae90028690dd3218f76c3c04bafd",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://api.sejm.gov.pl/eli",
+      "id": "ef59b0c746035764",
       "name": "API Sejmu / ELI",
       "url": "https://api.sejm.gov.pl/eli",
       "description": "🔵 Udostępnia akty z Dziennika Ustaw i Monitora Polskiego, teksty jednolite oraz datowane listy aktów zmieniających. Tekst HTML jest strukturalny — każda jednostka redakcyjna ma stabilny identyfikator, więc na artykuły dzieli się deterministycznie.",
@@ -322,7 +402,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/apiotrowski-afk/anon-legal-pl",
+      "id": "adb9e52318f7547d",
       "name": "apiotrowski-afk/anon-legal-pl",
       "url": "https://github.com/apiotrowski-afk/anon-legal-pl",
       "description": "🟢 Wykrywa dane osobowe przez Presidio i spaCy, sprawdza sumy kontrolne numerów PESEL, NIP i REGON oraz rozpoznaje wzorce sygnatur sądowych. Opcjonalnie rozpoznaje tekst ze skanów.",
@@ -334,10 +414,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 155,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 3,
+        "forks": 2,
+        "open_prs": 0,
+        "last_commit": "2026-06-24T19:11:06Z",
+        "last_commit_sha": "f9802c3dcb88d777c567c2ffee85bfedabf5c92f",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anonymization",
+          "bielik",
+          "gdpr",
+          "legal-tech",
+          "nlp",
+          "ocr",
+          "ollama",
+          "open-source",
+          "pii",
+          "polish-law",
+          "prawo-polskie",
+          "presidio"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/apiotrowski-afk/commercial-legal-pl",
+      "id": "5347378cfc671b49",
       "name": "apiotrowski-afk/commercial-legal-pl",
       "url": "https://github.com/apiotrowski-afk/commercial-legal-pl",
       "description": "🟢 Redaguje i analizuje umowy B2B, IT oraz IP. Zawiera bazę klauzul, bazę wiedzy doktrynalnej i kontrolę spójności odesłań wewnętrznych.",
@@ -375,7 +478,7 @@
       }
     },
     {
-      "id": "https://github.com/apiotrowski-afk/kancelaria-dms",
+      "id": "fb69bef5c49d2165",
       "name": "apiotrowski-afk/kancelaria-dms",
       "url": "https://github.com/apiotrowski-afk/kancelaria-dms",
       "description": "🟢 Prowadzi obieg dokumentów i CRM kancelarii natywnie w Google Workspace, na własnym serwerze.",
@@ -387,10 +490,28 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 120,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 20,
+        "forks": 6,
+        "open_prs": 0,
+        "last_commit": "2026-06-24T19:11:08Z",
+        "last_commit_sha": "0ceaaa2d7ad92c06cc3f0bae617bf0d4342b823a",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [
+          "legal-tech",
+          "google-apps-script",
+          "gemini-api",
+          "dms",
+          "crm",
+          "google-workspace",
+          "polish-law"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/apiotrowski-afk/legal-cite-pl",
+      "id": "dc04dbd288e93635",
       "name": "apiotrowski-afk/legal-cite-pl",
       "url": "https://github.com/apiotrowski-afk/legal-cite-pl",
       "description": "🟢 Serwer MCP, który sprawdza aktualne brzmienie przepisu polskiego i unijnego prosto ze źródła. Ten sam utrzymujący wydaje weryfikację podmiotów w KRS i na białej liście VAT oraz pamięć trwałą dla asystentów.",
@@ -403,10 +524,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 71,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 8,
+        "forks": 8,
+        "open_prs": 0,
+        "last_commit": "2026-11-12T15:34:00Z",
+        "last_commit_sha": "b6113a56d0cf8ea97f1a490bdd5494bd65fd1cba",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anthropic",
+          "anti-hallucination",
+          "claude",
+          "claude-code",
+          "eur-lex",
+          "legal-tech",
+          "legislation",
+          "mcp",
+          "model-context-protocol",
+          "open-source",
+          "polish-law",
+          "prawo-polskie"
+        ],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/apiotrowski-afk/okf-legal",
+      "id": "d8d3171c4adecf8f",
       "name": "apiotrowski-afk/okf-legal",
       "url": "https://github.com/apiotrowski-afk/okf-legal",
       "description": "🟢 Profil prawniczy nad Open Knowledge Format: jednostka pod-dokumentowa z dosłownym cytatem, kierunkiem i statusem ratio albo obiter, relacje typowane, reguły antyhalucynacyjne.",
@@ -438,7 +582,7 @@
       }
     },
     {
-      "id": "https://github.com/appliedai-pl/polish-law-checker",
+      "id": "4c7eeb0784d1e658",
       "name": "appliedai-pl/polish-law-checker",
       "url": "https://github.com/appliedai-pl/polish-law-checker",
       "description": "🟢 Skill dla Claude Code, który sprawdza cytowania przepisów w gotowym piśmie, także w DOCX, z API ELI. Wskazuje nieaktualny tekst jednolity, zmiany po obwieszczeniu i przepisy uchylone, a przy każdym cytacie podaje dowód ze źródła i poprawkę.",
@@ -450,10 +594,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 135,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-20T16:02:16Z",
+        "last_commit_sha": "b420e6e5500e1e9ef079455db88df88b1ba3515c",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://arslege.pl",
+      "id": "712e6b078c1f96ce",
       "name": "ArsLege",
       "url": "https://arslege.pl",
       "description": "🟣 Ponad 80 tysięcy pytań do 17 egzaminów, w tym na aplikacje, doradcę podatkowego i syndyka. Od 29 zł za dobę.",
@@ -469,7 +623,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/artsiom-andrasovich/polish_law_viewer",
+      "id": "8dc5c8d39cfb8230",
       "name": "artsiom-andrasovich/polish_law_viewer",
       "url": "https://github.com/artsiom-andrasovich/polish_law_viewer",
       "description": "⚪ Przeszukuje akty przez API Sejmu z aplikacji desktopowej w Pythonie i otwiera dokumenty w systemowej przeglądarce PDF.",
@@ -482,10 +636,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 78,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-01-25T22:42:18Z",
+        "last_commit_sha": "df53cd5964d8a1558677a6d1fb43e7304bb2698c",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://asystent-epu.pl",
+      "id": "d970b8acffc7d158",
       "name": "Asystent EPU",
       "url": "https://asystent-epu.pl",
       "description": "🟣 Aplikacja webowa przygotowująca pozwy do EPU i paczki XML bez przepisywania danych. Próba przez 14 dni.",
@@ -501,7 +665,7 @@
       "metrics": {}
     },
     {
-      "id": "https://meteoryt.pl/Kancelaria_Prawnicza-k84.html",
+      "id": "339f2d8a9efe84dd",
       "name": "Asystent Kancelaria Prawnicza (Meteoryt)",
       "url": "https://meteoryt.pl/Kancelaria_Prawnicza-k84.html",
       "description": "🟣 Ewidencjonuje sprawy, terminy, klientów, korespondencję i dokumenty, opcjonalnie także faktury i należności. Działa w chmurze albo na Windowsie. Chmura od 143 zł.",
@@ -517,7 +681,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/aucourde/niewidka",
+      "id": "07b96df226dc3a23",
       "name": "AuCourDe/niewidka",
       "url": "https://github.com/aucourde/niewidka",
       "description": "🟢 Zamienia dane osobowe w polskim piśmie na znaczniki przed wysłaniem do czatu AI, a w odpowiedzi czatu wstawia je z powrotem. Działa lokalnie, także jako program dla Windows bez instalacji. Autor publikuje wynik testu na 30 fikcyjnych pismach: ukryte 443 z 447 danych osobowych.",
@@ -529,10 +693,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 165,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-04T08:43:18Z",
+        "last_commit_sha": "b1587a153b05c34ba6c5ee987f154245c87c1a99",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anonimizacja",
+          "anonymization",
+          "dane-osobowe",
+          "data-anonymization",
+          "fastapi",
+          "gdpr",
+          "local-first",
+          "nlp",
+          "offline",
+          "onnx",
+          "personal-data",
+          "pii"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/auto-mate-pl/mcp-polska",
+      "id": "f1f0db0b5e450d9b",
       "name": "auto-mate-pl/mcp-polska",
       "url": "https://github.com/auto-mate-pl/mcp-polska",
       "description": "🟢 Serwer MCP do rejestrów publicznych bez klucza API: odpis z KRS z zarządem i sposobem reprezentacji, status na białej liście VAT wraz z przypisaniem rachunku do NIP, walidacja NIP i kurs średni NBP. CEIDG i REGON nie są obsługiwane, bo ich API wymagają klucza.",
@@ -545,10 +732,29 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 94,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-14T19:25:06Z",
+        "last_commit_sha": "c3de2342cba922a0d85d284283d44b72ded93246",
+        "archived": false,
+        "language": "JavaScript",
+        "github_topics": [
+          "claude",
+          "krs",
+          "ksef",
+          "mcp",
+          "mcp-server",
+          "nbp",
+          "nip",
+          "polska"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/b44x/edoreczenia-php",
+      "id": "2e73038364e3ac69",
       "name": "b44x/edoreczenia-php",
       "url": "https://github.com/b44x/edoreczenia-php",
       "description": "🟢 Nieoficjalne SDK e-Doręczeń w PHP: uwierzytelnienie system-system, wyszukiwarka adresów i obsługa skrzynki. Autor zaznacza, że nie sprawdził go jeszcze na środowiskach INT i PROD.",
@@ -560,10 +766,29 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 137,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-11T14:53:42Z",
+        "last_commit_sha": "37fba934e89e62890e75286c04d8e0583bbfe20f",
+        "archived": false,
+        "language": "PHP",
+        "github_topics": [
+          "e-delivery",
+          "e-doreczenia",
+          "edoreczenia",
+          "ezd",
+          "php",
+          "poland",
+          "psr-18",
+          "sdk"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/balwierz/sejm2git",
+      "id": "00d22aebd08da686",
       "name": "balwierz/sejm2git",
       "url": "https://github.com/balwierz/sejm2git",
       "description": "⚪ Pobiera akty z API Sejmu i nakłada nowelizacje, żeby odtworzyć tekst obowiązujący na daną datę. Historię materializuje w gicie: gałąź na nowelizację, scalenie w dniu wejścia w życie, wyniki głosowań w stopkach commitów.",
@@ -576,10 +801,29 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 56,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-06-17T20:41:13Z",
+        "last_commit_sha": "1e7dcb7df2ec9a294f6efaf572b5e72fafc9d4c5",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "civic-tech",
+          "git",
+          "legal-tech",
+          "legislation",
+          "legislation-as-code",
+          "open-data",
+          "poland",
+          "sejm"
+        ],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/bartekmac63/civiclens",
+      "id": "a74b59c6f846b298",
       "name": "bartekmac63/civiclens",
       "url": "https://github.com/bartekmac63/civiclens",
       "description": "🟢 Śledzi prace parlamentu na API Sejmu. Repozytorium zarchiwizowane.",
@@ -592,10 +836,29 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 13,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-06-13T14:37:59Z",
+        "last_commit_sha": "842040644cf4cccd2e8b238333a4760757f49350",
+        "archived": true,
+        "language": "TypeScript",
+        "github_topics": [
+          "civic-tech",
+          "fastapi",
+          "nlp",
+          "open-data",
+          "parliamentary-data",
+          "poland",
+          "python",
+          "sejm"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/bartoszradziszewski/anonimizator",
+      "id": "cfac30f386d165cb",
       "name": "BartoszRadziszewski/anonimizator",
       "url": "https://github.com/bartoszradziszewski/anonimizator",
       "description": "🟢 Jeden plik HTML z trzema trybami: etykiety odwracalne kluczem sesji, dane fikcyjne z poprawnymi sumami kontrolnymi i trwałe zaczernienie. Dokument nie opuszcza przeglądarki, ale biblioteki i fonty ładują się z sieci przy otwarciu.",
@@ -607,10 +870,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 160,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 1,
+        "open_prs": 0,
+        "last_commit": "2026-11-10T11:12:14Z",
+        "last_commit_sha": "cc09715e0e387537a84138a7b24052eca4a31ffb",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.baseline.pl/kancelaria",
+      "id": "63ff68fc3846f54e",
       "name": "Baseline Kancelaria",
       "url": "https://www.baseline.pl/kancelaria",
       "description": "🟣 Łączy dziennik podawczy z kodami QR, sprawy, CRM, fakturowanie z timesheetu, rejestr umów z wtyczką do Worda i moduł e-Doręczeń.",
@@ -626,7 +899,7 @@
       "metrics": {}
     },
     {
-      "id": "https://beck-noxtua.pl",
+      "id": "e7a26d3b5f99627e",
       "name": "Beck-Noxtua",
       "url": "https://beck-noxtua.pl",
       "description": "🟣 Workspace AI C.H.Beck na treściach Legalis: research, analiza wielu dokumentów naraz w tabeli i redagowanie. Wymaga Legalis, 590 zł za użytkownika miesięcznie.",
@@ -642,7 +915,7 @@
       "metrics": {}
     },
     {
-      "id": "https://beznazwisk.pl",
+      "id": "3a44464fd7921262",
       "name": "Beznazwisk.pl",
       "url": "https://beznazwisk.pl",
       "description": "🟠 Działa offline: tokenizuje nazwiska, numery PESEL, adresy i sygnatury, z możliwością przywrócenia danych. Wersja darmowa bez limitu.",
@@ -658,7 +931,7 @@
       "metrics": {}
     },
     {
-      "id": "https://bluur.ai/pl",
+      "id": "8248b7d061b6328e",
       "name": "Bluur",
       "url": "https://bluur.ai/pl",
       "description": "🟣 Klasyfikuje i anonimizuje dokumenty przez AI w sześciu językach.",
@@ -674,7 +947,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/bmajkut/land-registry-scrapper-pl",
+      "id": "105159ef09c08c5c",
       "name": "bmajkut/land-registry-scrapper-pl",
       "url": "https://github.com/bmajkut/land-registry-scrapper-pl",
       "description": "🟢 Pobiera dane z przeglądarki ksiąg wieczystych przez automatyzację Playwrightem.",
@@ -687,10 +960,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 16,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2025-03-24T11:39:03Z",
+        "last_commit_sha": "d0bd62c48ca236df6d85e6f3d4dccc7ecbc246c9",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/bolo272/interpelacje-sejm",
+      "id": "97cf936ae0a351bf",
       "name": "bolo272/interpelacje-sejm",
       "url": "https://github.com/bolo272/interpelacje-sejm",
       "description": "⚪ Codziennie pobiera z API Sejmu najnowsze odpowiedzi na interpelacje bieżącej kadencji i zapisuje je jako JSON z pełną treścią, także wyłuskaną z PDF. Odpowiedzi ministrów bywają jedynym oficjalnym stanowiskiem resortu w sprawie wykładni przepisu.",
@@ -703,10 +986,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 95,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T10:41:30Z",
+        "last_commit_sha": "fd69c7b93936039bc99eecf5af02ee88068ece79",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://botradzi.pl",
+      "id": "b7d8cd72ad9af474",
       "name": "BotRadzi",
       "url": "https://botradzi.pl",
       "description": "🟠 Odpowiada na pytania prawne, podając podstawę prawną, i przygotowuje szkic pisma. Plan darmowy to 3 pytania dziennie, płatne od 49 zł miesięcznie.",
@@ -722,7 +1015,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/brokeboiflex/nodeusz",
+      "id": "bef35163f793bf80",
       "name": "brokeboiflex/nodeusz",
       "url": "https://github.com/brokeboiflex/nodeusz",
       "description": "⚪ Natywne wiązania Node.js do analizatora morfologicznego Morfeusz2. Odmiana polskich nazwisk i nazw to warunek działania anonimizacji.",
@@ -734,10 +1027,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 174,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-07-10T21:40:27Z",
+        "last_commit_sha": "e82849e16bc751989074d9ecbfb25bd9a46931ee",
+        "archived": false,
+        "language": "C++",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://casum.pl",
+      "id": "ab080ebcaf793b32",
       "name": "Casum",
       "url": "https://casum.pl",
       "description": "🟠 Wyszukiwarka prawie 14 tysięcy prawników z opiniami i darmowe pytania prawne.",
@@ -753,7 +1056,7 @@
       "metrics": {}
     },
     {
-      "id": "https://casusoft.pl",
+      "id": "4f5d029b54c8aa88",
       "name": "CasuSoft",
       "url": "https://casusoft.pl",
       "description": "🟣 Obsługuje sprawy, czas pracy, faktury i korespondencję, z integracją z Portalem Informacyjnym Sądów i Pocztą Polską, panelem klienta i aplikacją mobilną. Demo przez 30 dni.",
@@ -769,7 +1072,7 @@
       "metrics": {}
     },
     {
-      "id": "https://orzeczenia.nsa.gov.pl",
+      "id": "9329d52640647559",
       "name": "CBOSA",
       "url": "https://orzeczenia.nsa.gov.pl",
       "description": "🔵 Gromadzi orzeczenia Naczelnego Sądu Administracyjnego i wojewódzkich sądów administracyjnych.",
@@ -785,7 +1088,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/cloudforge1/paddleocr-vl-for-polish",
+      "id": "451431ec538d6a1f",
       "name": "cloudforge1/PaddleOCR-VL-For-Polish",
       "url": "https://github.com/cloudforge1/paddleocr-vl-for-polish",
       "description": "🟢 Model OCR dostrojony do polskich dokumentów współczesnych i historycznych. Przydaje się tam, gdzie akta istnieją wyłącznie jako skan.",
@@ -797,10 +1100,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 173,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-04-08T08:11:23Z",
+        "last_commit_sha": "b619752c1c7097dd032312e0dafd59a281e45842",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/crankshift/lawpowers",
+      "id": "a933aebe2c1cfc2e",
       "name": "crankshift/lawpowers",
       "url": "https://github.com/crankshift/lawpowers",
       "description": "🟢 Monorepo wtyczek prawniczych z podziałem na jurysdykcje, z wtyczką polską liczącą 22 skille: przedawnienie, odsetki ustawowe, opłata sądowa, wartość przedmiotu sporu, alimenty, orzecznictwo frankowe, procedury ZUS, USC i cudzoziemców, jurysdykcja, konwencja nowojorska, przegląd umów B2B, nieruchomościowych i pojazdowych. Druga wtyczka obejmuje prawo ukraińskie.",
@@ -812,10 +1125,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 115,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 5,
+        "forks": 1,
+        "open_prs": 0,
+        "last_commit": "2026-06-02T08:27:13Z",
+        "last_commit_sha": "36188da33115ac3844a6ffe43212e91f18529e6f",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://crm-edpo.pl",
+      "id": "8a8dbac3c0d58d7a",
       "name": "CRM-EDPO",
       "url": "https://crm-edpo.pl",
       "description": "🟣 Obsługuje RODO razem z oceną skutków, analizą ryzyka, ISO 27001 i KRI.",
@@ -831,7 +1154,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.ck.adwokatura.pl/produkty/cyfrowa-kancelaria,405475.html",
+      "id": "9a6c00f03090ac01",
       "name": "Cyfrowa Kancelaria",
       "url": "https://www.ck.adwokatura.pl/produkty/cyfrowa-kancelaria,405475.html",
       "description": "🟣 Aplikacja adwokatury i Wolters Kluwer: sprawy, korespondencja, Portal Informacyjny, timer i faktury, z integracją z LEX. Tylko dla adwokatów i aplikantów, od 15 zł miesięcznie.",
@@ -847,7 +1170,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/danielmskuza-blip/orzeczenia-ms",
+      "id": "c7f7e7bef5ea5513",
       "name": "danielmskuza-blip/Orzeczenia-MS",
       "url": "https://github.com/danielmskuza-blip/orzeczenia-ms",
       "description": "🟢 Udostępnia orzeczenia sądów powszechnych z portalu Ministerstwa Sprawiedliwości.",
@@ -860,10 +1183,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 86,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 1,
+        "last_commit": "2026-08-04T16:02:09Z",
+        "last_commit_sha": "4a0014b045dcfea361c2f656a898d7cbfffcac8c",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/dawidbochno/anonimizacja-rodo",
+      "id": "7d98eda97b74d253",
       "name": "DawidBochno/Anonimizacja-RODO",
       "url": "https://github.com/dawidbochno/anonimizacja-rodo",
       "description": "⚪ Program desktopowy, który lokalnie czyści DOCX, PDF, skany i zdjęcia z PESEL, NIP, REGON, numerów dowodu, IBAN, adresów e-mail i telefonów, z kontrolą sum kontrolnych i własną listą słów. Powstał pod publikację w BIP i odpowiedzi na wnioski o informację publiczną.",
@@ -875,10 +1208,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 158,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-09T20:56:51Z",
+        "last_commit_sha": "ad36608fa550eccc1cd1c305b83b6d4bf93f9dc3",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/dawidzabek/leaseguard",
+      "id": "5199016a5feaca92",
       "name": "DawidZabek/leaseguard",
       "url": "https://github.com/dawidzabek/leaseguard",
       "description": "⚪ Analizuje wklejoną umowę najmu mieszkania z perspektywy najemcy i wskazuje postanowienia niekorzystne.",
@@ -890,10 +1233,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 124,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-06-10T05:52:13Z",
+        "last_commit_sha": "cf72dd9dfaf7848a4e207ec1666da822f942433b",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/denis-solodov/prawnik-pl",
+      "id": "75d40e06141d7e1b",
       "name": "denis-solodov/prawnik-pl",
       "url": "https://github.com/denis-solodov/prawnik-pl",
       "description": "🟢 Skill do analizy spraw z zakresu prawa polskiego. Zawiera instrukcje weryfikacji źródeł urzędowych, szablony pism oraz lokalny kalkulator terminów, opłat i odsetek.",
@@ -905,10 +1258,25 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 147,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-19T12:37:06Z",
+        "last_commit_sha": "eae92c44caf277b60848febf1250adb1932f1db0",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "agent-skills",
+          "legal-research",
+          "polish-law",
+          "prawo-polskie"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://divkids.com/pl",
+      "id": "b38bde94470df425",
       "name": "DivKids",
       "url": "https://divkids.com/pl",
       "description": "🟠 Kalkulator alimentów połączony z ewidencją wydatków na dziecko i raportami PDF do sądu albo na mediację. Kalkulator jest darmowy.",
@@ -924,7 +1292,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/dominikloza/lawer-up",
+      "id": "24c607f0967ba20a",
       "name": "dominikloza/lawer-up",
       "url": "https://github.com/dominikloza/lawer-up",
       "description": "⚪ Pozwala wgrać umowę i rozmawiać o niej z asystentem, z naciskiem na wykrywanie ukrytych ryzyk.",
@@ -936,10 +1304,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 125,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-03-01T19:38:42Z",
+        "last_commit_sha": "82c2326583a8af0cd24589b6d3a9d1fd4dca91aa",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.doqum.pl",
+      "id": "11c026b465a9ad68",
       "name": "Doqum",
       "url": "https://www.doqum.pl",
       "description": "🟣 Asystent AI na publicznych bazach (ISAP, SAOS, UODO) z ponad 128 szablonami, formularzami EPU, KW i KRZ oraz kalkulatorami. Od 49 zł miesięcznie, próba przez 14 dni.",
@@ -955,7 +1333,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.dpoworkspace.eu/pl",
+      "id": "90011e8d94e3779e",
       "name": "DPO Workspace",
       "url": "https://www.dpoworkspace.eu/pl",
       "description": "🟣 Prowadzi rejestr czynności, ocenę skutków i naruszenia z licznikiem 72 godzin, wielu klientów w jednym panelu. Dla inspektorów ochrony danych, próba przez 30 dni.",
@@ -971,7 +1349,7 @@
       "metrics": {}
     },
     {
-      "id": "https://dzialprawny.pl",
+      "id": "5119cd706731c90b",
       "name": "dzial-prawny.pl",
       "url": "https://dzialprawny.pl",
       "description": "🟣 Platforma działu prawnego: repozytorium umów, umowy z szablonów, ścieżki akceptacji, e-podpis i asystent AI.",
@@ -987,7 +1365,7 @@
       "metrics": {}
     },
     {
-      "id": "https://e-pozwy.com.pl",
+      "id": "a3358ff10ae6d898",
       "name": "e-Pozwy",
       "url": "https://e-pozwy.com.pl",
       "description": "🟣 Masowo tworzy i wysyła pozwy do EPU, liczy skapitalizowane odsetki, importuje dane z systemu księgowego.",
@@ -1003,7 +1381,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/e-sad/dokumentacja",
+      "id": "75edcc4c22c940bd",
       "name": "e-sad/dokumentacja",
       "url": "https://github.com/e-sad/dokumentacja",
       "description": "🟢 Porządkuje dokumentację techniczną usługi sieciowej elektronicznego postępowania upominawczego, czyli definicję WSDL i schematy XSD. Przydaje się powodom masowym i pełnomocnikom, którzy składają pozwy w EPU z własnego systemu, bez interfejsu WWW.",
@@ -1016,10 +1394,25 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 109,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 6,
+        "forks": 2,
+        "open_prs": 0,
+        "last_commit": "2026-10-24T10:52:23Z",
+        "last_commit_sha": "249de1129a2417bac6d4ff68b2ca6c4cd68903cd",
+        "archived": false,
+        "language": "XSLT",
+        "github_topics": [
+          "moved-to-gitlab",
+          "dokumentacja",
+          "e-sad",
+          "esad"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://e-sds.pl",
+      "id": "e924b7d9d7534165",
       "name": "e-SDS",
       "url": "https://e-sds.pl",
       "description": "🟣 System zgłoszeń z procedurami i szkoleniami. Od 99 zł miesięcznie, pierwszy miesiąc za darmo.",
@@ -1035,7 +1428,7 @@
       "metrics": {}
     },
     {
-      "id": "https://ecommercelegal.io/pl",
+      "id": "4cc87ecc47d917dc",
       "name": "ecommerce.legal",
       "url": "https://ecommercelegal.io/pl",
       "description": "🟣 Tworzy regulamin, dokumenty RODO i politykę cookies dla sklepów na siedmiu rynkach UE, z aktualizacjami. Polska wersja 449 zł rocznie.",
@@ -1051,7 +1444,7 @@
       "metrics": {}
     },
     {
-      "id": "https://egzamin.pl/prawnicze",
+      "id": "2639107bae187bc2",
       "name": "Egzamin.pl",
       "url": "https://egzamin.pl/prawnicze",
       "description": "🟣 Kursy przygotowujące do czterech aplikacji i czterech egzaminów zawodowych, z symulacjami. 79 zł miesięcznie, próba przez 3 dni.",
@@ -1067,7 +1460,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/elconcept/grounding-prawo",
+      "id": "99a4125229a10da8",
       "name": "elconcept/grounding-prawo",
       "url": "https://github.com/elconcept/grounding-prawo",
       "description": "⚪ Plugin do prowadzenia własnych spraw według prawa polskiego w Claude i Codeksie, złożony z 23 skilli, m.in. do pism procesowych, analizy dowodów, terminów i weryfikacji cytatów. Łączy Lex Machinę, skille z serii matematicsolutions i skille własne. Przepisy i sygnatury podaje tylko przez serwer MCP autora, który wymaga logowania.",
@@ -1079,10 +1472,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 145,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 9,
+        "last_commit": "2026-11-20T14:42:53Z",
+        "last_commit_sha": "0a08ac16ff57a43ec39d978709cbe1874d9d6491",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 9
+      }
     },
     {
-      "id": "https://eur-lex.europa.eu/eli-register/about.html",
+      "id": "6f99b36fb23fa141",
       "name": "ELI",
       "url": "https://eur-lex.europa.eu/eli-register/about.html",
       "description": "🔵 European Legislation Identifier, identyfikator używany przez API Sejmu.",
@@ -1098,7 +1501,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/emenowicz/polish-legal-mcp",
+      "id": "6908d530e0fdf41d",
       "name": "Emenowicz/polish-legal-mcp",
       "url": "https://github.com/emenowicz/polish-legal-mcp",
       "description": "🟢 Zdalny serwer MCP z aktami z ELI, projektami ustaw z API Sejmu, prawem UE i orzecznictwem TSUE po polsku, orzeczeniami z SAOS i decyzjami Prezesa UODO. Każdą odpowiedź oznacza statusem weryfikacji, a osobne narzędzie wskazuje polskie akty wdrażające daną dyrektywę. Pisany z myślą o pracownikach administracji.",
@@ -1111,10 +1514,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 100,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-03T13:37:47Z",
+        "last_commit_sha": "de0cfdd54777d2a1774153fd8f54066a2211ca63",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/emilpinski/lexaro",
+      "id": "85a3f519e0163321",
       "name": "emilpinski/lexaro",
       "url": "https://github.com/emilpinski/lexaro",
       "description": "⚪ Odpowiada na pytania o prawo polskie w architekturze RAG: HyDE, wyszukiwanie hybrydowe na pgvector i BM25, rerank i cache semantyczny. Działa pod adresem lexaro.pl.",
@@ -1126,10 +1539,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 126,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-05-10T22:17:40Z",
+        "last_commit_sha": "20a375d942fed7311580246b70b531953d43d980",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "anthropic",
+          "cohere",
+          "nextjs",
+          "pgvector",
+          "rag",
+          "semantic-search",
+          "typescript",
+          "bm25",
+          "hybrid-search",
+          "hyde",
+          "legal-ai",
+          "polish-language"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/empios",
+      "id": "85efd7e11e1c08f4",
       "name": "empios",
       "url": "https://github.com/empios",
       "description": "🟢⚪ [humanize-pl](https://github.com/empios/humanize-pl) redaguje polskie teksty prawnicze regułowo, bez modelu językowego, ze ścieżką ostrożną dla umów, opinii, pism i regulaminów. [humanizer-polish](https://github.com/empios/humanizer-polish) to skill dla Claude, który usuwa trzydzieści wzorców stylu AI, nie ruszając liczb, przepisów ani modalności. Autor zastrzega przy obu, że nie służą obchodzeniu detektorów AI.",
@@ -1144,7 +1580,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/erykmikolajewicz/prawobiorca",
+      "id": "8ed53240be63f852",
       "name": "ErykMikolajewicz/prawobiorca",
       "url": "https://github.com/erykmikolajewicz/prawobiorca",
       "description": "🟢 Wyszukiwarka przepisów dla studentów dochodzących swoich praw na uczelni, z teczkami spraw i generowaniem wniosków w DOCX. Rozwija ją koło naukowe Politechniki Wrocławskiej, działa pod adresem prawobiorca.pl.",
@@ -1156,10 +1592,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 144,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-19T21:20:00Z",
+        "last_commit_sha": "2e90351da4d4088893e2c38414fc62fa262f6a96",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://esignaller.pl",
+      "id": "23d79333d6408748",
       "name": "eSignaller",
       "url": "https://esignaller.pl",
       "description": "🟣 Aplikacja do zgłaszania naruszeń przez sygnalistów.",
@@ -1175,7 +1621,7 @@
       "metrics": {}
     },
     {
-      "id": "https://eureka.mf.gov.pl",
+      "id": "fba180511d3c5f93",
       "name": "EUREKA",
       "url": "https://eureka.mf.gov.pl",
       "description": "🔵 Zbiera interpretacje i informacje podatkowe Ministerstwa Finansów.",
@@ -1191,7 +1637,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/faustyna77/anonimizator",
+      "id": "cc3dc7a5e71b5641",
       "name": "faustyna77/anonimizator",
       "url": "https://github.com/faustyna77/anonimizator",
       "description": "🟢 Usługa dla kancelarii z logowaniem: przyjmuje PDF albo DOCX do 10 MB i zwraca plik w tym samym formacie z ukrytymi numerami PESEL, NIP, IBAN, e-mailami i telefonami. ⚠ W odróżnieniu od pozostałych pozycji przetwarza dokument na serwerze i przechowuje oryginał w S3, a mapę podmian trzyma zaszyfrowaną w bazie.",
@@ -1203,10 +1649,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 163,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-11T20:30:18Z",
+        "last_commit_sha": "4ee0de35dce6f4bf2c99dfabd5ac4c229521edae",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://gaius-lex.pl",
+      "id": "ce8ab93251e53270",
       "name": "Gaius-Lex",
       "url": "https://gaius-lex.pl",
       "description": "🟣 Przeszukuje orzecznictwo z cytowaniem, analizuje umowy, weryfikuje sygnatury i dane z KRS, łączy się z Dyskiem Google i SharePointem. Od 109 zł miesięcznie, próba przez 7 dni.",
@@ -1222,7 +1678,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.gavelo.pl",
+      "id": "9f86b3f27cce72d7",
       "name": "Gavelo",
       "url": "https://www.gavelo.pl",
       "description": "🟣 Wyszukuje semantycznie w oficjalnych bazach orzeczeń, streszcza wyniki i podaje sygnaturę przy każdym.",
@@ -1238,7 +1694,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/gskuza/ai-legal-skillspl",
+      "id": "a8492e7e7a737257",
       "name": "GSkuza/AI-Legal-SkillsPL",
       "url": "https://github.com/gskuza/ai-legal-skillspl",
       "description": "🟢 Sześć pakietów skilli do prawa polskiego i unijnego: analiza czystości patentowej, kontradyktoryjna ocena argumentacji, analiza struktury rozumowania, śledzenie zmian prawa, hipotezy konkurencyjne z macierzą dowodów i wyszukiwanie orzeczeń.",
@@ -1250,10 +1706,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 138,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 7,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-13T18:23:24Z",
+        "last_commit_sha": "821f6878792ad16e671710890e0ef2cc03ccfd25",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.iaml.com.pl",
+      "id": "50c2328c52969bf4",
       "name": "iAML",
       "url": "https://www.iaml.com.pl",
       "description": "🟣 Szkolenia, procedury, rejestry i skaner list sankcyjnych od Incaso.",
@@ -1269,7 +1735,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.imsig.pl/lista-upadlosci",
+      "id": "c98acc785955b8b5",
       "name": "iMSiG",
       "url": "https://www.imsig.pl/lista-upadlosci",
       "description": "🟣 Monitoruje ogłoszenia upadłościowe i restrukturyzacyjne z KRZ i Monitora Sądowego od 2001 roku, z powiadomieniami i API. Od 1200 zł rocznie.",
@@ -1285,7 +1751,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/inexpli/radca-prawny-ai",
+      "id": "2860a562692e9fbe",
       "name": "Inexpli/Radca-prawny-AI",
       "url": "https://github.com/inexpli/radca-prawny-ai",
       "description": "🟢 Odpowiada na pytania prawne w architekturze RAG, w całości lokalnie na GPU.",
@@ -1297,10 +1763,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 128,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 11,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-01-08T01:13:47Z",
+        "last_commit_sha": "ccad9251f570f3065aede01c8d331ea87810e8d0",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "bielik",
+          "llm",
+          "polish-language",
+          "python",
+          "rag",
+          "polish-law"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.inforlex.pl",
+      "id": "d6ea1d27185c82a0",
       "name": "INFORLEX",
       "url": "https://www.inforlex.pl",
       "description": "🟠 Baza prawa, podatków, kadr i porad z asystentem AI. Ma wersję darmową.",
@@ -1316,7 +1799,7 @@
       "metrics": {}
     },
     {
-      "id": "https://inpro24.eu/kancelaria",
+      "id": "f9993bb4eb8fd5a2",
       "name": "InPro Kancelaria",
       "url": "https://inpro24.eu/kancelaria",
       "description": "🟣 System modułowy z naciskiem na terminy, opłaty urzędowe i własność intelektualną, przydatny także kancelariom patentowym. Klient dostaje panel tylko do odczytu.",
@@ -1332,7 +1815,7 @@
       "metrics": {}
     },
     {
-      "id": "https://aplikacje.bvgrupa.pl/interfejs-do-e-sadow",
+      "id": "ee313f76c352fdf3",
       "name": "Interfejs do e-sądów (BV Aplikacje)",
       "url": "https://aplikacje.bvgrupa.pl/interfejs-do-e-sadow",
       "description": "🟣 Zasila EPU masowo z systemu windykacyjnego, z linii poleceń albo przez interfejs dla kancelarii.",
@@ -1348,7 +1831,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/iskra-yt/sejmium",
+      "id": "97cc10c194c2343e",
       "name": "Iskra-YT/sejmium",
       "url": "https://github.com/iskra-yt/sejmium",
       "description": "🟢 Śledzi prace parlamentu na API Sejmu. Przydaje się, gdy trzeba wychwycić nowelizację, zanim trafi do Dziennika Ustaw.",
@@ -1361,10 +1844,31 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 87,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-05-07T06:48:39Z",
+        "last_commit_sha": "e01522138cdfdc9bd06d1ee5cc2d5029c0ecd50f",
+        "archived": false,
+        "language": "PHP",
+        "github_topics": [
+          "civic-tech",
+          "dashboard",
+          "data-visualization",
+          "government",
+          "open-data",
+          "parliament",
+          "php",
+          "poland",
+          "sejm",
+          "transparency"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://iuscase.pl",
+      "id": "7ce69a4694d866a5",
       "name": "Iuscase",
       "url": "https://iuscase.pl",
       "description": "🟣 System C.H.Beck do prowadzenia klientów, spraw, terminów i finansów, w pełni zintegrowany z Portalem Informacyjnym Sądów. 390 zł miesięcznie za trzech użytkowników.",
@@ -1380,7 +1884,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/jaceksmi/polishopendata",
+      "id": "53540b962708c541",
       "name": "JacekSmi/PolishOpenData",
       "url": "https://github.com/jaceksmi/polishopendata",
       "description": "🟢 Biblioteki .NET i serwer MCP do rejestrów publicznych: odpisy z KRS, biała lista VAT ze sprawdzeniem rachunku, działki z ULDK i ceny transakcyjne nieruchomości z GUGiK. Waliduje też bez sieci numery NIP, REGON, KRS, NRB i ksiąg wieczystych.",
@@ -1393,10 +1897,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 102,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-15T11:33:01Z",
+        "last_commit_sha": "9ada75181913d4db48c1e409b9553c5db4131e09",
+        "archived": false,
+        "language": "C#",
+        "github_topics": [
+          "ai-tools",
+          "aot",
+          "biala-lista",
+          "company-registry",
+          "csharp",
+          "dotnet",
+          "due-diligence",
+          "government-api",
+          "krs",
+          "mcp",
+          "mcp-server",
+          "model-context-protocol"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/jakatora/kredyt-ai",
+      "id": "81fdbaa057c3fe2a",
       "name": "jakatora/kredyt-ai",
       "url": "https://github.com/jakatora/kredyt-ai",
       "description": "⚪ Analizuje umowy kredytowe pod prawem polskim.",
@@ -1408,10 +1935,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 129,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-06-15T16:05:08Z",
+        "last_commit_sha": "c5833c244121e2245b9bb8979cb158a8d8cd98b8",
+        "archived": false,
+        "language": "JavaScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/jamarpl21/prawo-pl-eli",
+      "id": "3481c6dc17c3036a",
       "name": "jamarpl21/prawo-pl-eli",
       "url": "https://github.com/jamarpl21/prawo-pl-eli",
       "description": "🟢 Prawo polskie i unijne z oficjalnych źródeł, czyli ELI Sejmu oraz CELLAR i EUR-Lex, wystawione jako agent skills. Od wersji 2.2 (październik 2026) osiem skilli, w tym Portal Orzeczeń MS, dzienniki urzędowe województw, CBOSA, UODO i Centralny Rejestr Umów.",
@@ -1424,10 +1961,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 70,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 22,
+        "forks": 9,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T00:02:26Z",
+        "last_commit_sha": "b21efea53affe72e0a4ba6f08997810d43a4fded",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "law",
+          "poland",
+          "kodeks",
+          "polska",
+          "prawo",
+          "sejm",
+          "ustawa",
+          "agent-skills",
+          "celex",
+          "claude-code",
+          "codex",
+          "eli"
+        ],
+        "contributors": 5
+      }
     },
     {
-      "id": "https://github.com/janisz/sejm-mcp",
+      "id": "0b465129d269a0db",
       "name": "janisz/sejm-mcp",
       "url": "https://github.com/janisz/sejm-mcp",
       "description": "🟢 Wystawia przez MCP i prace Sejmu, i akty prawne: posłów, komisje, głosowania oraz interpelacje z API Sejmu, a dokumenty z bazy ELI. Napisany w Go.",
@@ -1440,10 +2000,26 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 68,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 3,
+        "forks": 0,
+        "open_prs": 4,
+        "last_commit": "2026-04-27T09:11:50Z",
+        "last_commit_sha": "ddae583ec9f63e836a793deb45f3abe7fd1253fe",
+        "archived": false,
+        "language": "Go",
+        "github_topics": [
+          "government",
+          "legal",
+          "legislation",
+          "mcp",
+          "mcp-server"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://jeton.pl/uslugi/system-dla-sygnalisty",
+      "id": "7795978a7acca9a5",
       "name": "Jeton",
       "url": "https://jeton.pl/uslugi/system-dla-sygnalisty",
       "description": "🟣 Kanał zgłoszeń z rejestrem i pilnowaniem terminów, dostarczany jako usługa IT.",
@@ -1459,7 +2035,7 @@
       "metrics": {}
     },
     {
-      "id": "https://huggingface.co/JuDDGES",
+      "id": "d7e18179129effc5",
       "name": "JuDDGES na Hugging Face",
       "url": "https://huggingface.co/JuDDGES",
       "description": "🟡 Korpusy orzeczeń: [`pl-court-raw`](https://huggingface.co/datasets/JuDDGES/pl-court-raw) z pełną treścią wyroków z portalu Ministerstwa Sprawiedliwości wraz z metadanymi oraz [`pl-appealcourt-criminal`](https://huggingface.co/datasets/JuDDGES/pl-appealcourt-criminal) — 6050 wyroków karnych sądów apelacyjnych z lat 2003–2024.",
@@ -1474,7 +2050,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.jurxpert.pl",
+      "id": "23b37b7db04409b4",
       "name": "jurXpert",
       "url": "https://www.jurxpert.pl",
       "description": "🟣 Ma osobne edycje dla małej kancelarii, dużej kancelarii i pionu prawnego firmy: CRM, czas pracy, terminy, Portal Informacyjny, panel klienta.",
@@ -1490,7 +2066,7 @@
       "metrics": {}
     },
     {
-      "id": "https://hww.pl/narzedzia/kalkulator-oplaty-sadowej",
+      "id": "14b3d161e10e1231",
       "name": "Kalkulator opłat sądowych HWW",
       "url": "https://hww.pl/narzedzia/kalkulator-oplaty-sadowej",
       "description": "🟠 Liczy opłatę od pozwu, apelacji, zażalenia i sprzeciwu, podając przepis i stan prawny na wybraną datę. Darmowy.",
@@ -1506,7 +2082,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.stasik-kancelaria.pl/kalkulatory-prawne",
+      "id": "6be389b2b0cf136d",
       "name": "Kalkulatory prawne Stasik",
       "url": "https://www.stasik-kancelaria.pl/kalkulatory-prawne",
       "description": "🟠 Siedem kalkulatorów: dziedziczenie i zachowek, alimenty, DPS, WIBOR, opłata sądowa, test przedsiębiorcy przy B2B, kredyty CHF. Darmowe, bez rejestracji.",
@@ -1522,7 +2098,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/kamilkaczmareksolutions/polish-mcp-servers",
+      "id": "356ec02670455291",
       "name": "kamilkaczmareksolutions/polish-mcp-servers",
       "url": "https://github.com/kamilkaczmareksolutions/polish-mcp-servers",
       "description": "🟢 Serwer MCP z trzynastoma narzędziami: jednym do prawa polskiego i dwunastoma do rejestrów publicznych. ⚠ Kod jest otwarty, ale każde wywołanie uruchamia płatny moduł na koncie Apify użytkownika.",
@@ -1535,10 +2111,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 99,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-11T13:37:15Z",
+        "last_commit_sha": "13daf16bd31fa9d98571b9f003c5f2104aeddd2c",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "apify",
+          "government-data",
+          "legal",
+          "mcp",
+          "mcp-server",
+          "model-context-protocol",
+          "open-data",
+          "poland",
+          "polish-law",
+          "ai-agents",
+          "claude",
+          "cursor"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.wolterskluwer.com/pl-pl/solutions/kancelaria-notarialna",
+      "id": "7a4567f1bd6809bf",
       "name": "Kancelaria Notarialna (Wolters Kluwer)",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/kancelaria-notarialna",
       "description": "🟣 Program dla notariuszy: akty i wypisy, repertorium, wnioski wieczystoksięgowe, raporty GIIF, kalkulator taksy i e-Doręczenia.",
@@ -1554,7 +2153,7 @@
       "metrics": {}
     },
     {
-      "id": "https://kancelariaonline.com.pl",
+      "id": "834f1ab151f4c932",
       "name": "KancelariaOnline",
       "url": "https://kancelariaonline.com.pl",
       "description": "🟣 Prowadzi sprawy, korespondencję z e-Doręczeniami, kalendarz, czas pracy i faktury. Próba przez 30 dni.",
@@ -1570,7 +2169,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/karolpolikarp/isap-scraper",
+      "id": "f8c79b216f40eb71",
       "name": "karolpolikarp/ISAP-scraper",
       "url": "https://github.com/karolpolikarp/isap-scraper",
       "description": "⚪ Pobiera pełne teksty z Dziennika Ustaw i Monitora Polskiego przez API ELI, a śledzone akty trzyma pod obserwacją i melduje zmiany. Ten sam utrzymujący wydaje [Parawan](https://github.com/karolpolikarp/parawan), anonimizator danych osobowych w jednym pliku HTML, który działa w przeglądarce bez połączenia z siecią.",
@@ -1583,10 +2182,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 76,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-06-11T10:26:35Z",
+        "last_commit_sha": "75bca0e12254fafac7560549a2f6f84ed6a20947",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "isap",
+          "legal-tech",
+          "legislation",
+          "poland",
+          "python",
+          "scraper"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/kbchojnacki",
+      "id": "022ecb2d16fc34e2",
       "name": "kbchojnacki",
       "url": "https://github.com/kbchojnacki",
       "description": "⚪ Piętnaście repozytoriów: każdy polski kodeks i Konstytucja jako historia gita, gdzie jeden commit to jedna nowelizacja w dacie wejścia w życie. Polecenie `git blame` na przepisie pokazuje, kiedy zmieniło się brzmienie. Okresu przed pierwszym tekstem jednolitym autor nie cytuje, lecz rekonstruuje — i zaznacza to wprost.",
@@ -1602,7 +2218,7 @@
       "metrics": {}
     },
     {
-      "id": "https://harbor.legal/ai-act",
+      "id": "ee7c3b21236b64bc",
       "name": "Klasyfikacja AI Act (Harbor LEGAL)",
       "url": "https://harbor.legal/ai-act",
       "description": "🟠 Ankieta klasyfikuje systemy AI i tworzy ich inwentarz, checklistę obowiązków i klauzule. Darmowa.",
@@ -1618,7 +2234,7 @@
       "metrics": {}
     },
     {
-      "id": "https://kodexai.pl",
+      "id": "2e6af5739c52fac1",
       "name": "Kodex AI",
       "url": "https://kodexai.pl",
       "description": "🟠 Wyszukuje semantycznie orzeczenia z prawa pracy z SAOS i streszcza je przez AI. Rejestracja jest darmowa.",
@@ -1634,7 +2250,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.komornik-online.eu",
+      "id": "4955cdc9a7a80e09",
       "name": "Komornik Online",
       "url": "https://www.komornik-online.eu",
       "description": "🟣 Platforma wymiany informacji między kancelarią komorniczą a wierzycielami i pełnomocnikami. Płaci komornik.",
@@ -1650,7 +2266,7 @@
       "metrics": {}
     },
     {
-      "id": "https://komornik.it",
+      "id": "7b36e0d6fbad56d4",
       "name": "Komornik.IT",
       "url": "https://komornik.it",
       "description": "🟣 Dodatki do programów komorniczych: skanowanie dokumentów, ePUAP, ZUS, raporty egzekucji i weryfikacja EPU.",
@@ -1666,7 +2282,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/konraddre/precyzyjny-paragraf",
+      "id": "39aebee8ca305b89",
       "name": "konraddre/precyzyjny-paragraf",
       "url": "https://github.com/konraddre/precyzyjny-paragraf",
       "description": "⚪ Odpowiada na pytania tylko z tekstów jednolitych siedmiu kodeksów, od KC po KSH, i pokazuje brzmienie powołanych artykułów. Wyszukiwanie jest hybrydowe, odpowiedź pisze Gemini 2.5 Flash.",
@@ -1678,10 +2294,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 143,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-16T11:14:21Z",
+        "last_commit_sha": "4ca29d0ff6b1038266febc4820befde773613db4",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://kreator.legalgeek.pl",
+      "id": "181beb0eda1f728a",
       "name": "Kreator Legal Geek",
       "url": "https://kreator.legalgeek.pl",
       "description": "🟣 Generuje 26 dokumentów dla e-commerce, od regulaminów sklepu i Allegro po dokumentację RODO i umowę powierzenia, z aktualizacjami przez rok. Od 119 zł.",
@@ -1697,7 +2323,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/krzysztofbogdan/kodeks_cywilny",
+      "id": "11815991e3e5d612",
       "name": "KrzysztofBogdan/Kodeks_cywilny",
       "url": "https://github.com/krzysztofbogdan/kodeks_cywilny",
       "description": "🟢 Trzyma tekst kodeksu cywilnego w repozytorium.",
@@ -1710,10 +2336,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 10,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2015-10-16T12:06:43Z",
+        "last_commit_sha": "157d0b6ec266602181a531f45881de9898e328de",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://ktsoft.pl/oferta/oprogramowanie-do-zarzadzania-firma/kt-sygnalista",
+      "id": "4cf05a2cbb03288d",
       "name": "KT Sygnalista",
       "url": "https://ktsoft.pl/oferta/oprogramowanie-do-zarzadzania-firma/kt-sygnalista",
       "description": "🟣 Kanał zgłoszeń, rejestr, terminy i procedura dla małych i średnich firm. Od 40 zł miesięcznie.",
@@ -1729,7 +2365,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/lachpawel/lethe",
+      "id": "f07a68beea470635",
       "name": "LachPawel/Lethe",
       "url": "https://github.com/lachpawel/lethe",
       "description": "⚪ Łączy wyrażenia regularne na danych strukturalnych z modelem PLLuM na rozpoznawaniu kontekstowym. Obsługuje dwadzieścia cztery kategorie danych i polską fleksję, przez API REST albo wiersz poleceń.",
@@ -1741,10 +2377,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 157,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2025-12-07T04:40:16Z",
+        "last_commit_sha": "d483e7762d30b73eb795bc18fad6b1bf1693257f",
+        "archived": false,
+        "language": "JavaScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/latemigo/transport_skill",
+      "id": "6bb51975629e5d67",
       "name": "LateMigo/transport_skill",
       "url": "https://github.com/latemigo/transport_skill",
       "description": "⚪ Baza wiedzy dla Claude Code z polskiego i unijnego prawa transportu drogowego: CMR, prawo przewozowe, czas pracy kierowców, pakiet mobilności, SENT i ADR, ze skryptem odświeżającym teksty.",
@@ -1756,10 +2402,26 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 140,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-11T18:08:10Z",
+        "last_commit_sha": "6de8c7c3bee17dfb1ee18749c054c1308b663eb9",
+        "archived": false,
+        "language": "Shell",
+        "github_topics": [
+          "ai",
+          "claude-code",
+          "claude-code-skill",
+          "knowledge-base",
+          "transport-law"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/legaion/mcp-verifier",
+      "id": "43b78c76f39b20bb",
       "name": "legaion/mcp-verifier",
       "url": "https://github.com/legaion/mcp-verifier",
       "description": "⚪ Waliduje serwery MCP dla polskiego prawa: dokumentację, schematy narzędzi i zgodność odpowiedzi.",
@@ -1772,10 +2434,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 88,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-09-15T16:11:16Z",
+        "last_commit_sha": "a010b06bc791dcf514644b8103f2a1e8c9bdbb4a",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "eur-lex",
+          "legal-citations",
+          "legaltech",
+          "mcp",
+          "mcp-server",
+          "poland"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://legal-ai.pl",
+      "id": "b40b5da377451022",
       "name": "Legal AI",
       "url": "https://legal-ai.pl",
       "description": "🟣 Analizuje umowy, wstawiając komentarze w pliku, szuka orzecznictwa, aktów i interpretacji podatkowych z cytowaniami. Rozliczenie według kosztu modelu.",
@@ -1791,7 +2470,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.wolterskluwer.com/pl-pl/solutions/legaldesk",
+      "id": "dd6766fee3ee5a6b",
       "name": "LegalDesk (Wolters Kluwer)",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/legaldesk",
       "description": "🟣 Prowadzi sprawy, czas pracy i kalendarz, pobiera dane z Portalu Informacyjnego i e-Doręczeń, a szablony pism łączy z LEX.",
@@ -1807,7 +2486,7 @@
       "metrics": {}
     },
     {
-      "id": "https://legalis.pl",
+      "id": "a73cbe8bac8bc2f8",
       "name": "Legalis",
       "url": "https://legalis.pl",
       "description": "🟣 System informacji prawnej C.H.Beck: akty, orzecznictwo, komentarze i czasopisma. Próba przez 7 dni.",
@@ -1823,7 +2502,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/legalize-dev/legalize-pl",
+      "id": "02974dd94593e236",
       "name": "legalize-dev/legalize-pl",
       "url": "https://github.com/legalize-dev/legalize-pl",
       "description": "⚪ Polskie ustawodawstwo w Markdown, gdzie każda ustawa to plik, a każda nowelizacja to commit. Polska edycja [międzynarodowego projektu](https://github.com/legalize-dev) obejmującego 32 jurysdykcje, więc te same przepisy da się porównywać między krajami w jednym formacie.",
@@ -1836,10 +2515,22 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 55,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 11,
+        "forks": 2,
+        "open_prs": 0,
+        "last_commit": "2026-06-23T18:32:40Z",
+        "last_commit_sha": "6c0a7be3dc30bc3522b44afb6bee140f5ef4e5d0",
+        "archived": false,
+        "language": null,
+        "github_topics": [
+          "legalize-country"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://legalkanban.pl",
+      "id": "66502c3f0b26972d",
       "name": "LegalKanban",
       "url": "https://legalkanban.pl",
       "description": "🟣 Prowadzi kancelarię na tablicy Kanban, od oferty po sprawę, z terminami procesowymi i portalem klienta. Asystent AI streszcza akta i pokazuje obciążenie zespołu. Próba przez 30 dni.",
@@ -1855,7 +2546,7 @@
       "metrics": {}
     },
     {
-      "id": "https://legalraty.pl",
+      "id": "5b92514372e168a5",
       "name": "LegalRaty",
       "url": "https://legalraty.pl",
       "description": "🟣 Bramka płatności dla kancelarii: raty do 60 miesięcy albo płatność odroczona o 30 dni.",
@@ -1871,7 +2562,7 @@
       "metrics": {}
     },
     {
-      "id": "https://legalspot.pl",
+      "id": "36a1740d368d26ad",
       "name": "Legalspot",
       "url": "https://legalspot.pl",
       "description": "🟣 Przyjmuje zlecenia prawne z biznesu przez Outlooka, Teams i formularze, a do tego daje szablony, podpis eIDAS, rejestry i bazę wiedzy. Pilotaż przez 60 dni.",
@@ -1887,7 +2578,7 @@
       "metrics": {}
     },
     {
-      "id": "https://legavi.pl",
+      "id": "d515123df22e48c1",
       "name": "Legavi",
       "url": "https://legavi.pl",
       "description": "🟠 Wyszukiwarka zweryfikowanych prawników z rezerwacją konsultacji online albo w kancelarii. Dla klienta darmowa.",
@@ -1903,7 +2594,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.legitask.pl",
+      "id": "ef00738f7a86abce",
       "name": "Legitask",
       "url": "https://www.legitask.pl",
       "description": "🟣 Obsługuje sprawy, dokumenty, zadania w kalendarzu i na tablicy Kanban, czas pracy i rozliczenia. 100 zł miesięcznie za jednoczesny dostęp.",
@@ -1919,7 +2610,7 @@
       "metrics": {}
     },
     {
-      "id": "https://leksio.pl",
+      "id": "d69422c4abf21dae",
       "name": "Leksio",
       "url": "https://leksio.pl",
       "description": "🟠 System informacji prawnej nad aktami, orzeczeniami i interpretacjami podatkowymi ze źródeł urzędowych, z podsumowaniami wyszukiwania AI i konektorem MCP. Plan darmowy po zalogowaniu daje pięć dokumentów dziennie; SIP Pro kosztuje 49,99 zł, a SIP Pro+ 99,99 zł brutto miesięcznie.",
@@ -1935,7 +2626,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/leniwyposel/sejm-mcp",
+      "id": "3e65e0911d22f49d",
       "name": "leniwyposel/sejm-mcp",
       "url": "https://github.com/leniwyposel/sejm-mcp",
       "description": "🟢 Serwer MCP do API Sejmu i bazy aktów prawnych ELI.",
@@ -1948,10 +2639,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 67,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 4,
+        "last_commit": "2026-10-12T07:14:36Z",
+        "last_commit_sha": "3316ad1b34bd640e588970b21a9a3a27e093e576",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "mcp",
+          "model-context-protocol",
+          "open-data",
+          "parliament",
+          "poland",
+          "sejm"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://leolex.ai",
+      "id": "26df42e151d3d072",
       "name": "LEOLEX AI",
       "url": "https://leolex.ai",
       "description": "🟣 Aplikacja desktopowa, w której pliki zostają na komputerze: tabele AI, edytor, wybór modelu i własny język zapytań. 149,99 zł miesięcznie.",
@@ -1967,7 +2675,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.lex.pl",
+      "id": "67efc7a302222d5c",
       "name": "LEX",
       "url": "https://www.lex.pl",
       "description": "🟣 System informacji prawnej Wolters Kluwer z modułami AI. Próba przez 14 dni.",
@@ -1983,7 +2691,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexai.pl",
+      "id": "6ac53cdf7fb0ecba",
       "name": "LEX AI",
       "url": "https://lexai.pl",
       "description": "🟣 Czat o polskim prawie z analizą dokumentów. Odpowiedź można przekazać prawnikowi do weryfikacji albo zamówić opinię. Inna firma niż LEX Wolters Kluwer. Od 49 zł miesięcznie.",
@@ -1999,7 +2707,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexhub.tech/aplikacja-legaltech/29-lex-edytor",
+      "id": "24fcad2f77c02689",
       "name": "LEX Edytor",
       "url": "https://lexhub.tech/aplikacja-legaltech/29-lex-edytor",
       "description": "🟣 Wtyczka do Worda: linkuje przepisy i orzeczenia do LEX, sprawdza aktualność przepisów i importuje treści. Wymaga LEX.",
@@ -2015,7 +2723,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.wolterskluwer.com/pl-pl/solutions/lex/expert-ai/dlaczego-lex-expert-ai",
+      "id": "390ad47275a90618",
       "name": "LEX Expert AI",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/lex/expert-ai/dlaczego-lex-expert-ai",
       "description": "🟣 Czat Wolters Kluwer odpowiadający wyłącznie na podstawie treści LEX, z linkami do źródeł. W pakietach LEX.",
@@ -2031,7 +2739,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.lex.pl/produkty/lex-ochrona-danych-osobowych,561435.html",
+      "id": "96a644cc47ccde59",
       "name": "LEX Ochrona Danych Osobowych",
       "url": "https://www.lex.pl/produkty/lex-ochrona-danych-osobowych,561435.html",
       "description": "🟣 Baza wiedzy o RODO z narzędziem GDPR Risk Tracker do oceny ryzyka.",
@@ -2047,7 +2755,7 @@
       "metrics": {}
     },
     {
-      "id": "https://play.google.com/store/apps/details?id=pl.smarteducation.hrcode",
+      "id": "742aceb5f6f6572d",
       "name": "Lex Testy",
       "url": "https://play.google.com/store/apps/details?id=pl.smarteducation.hrcode",
       "description": "🟣 Aplikacja Wolters Kluwer z ponad 10 tysiącami pytań, zintegrowana z LEX Student.",
@@ -2063,7 +2771,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lex-gpt.pl",
+      "id": "b17dfc3dc236bf96",
       "name": "Lex-GPT",
       "url": "https://lex-gpt.pl",
       "description": "🟠 Analiza prawna na kredytach: research, pełna analiza i projekt dokumentu kosztują od 1 do 5 kredytów, a tryb podstawowy nie zużywa ich wcale. Plan Free daje 10 kredytów dziennie, Start kosztuje 59 zł, a Pro 179 zł brutto miesięcznie. Strona jest jeszcze w fazie testów i wpuszcza po haśle.",
@@ -2079,7 +2787,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/lex-gpt/lex-mcp-plugin",
+      "id": "b55560f2ad124d61",
       "name": "lex-gpt/lex-mcp-plugin",
       "url": "https://github.com/lex-gpt/lex-mcp-plugin",
       "description": "🟠 Wtyczka do indeksu Lex MCP z przepisami, orzeczeniami, interpretacjami podatkowymi i regulacjami zawodowymi, ze skillem do researchu. Wymaga konta Lex-GPT z limitami planu; licencja MIT obejmuje tylko pliki wtyczki, nie serwer.",
@@ -2092,10 +2800,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 98,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-24T13:31:36Z",
+        "last_commit_sha": "9307bea66de41595633a2f16a87d27f007bf5521",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://lexaflow.pl",
+      "id": "5d985312e9dbc4e2",
       "name": "LexaFlow",
       "url": "https://lexaflow.pl",
       "description": "🟠 Sporządza raport ryzyk z umowy najmu, kredytu albo umowy o pracę. Jedna analiza na 90 dni za darmo, kolejne 34,99 zł. Przetwarza dane przez OpenAI.",
@@ -2111,7 +2829,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexalpha.pl",
+      "id": "a708bf16b0c4806e",
       "name": "LexAlpha",
       "url": "https://lexalpha.pl",
       "description": "🟣 Pisze projekty pism procesowych bez promptowania, korzysta z bazy ponad miliona orzeczeń, tworzy i sprawdza umowy.",
@@ -2127,7 +2845,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/LexaurinTheDog",
+      "id": "4c08095ef9d6f7a7",
       "name": "LexaurinTheDog",
       "url": "https://github.com/LexaurinTheDog",
       "description": "🟢 106 komentarzy do polskich ustaw, artykuł po artykule, w tym kodeks cywilny, karny, karny skarbowy, prawo o adwokaturze, AML i cyberbezpieczeństwo. Brzmienie przepisów przeniesione dosłownie z Dziennika Ustaw wraz z odnośnikami tekstu jednolitego. ⚠ Autor zaznacza wprost, że komentarz powstał wyłącznie z urzędowego tekstu aktu, bez baz komercyjnych, a orzecznictwo nie jest jeszcze jego częścią — to nie zastępuje komentarza z linią orzeczniczą.",
@@ -2143,7 +2861,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexedit.ai/pl",
+      "id": "6e461d507bddb0d7",
       "name": "Lexedit",
       "url": "https://lexedit.ai/pl",
       "description": "🟠 Agent researchu: przeszukuje orzecznictwo i ustawy, weryfikuje cytaty, pisze projekty pozwów i apelacji. Ma dodatek do Worda i pseudonimizację. 10 zapytań za darmo, potem od 149 zł miesięcznie.",
@@ -2159,7 +2877,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/lexifina/poland-law",
+      "id": "49a9869ae08eef19",
       "name": "lexifina/poland-law",
       "url": "https://github.com/lexifina/poland-law",
       "description": "🟢 Polskie prawo jako historia gita, w której autorem commitu jest akt zmieniający, a datą dzień wejścia zmiany w życie, więc `git blame` pokazuje, który akt nadał brzmienie danemu ustępowi. Konstytucja, ustawa o obywatelstwie i kodeksy mają pełną historię, pozostałe obowiązujące ustawy są w obecnym brzmieniu. Brzmienie przepisu na dzień daje jeden skrypt.",
@@ -2172,10 +2890,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 62,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 7,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-16T19:15:26Z",
+        "last_commit_sha": "22847758d99506d650f7c28f1cbfb3af7b860af6",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "git",
+          "law",
+          "legal-tech",
+          "legislation",
+          "open-data",
+          "poland"
+        ],
+        "contributors": 165142
+      }
     },
     {
-      "id": "https://lexlege.pb.pl/system-informacji-prawnej",
+      "id": "35bacf77113ff1d6",
       "name": "LexLege",
       "url": "https://lexlege.pb.pl/system-informacji-prawnej",
       "description": "🟣 Ujednolicone teksty ustaw, kodeksów i rozporządzeń od wydawcy Pulsu Biznesu.",
@@ -2191,7 +2926,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexodi.com/pl",
+      "id": "3b4c556cded3fbbc",
       "name": "Lexodi",
       "url": "https://lexodi.com/pl",
       "description": "🟣 Z formularzy tworzy umowy, wezwania, pozwy o zapłatę, alimenty i ustalenie ojcostwa oraz dokumenty kadrowe i spółkowe.",
@@ -2207,7 +2942,7 @@
       "metrics": {}
     },
     {
-      "id": "https://lexpilot.app",
+      "id": "e34bf502f5d86750",
       "name": "LexPilot",
       "url": "https://lexpilot.app",
       "description": "🟣 Zestaw kancelarii Kantorowski, Głąb i Wspólnicy: dodatek do Worda, bramki MCP do źródeł prawa, orzecznictwa i rejestrów dla Claude Desktop (OLA, OLA Plus), easyEPU do pozwów w EPU i pseudonimizacja Anonimio. Licencje na stanowiska, próba przez 14 dni. Darmowy CSM for Word jest w [głównym katalogu](README.md).",
@@ -2223,7 +2958,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.lextool.pl",
+      "id": "edbf045e3753963c",
       "name": "LexTool",
       "url": "https://www.lextool.pl",
       "description": "🟣 Przygotowuje szkice pism procesowych i umów, analizuje ryzyka, porównuje wersje dokumentów. Od 249 zł miesięcznie, próba przez 7 dni.",
@@ -2239,7 +2974,7 @@
       "metrics": {}
     },
     {
-      "id": "https://libratech.ai",
+      "id": "172c11878a7e7504",
       "name": "Libra (Wolters Kluwer)",
       "url": "https://libratech.ai",
       "description": "🟣 Workspace AI do researchu, redagowania i przeglądu dokumentów, od października 2026 jako dodatek do LEX.",
@@ -2255,7 +2990,7 @@
       "metrics": {}
     },
     {
-      "id": "https://litilex.pl",
+      "id": "1d4549c7935fe388",
       "name": "Litilex",
       "url": "https://litilex.pl",
       "description": "🟣 Digitalizuje akta i daje do nich dostęp mobilny. Przeznaczony dla kancelarii prowadzących sprawy masowe.",
@@ -2271,7 +3006,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/lk-technology/prawnik-mcp",
+      "id": "7f81857ad8467c33",
       "name": "LK-Technology/prawnik-mcp",
       "url": "https://github.com/lk-technology/prawnik-mcp",
       "description": "🟢 Serwer MCP, który podaje brzmienie przepisu na wskazany dzień z ELI Sejmu i EUR-Lex oraz orzeczenia z SAOS, SN, TK, KIO, UODO, EUREKI i CBOSA. Zanim asystent odpowie, sprawdza każdy cytat w źródle; zmyślony fragment blokuje eksport pisma.",
@@ -2284,10 +3019,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 89,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 3,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-22T18:40:19Z",
+        "last_commit_sha": "d1e0f31e124d3916dfafe39a758d6e0252795a81",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 0
+      }
     },
     {
-      "id": "https://logitflow.pl",
+      "id": "30e8db9d80e29dc6",
       "name": "LOGiT FLOW",
       "url": "https://logitflow.pl",
       "description": "🟣 Platforma do dokumentów prawnych: OCR, anonimizacja, transkrypcja nagrań i porównywanie wersji. Od 299 zł miesięcznie, próba przez 7 dni.",
@@ -2303,7 +3048,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/luzgan/lupa-na-prawo",
+      "id": "09d2e74306ccd881",
       "name": "Luzgan/lupa-na-prawo",
       "url": "https://github.com/luzgan/lupa-na-prawo",
       "description": "⚪ Przeszukuje prawo polskie semantycznie i śledzi prace Sejmu oraz Senatu, jako serwer MCP.",
@@ -2316,10 +3061,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 74,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 1,
+        "open_prs": 0,
+        "last_commit": "2026-04-09T16:49:05Z",
+        "last_commit_sha": "47632fd50997b905ea45c146ec5fa02d1882f5c2",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/maciejklepacki/mama_anonimizacja",
+      "id": "c3b8091c09ba8c35",
       "name": "MaciejKlepacki/mama_anonimizacja",
       "url": "https://github.com/maciejklepacki/mama_anonimizacja",
       "description": "⚪ Zamienia DOCX i PDF z warstwą tekstową na Markdown z placeholderami, na Presidio i spaCy. Każde trafienie ma poziom pewności, a wątpliwe zatwierdza człowiek. Rozpoznaje też numery działek, ksiąg wieczystych i znaki spraw.",
@@ -2331,10 +3086,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 161,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-22T22:08:26Z",
+        "last_commit_sha": "72366c15de53b725a85c35b2bd3ac2c3378f48e6",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/marduk112/rag-lora---kadry-i-place",
+      "id": "5470f3325c1d495c",
       "name": "marduk112/RAG-LoRA---kadry-i-place",
       "url": "https://github.com/marduk112/rag-lora---kadry-i-place",
       "description": "🟢 Asystent kadrowo-płacowy działający lokalnie: Bielik dostrojony przez LoRA, a fakty z przepisów o pracy, ZUS, PIT i PPK dobiera wyszukiwanie w pobranych ustawach. Dziennik budowy opisuje pułapki krok po kroku.",
@@ -2346,10 +3111,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 142,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-17T20:01:24Z",
+        "last_commit_sha": "79ecb7fc6d8cc25ca4e3750943b95d11ceee8922",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/marianwitkowski/generator-umow-o-dzielo",
+      "id": "5516aad4572b008d",
       "name": "marianwitkowski/generator-umow-o-dzielo",
       "url": "https://github.com/marianwitkowski/generator-umow-o-dzielo",
       "description": "⚪ Skill dla Claude Code, który z opisu w rozmowie składa komplet do umowy o dzieło z przeniesieniem praw do programu komputerowego: umowę ze specyfikacją i kryteriami odbioru, protokół odbioru i rachunek z wyliczeniem kosztów, zaliczki i składek, w jednym PDF. Działa też bez Claude, jako skrypt.",
@@ -2361,10 +3136,31 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 133,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-03T13:05:09Z",
+        "last_commit_sha": "68b1d3962962fd2027915b7f66f6ea5f0023e67c",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [
+          "claude-code",
+          "claude-skill",
+          "contract-generator",
+          "freelance",
+          "pdf-generator",
+          "poland",
+          "polish-law",
+          "python",
+          "prawo-autorskie",
+          "umowa-o-dzielo"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/matematicsolutions",
+      "id": "4c24829d5bedf0b8",
       "name": "matematicsolutions",
       "url": "https://github.com/matematicsolutions",
       "description": "🟢 Seria serwerów MCP z weryfikowalnymi cytowaniami: SAOS, NSA i szesnaście WSA przez CBOSA, KIO, KRS, Dziennik Ustaw z Monitorem Polskim oraz interpretacje podatkowe z EUREKI. Wydaje też silnik anonimizacji, serwer nad korpusem legalize, infrastrukturę wiedzy prawnej *Repertorium oraz dwa huby skilli prawniczych, polski i angielski. Ten sam autor utrzymuje konektory ELI dla Niemiec, Francji, Holandii, Słowacji, Turcji, USA i Singapuru.",
@@ -2380,7 +3176,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/matematicsolutions/patron",
+      "id": "d1d37ef9d35b091e",
       "name": "matematicsolutions/patron",
       "url": "https://github.com/matematicsolutions/patron",
       "description": "🟢 Agent dla kancelarii do samodzielnego hostowania. Prowadzi ślad audytowy w łańcuchu skrótów pod art. 12 AI Act, korzysta z własnego modelu i ma dziewięć edycji językowych. Ten sam utrzymujący wydaje pakiety skilli prawniczych, warstwę weryfikacji wyjścia modelu i ocenę gotowości kancelarii na AI.",
@@ -2418,7 +3214,7 @@
       }
     },
     {
-      "id": "https://github.com/matgier/orzeczenia-tezy-dashboard",
+      "id": "d10e90f446d1efdc",
       "name": "matgier/orzeczenia-tezy-dashboard",
       "url": "https://github.com/matgier/orzeczenia-tezy-dashboard",
       "description": "⚪ Porównuje, jak Gemma 4 31B, Qwen3 32B i Bielik 11B v3 wydobywają tezy z uzasadnień orzeczeń, z walidatorem dziewięciu kryteriów. Obok stoi wyszukiwarka 262 orzeczeń z 1196 potwierdzonymi tezami i graf tez z siecią cytowań SAOS.",
@@ -2430,10 +3226,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 179,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-22T12:29:39Z",
+        "last_commit_sha": "66250559b91c37653bab5a74dea635d49a8acb2d",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
+      "id": "899cf51dd97847db",
       "name": "mattttttttttyyyy/prawo-pl-plugin",
       "url": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
       "description": "🔵 Wtyczka do bezpłatnego serwera [polskie-prawo.app](https://polskie-prawo.app), który nie wymaga konta: wyszukuje przepisy po znaczeniu, podaje brzmienie artykułu na wskazany dzień i historię jego zmian z różnicami. Sama wtyczka ma licencję na bezpłatne używanie, ze źródłem dostępnym, ale nie otwartym.",
@@ -2446,10 +3252,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 96,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-25T09:28:56Z",
+        "last_commit_sha": "c3cffe97712575cea023925490c51c7887287ad3",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://mecenas.ai",
+      "id": "109f8c2b07c7e457",
       "name": "Mecenas.ai",
       "url": "https://mecenas.ai",
       "description": "🟣 Daje podstawową informację prawną i pomaga przygotować się do wizyty u prawnika. Próba przez 7 dni. Ten sam operator prowadzi Prawniczkę.ai z wzorami pism.",
@@ -2465,7 +3281,7 @@
       "metrics": {}
     },
     {
-      "id": "https://mecenasit.pl",
+      "id": "dc7c09dd5c18c28f",
       "name": "Mecenas.iT",
       "url": "https://mecenasit.pl",
       "description": "🟣 Prowadzi klientów, zadania, czas pracy i faktury, z integracją z Portalem Informacyjnym, EPU i e-Nadawcą. Od 89 zł za użytkownika miesięcznie. Producent wydaje też Syndyk.iT dla syndyków.",
@@ -2481,7 +3297,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.mgbi.pl/produkty/rejestry-publiczne-api",
+      "id": "4950d373d36af764",
       "name": "MGBI Rejestry publiczne API",
       "url": "https://www.mgbi.pl/produkty/rejestry-publiczne-api",
       "description": "🟣 Udostępnia przez API dane z KRS, CEIDG, CRBR, KRZ, białej listy i list sankcyjnych.",
@@ -2497,7 +3313,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/mhajder/pyekw",
+      "id": "d6c79dc3dcc4cdce",
       "name": "mhajder/pyekw",
       "url": "https://github.com/mhajder/pyekw",
       "description": "🟢 Biblioteka Pythona do numerów ksiąg wieczystych: sprawdza cyfrę kontrolną i kod wydziału z wykazu ponad 350 sądów, wyłuskuje numery z tekstu i podpowiada poprawny numer przy literówce. Nie ma zależności.",
@@ -2509,10 +3325,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 136,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 2,
+        "last_commit": "2026-11-02T18:19:41Z",
+        "last_commit_sha": "18ad6fab138a51928c8cd5b0cf79550549ea7ec7",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "ekw",
+          "land-registry",
+          "poland",
+          "utilities",
+          "validation",
+          "check-digit",
+          "polish",
+          "python",
+          "python-library",
+          "typed",
+          "ksiegi-wieczyste",
+          "kw-number"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/michaleiatrak-star/lex-machina",
+      "id": "4f2a16c76670ff57",
       "name": "michaleiatrak-star/Lex-Machina",
       "url": "https://github.com/michaleiatrak-star/lex-machina",
       "description": "🟢 Analizuje prawo i umowy, przygotowuje pisma procesowe i ocenia ryzyka w szesnastu dziedzinach prawa. Zabrania cytowania przepisów z pamięci. Istnieje [port na OpenAI Codex](https://github.com/tittlepl-baj-jk/Lex-Machina-for-OpenAI-Codex), a od września 2026 także [aplikacja desktopowa](https://github.com/michaleiatrak-star/Lex-machina-aplikacja) w Tauri, z kodem zastrzeżonym.",
@@ -2524,10 +3363,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 114,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 328,
+        "forks": 60,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T12:23:52Z",
+        "last_commit_sha": "0850c2e2ee20a23374570f698f4fa004b96ec537",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "analiza",
+          "b2b",
+          "kancelaria",
+          "legal",
+          "polskie",
+          "prawo",
+          "tech",
+          "umowy",
+          "adwokaci",
+          "porozumienie",
+          "pozew",
+          "prawna"
+        ],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/mikolaj92/anonimizator3000",
+      "id": "7a7596bcdc52098d",
       "name": "mikolaj92/anonimizator3000",
       "url": "https://github.com/mikolaj92/anonimizator3000",
       "description": "🟢 Portal do lokalnej anonimizacji dokumentów: Presidio z polskimi walidatorami i opcjonalnym modelem GLiNER. Ostatni krok usuwa tożsamość autorów z metadanych DOCX.",
@@ -2539,10 +3401,28 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 162,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 1,
+        "open_prs": 4,
+        "last_commit": "2026-10-24T00:19:31Z",
+        "last_commit_sha": "5cde7b2d4162eaa51b082201403f43e6af309e51",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anonymization",
+          "fastapi",
+          "htmx",
+          "pii",
+          "polish",
+          "presidio",
+          "uv"
+        ],
+        "contributors": 6
+      }
     },
     {
-      "id": "https://github.com/MikolekN",
+      "id": "59c2d64aed406afd",
       "name": "MikolekN",
       "url": "https://github.com/MikolekN",
       "description": "🟢⚪ Dwa narzędzia do formatu schemaPL: [legal-act-to-xml](https://github.com/MikolekN/legal-act-to-xml) przerabia akt prawny z DOCX na XML w tym schemacie, a [schemapl-visualizer](https://github.com/MikolekN/schemapl-visualizer) robi z XML interaktywny HTML albo PDF w układzie Dziennika Ustaw, także w wersji dostępnej PDF/UA z dużym drukiem.",
@@ -2558,7 +3438,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/miskibin",
+      "id": "9034536c9520a709",
       "name": "miskibin",
       "url": "https://github.com/miskibin",
       "description": "⚪ [Asystent RP](https://github.com/miskibin/asystent-rp) odpowiada obywatelom na pytania o prawo polskie i działa publicznie pod adresem chat.sejm-stats.pl. [Tygodnik sejmowy](https://github.com/miskibin/tygodnik-sejmowy) streszcza, co dzieje się w Sejmie. Oba korzystają z danych sejm-stats, które opisujemy w [ARCHIWUM.md](ARCHIWUM.md).",
@@ -2573,7 +3453,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/miskibin/sejm-stats",
+      "id": "4c01520b28b34ac0",
       "name": "miskibin/sejm-stats",
       "url": "https://github.com/miskibin/sejm-stats",
       "description": "⚪ Zbiera dane o pracach Sejmu i udostępnia je jako serwis. Korzysta z nich Asystent RP.",
@@ -2586,10 +3466,27 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 12,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 41,
+        "forks": 1,
+        "open_prs": 4,
+        "last_commit": "2025-04-09T12:29:40Z",
+        "last_commit_sha": "fa5f9b11e70b44bfd07b362ef3f2d8a69ea904f7",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "django",
+          "nextjs",
+          "parliament",
+          "react",
+          "tailwind",
+          "website"
+        ],
+        "contributors": 5
+      }
     },
     {
-      "id": "https://github.com/mtylewski/dora",
+      "id": "be696f03ce428db7",
       "name": "mTylewski/dora",
       "url": "https://github.com/mtylewski/dora",
       "description": "⚪ Sprawy o kary umowne za opóźnienie dewelopera: z umowy, aneksów i protokołu odbioru wyciąga terminy, cenę i stawkę kary, każdą wartość z cytatem i numerem strony, a karę liczy deterministyczny kod z testami. Flaguje klauzule abuzywne i składa wezwanie do zapłaty w DOCX na szablonie kancelarii; PDF jest anonimizowany w przeglądarce, zanim opuści komputer.",
@@ -2601,10 +3498,32 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 132,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-16T17:19:49Z",
+        "last_commit_sha": "dcdc99efbfcb55ba5380523b20be283d88fcbd26",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anthropic",
+          "claude",
+          "cloudflare-workers",
+          "fastapi",
+          "legal-tech",
+          "llm",
+          "ocr",
+          "pii-anonymization",
+          "python",
+          "structured-outputs",
+          "typescript"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://mycroftsolutions.ai/pl",
+      "id": "86eb0fb044ccd466",
       "name": "Mycroft Sweeper",
       "url": "https://mycroftsolutions.ai/pl",
       "description": "🟣 Lokalnie anonimizuje PDF-y i skany polskimi modelami AI.",
@@ -2620,7 +3539,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/nalegaluorg/nalegalu",
+      "id": "3f88cc29dba1491c",
       "name": "nalegaluorg/nalegalu",
       "url": "https://github.com/nalegaluorg/nalegalu",
       "description": "🟢 Zestawia akty z Dziennika Ustaw w Markdown z orzecznictwem z bazy SAOS. Przy każdym akcie stoi liczba powiązanych orzeczeń, więc od razu widać, które ustawy sądy cytują najczęściej. Osobna strona pod adresem [nalegalu.org](https://nalegalu.org).",
@@ -2633,10 +3552,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 60,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 17,
+        "forks": 6,
+        "open_prs": 0,
+        "last_commit": "2026-07-13T17:26:30Z",
+        "last_commit_sha": "9186e1f0bc6e889a3ecdbe6fe6d2cfce7212078a",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/nataliazych/anonimizacja_danych",
+      "id": "50710d24eb39a730",
       "name": "NataliaZych/anonimizacja_danych",
       "url": "https://github.com/nataliazych/anonimizacja_danych",
       "description": "🟢 Anonimizuje polskie umowy na dwa sposoby: przepływem n8n na wyrażeniach regularnych albo lokalnym modelem językowym w LM Studio. Wynik zapisuje w TXT, Markdown i JSON, gotowy do przekazania modelowi.",
@@ -2648,10 +3577,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 164,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-26T07:59:41Z",
+        "last_commit_sha": "b8c62079aa6a3a6e0827864b822001afc846102a",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/numikel/law-scrapper-mcp",
+      "id": "4a7b1de3c35668cd",
       "name": "numikel/law-scrapper-mcp",
       "url": "https://github.com/numikel/law-scrapper-mcp",
       "description": "⚪ Pobiera i analizuje akty prawne przez API Sejmu, jako serwer MCP.",
@@ -2677,7 +3616,7 @@
       }
     },
     {
-      "id": "https://github.com/obywateltb/prawmi-mcp",
+      "id": "cbb883c275b4f65c",
       "name": "ObywatelTB/prawmi-mcp",
       "url": "https://github.com/obywateltb/prawmi-mcp",
       "description": "🟢 Lokalna nakładka stdio na zdalny serwer PrawMi, udostępniająca polskie akty prawne.",
@@ -2690,10 +3629,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 69,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-09-04T12:57:09Z",
+        "last_commit_sha": "1a65a3df8dd71d74865f9311e34d225a36d0f4bc",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "legal",
+          "mcp",
+          "model-context-protocol",
+          "poland",
+          "polish-law",
+          "prawo"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://odo24.pl/odo-nawigator",
+      "id": "5984a1c7c56588bb",
       "name": "ODO Nawigator",
       "url": "https://odo24.pl/odo-nawigator",
       "description": "🟣 Rejestry i dokumentacja RODO od ODO 24. Ten sam dostawca ma Dr RODO do audytu i oceny skutków.",
@@ -2709,7 +3665,7 @@
       "metrics": {}
     },
     {
-      "id": "https://omniasi.pl",
+      "id": "f14423f7ac96330c",
       "name": "OmniaSI",
       "url": "https://omniasi.pl",
       "description": "🟠 Asystent researchu na publicznych bazach (ISAP/ELI, EUR-Lex, SAOS, CBOSA): odpowiada z cytatami, wskazuje nowelizacje spoza tekstów jednolitych i ocenia umowę fragment po fragmencie. 10 pytań za darmo, Pro od 149 zł miesięcznie, wersja lokalna bez internetu na wycenę.",
@@ -2725,7 +3681,7 @@
       "metrics": {}
     },
     {
-      "id": "https://omnilexia.com/pl",
+      "id": "f1400bd003d49882",
       "name": "Omnilexia",
       "url": "https://omnilexia.com/pl",
       "description": "🟣 Prowadzi research na dokumentach użytkownika, podaje cytaty z orzecznictwa i przygotowuje projekty pism.",
@@ -2741,7 +3697,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/operatorit/polish_law_updates_notifier",
+      "id": "2313c71433a7eefe",
       "name": "operatorit/Polish_law_updates_notifier",
       "url": "https://github.com/operatorit/polish_law_updates_notifier",
       "description": "⚪ Automat N8N, który powiadamia o nowelizacjach wybranych aktów.",
@@ -2754,10 +3710,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 75,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2025-12-10T22:41:11Z",
+        "last_commit_sha": "be4e733d1d163c5759e9a5256a1e65e3430b1d10",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://orzeczenia.uzp.gov.pl",
+      "id": "359d489dbf98f854",
       "name": "Orzeczenia KIO",
       "url": "https://orzeczenia.uzp.gov.pl",
       "description": "🔵 Udostępnia wyroki Krajowej Izby Odwoławczej w sprawach zamówień publicznych.",
@@ -2773,7 +3739,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/otwarteprawo-pl/claude-plugins",
+      "id": "0aac354cfaeb4c10",
       "name": "otwarteprawo-pl/claude-plugins",
       "url": "https://github.com/otwarteprawo-pl/claude-plugins",
       "description": "🔵 Wtyczka do Claude Code dla serwera [otwarteprawo.pl](https://www.otwarteprawo.pl): brzmienie przepisu na wskazany dzień z linkiem do PDF Dziennika Ustaw albo Monitora Polskiego oraz trzy skille, do badania przepisu, sprawdzania cytowań w projekcie pisma i ustalania brzmienia z dnia zdarzenia. Klucz API jest bezpłatny, z dziennym limitem wywołań; sama wtyczka nie ma licencji.",
@@ -2786,10 +3752,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 101,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-12T02:49:04Z",
+        "last_commit_sha": "4aa23ad8cd0ca4aee45775e0029f4f0e07599890",
+        "archived": false,
+        "language": null,
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://panelsygnalisty.pl",
+      "id": "55a8bb0720d8592d",
       "name": "Panel Sygnalisty",
       "url": "https://panelsygnalisty.pl",
       "description": "🟣 Szyfrowane end-to-end zgłoszenia z numerem, potwierdzeniami PDF i alertami terminów. Od 2400 zł rocznie.",
@@ -2805,7 +3781,7 @@
       "metrics": {}
     },
     {
-      "id": "https://papugo.ai",
+      "id": "73f8e2d7ca824f07",
       "name": "PAPUGO.AI",
       "url": "https://papugo.ai",
       "description": "🟠 Darmowy czat odpowiadający na pytania z prawa cywilnego, karnego, handlowego i RODO. Projekt studencki.",
@@ -2821,7 +3797,7 @@
       "metrics": {}
     },
     {
-      "id": "https://parafka.ai",
+      "id": "7573615e50d9ac5a",
       "name": "Parafka.ai",
       "url": "https://parafka.ai",
       "description": "🟠 Skanuje klauzule umów B2B, najmu i pracy z podstawą prawną z ELI i maskuje dane osobowe. W fazie przedpremierowej dziesięć analiz jest darmowych.",
@@ -2837,7 +3813,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/paszkiewiczmichal/poufnik",
+      "id": "57846c1ab4925395",
       "name": "paszkiewiczmichal/poufnik",
       "url": "https://github.com/paszkiewiczmichal/poufnik",
       "description": "🟢🟠 Aplikacja desktopowa w Tauri z silnikiem Presidio jako sidecar. Wczytuje PDF, DOCX i skany, rozpoznaje tekst lokalnie, pozwala przejrzeć każde wykrycie i eksportuje dokument z odwracalnymi tokenami. Poziom Basic jest darmowy i nie wymaga konta. Ten sam utrzymujący wydaje [skille dla Claude Code zoptymalizowane pod polszczyznę](https://github.com/paszkiewiczmichal/claude-skills-pl).",
@@ -2849,10 +3825,28 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 153,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-17T01:55:00Z",
+        "last_commit_sha": "a015a5d8fec0ae68f759ed37fa8f8a4cbd903266",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "desktop-app",
+          "legal-tech",
+          "pii-anonymization",
+          "polish",
+          "privacy",
+          "rodo",
+          "tauri"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/pawelharacz/polish-caselaw-mcp",
+      "id": "069c8300617215bc",
       "name": "PawelHaracz/polish-caselaw-mcp",
       "url": "https://github.com/pawelharacz/polish-caselaw-mcp",
       "description": "🟢 Udostępnia polskie orzecznictwo przez protokół MCP.",
@@ -2865,10 +3859,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 84,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-08-15T13:17:55Z",
+        "last_commit_sha": "f8d56d1f3b0ba9446e48b401f288515eb983858e",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/pawelknorps",
+      "id": "a87bec8cfd26c34f",
       "name": "pawelknorps",
       "url": "https://github.com/pawelknorps",
       "description": "🟢⚪ Seria serwerów MCP z dziennikiem audytu wywołań. [tk-mcp](https://github.com/pawelknorps/tk-mcp) przeszukuje orzeczenia Trybunału Konstytucyjnego, czytając HTML strony TK, bo Trybunał nie ma API. [echr-mcp](https://github.com/pawelknorps/echr-mcp) sięga do HUDOC po orzeczenia ETPC, a [sejm-process-mcp](https://github.com/pawelknorps/sejm-process-mcp) śledzi proces legislacyjny i druki sejmowe. Licencję Apache ma tylko tk-mcp.",
@@ -2884,7 +3888,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/pawelkwaczynski",
+      "id": "40fa62a1b89b2833",
       "name": "pawelkwaczynski",
       "url": "https://github.com/pawelkwaczynski",
       "description": "🟢 Dwa projekty wokół aktualności prawa. [stillaw](https://github.com/pawelkwaczynski/stillaw) sprawdza deterministycznie, czy przepis nadal obowiązuje. [staleness-warnings-pl](https://github.com/pawelkwaczynski/staleness-warnings-pl) mierzy w prerejestrowanym badaniu, czy modele same ostrzegają o nieaktualności; udostępnia kod, prompty, zamrożone fragmenty i sumy kontrolne, ale klucz odpowiedzi zatrzymuje celowo.",
@@ -2899,7 +3903,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/pawelojdowski/uodo-mcp",
+      "id": "ae9e6f78d7099b8c",
       "name": "pawelojdowski/uodo-mcp",
       "url": "https://github.com/pawelojdowski/uodo-mcp",
       "description": "⚪ Przeszukuje i analizuje decyzje Prezesa UODO, jako serwer MCP. Pokrywa źródło, którego nie obsługuje żaden inny konektor z tej listy.",
@@ -2912,10 +3916,30 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 83,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 2,
+        "open_prs": 0,
+        "last_commit": "2026-10-19T12:33:54Z",
+        "last_commit_sha": "b365537d657f93bcf3a9939faa4f63daa3b4ab93",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "data-protection",
+          "gdpr",
+          "legal-research",
+          "mcp",
+          "mcp-server",
+          "model-context-protocol",
+          "model-context-protocol-servers",
+          "rodo",
+          "uodo"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/pielas-activy/znajdz-ksiege-wieczysta",
+      "id": "367c9fb7df683676",
       "name": "pielas-activy/znajdz-ksiege-wieczysta",
       "url": "https://github.com/pielas-activy/znajdz-ksiege-wieczysta",
       "description": "🟢 Ustala numer księgi wieczystej mieszkania na podstawie samego adresu budynku, korzystając z darmowej przeglądarki Ministerstwa Sprawiedliwości. Skill dla Claude Code i Cowork.",
@@ -2928,10 +3952,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 85,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 5,
+        "forks": 2,
+        "open_prs": 0,
+        "last_commit": "2026-07-07T08:18:31Z",
+        "last_commit_sha": "9698f6a6d6058d583140c461ee7b71bab1836266",
+        "archived": false,
+        "language": "JavaScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/PiotrKantorowski",
+      "id": "bbb93efdd6e4aad8",
       "name": "PiotrKantorowski",
       "url": "https://github.com/PiotrKantorowski",
       "description": "🟢 [Dziennik upadłościowy](https://github.com/PiotrKantorowski/dziennik-upadlosciowy) monitoruje kontrahentów w KRS, Krajowym Rejestrze Zadłużonych i Monitorze Sądowym i Gospodarczym. [CSM for Word](https://github.com/PiotrKantorowski/csm-for-word) pseudonimizuje polskie dokumenty lokalnie i odwracalnie, wprost w Wordzie. [Naturalne pisanie](https://github.com/PiotrKantorowski/naturalne-pisanie) to skill redakcyjny, który usuwa maniery stylu AI tylko wtedy, gdy się powtarzają, a w tekstach prawniczych pilnuje drogi od tezy przez podstawę i zastosowanie do skutku.",
@@ -2947,7 +3981,7 @@
       "metrics": {}
     },
     {
-      "id": "https://huggingface.co/PiotrSty",
+      "id": "7d357d696889fc81",
       "name": "PiotrSty na Hugging Face",
       "url": "https://huggingface.co/PiotrSty",
       "description": "🟡 Trzy korpusy: [orzeczenia w sprawach zamówień publicznych](https://huggingface.co/datasets/PiotrSty/uzp-orzeczenia-pl) z oficjalnej wyszukiwarki UZP, czyli KIO, sądy okręgowe, sądy apelacyjne i Sąd Najwyższy, [decyzje Prezesa UODO](https://huggingface.co/datasets/PiotrSty/uodo-orzeczenia-pl) od 2018 roku oraz [orzeczenia z SAOS](https://huggingface.co/datasets/PiotrSty/saos-polish-court-judgments), od stu tysięcy do miliona pozycji z publicznego zrzutu API. Ostatni z nich nie ma wskazanej licencji.",
@@ -2962,7 +3996,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/piotrtyrakowski/polishlawllm-benchmark",
+      "id": "503e12115f7d290b",
       "name": "PiotrTyrakowski/PolishLawLLM-Benchmark",
       "url": "https://github.com/piotrtyrakowski/polishlawllm-benchmark",
       "description": "⚪ Sprawdza modele językowe na prawie polskim.",
@@ -2974,10 +4008,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 178,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 3,
+        "forks": 1,
+        "open_prs": 0,
+        "last_commit": "2026-01-25T21:37:11Z",
+        "last_commit_sha": "52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/pkolawa/krs-poland-mcp-server",
+      "id": "6dc22706e889644b",
       "name": "pkolawa/krs-poland-mcp-server",
       "url": "https://github.com/pkolawa/krs-poland-mcp-server",
       "description": "🟢 Udostępnia publiczne API KRS przez MCP. Uruchamia się przez `npx`, więc nie wymaga instalacji.",
@@ -2990,10 +4034,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 81,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 4,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T11:56:43Z",
+        "last_commit_sha": "24c4c357cd43b165cd867c94dc732701e4922fdd",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://pllum.clarin-pl.eu",
+      "id": "b43779c47d6ac6bf",
       "name": "PLLuM",
       "url": "https://pllum.clarin-pl.eu",
       "description": "🟢 Polski model językowy budowany ze środków publicznych. Korzysta z niego między innymi Lethe.",
@@ -3008,7 +4062,7 @@
       "metrics": {}
     },
     {
-      "id": "https://polecajprawnika.pl",
+      "id": "fc859fb41fdaaf1a",
       "name": "PolecajPrawnika",
       "url": "https://polecajprawnika.pl",
       "description": "🟠 Wyszukiwarka prawników z opiniami i spotkaniami zdalnymi. Dla klienta darmowa.",
@@ -3024,7 +4078,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/PolskiAgentW",
+      "id": "9de5a6524eb71626",
       "name": "PolskiAgentW",
       "url": "https://github.com/PolskiAgentW",
       "description": "🟢 Akty, które API Sejmu daje tylko w PDF, w Markdown i JSON: Dziennik Ustaw od 2025 r. (w tym teksty jednolite kodeksów) i Monitor Polski od 2012 r., aktualizowane codziennie, a także akty z lat 1918–2011, których API nie ma w HTML, w trzech zbiorach po dekadach; roczniki sprzed 2000 r. pochodzą z OCR skanów (stan 15.10.2026). Każdy zbiór leży też jako Parquet na Hugging Face. Tekst pochodzi z nieoficjalnej konwersji, wiążący pozostaje PDF; konwerter eli2md ma licencję MIT.",
@@ -3040,7 +4094,7 @@
       "metrics": {}
     },
     {
-      "id": "https://prawmi.pl",
+      "id": "777c036ae44a42b4",
       "name": "PrawMi",
       "url": "https://prawmi.pl",
       "description": "🟠 Analizuje stan faktyczny, wskazując przepisy i orzeczenia, generuje dokumenty, ma wtyczkę i API. Wersja darmowa, Pro 150 zł miesięcznie. Lokalna nakładka MCP jest w [głównym katalogu](README.md).",
@@ -3056,7 +4110,7 @@
       "metrics": {}
     },
     {
-      "id": "https://prawnet.pl",
+      "id": "fdaed5e9ece22294",
       "name": "Prawnet",
       "url": "https://prawnet.pl",
       "description": "🟠 Wyszukiwarka adwokatów, radców i notariuszy w 74 miastach z porównaniem ofert, czatem i rezerwacją. Dla klienta darmowa, bez prowizji.",
@@ -3072,7 +4126,7 @@
       "metrics": {}
     },
     {
-      "id": "https://prawnik.cc",
+      "id": "0b25b2b80adf67f9",
       "name": "Prawnik.CC",
       "url": "https://prawnik.cc",
       "description": "🟠 Pytania do prawników, przy których klient sam ustala, czy odpowiedź ma być darmowa, czy płatna.",
@@ -3088,7 +4142,7 @@
       "metrics": {}
     },
     {
-      "id": "https://prawo-ai.com",
+      "id": "ae6aa71a72425a05",
       "name": "PrawoAI",
       "url": "https://prawo-ai.com",
       "description": "🟣 Odpowiada z cytatami z ISAP, SAOS, CBOSA i EUREKI w brzmieniu na dzień pytania, składa 18 rodzajów pism do Worda na własnym szablonie, prowadzi teczki spraw i anonimizuje dane w przeglądarce przed wysłaniem. Od 79 zł miesięcznie, próba przez 7 dni bez karty.",
@@ -3104,7 +4158,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.prawomat.com",
+      "id": "88b982b2ce531fcb",
       "name": "Prawomat",
       "url": "https://www.prawomat.com",
       "description": "🟠 Z opisu sprawy tworzy pozew, odwołanie, reklamację, wezwanie do zapłaty, wypowiedzenie albo zażalenie. Plan darmowy z eksportem do PDF.",
@@ -3120,7 +4174,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/przemople/zalaczniki",
+      "id": "8dddf001c8b3017a",
       "name": "PrzemoPle/zalaczniki",
       "url": "https://github.com/przemople/zalaczniki",
       "description": "🟢 Aplikacja macOS, która ze skanów buduje listę załączników do pozwu, rozpoznając tekst lokalnie.",
@@ -3132,10 +4186,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 127,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-09-30T08:54:51Z",
+        "last_commit_sha": "4dbd98913da3b536c082bc193d83b82c0eb7b719",
+        "archived": false,
+        "language": "Swift",
+        "github_topics": [
+          "apple-vision",
+          "legal",
+          "macos",
+          "ocr",
+          "polish",
+          "swiftui"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/pwr-ai/juddges",
+      "id": "8675a60f2c5b8954",
       "name": "pwr-ai/JuDDGES",
       "url": "https://github.com/pwr-ai/juddges",
       "description": "🟢 Projekt badawczy AI@PWr nad przetwarzaniem orzeczeń: gromadzenie, kodowanie i udostępnianie danych sądowych dla Polski oraz Anglii i Walii. [Aplikacja towarzysząca](https://github.com/pwr-ai/juddges-app) pozwala przeszukiwać i analizować wyroki; całość ma DOI w Zenodo.",
@@ -3148,10 +4219,27 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 82,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 7,
+        "last_commit": "2026-11-08T09:57:16Z",
+        "last_commit_sha": "3630fc30f52b47ea30e95c7fc9dd3733f694ddff",
+        "archived": false,
+        "language": "Jupyter Notebook",
+        "github_topics": [
+          "law",
+          "legal",
+          "legaltech",
+          "llm",
+          "machine-learning",
+          "nlp"
+        ],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://github.com/quiris11/anonimizator-pdf",
+      "id": "a7a18823bff0dff3",
       "name": "quiris11/Anonimizator-PDF",
       "url": "https://github.com/quiris11/anonimizator-pdf",
       "description": "🟢 Jeden plik HTML, który zaczernia PDF trwale: każda strona wyniku jest obrazem, więc zakrytego tekstu nie da się odzyskać. Polityka CSP blokuje wszelkie połączenia sieciowe, a build jest powtarzalny co do bajtu.",
@@ -3163,10 +4251,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 159,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-12T09:58:48Z",
+        "last_commit_sha": "ee11b59ce9102c8718c06e1f9ed55bc000e83d0d",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/radarsu/validate-polish",
+      "id": "735f47fe3be0824a",
       "name": "radarsu/validate-polish",
       "url": "https://github.com/radarsu/validate-polish",
       "description": "🟢 Waliduje numery PESEL, NIP, REGON i dowodu osobistego. Biblioteka ogólna, ale sumy kontrolne są te same, których używają narzędzia do anonimizacji.",
@@ -3179,10 +4277,33 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 20,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 44,
+        "forks": 13,
+        "open_prs": 4,
+        "last_commit": "2026-09-26T15:18:29Z",
+        "last_commit_sha": "a28d28b6854d3e352752cca5d5625b68f0324a6b",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "validation-library",
+          "polish",
+          "polish-language",
+          "polski",
+          "polskie",
+          "nip",
+          "regon",
+          "regon-validation",
+          "pesel",
+          "pesel-validation",
+          "identitycard",
+          "identity-card"
+        ],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://github.com/radoskoppl/sejmbench",
+      "id": "bb677797c625c1e1",
       "name": "radoskoppl/sejmbench",
       "url": "https://github.com/radoskoppl/sejmbench",
       "description": "🟢 Benchmark tego, jak modele rozumieją głosowania w Sejmie, z zadaniami ocenianymi mechanicznie na danych z API Sejmu. Głosowania imienne leżą jako [korpus na Hugging Face](https://huggingface.co/datasets/patrykorwat/sejm-votings). Autorzy oznaczają całość jako wersję do dyskusji.",
@@ -3194,10 +4315,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 180,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-16T17:49:33Z",
+        "last_commit_sha": "51fa258c8591768abe227de123005f7d6747dce9",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://redact.fordata.pl",
+      "id": "b6c4e88ee4d7acd1",
       "name": "Redact",
       "url": "https://redact.fordata.pl",
       "description": "🟣 Anonimizuje dokumenty w 25 formatach, z OCR i pracą grupową. Od 79 zł za użytkownika miesięcznie, próba przez 30 dni.",
@@ -3213,7 +4344,7 @@
       "metrics": {}
     },
     {
-      "id": "https://rejestr.uokik.gov.pl",
+      "id": "74e12e3a49c9c01b",
       "name": "Rejestr klauzul niedozwolonych UOKiK",
       "url": "https://rejestr.uokik.gov.pl",
       "description": "🟡 Zawiera archiwalne wyroki SOKiK w wersji zanonimizowanej. Status prawny rejestru zmienił się w 2026 roku, więc sprawdź go, zanim się na niego powołasz.",
@@ -3229,7 +4360,7 @@
       "metrics": {}
     },
     {
-      "id": "https://rejestr.io",
+      "id": "c9c0cd53fdf3cf6b",
       "name": "rejestr.io",
       "url": "https://rejestr.io",
       "description": "🟠 Pokazuje dane z KRS z powiązaniami osób. Karty podmiotów są darmowe, odpisy i API płatne.",
@@ -3245,7 +4376,7 @@
       "metrics": {}
     },
     {
-      "id": "https://rodo-online.eu",
+      "id": "abf5cd3443eeb6fc",
       "name": "RODO Online",
       "url": "https://rodo-online.eu",
       "description": "🟣 Program do wdrożenia RODO z modułami szkoleń, audytów i obiegu dokumentów. Od 9 zł miesięcznie za moduł.",
@@ -3261,7 +4392,7 @@
       "metrics": {}
     },
     {
-      "id": "https://assecobs.pl/businesscloud/rodo-utility",
+      "id": "f23a77f88987523b",
       "name": "RODO Utility (Asseco BS)",
       "url": "https://assecobs.pl/businesscloud/rodo-utility",
       "description": "🟣 Rejestr czynności przetwarzania zintegrowany z systemem ERP.",
@@ -3277,7 +4408,7 @@
       "metrics": {}
     },
     {
-      "id": "https://rodoprotektor.pl",
+      "id": "e7da5e8150c09096",
       "name": "RODOprotektor",
       "url": "https://rodoprotektor.pl",
       "description": "🟣 Prowadzi rejestry czynności, umów, żądań, naruszeń i upoważnień. Ma wersję dla inspektorów ochrony danych.",
@@ -3293,7 +4424,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/rodorn",
+      "id": "6c8110f340eaf23a",
       "name": "rodorn",
       "url": "https://github.com/rodorn",
       "description": "🟢 [Klient e-Doręczeń](https://github.com/rodorn/edoreczenia-klient) obsługuje interfejs UA API w Pythonie, nieoficjalnie. [Radar przetargów](https://github.com/rodorn/fluxlab-przetargi-radar) śledzi zamówienia publiczne.",
@@ -3308,7 +4439,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.rzetelnyregulamin.pl",
+      "id": "d9f62380b9fcb0e9",
       "name": "Rzetelny Regulamin",
       "url": "https://www.rzetelnyregulamin.pl",
       "description": "🟣 Przygotowuje regulaminy i dokumentację RODO dla sklepów, aktualizowane automatycznie przez integrację ze sklepem.",
@@ -3324,7 +4455,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.saos.org.pl",
+      "id": "309db43869b1afe7",
       "name": "SAOS",
       "url": "https://www.saos.org.pl",
       "description": "🔵 Zbiera orzecznictwo sądów powszechnych, Sądu Najwyższego i sądów wojskowych.",
@@ -3340,7 +4471,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/sarverott/p-jol-roll",
+      "id": "a4a5434c45bfcbfa",
       "name": "Sarverott/P-jol-roll",
       "url": "https://github.com/sarverott/p-jol-roll",
       "description": "🟢 Pobiera akty z Dziennika Ustaw i przerabia je na Markdown, oczyszczony z elementów strony. Wynik leży na Hugging Face jako [zbiór danych](https://huggingface.co/datasets/Sarverott/polish_national_law_docs), obok surowych plików i podglądu online. Kod ma licencję AGPL, zbiór nie ma wskazanej licencji.",
@@ -3353,10 +4484,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 61,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 30,
+        "forks": 3,
+        "open_prs": 6,
+        "last_commit": "2026-11-15T17:45:43Z",
+        "last_commit_sha": "8838eb75d1899743a7c3248c28f3d27fb49ad0f8",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://github.com/sebob/donotfeedai",
+      "id": "bdd0e540a6e61a05",
       "name": "sebob/donotfeedai",
       "url": "https://github.com/sebob/donotfeedai",
       "description": "⚪ Podmienia imiona, PESEL, NIP, IBAN, telefony, adresy i pliki na dane fikcyjne, zanim trafią do ChatGPT, Claude'a albo Gemini, i przywraca je w odpowiedzi. Bez serwera dostawcy i bez telemetrii. Repozytorium niedostępne, od 15.10.2026 adres zwraca 404.",
@@ -3372,7 +4513,7 @@
       "metrics": {}
     },
     {
-      "id": "https://sejmpage.pl",
+      "id": "1c76cf2624bdc0ca",
       "name": "SejmPage",
       "url": "https://sejmpage.pl",
       "description": "🟠 Śledzi prace Sejmu, Dziennik Ustaw i Monitor Polski, wysyła alerty z podsumowaniem AI. Darmowy newsletter, plan płatny 139 zł miesięcznie.",
@@ -3388,7 +4529,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/soba-labs/krs-mcp",
+      "id": "bee33babedb145ce",
       "name": "soba-labs/krs-mcp",
       "url": "https://github.com/soba-labs/krs-mcp",
       "description": "🟢 Szuka spółek w KRS po nazwie, numerze KRS, NIP albo REGON i pobiera urzędowe odpisy. Cztery narzędzia wyłącznie do odczytu, bez klucza i bez konta.",
@@ -3401,10 +4542,28 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 80,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-17T09:10:34Z",
+        "last_commit_sha": "71a2631740c13fb615d9f37ad2b26a5346e590ff",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [
+          "ai-agents",
+          "krs",
+          "legaltech",
+          "mcp",
+          "mcp-server",
+          "model-context-protocol",
+          "poland"
+        ],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://github.com/sobolevbel/lexinform",
+      "id": "5da21ba9649a4c02",
       "name": "sobolevbel/lexinform",
       "url": "https://github.com/sobolevbel/lexinform",
       "description": "🟢 Wyławia projekty ustaw ważne dla cudzoziemców w Polsce i prowadzi je od konsultacji w RCL do publikacji w Dzienniku Ustaw. Streszczenia z oceną wagi od 1 do 5 publikuje na Telegramie, po rosyjsku.",
@@ -3417,10 +4576,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 93,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T21:58:28Z",
+        "last_commit_sha": "14bd0d2bd1a1ab2c8b33ea289070542c3c501f54",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://spacy.io/models/pl",
+      "id": "28592c2bc9156bde",
       "name": "spaCy pl_core_news_lg",
       "url": "https://spacy.io/models/pl",
       "description": "🟢 Rozpoznaje jednostki nazwane w polszczyźnie. Opiera się na nim większość narzędzi z sekcji o anonimizacji.",
@@ -3435,7 +4604,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/speakleash",
+      "id": "4afb6e166339c34b",
       "name": "speakleash",
       "url": "https://github.com/speakleash",
       "description": "🟢 Rozwija Bielika, polski model językowy, razem z korpusami i narzędziami. Wagi modeli leżą na Hugging Face, a w repozytoriach są tutoriale, dostęp do korpusów i oprzyrządowanie.",
@@ -3450,7 +4619,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.specprawnik.pl",
+      "id": "2c0d147e87232d83",
       "name": "SpecPrawnik",
       "url": "https://www.specprawnik.pl",
       "description": "🟠 Wyszukiwarka prawników w 72 miastach z ponad 40 tysiącami opinii i darmowymi pytaniami. Prawnik płaci za konto premium.",
@@ -3466,7 +4635,7 @@
       "metrics": {}
     },
     {
-      "id": "https://sprawdzkrs.pl",
+      "id": "e882bdfdeda1ba5c",
       "name": "SprawdzKRS",
       "url": "https://sprawdzkrs.pl",
       "description": "🟠 Pobiera pełne akta z Repozytorium Dokumentów Finansowych jako jeden przeszukiwalny PDF. Odpis aktualny za darmo, raport od 59 zł za podmiot.",
@@ -3482,7 +4651,7 @@
       "metrics": {}
     },
     {
-      "id": "https://standardyprawa.pl",
+      "id": "0760d014b096e3d3",
       "name": "Standardy Prawa",
       "url": "https://standardyprawa.pl",
       "description": "🟠 System analiz prawnych sędziego Jacka Ignaczewskiego. Orzeczenia SN, NSA i sądów powszechnych, ujednolicone akty z archiwum od 1918 r. i wzory pism są dostępne bez rejestracji; komentarze orzecznicze, analizy linii orzeczniczych i asystent SP Czat AI z odnośnikami do źródeł wchodzą w pakiety premium.",
@@ -3498,7 +4667,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/studiogo/cenzor",
+      "id": "26dc7123f885c6f9",
       "name": "studiogo/cenzor",
       "url": "https://github.com/studiogo/cenzor",
       "description": "🟢 Zastępuje dane tokenami przed wysłaniem do modelu i podstawia je z powrotem w odpowiedzi. Publikuje zmierzoną skuteczność razem z metodą pomiaru.",
@@ -3510,10 +4679,33 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 154,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 1,
+        "forks": 3,
+        "open_prs": 1,
+        "last_commit": "2026-09-06T15:54:17Z",
+        "last_commit_sha": "1b67063fe002d3ad30fc22e2d1a98c4af2a00054",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [
+          "anonymization",
+          "claude-code-skill",
+          "data-protection",
+          "gdpr",
+          "llm",
+          "local-first",
+          "nip",
+          "pesel",
+          "pii",
+          "polish-nlp",
+          "presidio",
+          "privacy"
+        ],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://sygnaapp.pl",
+      "id": "ec6040d1b3b728b6",
       "name": "SygnaApp",
       "url": "https://sygnaapp.pl",
       "description": "🟣 Platforma zgłoszeń z postępowaniami wyjaśniającymi, rejestrem i terminami. Ma darmowy test.",
@@ -3529,7 +4721,7 @@
       "metrics": {}
     },
     {
-      "id": "https://sygnali.pl",
+      "id": "e6387a008fb03305",
       "name": "Sygnali",
       "url": "https://sygnali.pl",
       "description": "🟣 Przyjmuje zgłoszenia przez formularz, e-mail i telefon, na serwerach w Polsce. Od 160 zł miesięcznie, pierwszy miesiąc za darmo.",
@@ -3545,7 +4737,7 @@
       "metrics": {}
     },
     {
-      "id": "https://sygnalista.org.pl",
+      "id": "60caaa02771a44b5",
       "name": "sygnalista.org.pl",
       "url": "https://sygnalista.org.pl",
       "description": "🟣 Kanał jawny i anonimowy z szyfrowaniem. Od 150 zł miesięcznie.",
@@ -3561,7 +4753,7 @@
       "metrics": {}
     },
     {
-      "id": "https://sygnanet.pl",
+      "id": "fb153c8d2c19948c",
       "name": "Sygnanet",
       "url": "https://sygnanet.pl",
       "description": "🟣 Szyfrowany kanał z anonimową komunikacją zwrotną. Wolters Kluwer sprzedaje go także w pakiecie z bazą wiedzy jako Sygnalista LEX Compliance.",
@@ -3577,7 +4769,7 @@
       "metrics": {}
     },
     {
-      "id": "https://systemaml.pl",
+      "id": "6fccdd3503434f32",
       "name": "SystemAML",
       "url": "https://systemaml.pl",
       "description": "🟠 Sprawdza listy sankcyjne i osoby zajmujące eksponowane stanowiska polityczne, ocenia ryzyko i prowadzi rejestry. Plan darmowy, płatne od 160 zł miesięcznie.",
@@ -3593,7 +4785,7 @@
       "metrics": {}
     },
     {
-      "id": "https://szopalabs.com",
+      "id": "f11d699440ddaf2b",
       "name": "SzopaLabs Sygnatura",
       "url": "https://szopalabs.com",
       "description": "🟣 Przegląda nowe wyroki NSA i WSA według tematu, osobno sporządza raport ryzyka firmy po NIP. Od 49 zł miesięcznie.",
@@ -3609,7 +4801,7 @@
       "metrics": {}
     },
     {
-      "id": "https://szukajradcy.pl",
+      "id": "fd803be4dba7e96c",
       "name": "SzukajRadcy",
       "url": "https://szukajradcy.pl",
       "description": "🟠 Darmowa wyszukiwarka radców prawnych prowadzona przez Krajową Izbę Radców Prawnych.",
@@ -3625,7 +4817,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.tabelio.pl",
+      "id": "409bffa357b76029",
       "name": "Tabelio",
       "url": "https://www.tabelio.pl",
       "description": "🟣 System dla notariuszy: repertorium, GIIF i AML, taksa, akty z pomocą AI i e-Doręczenia. Próba przez 14 dni.",
@@ -3641,7 +4833,7 @@
       "metrics": {}
     },
     {
-      "id": "https://apps.apple.com/pl/app/testy-prawnicze-c-h-beck/id1373657312",
+      "id": "f7ede38658ec438d",
       "name": "Testy Prawnicze C.H.Beck",
       "url": "https://apps.apple.com/pl/app/testy-prawnicze-c-h-beck/id1373657312",
       "description": "🟣 Aplikacja z pytaniami z publikacji C.H.Beck, w trybie nauki i egzaminu, z planem powtórek. 69,99 zł miesięcznie.",
@@ -3657,7 +4849,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/thebeardedpole/sejmomat",
+      "id": "90a70c77676053e4",
       "name": "TheBeardedPole/sejmomat",
       "url": "https://github.com/thebeardedpole/sejmomat",
       "description": "🟢 Wiąże każde głosowanie nad poprawką z jej treścią, autorem i rekomendacją komisji, a wynik rozkłada na kluby, razem z posłami głosującymi wbrew klubowi. Teksty jednolite nowelizowanych aktów pobiera z ELI.",
@@ -3670,10 +4862,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 92,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 1,
+        "open_prs": 1,
+        "last_commit": "2026-11-20T15:01:51Z",
+        "last_commit_sha": "cdf055f04cf6a8e2d3cb231c6c7e02198a530fb6",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://github.com/tomaszkrawczyk-cmd/foodlaw.ai",
+      "id": "fc9e46756efef4d6",
       "name": "tomaszkrawczyk-cmd/foodlaw.ai",
       "url": "https://github.com/tomaszkrawczyk-cmd/foodlaw.ai",
       "description": "🟢 Prawo żywnościowe polskie i unijne dla asystentów AI: opisy rozporządzeń i ustaw, skille dla poszczególnych obszarów i skrypty, które pobierają akty i orzeczenia z EUR-Lex, ISAP, CBOSA i CURIA.",
@@ -3685,10 +4887,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 141,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 2,
+        "last_commit": "2026-11-17T20:47:32Z",
+        "last_commit_sha": "79a94c3d58c101840083d8ce201da66fab0993b9",
+        "archived": false,
+        "language": "HTML",
+        "github_topics": [],
+        "contributors": 4
+      }
     },
     {
-      "id": "https://github.com/tomkolp/e-doreczenia-wizualizacja-epo",
+      "id": "80c2dee821982e78",
       "name": "tomkolp/e-doreczenia-wizualizacja-EPO",
       "url": "https://github.com/tomkolp/e-doreczenia-wizualizacja-epo",
       "description": "⚪ Wizualizuje elektroniczne potwierdzenie odbioru.",
@@ -3700,10 +4912,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 131,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 5,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-28T17:33:40Z",
+        "last_commit_sha": "b54f0f25517d5d2fdecac2e491c29f41e263e2f0",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 3
+      }
     },
     {
-      "id": "https://transparentdata.pl",
+      "id": "fe7d1deb66653c45",
       "name": "Transparent Data",
       "url": "https://transparentdata.pl",
       "description": "🟣 API do KRS, CEIDG, białej listy, beneficjentów rzeczywistych i sankcji, z monitoringiem firm i narzędziem AML.",
@@ -3719,7 +4941,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/trosinski08/ai_agent_compliance",
+      "id": "c5dc2ad51e54d98d",
       "name": "trosinski08/ai_agent_compliance",
       "url": "https://github.com/trosinski08/ai_agent_compliance",
       "description": "⚪ Analizuje sprawy AML i KYC w architekturze RAG, indeksując polskie przepisy o przeciwdziałaniu praniu pieniędzy wraz z materiałami GIIF i KNF.",
@@ -3731,10 +4953,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 116,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-08-28T11:25:00Z",
+        "last_commit_sha": "ca786c54fdc07f0893e182b4708275a2ca21e2be",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://www.tuasystent.pl",
+      "id": "b26c0be495279d8d",
       "name": "TuAsystent",
       "url": "https://www.tuasystent.pl",
       "description": "🟣 Odbiera telefony kancelarii przez AI: pyta o sprawę, ocenia pilność i zbiera kontakt, bez udzielania porad. Obsługuje polski, ukraiński, angielski i niemiecki. Od 449 zł miesięcznie.",
@@ -3750,7 +4982,7 @@
       "metrics": {}
     },
     {
-      "id": "https://tujestprawnik.pl",
+      "id": "679b0020a2c7cb71",
       "name": "TuJestPrawnik",
       "url": "https://tujestprawnik.pl",
       "description": "🟠 Katalog kancelarii z bezpłatnym zgłoszeniem sprawy, kalkulatorami i wzorami umów.",
@@ -3766,7 +4998,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.ultimaratio.pl",
+      "id": "81bf12af828e5dd6",
       "name": "Ultima RATIO",
       "url": "https://www.ultimaratio.pl",
       "description": "🟣 Arbitraż online dla sporów B2B z e-aktami i e-doręczeniami. Postępowania prowadzi Elektroniczne Centrum Arbitrażu i Mediacji (ECAM) przy Stowarzyszeniu Notariuszy RP.",
@@ -3782,7 +5014,7 @@
       "metrics": {}
     },
     {
-      "id": "https://www.umownik.pl",
+      "id": "d32238ee4f187042",
       "name": "Umownik",
       "url": "https://www.umownik.pl",
       "description": "🟠 Pozwala tworzyć, negocjować i podpisywać umowy online, w formie dokumentowej albo z podpisem kwalifikowanym. Konto podstawowe jest bezpłatne.",
@@ -3798,7 +5030,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/umowyai/polskie-prawo",
+      "id": "4bba58a0908c42ba",
       "name": "umowyai/polskie-prawo",
       "url": "https://github.com/umowyai/polskie-prawo",
       "description": "🔵 Plugin dla Claude Code, ChatGPT i innych klientów MCP nad zdalnym serwerem Umowy.AI: ustawy i rozporządzenia z Dziennika Ustaw w pełnym brzmieniu, także na wskazany dzień, ze statusem obowiązywania sprawdzanym codziennie w ELI. Serwer wymaga logowania e-mailem, w repozytorium są skille i wpis do rejestru MCP.",
@@ -3811,10 +5043,26 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 90,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-08T11:00:53Z",
+        "last_commit_sha": "61cc3cc70e108f4bd2dcdcae340fc7e1c179919e",
+        "archived": false,
+        "language": null,
+        "github_topics": [
+          "claude-code-plugin",
+          "dziennik-ustaw",
+          "legal",
+          "mcp",
+          "polish-law"
+        ],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://vai.legal",
+      "id": "97533e740f1b37fd",
       "name": "VAI Legal",
       "url": "https://vai.legal",
       "description": "🟣 Analizuje umowy klauzula po klauzuli względem prawa polskiego i unijnego.",
@@ -3830,7 +5078,7 @@
       "metrics": {}
     },
     {
-      "id": "https://verolex.ai/pl",
+      "id": "ff38de1f4f2a7a67",
       "name": "VeroLex",
       "url": "https://verolex.ai/pl",
       "description": "🟣 Wyszukuje informację prawną ze źródłami, analizuje dokumenty i buduje bazę wiedzy organizacji. Ma opcję instalacji u klienta. Od 49 zł miesięcznie.",
@@ -3846,7 +5094,7 @@
       "metrics": {}
     },
     {
-      "id": "https://vindicat.pl",
+      "id": "849f407bc671f48e",
       "name": "Vindicat",
       "url": "https://vindicat.pl",
       "description": "🟣 Prowadzi windykację B2B od wezwania przez EPU po przekazanie sprawy kancelarii, z giełdą długów i negocjacjami online. Rozliczenie od sukcesu albo abonament.",
@@ -3862,7 +5110,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/volers321/tsl-case-law",
+      "id": "017a6e2ea43ed0dd",
       "name": "Volers321/tsl-case-law",
       "url": "https://github.com/volers321/tsl-case-law",
       "description": "🟢 Spory przewozowe i spedycyjne: szuka podobnych wyroków w SAOS i prognozuje wynik sporu, widząc wyłącznie stan faktyczny, bez sentencji i oceny sądu. Na 1080 sprawach porównuje modele z ocenami praktyka branży i podaje miary niepewności.",
@@ -3874,10 +5122,20 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 139,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-10-29T18:00:23Z",
+        "last_commit_sha": "f050488fd4b7ec07235c85c2713db7d296a027e6",
+        "archived": false,
+        "language": "Python",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://wemoral.com/pl",
+      "id": "4358cc54b96672c2",
       "name": "WeMoral",
       "url": "https://wemoral.com/pl",
       "description": "🟣 System zgłoszeń z wzorem procedury, hostowany we Frankfurcie. Od 79 EUR miesięcznie, próba przez 30 dni.",
@@ -3893,7 +5151,7 @@
       "metrics": {}
     },
     {
-      "id": "https://whiblo.pl",
+      "id": "946cca08043835aa",
       "name": "Whiblo",
       "url": "https://whiblo.pl",
       "description": "🟣 Aplikacja do anonimowych zgłoszeń. Od 199 zł miesięcznie przy płatności rocznej.",
@@ -3909,7 +5167,7 @@
       "metrics": {}
     },
     {
-      "id": "https://whistboard.com",
+      "id": "f151635f4aa32b35",
       "name": "WhistBoard",
       "url": "https://whistboard.com",
       "description": "🟣 Dwustronna komunikacja z sygnalistą i wzór procedury. Od 399 zł miesięcznie.",
@@ -3925,7 +5183,7 @@
       "metrics": {}
     },
     {
-      "id": "http://www.antcom.pl/windykator-e-sad-epu",
+      "id": "c478913b88fdd6e8",
       "name": "Windykator z modułem e-Sąd (AntCom)",
       "url": "http://www.antcom.pl/windykator-e-sad-epu",
       "description": "🟣 Program windykacyjny, który generuje pozwy do EPU, grupuje je w paczki i wysyła.",
@@ -3941,7 +5199,7 @@
       "metrics": {}
     },
     {
-      "id": "https://windykator.ai",
+      "id": "dde84d947d497ba1",
       "name": "Windykator.ai",
       "url": "https://windykator.ai",
       "description": "🟣 Wysyła wezwania z odsetkami i rekompensatą 40 EUR przez SMS, e-mail i list polecony, a rozmowy telefoniczne AI wprowadza etapami. Od 199 zł miesięcznie, próba przez 14 dni.",
@@ -3957,7 +5215,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/wisniabobo",
+      "id": "0c917e21945107bf",
       "name": "wisniabobo",
       "url": "https://github.com/wisniabobo",
       "description": "🟢 Trenażery egzaminacyjne z [prawa konstytucyjnego](https://github.com/wisniabobo/Prawo-konstytucyjne), [administracyjnego](https://github.com/wisniabobo/Prawo-administracyjne) i [doktryn polityczno-prawnych](https://github.com/wisniabobo/doktryny-polityczno-prawne): fiszki z powtórkami SM-2, testy z wyjaśnieniami, kazusy i symulator egzaminu, bez konta i offline. Cytowane przepisy pobiera skrypt z API ELI, więc nie starzeją się po nowelizacji. Kod na MIT, treści CC BY-SA.",
@@ -3972,7 +5230,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/wppoland/polski",
+      "id": "29e2ab831ea51f85",
       "name": "wppoland/polski",
       "url": "https://github.com/wppoland/polski",
       "description": "⚪ Wtyczka WooCommerce, która dostosowuje sklep do polskich wymogów konsumenckich: najniższa cena z 30 dni według dyrektywy Omnibus, ceny jednostkowe, przycisk *zamówienie z obowiązkiem zapłaty*, zgody z dziennikiem, prawo odstąpienia i GPSR. Obok darmowej wersji jest płatna wersja PRO.",
@@ -3984,10 +5242,32 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 146,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 0,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2026-11-20T06:51:13Z",
+        "last_commit_sha": "7bb89f660dcc9249fa0239995c6c293ad22f2ec6",
+        "archived": false,
+        "language": "PHP",
+        "github_topics": [
+          "ecommerce",
+          "gdpr",
+          "gpsr",
+          "omnibus",
+          "polish",
+          "polska",
+          "woocommerce",
+          "woocommerce-plugin",
+          "wordpress",
+          "poland",
+          "wordpress-plugin"
+        ],
+        "contributors": 2
+      }
     },
     {
-      "id": "https://zapytajkodeks.pl",
+      "id": "b62c60e4d7c0b7c1",
       "name": "Zapytaj Kodeks",
       "url": "https://zapytajkodeks.pl",
       "description": "🟣 Wyszukuje i analizuje przepisy i orzeczenia oraz przygotowuje projekty pism. Udostępnia API i widżet. Od 158 zł miesięcznie, oferta edukacyjna.",
@@ -4003,7 +5283,7 @@
       "metrics": {}
     },
     {
-      "id": "https://github.com/zmilonas/klauzule-niedozwolone-uokik",
+      "id": "032b4119050a01b7",
       "name": "zmilonas/klauzule-niedozwolone-uokik",
       "url": "https://github.com/zmilonas/klauzule-niedozwolone-uokik",
       "description": "⚪ Przeszukuje rejestr klauzul niedozwolonych UOKiK. Pierwsze narzędzie tego rodzaju, do dziś cytowane jako źródło formatu danych rejestru.",
@@ -4016,10 +5296,20 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 15,
       "approved": false,
-      "metrics": {}
+      "metrics": {
+        "stars": 2,
+        "forks": 0,
+        "open_prs": 0,
+        "last_commit": "2024-02-06T20:11:39Z",
+        "last_commit_sha": "a81f8b89485de4f6bcb0c0a030eea03c2dc9a51f",
+        "archived": false,
+        "language": "TypeScript",
+        "github_topics": [],
+        "contributors": 1
+      }
     },
     {
-      "id": "https://zostanaplikantem.pl",
+      "id": "8ec5049eb7dffeaa",
       "name": "Zostań aplikantem",
       "url": "https://zostanaplikantem.pl",
       "description": "🟠 Pytania z egzaminów od 2010 roku z powtórkami metodą Leitnera, fiszkami i aplikacjami mobilnymi. Część za darmo, pełny dostęp od 99 zł miesięcznie.",
