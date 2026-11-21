@@ -36,7 +36,7 @@ Usunięcie repozytorium z listy przestaje je synchronizować, usuwa submoduł `_
 - **web/** — interfejs do wyszukiwania, tagowania, filtrowania i sortowania propozycji.
 - **.github/workflows/catalog.yml** — automatyczne odświeżanie co sześć godzin, testy, zapis snapshotu, artefakt strony oraz HTTP smoke test https://dan.xlap.pl.
 
-**Zatwierdzanie:** wybierz przy repozytorium GitHub „Kopiuj wpis TOML”, wklej do [sources.toml](https://github.com/elconcept/druzyna-andrzeja/edit/main/sources.toml) i zatwierdź commit. Dopiero istniejący workflow sync.yml doda je do katalogów _vendor i _workbench. Strona publiczna nie może modyfikować sources.toml i nie ma dostępu do tokenu GitHub. Linki spoza GitHub pozostają propozycjami informacyjnymi, nie są automatycznie submodułami.
+**Pobieranie z katalogu:** przy repozytorium z rozpoznaną licencją kliknij **„Pobierz do warsztatu”**. Link prowadzi do wstępnie wypełnionego GitHub Issue (wymaga zalogowania i zatwierdzenia zgłoszenia). Workflow [fetch-request.yml](.github/workflows/fetch-request.yml) automatycznie weryfikuje wpis na polskiej liście, publiczny status, licencję i rozmiar; eliminuje duplikaty, dodaje źródło do `sources.toml` i wywołuje [sync.yml](.github/workflows/sync.yml). Zastosowano limity 25 000 KiB na źródło i 32 aktywne repozytoria, ponieważ publiczny storage Git i artefaktów nie jest nieograniczony. Brak licencji oznacza wyłącznie podgląd, bez redystrybucji kopii. Publiczna strona nigdy nie otrzymuje tokenu GitHub.
 
 **Publikacja:** Cloudflare Worker `druzyna-andrzeja` (źródło: [deploy/worker.js](deploy/worker.js)) obsługuje trasę `dan.xlap.pl/*` i pobiera zasoby z gałęzi `main` GitHub. DNS Cloudflare: `dan.xlap.pl` CNAME `elconcept.github.io`, proxy włączone; aktywną treść dostarcza Worker, nie GitHub Pages. Po aktualizacji `catalog/proposals.json` w Actions strona odczytuje nowy katalog (cache ok. 5 minut). Interfejs, CSS i JS również są czytane z GitHub. Workflow sprawdza faktyczny publiczny HTTP 200 i poprawność danych. Zmiana kodu samego Workera wymaga jego ponownego wdrożenia w Cloudflare.
 
@@ -52,5 +52,12 @@ Przycisk **Przeglądaj pliki** otwiera wbudowane drzewo Git z podglądem tekstu 
 ### Baza danych i zapis
 
 GitHub Pages jest statycznym hostingiem, a nie bazą danych. Obecny katalog wykorzystuje JSON wersjonowany w Git i aktualizowany przez GitHub Actions, a publiczną stronę obsługuje Cloudflare Worker. Do przyszłych funkcji zapisu (notatki, shortlisty, prywatne tagi i stan oceny) można dodać backend z uwierzytelnieniem oraz Cloudflare D1/SQLite. **D1 nie jest obecnie włączone, a serwis pozostaje tylko do odczytu.**
+
+
+## PolishLawLLM — pierwszy benchmark
+
+Konfiguracja: [benchmarks/polishlawllm.toml](benchmarks/polishlawllm.toml). Workflow: [benchmark-polishlawllm.yml](.github/workflows/benchmark-polishlawllm.yml). Pobiera w runnerze przypięty commit upstream `52d35edc0cdf0f77dd554e0bc84db7c7e9ca43c6` bez publicznego kopiowania kodu (upstream nie deklaruje licencji). Tryb **smoke** kompiluje framework i uruchamia rzeczywiste testy metryki exact match. Wyniki techniczne trafiają do 7-dniowego artefaktu GitHub Actions; to **nie jest wynik oceny LLM**.
+
+Tryb **evaluate** jest uruchamiany ręcznie z wyborem `exams` / `judgments`, modelu i roku. Ma twarde bramki: wymaga co najmniej jednego autentycznego zadania JSONL w `benchmarks/tasks/<typ>/...` i sekretu API wybranego dostawcy: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` albo `OPENROUTER_API_KEY`. Dane nie są dostarczone w oryginalnym repo; bez nich nie uruchamiamy płatnych zapytań ani nie udajemy kompletnego benchmarku. Wyniki `evaluate` zapisywane są jako artefakt, a nie automatycznie do bazy. Projekt źródłowy ma uploader oraz frontend do Firebase Firestore, ale **Firebase nie jest obecnie podłączone**; wymaga projektu Google Cloud/Firebase, konta serwisowego, uprawnień i uzgodnionego schematu wyników.
 
 **Test parsera:** python3 -m unittest discover -s tests -p 'test_catalog.py' -v.
