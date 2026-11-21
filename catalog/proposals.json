@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "jurisdiction": "PL",
-  "generated_at": "2026-11-21T03:12:45Z",
+  "generated_at": "2026-11-21T03:16:57Z",
   "feeds": [
     {
       "name": "polskie-legaltech-otwarte",
@@ -21,6 +21,8 @@
   "approved_count": 0,
   "proposals": [
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "575474816efeb958",
       "name": "a-szczudlo",
       "url": "https://github.com/a-szczudlo",
@@ -33,9 +35,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 123,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "9db49e652213be70",
       "name": "ad-m/cbosa",
       "url": "https://github.com/ad-m/cbosa",
@@ -58,10 +63,27 @@
         "archived": false,
         "language": "PHP",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 1,
+        "license": null,
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 47,
+        "parts": {
+          "popularność": 1.3,
+          "aktualność": 40.0,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "7c8587056d7ff213",
       "name": "Adic4Legal",
       "url": "https://adic4legal.pl",
@@ -75,9 +97,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 29,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "1fb299bdf59af30f",
       "name": "Advisor247",
       "url": "https://advisor247.pl",
@@ -91,9 +116,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 30,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI Act",
+      "subcategory": null,
       "id": "52e4652a3ec3111a",
       "name": "AI Act pre-audyt",
       "url": "https://aiact.podedworny.app",
@@ -107,9 +135,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 151,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "af6679b17d75b188",
       "name": "AIMON",
       "url": "https://aimon.pl",
@@ -123,9 +154,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 104,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "370c23a1632bfeed",
       "name": "Alght/Bielik-RAG",
       "url": "https://github.com/alght/bielik-rag",
@@ -147,10 +181,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 39,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 35.3,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 32,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Modele",
+      "subcategory": null,
       "id": "07d5781c0b4daa54",
       "name": "allegro/HerBERT",
       "url": "https://github.com/allegro/herbert",
@@ -173,10 +224,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 22,
+        "parts": {
+          "popularność": 18.7,
+          "aktualność": 0.0,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 1999,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "db19c0ebf0eebf5e",
       "name": "AML Track",
       "url": "https://ttms.com/pl/oprogramowanie-do-aml",
@@ -190,9 +258,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 139,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "64dba00de04c69b2",
       "name": "AMLEX",
       "url": "https://amlex.pl",
@@ -206,9 +277,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 140,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "ff6f17d387d16456",
       "name": "andilabs/polish-law",
       "url": "https://github.com/andilabs/polish-law",
@@ -231,10 +305,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 14,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 0.1,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 1628,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "1fae463a6336f629",
       "name": "andredzi/leksio-claude-plugin",
       "url": "https://github.com/andredzi/leksio-claude-plugin",
@@ -257,10 +348,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 50,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 37.4,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 17,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "b7e8cdaf9c3b302d",
       "name": "andrii-mazurchuk/kontrakt-guard",
       "url": "https://github.com/andrii-mazurchuk/kontrakt-guard",
@@ -282,10 +390,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 40,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 28.8,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 85,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "336ab3c8622cf720",
       "name": "anonima",
       "url": "https://anonima.uniqsoft.pl",
@@ -299,9 +424,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 157,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "5359a2ed32103cfd",
       "name": "Anonimizer",
       "url": "https://anonimizer.pl",
@@ -315,9 +443,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 158,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "bda93ae9c5524e6a",
       "name": "Ansvar-Systems/polish-law-mcp",
       "url": "https://github.com/ansvar-systems/polish-law-mcp",
@@ -340,10 +471,27 @@
         "archived": true,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 4,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 4,
+        "parts": {
+          "popularność": 10.0,
+          "aktualność": 23.6,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 136,
+        "method": "repo-health-v1",
+        "archived_penalty": true
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "30c6c0282d1efeae",
       "name": "AnyLawyer",
       "url": "https://anylawyer.com",
@@ -357,9 +505,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 61,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "2db5970a67610e44",
       "name": "apatryda/polish-law",
       "url": "https://github.com/apatryda/polish-law",
@@ -382,10 +533,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "GPL-3.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 40,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 28.7,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 86,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "ef59b0c746035764",
       "name": "API Sejmu / ELI",
       "url": "https://api.sejm.gov.pl/eli",
@@ -399,9 +567,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 44,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "adb9e52318f7547d",
       "name": "apiotrowski-afk/anon-legal-pl",
       "url": "https://github.com/apiotrowski-afk/anon-legal-pl",
@@ -436,10 +607,27 @@
           "prawo-polskie",
           "presidio"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 38,
+        "parts": {
+          "popularność": 7.1,
+          "aktualność": 22.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 149,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "5347378cfc671b49",
       "name": "apiotrowski-afk/commercial-legal-pl",
       "url": "https://github.com/apiotrowski-afk/commercial-legal-pl",
@@ -474,10 +662,27 @@
           "claude-code",
           "claude-skills"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 1,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 73,
+        "parts": {
+          "popularność": 25.2,
+          "aktualność": 39.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "fb69bef5c49d2165",
       "name": "apiotrowski-afk/kancelaria-dms",
       "url": "https://github.com/apiotrowski-afk/kancelaria-dms",
@@ -507,10 +712,27 @@
           "google-workspace",
           "polish-law"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 14.7,
+          "aktualność": 22.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 149,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "dc04dbd288e93635",
       "name": "apiotrowski-afk/legal-cite-pl",
       "url": "https://github.com/apiotrowski-afk/legal-cite-pl",
@@ -546,10 +768,27 @@
           "polish-law",
           "prawo-polskie"
         ],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 3,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 63,
+        "parts": {
+          "popularność": 12.1,
+          "aktualność": 38.7,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 8,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Standardy i formaty",
       "id": "d8d3171c4adecf8f",
       "name": "apiotrowski-afk/okf-legal",
       "url": "https://github.com/apiotrowski-afk/okf-legal",
@@ -578,10 +817,27 @@
           "okf",
           "polish-law"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 50,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 37.6,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 16,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "4c7eeb0784d1e658",
       "name": "appliedai-pl/polish-law-checker",
       "url": "https://github.com/appliedai-pl/polish-law-checker",
@@ -603,10 +859,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 44,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 35.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 31,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Edukacja",
+      "subcategory": null,
       "id": "712e6b078c1f96ce",
       "name": "ArsLege",
       "url": "https://arslege.pl",
@@ -620,9 +893,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 199,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "8dc5c8d39cfb8230",
       "name": "artsiom-andrasovich/polish_law_viewer",
       "url": "https://github.com/artsiom-andrasovich/polish_law_viewer",
@@ -645,10 +921,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 20,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 12.7,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 299,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "d970b8acffc7d158",
       "name": "Asystent EPU",
       "url": "https://asystent-epu.pl",
@@ -662,9 +955,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 166,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "339f2d8a9efe84dd",
       "name": "Asystent Kancelaria Prawnicza (Meteoryt)",
       "url": "https://meteoryt.pl/Kancelaria_Prawnicza-k84.html",
@@ -678,9 +974,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 31,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "07b96df226dc3a23",
       "name": "AuCourDe/niewidka",
       "url": "https://github.com/aucourde/niewidka",
@@ -715,10 +1014,27 @@
           "personal-data",
           "pii"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 49,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 37.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 16,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "f1f0db0b5e450d9b",
       "name": "auto-mate-pl/mcp-polska",
       "url": "https://github.com/auto-mate-pl/mcp-polska",
@@ -750,10 +1066,27 @@
           "nip",
           "polska"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 34.7,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 37,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "2e73038364e3ac69",
       "name": "b44x/edoreczenia-php",
       "url": "https://github.com/b44x/edoreczenia-php",
@@ -784,10 +1117,27 @@
           "psr-18",
           "sdk"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 43,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 34.2,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 40,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "00d22aebd08da686",
       "name": "balwierz/sejm2git",
       "url": "https://github.com/balwierz/sejm2git",
@@ -819,10 +1169,27 @@
           "poland",
           "sejm"
         ],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 1,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 32,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 21.9,
+          "społeczność": 7.5,
+          "licencja": 0
+        },
+        "commit_age_days": 156,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "a74b59c6f846b298",
       "name": "bartekmac63/civiclens",
       "url": "https://github.com/bartekmac63/civiclens",
@@ -854,10 +1221,27 @@
           "python",
           "sejm"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 0,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 21.6,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 160,
+        "method": "repo-health-v1",
+        "archived_penalty": true
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "cfac30f386d165cb",
       "name": "BartoszRadziszewski/anonimizator",
       "url": "https://github.com/bartoszradziszewski/anonimizator",
@@ -879,10 +1263,27 @@
         "archived": false,
         "language": "HTML",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 48,
+        "parts": {
+          "popularność": 1.3,
+          "aktualność": 38.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 10,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "63ff68fc3846f54e",
       "name": "Baseline Kancelaria",
       "url": "https://www.baseline.pl/kancelaria",
@@ -896,9 +1297,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 32,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "e7a26d3b5f99627e",
       "name": "Beck-Noxtua",
       "url": "https://beck-noxtua.pl",
@@ -912,9 +1316,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 62,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "3a44464fd7921262",
       "name": "Beznazwisk.pl",
       "url": "https://beznazwisk.pl",
@@ -928,9 +1335,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 159,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "8248b7d061b6328e",
       "name": "Bluur",
       "url": "https://bluur.ai/pl",
@@ -944,9 +1354,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 160,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "105159ef09c08c5c",
       "name": "bmajkut/land-registry-scrapper-pl",
       "url": "https://github.com/bmajkut/land-registry-scrapper-pl",
@@ -969,10 +1382,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 13,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 3.9,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 606,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "97cf936ae0a351bf",
       "name": "bolo272/interpelacje-sejm",
       "url": "https://github.com/bolo272/interpelacje-sejm",
@@ -995,10 +1425,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.9,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "b7d8cd72ad9af474",
       "name": "BotRadzi",
       "url": "https://botradzi.pl",
@@ -1012,9 +1459,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 87,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "bef35163f793bf80",
       "name": "brokeboiflex/nodeusz",
       "url": "https://github.com/brokeboiflex/nodeusz",
@@ -1036,10 +1486,27 @@
         "archived": false,
         "language": "C++",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 28,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 24.0,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 133,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "ab080ebcaf793b32",
       "name": "Casum",
       "url": "https://casum.pl",
@@ -1053,9 +1520,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 178,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "4f5d029b54c8aa88",
       "name": "CasuSoft",
       "url": "https://casusoft.pl",
@@ -1069,9 +1539,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 33,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "9329d52640647559",
       "name": "CBOSA",
       "url": "https://orzeczenia.nsa.gov.pl",
@@ -1085,9 +1558,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 46,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "451431ec538d6a1f",
       "name": "cloudforge1/PaddleOCR-VL-For-Polish",
       "url": "https://github.com/cloudforge1/paddleocr-vl-for-polish",
@@ -1109,10 +1585,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 25,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 16.7,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 226,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "a933aebe2c1cfc2e",
       "name": "crankshift/lawpowers",
       "url": "https://github.com/crankshift/lawpowers",
@@ -1134,10 +1627,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 39,
+        "parts": {
+          "popularność": 7.8,
+          "aktualność": 20.7,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 171,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "8a8dbac3c0d58d7a",
       "name": "CRM-EDPO",
       "url": "https://crm-edpo.pl",
@@ -1151,9 +1661,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 129,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "9a6c00f03090ac01",
       "name": "Cyfrowa Kancelaria",
       "url": "https://www.ck.adwokatura.pl/produkty/cyfrowa-kancelaria,405475.html",
@@ -1167,9 +1680,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 34,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "c7f7e7bef5ea5513",
       "name": "danielmskuza-blip/Orzeczenia-MS",
       "url": "https://github.com/danielmskuza-blip/orzeczenia-ms",
@@ -1192,10 +1708,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 1,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 35,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 26.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 108,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "7d98eda97b74d253",
       "name": "DawidBochno/Anonimizacja-RODO",
       "url": "https://github.com/dawidbochno/anonimizacja-rodo",
@@ -1217,10 +1750,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 42,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 38.3,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 11,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "5199016a5feaca92",
       "name": "DawidZabek/leaseguard",
       "url": "https://github.com/dawidzabek/leaseguard",
@@ -1242,10 +1792,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 28,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 21.3,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 163,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "75d40e06141d7e1b",
       "name": "denis-solodov/prawnik-pl",
       "url": "https://github.com/denis-solodov/prawnik-pl",
@@ -1272,10 +1839,27 @@
           "polish-law",
           "prawo-polskie"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 48,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.8,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 1,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "b38bde94470df425",
       "name": "DivKids",
       "url": "https://divkids.com/pl",
@@ -1289,9 +1873,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 88,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "24c607f0967ba20a",
       "name": "dominikloza/lawer-up",
       "url": "https://github.com/dominikloza/lawer-up",
@@ -1313,10 +1900,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 18,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 14.5,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 264,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "11c026b465a9ad68",
       "name": "Doqum",
       "url": "https://www.doqum.pl",
@@ -1330,9 +1934,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 63,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "90011e8d94e3779e",
       "name": "DPO Workspace",
       "url": "https://www.dpoworkspace.eu/pl",
@@ -1346,9 +1953,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 130,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "5119cd706731c90b",
       "name": "dzial-prawny.pl",
       "url": "https://dzialprawny.pl",
@@ -1362,9 +1972,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 46,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "a3358ff10ae6d898",
       "name": "e-Pozwy",
       "url": "https://e-pozwy.com.pl",
@@ -1378,9 +1991,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 167,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Standardy i formaty",
       "id": "75edcc4c22c940bd",
       "name": "e-sad/dokumentacja",
       "url": "https://github.com/e-sad/dokumentacja",
@@ -1408,10 +2024,27 @@
           "e-sad",
           "esad"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "GPL-3.0",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 54,
+        "parts": {
+          "popularność": 9.1,
+          "aktualność": 36.0,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 27,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "e924b7d9d7534165",
       "name": "e-SDS",
       "url": "https://e-sds.pl",
@@ -1425,9 +2058,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 114,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "4cc87ecc47d917dc",
       "name": "ecommerce.legal",
       "url": "https://ecommercelegal.io/pl",
@@ -1441,9 +2077,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 56,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Edukacja",
+      "subcategory": null,
       "id": "2639107bae187bc2",
       "name": "Egzamin.pl",
       "url": "https://egzamin.pl/prawnicze",
@@ -1457,9 +2096,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 200,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "99a4125229a10da8",
       "name": "elconcept/grounding-prawo",
       "url": "https://github.com/elconcept/grounding-prawo",
@@ -1481,10 +2123,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 9
+        "contributors": 9,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 55,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 39.9,
+          "społeczność": 12.4,
+          "licencja": 0
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Standardy i formaty",
       "id": "6f99b36fb23fa141",
       "name": "ELI",
       "url": "https://eur-lex.europa.eu/eli-register/about.html",
@@ -1498,9 +2157,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 107,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "6908d530e0fdf41d",
       "name": "Emenowicz/polish-legal-mcp",
       "url": "https://github.com/emenowicz/polish-legal-mcp",
@@ -1523,10 +2185,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 37.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 17,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "85a3f519e0163321",
       "name": "emilpinski/lexaro",
       "url": "https://github.com/emilpinski/lexaro",
@@ -1561,10 +2240,27 @@
           "legal-ai",
           "polish-language"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 23,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 19.0,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 194,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "85efd7e11e1c08f4",
       "name": "empios",
       "url": "https://github.com/empios",
@@ -1577,9 +2273,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 156,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "8ed53240be63f852",
       "name": "ErykMikolajewicz/prawobiorca",
       "url": "https://github.com/erykmikolajewicz/prawobiorca",
@@ -1601,10 +2300,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 54,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.8,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 1,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "23d79333d6408748",
       "name": "eSignaller",
       "url": "https://esignaller.pl",
@@ -1618,9 +2334,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 115,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "fba180511d3c5f93",
       "name": "EUREKA",
       "url": "https://eureka.mf.gov.pl",
@@ -1634,9 +2353,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 48,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "cc3dc7a5e71b5641",
       "name": "faustyna77/anonimizator",
       "url": "https://github.com/faustyna77/anonimizator",
@@ -1658,10 +2380,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 5,
+        "license": "Apache-2.0",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 50,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 38.6,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 9,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "ce8ab93251e53270",
       "name": "Gaius-Lex",
       "url": "https://gaius-lex.pl",
@@ -1675,9 +2414,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 64,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "9f86b3f27cce72d7",
       "name": "Gavelo",
       "url": "https://www.gavelo.pl",
@@ -1691,9 +2433,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 102,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "a8492e7e7a737257",
       "name": "GSkuza/AI-Legal-SkillsPL",
       "url": "https://github.com/gskuza/ai-legal-skillspl",
@@ -1715,10 +2460,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 51,
+        "parts": {
+          "popularność": 7.5,
+          "aktualność": 34.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 38,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "50c2328c52969bf4",
       "name": "iAML",
       "url": "https://www.iaml.com.pl",
@@ -1732,9 +2494,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 141,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "c98acc785955b8b5",
       "name": "iMSiG",
       "url": "https://www.imsig.pl/lista-upadlosci",
@@ -1748,9 +2513,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 172,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "2860a562692e9fbe",
       "name": "Inexpli/Radca-prawny-AI",
       "url": "https://github.com/inexpli/radca-prawny-ai",
@@ -1779,10 +2547,27 @@
           "rag",
           "polish-law"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 30,
+        "parts": {
+          "popularność": 9.0,
+          "aktualność": 11.8,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 317,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "d6ea1d27185c82a0",
       "name": "INFORLEX",
       "url": "https://www.inforlex.pl",
@@ -1796,9 +2581,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 100,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "f9993bb4eb8fd5a2",
       "name": "InPro Kancelaria",
       "url": "https://inpro24.eu/kancelaria",
@@ -1812,9 +2600,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 36,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "ee313f76c352fdf3",
       "name": "Interfejs do e-sądów (BV Aplikacje)",
       "url": "https://aplikacje.bvgrupa.pl/interfejs-do-e-sadow",
@@ -1828,9 +2619,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 168,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "97cc10c194c2343e",
       "name": "Iskra-YT/sejmium",
       "url": "https://github.com/iskra-yt/sejmium",
@@ -1864,10 +2658,27 @@
           "sejm",
           "transparency"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 30,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 18.7,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 197,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "7ce69a4694d866a5",
       "name": "Iuscase",
       "url": "https://iuscase.pl",
@@ -1881,9 +2692,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 35,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "53540b962708c541",
       "name": "JacekSmi/PolishOpenData",
       "url": "https://github.com/jaceksmi/polishopendata",
@@ -1919,10 +2733,27 @@
           "mcp-server",
           "model-context-protocol"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 50,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.1,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 5,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "81fdbaa057c3fe2a",
       "name": "jakatora/kredyt-ai",
       "url": "https://github.com/jakatora/kredyt-ai",
@@ -1944,10 +2775,27 @@
         "archived": false,
         "language": "JavaScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 25,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 21.7,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 158,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "3481c6dc17c3036a",
       "name": "jamarpl21/prawo-pl-eli",
       "url": "https://github.com/jamarpl21/prawo-pl-eli",
@@ -1983,10 +2831,27 @@
           "codex",
           "eli"
         ],
-        "contributors": 5
+        "contributors": 5,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 70,
+        "parts": {
+          "popularność": 15.7,
+          "aktualność": 39.8,
+          "społeczność": 9.6,
+          "licencja": 5
+        },
+        "commit_age_days": 1,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "0b465129d269a0db",
       "name": "janisz/sejm-mcp",
       "url": "https://github.com/janisz/sejm-mcp",
@@ -2015,10 +2880,27 @@
           "mcp",
           "mcp-server"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 34,
+        "parts": {
+          "popularność": 5.0,
+          "aktualność": 18.0,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 207,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "7795978a7acca9a5",
       "name": "Jeton",
       "url": "https://jeton.pl/uslugi/system-dla-sygnalisty",
@@ -2032,9 +2914,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 116,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "d7e18179129effc5",
       "name": "JuDDGES na Hugging Face",
       "url": "https://huggingface.co/JuDDGES",
@@ -2047,9 +2932,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 175,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "23b37b7db04409b4",
       "name": "jurXpert",
       "url": "https://www.jurxpert.pl",
@@ -2063,9 +2951,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 37,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Kalkulatory",
+      "subcategory": null,
       "id": "14b3d161e10e1231",
       "name": "Kalkulator opłat sądowych HWW",
       "url": "https://hww.pl/narzedzia/kalkulator-oplaty-sadowej",
@@ -2079,9 +2970,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 194,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Kalkulatory",
+      "subcategory": null,
       "id": "6be389b2b0cf136d",
       "name": "Kalkulatory prawne Stasik",
       "url": "https://www.stasik-kancelaria.pl/kalkulatory-prawne",
@@ -2095,9 +2989,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 195,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "356ec02670455291",
       "name": "kamilkaczmareksolutions/polish-mcp-servers",
       "url": "https://github.com/kamilkaczmareksolutions/polish-mcp-servers",
@@ -2133,10 +3030,27 @@
           "claude",
           "cursor"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 47,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 38.6,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 9,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "7a4567f1bd6809bf",
       "name": "Kancelaria Notarialna (Wolters Kluwer)",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/kancelaria-notarialna",
@@ -2150,9 +3064,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 39,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "834f1ab151f4c932",
       "name": "KancelariaOnline",
       "url": "https://kancelariaonline.com.pl",
@@ -2166,9 +3083,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 38,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "f8c79b216f40eb71",
       "name": "karolpolikarp/ISAP-scraper",
       "url": "https://github.com/karolpolikarp/isap-scraper",
@@ -2198,10 +3118,27 @@
           "python",
           "scraper"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 31,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 21.4,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 162,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "022ecb2d16fc34e2",
       "name": "kbchojnacki",
       "url": "https://github.com/kbchojnacki",
@@ -2215,9 +3152,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 53,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI Act",
+      "subcategory": null,
       "id": "ee7c3b21236b64bc",
       "name": "Klasyfikacja AI Act (Harbor LEGAL)",
       "url": "https://harbor.legal/ai-act",
@@ -2231,9 +3171,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 150,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "2e6af5739c52fac1",
       "name": "Kodex AI",
       "url": "https://kodexai.pl",
@@ -2247,9 +3190,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 103,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "4955cdc9a7a80e09",
       "name": "Komornik Online",
       "url": "https://www.komornik-online.eu",
@@ -2263,9 +3209,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 173,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "7b36e0d6fbad56d4",
       "name": "Komornik.IT",
       "url": "https://komornik.it",
@@ -2279,9 +3228,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 174,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "39aebee8ca305b89",
       "name": "konraddre/precyzyjny-paragraf",
       "url": "https://github.com/konraddre/precyzyjny-paragraf",
@@ -2303,10 +3255,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 47,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.3,
+          "społeczność": 7.5,
+          "licencja": 0
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "181beb0eda1f728a",
       "name": "Kreator Legal Geek",
       "url": "https://kreator.legalgeek.pl",
@@ -2320,9 +3289,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 55,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "11815991e3e5d612",
       "name": "KrzysztofBogdan/Kodeks_cywilny",
       "url": "https://github.com/krzysztofbogdan/kodeks_cywilny",
@@ -2345,10 +3317,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 9,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 0.0,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 4053,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "4cf05a2cbb03288d",
       "name": "KT Sygnalista",
       "url": "https://ktsoft.pl/oferta/oprogramowanie-do-zarzadzania-firma/kt-sygnalista",
@@ -2362,9 +3351,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 117,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "f07a68beea470635",
       "name": "LachPawel/Lethe",
       "url": "https://github.com/lachpawel/lethe",
@@ -2386,10 +3378,27 @@
         "archived": false,
         "language": "JavaScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 14,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 10.5,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 348,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "6bb51975629e5d67",
       "name": "LateMigo/transport_skill",
       "url": "https://github.com/latemigo/transport_skill",
@@ -2417,10 +3426,27 @@
           "knowledge-base",
           "transport-law"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 38,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 34.2,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 40,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "43b78c76f39b20bb",
       "name": "legaion/mcp-verifier",
       "url": "https://github.com/legaion/mcp-verifier",
@@ -2450,10 +3476,27 @@
           "mcp-server",
           "poland"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 35,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 31.0,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 66,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "b40b5da377451022",
       "name": "Legal AI",
       "url": "https://legal-ai.pl",
@@ -2467,9 +3510,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 65,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "dd6766fee3ee5a6b",
       "name": "LegalDesk (Wolters Kluwer)",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/legaldesk",
@@ -2483,9 +3529,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 40,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "a73cbe8bac8bc2f8",
       "name": "Legalis",
       "url": "https://legalis.pl",
@@ -2499,9 +3548,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 99,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "02974dd94593e236",
       "name": "legalize-dev/legalize-pl",
       "url": "https://github.com/legalize-dev/legalize-pl",
@@ -2526,10 +3578,27 @@
         "github_topics": [
           "legalize-country"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 37,
+        "parts": {
+          "popularność": 11.1,
+          "aktualność": 22.4,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 150,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "66502c3f0b26972d",
       "name": "LegalKanban",
       "url": "https://legalkanban.pl",
@@ -2543,9 +3612,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 41,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "5b92514372e168a5",
       "name": "LegalRaty",
       "url": "https://legalraty.pl",
@@ -2559,9 +3631,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 180,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "36a1740d368d26ad",
       "name": "Legalspot",
       "url": "https://legalspot.pl",
@@ -2575,9 +3650,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 47,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "d515123df22e48c1",
       "name": "Legavi",
       "url": "https://legavi.pl",
@@ -2591,9 +3669,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 179,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "ef00738f7a86abce",
       "name": "Legitask",
       "url": "https://www.legitask.pl",
@@ -2607,9 +3688,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 42,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "d69422c4abf21dae",
       "name": "Leksio",
       "url": "https://leksio.pl",
@@ -2623,9 +3707,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 108,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "3e65e0911d22f49d",
       "name": "leniwyposel/sejm-mcp",
       "url": "https://github.com/leniwyposel/sejm-mcp",
@@ -2655,10 +3742,27 @@
           "poland",
           "sejm"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 49,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 34.3,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 39,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "26df42e151d3d072",
       "name": "LEOLEX AI",
       "url": "https://leolex.ai",
@@ -2672,9 +3776,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 66,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "67efc7a302222d5c",
       "name": "LEX",
       "url": "https://www.lex.pl",
@@ -2688,9 +3795,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 98,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "6ac53cdf7fb0ecba",
       "name": "LEX AI",
       "url": "https://lexai.pl",
@@ -2704,9 +3814,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 89,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "24fcad2f77c02689",
       "name": "LEX Edytor",
       "url": "https://lexhub.tech/aplikacja-legaltech/29-lex-edytor",
@@ -2720,9 +3833,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 53,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "390ad47275a90618",
       "name": "LEX Expert AI",
       "url": "https://www.wolterskluwer.com/pl-pl/solutions/lex/expert-ai/dlaczego-lex-expert-ai",
@@ -2736,9 +3852,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 67,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "96a644cc47ccde59",
       "name": "LEX Ochrona Danych Osobowych",
       "url": "https://www.lex.pl/produkty/lex-ochrona-danych-osobowych,561435.html",
@@ -2752,9 +3871,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 131,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Edukacja",
+      "subcategory": null,
       "id": "742aceb5f6f6572d",
       "name": "Lex Testy",
       "url": "https://play.google.com/store/apps/details?id=pl.smarteducation.hrcode",
@@ -2768,9 +3890,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 201,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "b17dfc3dc236bf96",
       "name": "Lex-GPT",
       "url": "https://lex-gpt.pl",
@@ -2784,9 +3909,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 81,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "b55560f2ad124d61",
       "name": "lex-gpt/lex-mcp-plugin",
       "url": "https://github.com/lex-gpt/lex-mcp-plugin",
@@ -2809,10 +3937,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 45,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 36.0,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 27,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "5d985312e9dbc4e2",
       "name": "LexaFlow",
       "url": "https://lexaflow.pl",
@@ -2826,9 +3971,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 90,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "a708bf16b0c4806e",
       "name": "LexAlpha",
       "url": "https://lexalpha.pl",
@@ -2842,9 +3990,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 68,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "4c08095ef9d6f7a7",
       "name": "LexaurinTheDog",
       "url": "https://github.com/LexaurinTheDog",
@@ -2858,9 +4009,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 54,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "6e461d507bddb0d7",
       "name": "Lexedit",
       "url": "https://lexedit.ai/pl",
@@ -2874,9 +4028,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 69,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "49a9869ae08eef19",
       "name": "lexifina/poland-law",
       "url": "https://github.com/lexifina/poland-law",
@@ -2906,10 +4063,27 @@
           "open-data",
           "poland"
         ],
-        "contributors": 165142
+        "contributors": 165142,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 67,
+        "parts": {
+          "popularność": 7.5,
+          "aktualność": 39.3,
+          "społeczność": 20,
+          "licencja": 0
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "35bacf77113ff1d6",
       "name": "LexLege",
       "url": "https://lexlege.pb.pl/system-informacji-prawnej",
@@ -2923,9 +4097,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 101,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "3b4c556cded3fbbc",
       "name": "Lexodi",
       "url": "https://lexodi.com/pl",
@@ -2939,9 +4116,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 54,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "e34bf502f5d86750",
       "name": "LexPilot",
       "url": "https://lexpilot.app",
@@ -2955,9 +4135,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 70,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "edbf045e3753963c",
       "name": "LexTool",
       "url": "https://www.lextool.pl",
@@ -2971,9 +4154,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 71,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "172c11878a7e7504",
       "name": "Libra (Wolters Kluwer)",
       "url": "https://libratech.ai",
@@ -2987,9 +4173,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 72,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "1d4549c7935fe388",
       "name": "Litilex",
       "url": "https://litilex.pl",
@@ -3003,9 +4192,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 43,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "7f81857ad8467c33",
       "name": "LK-Technology/prawnik-mcp",
       "url": "https://github.com/lk-technology/prawnik-mcp",
@@ -3028,10 +4220,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 0
+        "contributors": 0,
+        "open_issues": 2,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 5.0,
+          "aktualność": 35.7,
+          "społeczność": 0.0,
+          "licencja": 5
+        },
+        "commit_age_days": 29,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "30e8db9d80e29dc6",
       "name": "LOGiT FLOW",
       "url": "https://logitflow.pl",
@@ -3045,9 +4254,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 73,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "09d2e74306ccd881",
       "name": "Luzgan/lupa-na-prawo",
       "url": "https://github.com/luzgan/lupa-na-prawo",
@@ -3070,10 +4282,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 22,
+        "parts": {
+          "popularność": 1.3,
+          "aktualność": 16.8,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 225,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "c3b8091c09ba8c35",
       "name": "MaciejKlepacki/mama_anonimizacja",
       "url": "https://github.com/maciejklepacki/mama_anonimizacja",
@@ -3095,10 +4324,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 35.7,
+          "społeczność": 7.5,
+          "licencja": 0
+        },
+        "commit_age_days": 29,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "5470f3325c1d495c",
       "name": "marduk112/RAG-LoRA---kadry-i-place",
       "url": "https://github.com/marduk112/rag-lora---kadry-i-place",
@@ -3120,10 +4366,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 48,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 3,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "5516aad4572b008d",
       "name": "marianwitkowski/generator-umow-o-dzielo",
       "url": "https://github.com/marianwitkowski/generator-umow-o-dzielo",
@@ -3156,10 +4419,27 @@
           "prawo-autorskie",
           "umowa-o-dzielo"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 37,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 33.2,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 48,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "4c24829d5bedf0b8",
       "name": "matematicsolutions",
       "url": "https://github.com/matematicsolutions",
@@ -3173,9 +4453,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 72,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "d1d37ef9d35b091e",
       "name": "matematicsolutions/patron",
       "url": "https://github.com/matematicsolutions/patron",
@@ -3210,10 +4493,27 @@
           "patron",
           "poland"
         ],
-        "contributors": 8
+        "contributors": 8,
+        "open_issues": 0,
+        "license": "AGPL-3.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 70,
+        "parts": {
+          "popularność": 14.9,
+          "aktualność": 38.3,
+          "społeczność": 11.8,
+          "licencja": 5
+        },
+        "commit_age_days": 11,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "d10e90f446d1efdc",
       "name": "matgier/orzeczenia-tezy-dashboard",
       "url": "https://github.com/matgier/orzeczenia-tezy-dashboard",
@@ -3235,10 +4535,27 @@
         "archived": false,
         "language": "HTML",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 39,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 35.7,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 29,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "899cf51dd97847db",
       "name": "mattttttttttyyyy/prawo-pl-plugin",
       "url": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
@@ -3261,10 +4578,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 40,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 36.1,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 26,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "109f8c2b07c7e457",
       "name": "Mecenas.ai",
       "url": "https://mecenas.ai",
@@ -3278,9 +4612,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 91,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "dc7c09dd5c18c28f",
       "name": "Mecenas.iT",
       "url": "https://mecenasit.pl",
@@ -3294,9 +4631,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 44,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "4950d373d36af764",
       "name": "MGBI Rejestry publiczne API",
       "url": "https://www.mgbi.pl/produkty/rejestry-publiczne-api",
@@ -3310,9 +4650,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 143,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "d6c79dc3dcc4cdce",
       "name": "mhajder/pyekw",
       "url": "https://github.com/mhajder/pyekw",
@@ -3347,10 +4690,27 @@
           "ksiegi-wieczyste",
           "kw-number"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 51,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 37.3,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 18,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "4f2a16c76670ff57",
       "name": "michaleiatrak-star/Lex-Machina",
       "url": "https://github.com/michaleiatrak-star/lex-machina",
@@ -3385,10 +4745,27 @@
           "pozew",
           "prawna"
         ],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 4,
+        "license": "GPL-3.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 81,
+        "parts": {
+          "popularność": 28.7,
+          "aktualność": 39.9,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "7a7596bcdc52098d",
       "name": "mikolaj92/anonimizator3000",
       "url": "https://github.com/mikolaj92/anonimizator3000",
@@ -3418,10 +4795,27 @@
           "presidio",
           "uv"
         ],
-        "contributors": 6
+        "contributors": 6,
+        "open_issues": 3,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 57,
+        "parts": {
+          "popularność": 5.3,
+          "aktualność": 35.9,
+          "społeczność": 10.5,
+          "licencja": 5
+        },
+        "commit_age_days": 28,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Standardy i formaty",
       "id": "59c2d64aed406afd",
       "name": "MikolekN",
       "url": "https://github.com/MikolekN",
@@ -3435,9 +4829,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 110,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "9034536c9520a709",
       "name": "miskibin",
       "url": "https://github.com/miskibin",
@@ -3450,9 +4847,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 117,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "4c01520b28b34ac0",
       "name": "miskibin/sejm-stats",
       "url": "https://github.com/miskibin/sejm-stats",
@@ -3482,10 +4882,27 @@
           "tailwind",
           "website"
         ],
-        "contributors": 5
+        "contributors": 5,
+        "open_issues": 12,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 28,
+        "parts": {
+          "popularność": 14.8,
+          "aktualność": 4.1,
+          "społeczność": 9.6,
+          "licencja": 0
+        },
+        "commit_age_days": 590,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "be696f03ce428db7",
       "name": "mTylewski/dora",
       "url": "https://github.com/mtylewski/dora",
@@ -3519,10 +4936,27 @@
           "structured-outputs",
           "typescript"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 39.3,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "86eb0fb044ccd466",
       "name": "Mycroft Sweeper",
       "url": "https://mycroftsolutions.ai/pl",
@@ -3536,9 +4970,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 161,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "3f88cc29dba1491c",
       "name": "nalegaluorg/nalegalu",
       "url": "https://github.com/nalegaluorg/nalegalu",
@@ -3561,10 +4998,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 1,
+        "license": "CC0-1.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 51,
+        "parts": {
+          "popularność": 14.1,
+          "aktualność": 24.2,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 130,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "50710d24eb39a730",
       "name": "NataliaZych/anonimizacja_danych",
       "url": "https://github.com/nataliazych/anonimizacja_danych",
@@ -3586,10 +5040,27 @@
         "archived": false,
         "language": "HTML",
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 49,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 36.2,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 25,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "4a7b1de3c35668cd",
       "name": "numikel/law-scrapper-mcp",
       "url": "https://github.com/numikel/law-scrapper-mcp",
@@ -3612,10 +5083,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 4,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 68,
+        "parts": {
+          "popularność": 15.2,
+          "aktualność": 39.0,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 6,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "cbb883c275b4f65c",
       "name": "ObywatelTB/prawmi-mcp",
       "url": "https://github.com/obywateltb/prawmi-mcp",
@@ -3645,10 +5133,27 @@
           "polish-law",
           "prawo"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 38,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 29.7,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 77,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "5984a1c7c56588bb",
       "name": "ODO Nawigator",
       "url": "https://odo24.pl/odo-nawigator",
@@ -3662,9 +5167,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 132,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "f14423f7ac96330c",
       "name": "OmniaSI",
       "url": "https://omniasi.pl",
@@ -3678,9 +5186,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 74,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "f1400bd003d49882",
       "name": "Omnilexia",
       "url": "https://omnilexia.com/pl",
@@ -3694,9 +5205,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 75,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "2313c71433a7eefe",
       "name": "operatorit/Polish_law_updates_notifier",
       "url": "https://github.com/operatorit/polish_law_updates_notifier",
@@ -3719,10 +5233,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 18,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 10.6,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 345,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "359d489dbf98f854",
       "name": "Orzeczenia KIO",
       "url": "https://orzeczenia.uzp.gov.pl",
@@ -3736,9 +5267,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 47,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "0aac354cfaeb4c10",
       "name": "otwarteprawo-pl/claude-plugins",
       "url": "https://github.com/otwarteprawo-pl/claude-plugins",
@@ -3761,10 +5295,27 @@
         "archived": false,
         "language": null,
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 47,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 38.6,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 9,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "55a8bb0720d8592d",
       "name": "Panel Sygnalisty",
       "url": "https://panelsygnalisty.pl",
@@ -3778,9 +5329,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 118,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "73f8e2d7ca824f07",
       "name": "PAPUGO.AI",
       "url": "https://papugo.ai",
@@ -3794,9 +5348,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 92,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "7573615e50d9ac5a",
       "name": "Parafka.ai",
       "url": "https://parafka.ai",
@@ -3810,9 +5367,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 93,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "57846c1ab4925395",
       "name": "paszkiewiczmichal/poufnik",
       "url": "https://github.com/paszkiewiczmichal/poufnik",
@@ -3842,10 +5402,27 @@
           "rodo",
           "tauri"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 48,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.4,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "069c8300617215bc",
       "name": "PawelHaracz/polish-caselaw-mcp",
       "url": "https://github.com/pawelharacz/polish-caselaw-mcp",
@@ -3868,10 +5445,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 36,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 27.5,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 97,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "a87bec8cfd26c34f",
       "name": "pawelknorps",
       "url": "https://github.com/pawelknorps",
@@ -3885,9 +5479,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 91,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "40fa62a1b89b2833",
       "name": "pawelkwaczynski",
       "url": "https://github.com/pawelkwaczynski",
@@ -3900,9 +5497,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 122,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "ae9e6f78d7099b8c",
       "name": "pawelojdowski/uodo-mcp",
       "url": "https://github.com/pawelojdowski/uodo-mcp",
@@ -3935,10 +5535,27 @@
           "rodo",
           "uodo"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 49,
+        "parts": {
+          "popularność": 4.6,
+          "aktualność": 35.3,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 32,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "367c9fb7df683676",
       "name": "pielas-activy/znajdz-ksiege-wieczysta",
       "url": "https://github.com/pielas-activy/znajdz-ksiege-wieczysta",
@@ -3961,10 +5578,27 @@
         "archived": false,
         "language": "JavaScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 41,
+        "parts": {
+          "popularność": 8.6,
+          "aktualność": 23.6,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 136,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "bbb93efdd6e4aad8",
       "name": "PiotrKantorowski",
       "url": "https://github.com/PiotrKantorowski",
@@ -3978,9 +5612,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 79,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "7d357d696889fc81",
       "name": "PiotrSty na Hugging Face",
       "url": "https://huggingface.co/PiotrSty",
@@ -3993,9 +5630,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 176,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "503e12115f7d290b",
       "name": "PiotrTyrakowski/PolishLawLLM-Benchmark",
       "url": "https://github.com/piotrtyrakowski/polishlawllm-benchmark",
@@ -4017,10 +5657,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 9,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 25,
+        "parts": {
+          "popularność": 6.3,
+          "aktualność": 12.7,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 299,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "6dc22706e889644b",
       "name": "pkolawa/krs-poland-mcp-server",
       "url": "https://github.com/pkolawa/krs-poland-mcp-server",
@@ -4043,10 +5700,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 1,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 57,
+        "parts": {
+          "popularność": 5.8,
+          "aktualność": 39.9,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "b43779c47d6ac6bf",
       "name": "PLLuM",
       "url": "https://pllum.clarin-pl.eu",
@@ -4059,9 +5733,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 170,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "fc859fb41fdaaf1a",
       "name": "PolecajPrawnika",
       "url": "https://polecajprawnika.pl",
@@ -4075,9 +5752,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 181,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "9de5a6524eb71626",
       "name": "PolskiAgentW",
       "url": "https://github.com/PolskiAgentW",
@@ -4091,9 +5771,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 59,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "777c036ae44a42b4",
       "name": "PrawMi",
       "url": "https://prawmi.pl",
@@ -4107,9 +5790,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 76,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "fdaed5e9ece22294",
       "name": "Prawnet",
       "url": "https://prawnet.pl",
@@ -4123,9 +5809,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 182,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "0b25b2b80adf67f9",
       "name": "Prawnik.CC",
       "url": "https://prawnik.cc",
@@ -4139,9 +5828,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 183,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "ae6aa71a72425a05",
       "name": "PrawoAI",
       "url": "https://prawo-ai.com",
@@ -4155,9 +5847,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 80,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AI dla nie-prawników",
+      "subcategory": null,
       "id": "88b982b2ce531fcb",
       "name": "Prawomat",
       "url": "https://www.prawomat.com",
@@ -4171,9 +5866,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 94,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "8dddf001c8b3017a",
       "name": "PrzemoPle/zalaczniki",
       "url": "https://github.com/przemople/zalaczniki",
@@ -4202,10 +5900,27 @@
           "polish",
           "swiftui"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 42,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 32.8,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 51,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "8675a60f2c5b8954",
       "name": "pwr-ai/JuDDGES",
       "url": "https://github.com/pwr-ai/juddges",
@@ -4235,10 +5950,27 @@
           "machine-learning",
           "nlp"
         ],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 18,
+        "license": "Apache-2.0",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 52,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 38.1,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 12,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "a7a18823bff0dff3",
       "name": "quiris11/Anonimizator-PDF",
       "url": "https://github.com/quiris11/anonimizator-pdf",
@@ -4260,10 +5992,27 @@
         "archived": false,
         "language": "HTML",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "Unlicense",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 34.3,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 39,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia pomocnicze",
+      "subcategory": null,
       "id": "735f47fe3be0824a",
       "name": "radarsu/validate-polish",
       "url": "https://github.com/radarsu/validate-polish",
@@ -4299,10 +6048,27 @@
           "identitycard",
           "identity-card"
         ],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 65,
+        "parts": {
+          "popularność": 18.8,
+          "aktualność": 32.3,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 55,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "bb677797c625c1e1",
       "name": "radoskoppl/sejmbench",
       "url": "https://github.com/radoskoppl/sejmbench",
@@ -4324,10 +6090,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 7,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 50,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 39.3,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 4,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Anonimizacja",
+      "subcategory": null,
       "id": "b6c4e88ee4d7acd1",
       "name": "Redact",
       "url": "https://redact.fordata.pl",
@@ -4341,9 +6124,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 162,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "74e12e3a49c9c01b",
       "name": "Rejestr klauzul niedozwolonych UOKiK",
       "url": "https://rejestr.uokik.gov.pl",
@@ -4357,9 +6143,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 49,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "c9c0cd53fdf3cf6b",
       "name": "rejestr.io",
       "url": "https://rejestr.io",
@@ -4373,9 +6162,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 144,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "abf5cd3443eeb6fc",
       "name": "RODO Online",
       "url": "https://rodo-online.eu",
@@ -4389,9 +6181,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 133,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "f23a77f88987523b",
       "name": "RODO Utility (Asseco BS)",
       "url": "https://assecobs.pl/businesscloud/rodo-utility",
@@ -4405,9 +6200,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 134,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "RODO",
+      "subcategory": null,
       "id": "e7da5e8150c09096",
       "name": "RODOprotektor",
       "url": "https://rodoprotektor.pl",
@@ -4421,9 +6219,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 135,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "6c8110f340eaf23a",
       "name": "rodorn",
       "url": "https://github.com/rodorn",
@@ -4436,9 +6237,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 130,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "d9f62380b9fcb0e9",
       "name": "Rzetelny Regulamin",
       "url": "https://www.rzetelnyregulamin.pl",
@@ -4452,9 +6256,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 57,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Dane i API państwowe",
       "id": "309db43869b1afe7",
       "name": "SAOS",
       "url": "https://www.saos.org.pl",
@@ -4468,9 +6275,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 45,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Akty prawne jako dane",
       "id": "a4a5434c45bfcbfa",
       "name": "Sarverott/P-jol-roll",
       "url": "https://github.com/sarverott/p-jol-roll",
@@ -4493,10 +6303,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "AGPL-3.0",
+        "default_branch": "master"
+      },
+      "health": {
+        "value": 63,
+        "parts": {
+          "popularność": 15.0,
+          "aktualność": 39.2,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 5,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia pomocnicze",
+      "subcategory": null,
       "id": "bdd0e540a6e61a05",
       "name": "sebob/donotfeedai",
       "url": "https://github.com/sebob/donotfeedai",
@@ -4510,9 +6337,12 @@
       "source": "polskie-legaltech-archiwum",
       "source_line": 21,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "1c76cf2624bdc0ca",
       "name": "SejmPage",
       "url": "https://sejmpage.pl",
@@ -4526,9 +6356,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 105,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "bee33babedb145ce",
       "name": "soba-labs/krs-mcp",
       "url": "https://github.com/soba-labs/krs-mcp",
@@ -4559,10 +6392,27 @@
           "model-context-protocol",
           "poland"
         ],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 56,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 39.4,
+          "społeczność": 7.5,
+          "licencja": 5
+        },
+        "commit_age_days": 3,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "5da21ba9649a4c02",
       "name": "sobolevbel/lexinform",
       "url": "https://github.com/sobolevbel/lexinform",
@@ -4585,10 +6435,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 56,
+        "parts": {
+          "popularność": 2.5,
+          "aktualność": 40.0,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "28592c2bc9156bde",
       "name": "spaCy pl_core_news_lg",
       "url": "https://spacy.io/models/pl",
@@ -4601,9 +6468,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 172,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Modele, korpusy, benchmarki",
+      "subcategory": null,
       "id": "4afb6e166339c34b",
       "name": "speakleash",
       "url": "https://github.com/speakleash",
@@ -4616,9 +6486,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 169,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "2c0d147e87232d83",
       "name": "SpecPrawnik",
       "url": "https://www.specprawnik.pl",
@@ -4632,9 +6505,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 184,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "e882bdfdeda1ba5c",
       "name": "SprawdzKRS",
       "url": "https://sprawdzkrs.pl",
@@ -4648,9 +6524,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 145,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "0760d014b096e3d3",
       "name": "Standardy Prawa",
       "url": "https://standardyprawa.pl",
@@ -4664,9 +6543,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 107,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Anonimizacja dokumentów",
+      "subcategory": null,
       "id": "26dc7123f885c6f9",
       "name": "studiogo/cenzor",
       "url": "https://github.com/studiogo/cenzor",
@@ -4701,10 +6583,27 @@
           "presidio",
           "privacy"
         ],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 49,
+        "parts": {
+          "popularność": 5.1,
+          "aktualność": 29.9,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 75,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "ec6040d1b3b728b6",
       "name": "SygnaApp",
       "url": "https://sygnaapp.pl",
@@ -4718,9 +6617,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 121,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "e6387a008fb03305",
       "name": "Sygnali",
       "url": "https://sygnali.pl",
@@ -4734,9 +6636,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 119,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "60caaa02771a44b5",
       "name": "sygnalista.org.pl",
       "url": "https://sygnalista.org.pl",
@@ -4750,9 +6655,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 120,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "fb153c8d2c19948c",
       "name": "Sygnanet",
       "url": "https://sygnanet.pl",
@@ -4766,9 +6674,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 122,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "6fccdd3503434f32",
       "name": "SystemAML",
       "url": "https://systemaml.pl",
@@ -4782,9 +6693,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 142,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy informacji prawnej, wyszukiwarki i monitoring",
+      "subcategory": null,
       "id": "f11d699440ddaf2b",
       "name": "SzopaLabs Sygnatura",
       "url": "https://szopalabs.com",
@@ -4798,9 +6712,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 106,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "fd803be4dba7e96c",
       "name": "SzukajRadcy",
       "url": "https://szukajradcy.pl",
@@ -4814,9 +6731,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 185,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "409bffa357b76029",
       "name": "Tabelio",
       "url": "https://www.tabelio.pl",
@@ -4830,9 +6750,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 45,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Edukacja",
+      "subcategory": null,
       "id": "f7ede38658ec438d",
       "name": "Testy Prawnicze C.H.Beck",
       "url": "https://apps.apple.com/pl/app/testy-prawnicze-c-h-beck/id1373657312",
@@ -4846,9 +6769,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 202,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "90a70c77676053e4",
       "name": "TheBeardedPole/sejmomat",
       "url": "https://github.com/thebeardedpole/sejmomat",
@@ -4871,10 +6797,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": "GPL-3.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 52,
+        "parts": {
+          "popularność": 1.3,
+          "aktualność": 39.9,
+          "społeczność": 5.9,
+          "licencja": 5
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "fc9e46756efef4d6",
       "name": "tomaszkrawczyk-cmd/foodlaw.ai",
       "url": "https://github.com/tomaszkrawczyk-cmd/foodlaw.ai",
@@ -4896,10 +6839,27 @@
         "archived": false,
         "language": "HTML",
         "github_topics": [],
-        "contributors": 4
+        "contributors": 4,
+        "open_issues": 0,
+        "license": "Apache-2.0",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 53,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.5,
+          "społeczność": 8.7,
+          "licencja": 5
+        },
+        "commit_age_days": 3,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "80c2dee821982e78",
       "name": "tomkolp/e-doreczenia-wizualizacja-EPO",
       "url": "https://github.com/tomkolp/e-doreczenia-wizualizacja-epo",
@@ -4921,10 +6881,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 3
+        "contributors": 3,
+        "open_issues": 1,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 51,
+        "parts": {
+          "popularność": 6.5,
+          "aktualność": 36.6,
+          "społeczność": 7.5,
+          "licencja": 0
+        },
+        "commit_age_days": 23,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "AML i weryfikacja kontrahentów",
+      "subcategory": null,
       "id": "fe7d1deb66653c45",
       "name": "Transparent Data",
       "url": "https://transparentdata.pl",
@@ -4938,9 +6915,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 146,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "c5dc2ad51e54d98d",
       "name": "trosinski08/ai_agent_compliance",
       "url": "https://github.com/trosinski08/ai_agent_compliance",
@@ -4962,10 +6942,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 33,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 28.9,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 84,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Systemy dla kancelarii i działów prawnych",
+      "subcategory": null,
       "id": "b26c0be495279d8d",
       "name": "TuAsystent",
       "url": "https://www.tuasystent.pl",
@@ -4979,9 +6976,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 48,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Wyszukiwarki prawników i porady online",
+      "subcategory": null,
       "id": "679b0020a2c7cb71",
       "name": "TuJestPrawnik",
       "url": "https://tujestprawnik.pl",
@@ -4995,9 +6995,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 186,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Spory online",
+      "subcategory": null,
       "id": "81bf12af828e5dd6",
       "name": "Ultima RATIO",
       "url": "https://www.ultimaratio.pl",
@@ -5011,9 +7014,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 190,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Umowy i dokumenty",
+      "subcategory": null,
       "id": "d32238ee4f187042",
       "name": "Umownik",
       "url": "https://www.umownik.pl",
@@ -5027,9 +7033,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 52,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": "Konektory i klienty",
       "id": "4bba58a0908c42ba",
       "name": "umowyai/polskie-prawo",
       "url": "https://github.com/umowyai/polskie-prawo",
@@ -5058,10 +7067,27 @@
           "mcp",
           "polish-law"
         ],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "NOASSERTION",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 38,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 33.8,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 43,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "97533e740f1b37fd",
       "name": "VAI Legal",
       "url": "https://vai.legal",
@@ -5075,9 +7101,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 77,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "ff38de1f4f2a7a67",
       "name": "VeroLex",
       "url": "https://verolex.ai/pl",
@@ -5091,9 +7120,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 78,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "849f407bc671f48e",
       "name": "Vindicat",
       "url": "https://vindicat.pl",
@@ -5107,9 +7139,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 170,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "017a6e2ea43ed0dd",
       "name": "Volers321/tsl-case-law",
       "url": "https://github.com/volers321/tsl-case-law",
@@ -5131,10 +7166,27 @@
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": "MIT",
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 45,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 36.7,
+          "społeczność": 3.7,
+          "licencja": 5
+        },
+        "commit_age_days": 22,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "4358cc54b96672c2",
       "name": "WeMoral",
       "url": "https://wemoral.com/pl",
@@ -5148,9 +7200,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 123,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "946cca08043835aa",
       "name": "Whiblo",
       "url": "https://whiblo.pl",
@@ -5164,9 +7219,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 124,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Sygnaliści",
+      "subcategory": null,
       "id": "f151635f4aa32b35",
       "name": "WhistBoard",
       "url": "https://whistboard.com",
@@ -5180,9 +7238,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 125,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "c478913b88fdd6e8",
       "name": "Windykator z modułem e-Sąd (AntCom)",
       "url": "http://www.antcom.pl/windykator-e-sad-epu",
@@ -5196,9 +7257,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 169,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "EPU, windykacja, upadłości i egzekucja",
+      "subcategory": null,
       "id": "dde84d947d497ba1",
       "name": "Windykator.ai",
       "url": "https://windykator.ai",
@@ -5212,9 +7276,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 171,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "0c917e21945107bf",
       "name": "wisniabobo",
       "url": "https://github.com/wisniabobo",
@@ -5227,9 +7294,12 @@
       "source": "polskie-legaltech-otwarte",
       "source_line": 134,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Narzędzia i skille prawnicze",
+      "subcategory": null,
       "id": "29e2ab831ea51f85",
       "name": "wppoland/polski",
       "url": "https://github.com/wppoland/polski",
@@ -5263,10 +7333,27 @@
           "poland",
           "wordpress-plugin"
         ],
-        "contributors": 2
+        "contributors": 2,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 46,
+        "parts": {
+          "popularność": 0.0,
+          "aktualność": 39.9,
+          "społeczność": 5.9,
+          "licencja": 0
+        },
+        "commit_age_days": 0,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Asystenci AI dla prawników",
+      "subcategory": null,
       "id": "b62c60e4d7c0b7c1",
       "name": "Zapytaj Kodeks",
       "url": "https://zapytajkodeks.pl",
@@ -5280,9 +7367,12 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 79,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     },
     {
+      "category": "Źródła prawa i orzecznictwo",
+      "subcategory": null,
       "id": "032b4119050a01b7",
       "name": "zmilonas/klauzule-niedozwolone-uokik",
       "url": "https://github.com/zmilonas/klauzule-niedozwolone-uokik",
@@ -5305,10 +7395,27 @@
         "archived": false,
         "language": "TypeScript",
         "github_topics": [],
-        "contributors": 1
+        "contributors": 1,
+        "open_issues": 0,
+        "license": null,
+        "default_branch": "main"
+      },
+      "health": {
+        "value": 8,
+        "parts": {
+          "popularność": 4.0,
+          "aktualność": 0.8,
+          "społeczność": 3.7,
+          "licencja": 0
+        },
+        "commit_age_days": 1018,
+        "method": "repo-health-v1",
+        "archived_penalty": false
       }
     },
     {
+      "category": "Edukacja",
+      "subcategory": null,
       "id": "8ec5049eb7dffeaa",
       "name": "Zostań aplikantem",
       "url": "https://zostanaplikantem.pl",
@@ -5322,7 +7429,8 @@
       "source": "polskie-legaltech-komercyjne",
       "source_line": 203,
       "approved": false,
-      "metrics": {}
+      "metrics": {},
+      "health": null
     }
   ]
 }
