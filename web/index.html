@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1822">
+  <meta name="description" content="Drużyna Andrzeja — katalog repozytoriów i narzędzi LegalTech do selekcji i analizy.">
+  <title>Drużyna Andrzeja — katalog propozycji</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Drużyna Andrzeja, strona główna">
+        <span class="brand-symbol" aria-hidden="true">DA<span class="brand-dot">.</span></span>
+        <span class="brand-caption">Drużyna Andrzeja <small>Repo intelligence</small></span>
+      </a>
+      <nav class="nav">
+        <a href="https://github.com/elconcept/druzyna-andrzeja" target="_blank" rel="noreferrer">Repozytorium <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/elconcept/druzyna-andrzeja/edit/main/sources.toml" target="_blank" rel="noreferrer">Zatwierdzone źródła <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span class="signal"></span> OPEN-SOURCE RADAR <span class="eyebrow-divider">/</span> UPSTREAM DISCOVERY</div>
+        <h1 id="hero-title">Zbieraj sygnały.<br><em>Wybieraj świadomie.</em></h1>
+        <p class="lead">Jedna lista narzędzi i repozytoriów LegalTech. Aktualne metryki z GitHub, tagi i filtrowanie — bez automatycznego klonowania. Dopiero po zatwierdzeniu źródło trafia do warsztatu analitycznego.</p>
+        <div class="summary" id="summary" aria-live="polite">
+          <div><strong id="count-all">—</strong><span>pozycji</span></div>
+          <div><strong id="count-gh">—</strong><span>repozytoriów GitHub</span></div>
+          <div><strong id="count-approved">—</strong><span>zatwierdzonych</span></div>
+          <div><strong id="checked-at">—</strong><span>ostatni odczyt</span></div>
+        </div>
+      </section>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-head">
+          <div>
+            <div class="eyebrow dark">KATALOG / PROPOZYCJE</div>
+            <h2 id="catalog-title">Repozytoria i narzędzia</h2>
+          </div>
+          <p>Lista płaska. Sekcje oryginalnego źródła zamieniono w tagi.</p>
+        </div>
+
+        <div class="filters">
+          <label class="search-wrap">
+            <span class="sr-only">Szukaj</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="19" height="19"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m15.5 15.5 5 5"></path></svg>
+            <input id="search" type="search" placeholder="Szukaj po nazwie, opisie, tagach i URL…" autocomplete="off">
+          </label>
+          <label><span>Typ</span><select id="kind"><option value="all">Wszystkie</option><option value="github">GitHub</option><option value="external">Poza GitHub</option></select></label>
+          <label><span>Status</span><select id="status"><option value="all">Wszystkie</option><option value="pending">Do oceny</option><option value="approved">Zatwierdzone</option></select></label>
+          <label><span>Tag</span><select id="tag"><option value="">Wszystkie tagi</option></select></label>
+          <label><span>Sortuj</span><select id="sort"><option value="name">Nazwa A–Z</option><option value="stars">Gwiazdki ↓</option><option value="commit">Najnowszy commit</option><option value="contributors">Contributorzy ↓</option><option value="prs">Otwarte PR ↓</option></select></label>
+        </div>
+
+        <div class="results-bar">
+          <span id="result-count" aria-live="polite">Ładowanie danych…</span>
+          <button id="reset" type="button">Wyczyść filtry</button>
+        </div>
+
+        <div id="items" class="items" aria-live="polite"></div>
+        <div class="more-row"><button id="load-more" type="button" hidden>Pokaż następne 60 pozycji</button></div>
+        <p id="error" class="error" hidden></p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Drużyna Andrzeja / katalog badawczy</span>
+      <span>Źródło: <a href="https://github.com/Vaquill-AI/awesome-legaltech" target="_blank" rel="noreferrer">Vaquill-AI/awesome-legaltech</a></span>
+      <span>Aktualizacja metadanych przez GitHub Actions. Dane bez gwarancji kompletności.</span>
+    </footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
