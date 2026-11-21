@@ -4,7 +4,7 @@
  * An explicit path allowlist prevents an open proxy.
  */
 const ORIGIN = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/main";
-const REVISION = "pl-20261121-r1";
+const REVISION = "pl-20261121-r2";
 const ASSETS = Object.freeze({
   "/": ["/web/index.html", "text/html; charset=utf-8"],
   "/index.html": ["/web/index.html", "text/html; charset=utf-8"],
