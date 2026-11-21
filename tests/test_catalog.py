@@ -1,4 +1,5 @@
 """Offline tests for the catalog extractor; no network or GitHub token needed."""
+import datetime as dt
 import sys
 import unittest
 from pathlib import Path
@@ -58,6 +59,38 @@ class CatalogTests(unittest.TestCase):
         feeds = catalog.read_feeds()
         self.assertEqual(len(feeds), 3)
         self.assertTrue(all("awesome-legaltech-pl" in f["url"] for f in feeds))
+
+    def test_repository_score_is_transparent_and_bounded(self):
+        at = dt.datetime(2026, 11, 21, tzinfo=dt.timezone.utc)
+        metrics = {
+            "stars": 70,
+            "forks": 12,
+            "contributors": 5,
+            "last_commit": "2026-11-19T10:00:00Z",
+            "license": "MIT",
+            "archived": False,
+        }
+        active = catalog.score_repo(metrics, at)
+        self.assertIsNotNone(active)
+        self.assertEqual(active["method"], "repo-health-v1")
+        self.assertGreater(active["value"], 40)
+        self.assertLessEqual(active["value"], 100)
+        archived = catalog.score_repo({**metrics, "archived": True}, at)
+        self.assertLess(archived["value"], active["value"])
+        inactive = catalog.score_repo({**metrics, "last_commit": "2021-01-01T00:00:00Z"}, at)
+        self.assertLess(inactive["value"], active["value"])
+
+    def test_missing_metrics_dont_produce_invented_score(self):
+        at = dt.datetime(2026, 11, 21, tzinfo=dt.timezone.utc)
+        self.assertIsNone(catalog.score_repo({}, at))
+        self.assertIsNone(catalog.score_repo({"stars": 2}, at))
+        self.assertIsNone(catalog.score_repo({"stars": 3, "last_commit": "invalid"}, at))
+
+    def test_polish_categories_from_source_headings(self):
+        sample = "## Źródła prawa i orzecznictwo\n### Serwery MCP\n- [PL](https://github.com/law/repo) - Polish law."
+        item = catalog.parse_readme(sample, "polskie-legaltech-otwarte")[0]
+        self.assertEqual(item["category"], "Źródła prawa i orzecznictwo")
+        self.assertEqual(item["subcategory"], "Serwery MCP")
 
     def test_reject_bad_urls(self):
         with self.assertRaises(ValueError):
