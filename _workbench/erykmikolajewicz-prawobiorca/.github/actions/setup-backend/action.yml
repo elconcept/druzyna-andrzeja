@@ -1,0 +1,8 @@
+name: Setup backend
+description: Install the shared tools and prepare the backend environment file
+runs:
+  using: composite
+  steps:
+    - uses: ./.github/actions/setup-tools
+    - run: cp apps/core/.env.example apps/core/.env
+      shell: bash

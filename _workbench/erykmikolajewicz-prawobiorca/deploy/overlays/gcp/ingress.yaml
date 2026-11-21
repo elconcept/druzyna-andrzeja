@@ -1,0 +1,74 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: prawobiorca-backend-cert
+spec:
+  domains:
+    - www.prawobiorca.pl
+
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: prawobiorca-apex-cert
+spec:
+  domains:
+    - prawobiorca.pl
+
+---
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: prawobiorca-frontend-config
+spec:
+  redirectToHttps:
+    enabled: true
+
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: prawobiorca-backend-config
+spec:
+  customResponseHeaders:
+    headers:
+      - "X-Content-Type-Options: nosniff"
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prawobiorca-backend
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    networking.gke.io/managed-certificates: prawobiorca-backend-cert,prawobiorca-apex-cert
+    networking.gke.io/v1beta1.FrontendConfig: prawobiorca-frontend-config
+spec:
+  rules:
+    - host: www.prawobiorca.pl
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: core
+                port:
+                  number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8000
+    - host: prawobiorca.pl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8000

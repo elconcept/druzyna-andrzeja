@@ -1,0 +1,34 @@
+from dataclasses import dataclass
+from uuid import UUID
+
+from pydantic import TypeAdapter
+from taskiq import AsyncBroker, TaskiqMessage
+
+from core_service.application.dtos.applications import NewApplication
+from core_service.application.ports.relational import AsyncSession
+from core_service.infrastructure.relational_db.session import sqla_session
+from core_service.infrastructure.tasks.broker import insert_task_message
+
+APPLICATION_GENERATION_TASK_NAME = "generate_application"
+
+
+@dataclass
+class PostgresApplicationGenerationScheduler:
+    broker: AsyncBroker
+
+    async def schedule_application_generation(
+        self, session: AsyncSession, user_id: UUID, application_id: UUID, new_application: NewApplication
+    ) -> None:
+        message = TaskiqMessage(
+            task_id=self.broker.id_generator(),
+            task_name=APPLICATION_GENERATION_TASK_NAME,
+            labels={},
+            labels_types={},
+            args=[
+                str(user_id),
+                str(application_id),
+                TypeAdapter(NewApplication).dump_python(new_application, mode="json", by_alias=True),
+            ],
+            kwargs={},
+        )
+        await insert_task_message(sqla_session(session), self.broker.formatter.dumps(message))

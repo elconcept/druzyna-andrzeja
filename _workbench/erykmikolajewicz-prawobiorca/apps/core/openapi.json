@@ -1,0 +1,4116 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PRAWOBIORCA",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Log User",
+        "operationId": "log_user",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_log_user"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Incorrect logging data!"
+          },
+          "429": {
+            "description": "Too many failed login attempts!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Refresh Tokens",
+        "operationId": "refresh_tokens",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Invalid or expired refresh token!"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Check Is User Logged",
+        "operationId": "check_is_user_logged",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUser"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "User not logged."
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Logout User",
+        "operationId": "logout_user",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          }
+        }
+      }
+    },
+    "/api/regulations": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Get Regulations",
+        "operationId": "get_regulations",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/RegulationScope",
+              "default": "PUBLIC"
+            }
+          },
+          {
+            "name": "documentType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/RegulationType"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Documenttype"
+            }
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegulationRepresentation"
+                  },
+                  "title": "Response Get Regulations"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "422": {
+            "description": "Suborganization given without organization!"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Add Regulation",
+        "operationId": "add_regulation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegulationData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegulationUploadTarget"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Organization or user not found!"
+          },
+          "422": {
+            "description": "Organization given for private regulation, or suborganization given without organization!"
+          }
+        }
+      }
+    },
+    "/api/regulations/search": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Search Regulations",
+        "operationId": "search_regulations",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Query"
+            }
+          },
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": -1,
+              "title": "Threshold"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/RegulationScope",
+              "default": "PUBLIC"
+            }
+          },
+          {
+            "name": "documentType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/RegulationType"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Documenttype"
+            }
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegulationSearchResult"
+                  },
+                  "title": "Response Search Regulations"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "422": {
+            "description": "Suborganization given without organization!"
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Get Regulation By Id",
+        "operationId": "get_regulation_by_id",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegulationRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Update Regulation",
+        "operationId": "update_regulation",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegulationDetailsData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegulationRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Delete Regulation",
+        "operationId": "delete_regulation",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/documents": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Search Regulation Documents",
+        "operationId": "search_regulation_documents",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          },
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": -1,
+              "title": "Threshold"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Query"
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SearchOrder",
+              "default": "document"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchResult"
+                  },
+                  "title": "Response Search Regulation Documents"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "400": {
+            "description": "Regulation not prepared, normally should not occur."
+          },
+          "404": {
+            "description": "Regulation not found."
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/sections": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "List Regulation Sections",
+        "operationId": "list_regulation_sections",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectionRepresentation"
+                  },
+                  "title": "Response List Regulation Sections"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "400": {
+            "description": "Regulation not prepared, normally should not occur."
+          },
+          "404": {
+            "description": "Regulation not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/confirm-upload": {
+      "post": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Confirm Regulation Upload",
+        "operationId": "confirm_regulation_upload",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "409": {
+            "description": "Regulation upload already confirmed, or its content not found on storage!"
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/download-url": {
+      "get": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Get Regulation Download Url By Id",
+        "operationId": "get_regulation_download_url_by_id",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Get Regulation Download Url By Id"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/preparation-retry": {
+      "post": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Retry Regulation Preparation",
+        "operationId": "retry_regulation_preparation",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation to prepare not found!"
+          },
+          "409": {
+            "description": "Regulation already prepared, preparation in progress, or its content not uploaded!"
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/description-generation": {
+      "post": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Regenerate Regulation Description",
+        "operationId": "regenerate_regulation_description",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "409": {
+            "description": "Regulation not prepared, or its description generation already in progress!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/regulations/{regulationId}/section-summaries-generation": {
+      "post": {
+        "tags": [
+          "regulations"
+        ],
+        "summary": "Regenerate Section Summaries",
+        "operationId": "regenerate_section_summaries",
+        "parameters": [
+          {
+            "name": "regulationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Regulationid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Regulation not found!"
+          },
+          "409": {
+            "description": "Regulation not prepared, or its section summaries generation already in progress!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/accounts/register": {
+      "post": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Create Account",
+        "operationId": "create_account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "409": {
+            "description": "User with that login already exists."
+          },
+          "429": {
+            "description": "Too many registration attempts!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Get Cases List",
+        "operationId": "get_cases_list",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CaseData"
+                  },
+                  "type": "array",
+                  "title": "Response Get Cases List"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Add Case",
+        "operationId": "add_case",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_add_case"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid",
+                  "title": "Response Add Case"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}": {
+      "delete": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Delete User Case",
+        "operationId": "delete_user_case",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "No case with that id!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}/documents": {
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Add Case Document",
+        "operationId": "add_case_document",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCaseDocument"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "No case with that id!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Get Case Documents",
+        "operationId": "get_case_documents",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CaseDocument"
+                  },
+                  "title": "Response Get Case Documents"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}/documents/{documentId}": {
+      "delete": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Delete Case Document",
+        "operationId": "delete_case_document",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Documentid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "No document with that id!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}/applications": {
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Generate Application",
+        "operationId": "generate_application",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewApplication"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid",
+                  "title": "Response Generate Application"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "No case or published application template with that id!"
+          },
+          "422": {
+            "description": "Invalid application field values!"
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Get Case Applications",
+        "operationId": "get_case_applications",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApplicationRepresentation"
+                  },
+                  "title": "Response Get Case Applications"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}/applications/{applicationId}/download-url": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Get Case Application Download Url",
+        "operationId": "get_case_application_download_url",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Applicationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Get Case Application Download Url"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Application not found!"
+          },
+          "409": {
+            "description": "Application not generated!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cases/{caseId}/applications/{applicationId}": {
+      "delete": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Delete Application",
+        "operationId": "delete_application",
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Caseid"
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Applicationid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Application not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/published": {
+      "get": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Get Published Application Templates",
+        "operationId": "get_published_application_templates",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PublishedApplicationTemplate"
+                  },
+                  "title": "Response Get Published Application Templates"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "422": {
+            "description": "Suborganization given without organization!"
+          }
+        }
+      }
+    },
+    "/api/application-templates/published/search": {
+      "get": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Search Published Application Templates",
+        "operationId": "search_published_application_templates",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Query"
+            }
+          },
+          {
+            "name": "aiAssisted",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Aiassisted"
+            }
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PublishedApplicationTemplate"
+                  },
+                  "title": "Response Search Published Application Templates"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "422": {
+            "description": "Suborganization given without organization!"
+          },
+          "429": {
+            "description": "Usage limit exceeded!"
+          }
+        }
+      }
+    },
+    "/api/application-templates": {
+      "get": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Get Application Templates",
+        "operationId": "get_application_templates",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                  },
+                  "type": "array",
+                  "title": "Response Get Application Templates"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Add Application Template",
+        "operationId": "add_application_template",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationTemplateData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateUploadTarget"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}": {
+      "get": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Get Admin Application Template",
+        "operationId": "get_admin_application_template",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Update Application Template",
+        "operationId": "update_application_template",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationTemplateDetailsData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template or organization not found!"
+          },
+          "409": {
+            "description": "Only draft application template can be updated!"
+          },
+          "422": {
+            "description": "Invalid fields configuration, or suborganization given without organization!"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Delete Application Template",
+        "operationId": "delete_application_template",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}/confirm-upload": {
+      "post": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Confirm Application Template Upload",
+        "operationId": "confirm_application_template_upload",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "409": {
+            "description": "Application template upload already confirmed, or its content not found on storage!"
+          },
+          "422": {
+            "description": "Invalid application template!"
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}/download-url": {
+      "get": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Get Admin Application Template Download Url",
+        "operationId": "get_admin_application_template_download_url",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Get Admin Application Template Download Url"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "409": {
+            "description": "Application template not uploaded!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}/publish": {
+      "post": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Publish Application Template",
+        "operationId": "publish_application_template",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "409": {
+            "description": "Only draft application template with instructions can be published!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}/unpublish": {
+      "post": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Unpublish Application Template",
+        "operationId": "unpublish_application_template",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationTemplateRepresentation"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "409": {
+            "description": "Application template not published!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application-templates/{templateId}/description-generation": {
+      "post": {
+        "tags": [
+          "application_templates"
+        ],
+        "summary": "Regenerate Application Template Description",
+        "operationId": "regenerate_application_template_description",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Templateid"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "401": {
+            "description": "Login required!"
+          },
+          "403": {
+            "description": "Permission required!"
+          },
+          "404": {
+            "description": "Application template not found!"
+          },
+          "409": {
+            "description": "Application template not a draft, or its description generation already in progress!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations": {
+      "get": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Get Organizations",
+        "operationId": "get_organizations",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OrganizationData"
+                  },
+                  "type": "array",
+                  "title": "Response Get Organizations"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Add Organization",
+        "operationId": "add_organization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOrganization"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid",
+                  "title": "Response Add Organization"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{organizationId}": {
+      "put": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Update Organization",
+        "operationId": "update_organization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Organizationid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOrganization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Organization not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Delete Organization",
+        "operationId": "delete_organization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Organizationid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Organization not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{organizationId}/suborganizations": {
+      "post": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Add Suborganization",
+        "operationId": "add_suborganization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Organizationid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSuborganization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid",
+                  "title": "Response Add Suborganization"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Organization not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{organizationId}/suborganizations/{suborganizationId}": {
+      "put": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Update Suborganization",
+        "operationId": "update_suborganization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSuborganization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Suborganization not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Delete Suborganization",
+        "operationId": "delete_suborganization",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Organizationid"
+            }
+          },
+          {
+            "name": "suborganizationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Suborganizationid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "404": {
+            "description": "Suborganization not found!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usage-tariff": {
+      "get": {
+        "tags": [
+          "usage"
+        ],
+        "summary": "Get Usage Tariff",
+        "operationId": "get_usage_tariff",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsageTariffData"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable!"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "usage"
+        ],
+        "summary": "Update Usage Tariff",
+        "operationId": "update_usage_tariff",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsageTariffData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "503": {
+            "description": "Service unavailable!"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/liveness": {
+      "get": {
+        "tags": [
+          "health check"
+        ],
+        "summary": "Get Health Status",
+        "operationId": "get_health_status",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "const": "OK",
+                  "title": "Response Get Health Status"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable."
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "tags": [
+          "health check"
+        ],
+        "summary": "Check is application ready to response for requests.",
+        "operationId": "check_readiness",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "const": true,
+                  "title": "Response Check Readiness"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApplicationFieldType": {
+        "type": "string",
+        "enum": [
+          "TEXT",
+          "NUMBER",
+          "SELECT",
+          "DATE"
+        ],
+        "title": "ApplicationFieldType"
+      },
+      "ApplicationGenerationStatus": {
+        "type": "string",
+        "enum": [
+          "IN_PROGRESS",
+          "GENERATED",
+          "FAILED"
+        ],
+        "title": "ApplicationGenerationStatus"
+      },
+      "ApplicationRepresentation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Caseid"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Createdate"
+          },
+          "templateName": {
+            "type": "string",
+            "title": "Templatename"
+          },
+          "generationStatus": {
+            "$ref": "#/components/schemas/ApplicationGenerationStatus"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "caseId",
+          "createDate",
+          "templateName",
+          "generationStatus",
+          "name"
+        ],
+        "title": "ApplicationRepresentation"
+      },
+      "ApplicationTemplateData": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "ApplicationTemplateData"
+      },
+      "ApplicationTemplateDetailsData": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/ApplicationTemplateField-Input"
+            },
+            "type": "array",
+            "title": "Fields"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "organizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organizationid"
+          },
+          "suborganizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suborganizationid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "fields"
+        ],
+        "title": "ApplicationTemplateDetailsData"
+      },
+      "ApplicationTemplateField-Input": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "fieldType": {
+            "$ref": "#/components/schemas/ApplicationFieldType",
+            "default": "TEXT"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required",
+            "default": true
+          },
+          "passToAi": {
+            "type": "boolean",
+            "title": "Passtoai",
+            "default": true
+          },
+          "defaultValue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defaultvalue"
+          },
+          "pattern": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "label"
+        ],
+        "title": "ApplicationTemplateField"
+      },
+      "ApplicationTemplateField-Output": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "fieldType": {
+            "$ref": "#/components/schemas/ApplicationFieldType",
+            "default": "TEXT"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required",
+            "default": true
+          },
+          "passToAi": {
+            "type": "boolean",
+            "title": "Passtoai",
+            "default": true
+          },
+          "defaultValue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defaultvalue"
+          },
+          "pattern": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "label",
+          "fieldType",
+          "required",
+          "passToAi",
+          "defaultValue",
+          "pattern",
+          "options"
+        ],
+        "title": "ApplicationTemplateField"
+      },
+      "ApplicationTemplateRepresentation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Createdate"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApplicationTemplateStatus"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/ApplicationTemplateField-Output"
+            },
+            "type": "array",
+            "title": "Fields"
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "descriptionStatus": {
+            "$ref": "#/components/schemas/DescriptionStatus",
+            "default": "NOT_REQUESTED"
+          },
+          "organizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organizationid"
+          },
+          "suborganizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suborganizationid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "createDate",
+          "name",
+          "status",
+          "fields",
+          "instructions",
+          "description",
+          "descriptionStatus",
+          "organizationId",
+          "suborganizationId"
+        ],
+        "title": "ApplicationTemplateRepresentation"
+      },
+      "ApplicationTemplateStatus": {
+        "type": "string",
+        "enum": [
+          "NOT_UPLOADED",
+          "DRAFT",
+          "PUBLISHED"
+        ],
+        "title": "ApplicationTemplateStatus"
+      },
+      "ApplicationTemplateUploadTarget": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "fields": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Fields"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "fields"
+        ],
+        "title": "ApplicationTemplateUploadTarget"
+      },
+      "Body_add_case": {
+        "properties": {
+          "caseName": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Casename"
+          }
+        },
+        "type": "object",
+        "required": [
+          "caseName"
+        ],
+        "title": "Body_add_case"
+      },
+      "Body_log_user": {
+        "properties": {
+          "grant_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^password$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Grant Type"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "title": "Password"
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope",
+            "default": ""
+          },
+          "client_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Id"
+          },
+          "client_secret": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "format": "password",
+            "title": "Client Secret"
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "password"
+        ],
+        "title": "Body_log_user"
+      },
+      "CaseData": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "CaseData"
+      },
+      "CaseDocument": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "caseId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Caseid"
+          },
+          "presentationName": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Presentationname"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Content"
+          },
+          "header": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Header"
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/SearchResultElement"
+            },
+            "type": "array",
+            "title": "Elements"
+          },
+          "highlight": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SearchResultHighlight"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "caseId",
+          "presentationName",
+          "content",
+          "header",
+          "elements",
+          "highlight"
+        ],
+        "title": "CaseDocument"
+      },
+      "CurrentUser": {
+        "properties": {
+          "isAdmin": {
+            "type": "boolean",
+            "title": "Isadmin"
+          }
+        },
+        "type": "object",
+        "required": [
+          "isAdmin"
+        ],
+        "title": "CurrentUser"
+      },
+      "DescriptionStatus": {
+        "type": "string",
+        "enum": [
+          "NOT_REQUESTED",
+          "IN_PROGRESS",
+          "GENERATED",
+          "FAILED"
+        ],
+        "title": "DescriptionStatus"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "NewApplication": {
+        "properties": {
+          "templateId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Templateid"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Description"
+          },
+          "fieldValues": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Fieldvalues"
+          }
+        },
+        "type": "object",
+        "required": [
+          "templateId",
+          "description"
+        ],
+        "title": "NewApplication"
+      },
+      "NewCaseDocument": {
+        "properties": {
+          "presentationName": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Presentationname"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Content"
+          },
+          "header": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Header"
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/SearchResultElement"
+            },
+            "type": "array",
+            "title": "Elements"
+          },
+          "highlight": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SearchResultHighlight"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "presentationName",
+          "content"
+        ],
+        "title": "NewCaseDocument"
+      },
+      "NewOrganization": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "shortName": {
+            "type": "string",
+            "maxLength": 32,
+            "minLength": 1,
+            "title": "Shortname"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "shortName"
+        ],
+        "title": "NewOrganization"
+      },
+      "NewSuborganization": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "NewSuborganization"
+      },
+      "OrganizationData": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "shortName": {
+            "type": "string",
+            "title": "Shortname"
+          },
+          "suborganizations": {
+            "items": {
+              "$ref": "#/components/schemas/SuborganizationData"
+            },
+            "type": "array",
+            "title": "Suborganizations"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "shortName",
+          "suborganizations"
+        ],
+        "title": "OrganizationData"
+      },
+      "PublishedApplicationField": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "fieldType": {
+            "$ref": "#/components/schemas/ApplicationFieldType"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required"
+          },
+          "defaultValue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Defaultvalue"
+          },
+          "pattern": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "label",
+          "fieldType",
+          "required",
+          "defaultValue",
+          "pattern",
+          "options"
+        ],
+        "title": "PublishedApplicationField"
+      },
+      "PublishedApplicationTemplate": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedApplicationField"
+            },
+            "type": "array",
+            "title": "Fields"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "fields"
+        ],
+        "title": "PublishedApplicationTemplate"
+      },
+      "RegistrationData": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 32,
+            "minLength": 8,
+            "format": "password",
+            "title": "Password",
+            "writeOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "password"
+        ],
+        "title": "RegistrationData"
+      },
+      "RegulationData": {
+        "properties": {
+          "scope": {
+            "$ref": "#/components/schemas/RegulationScope"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "regulationType": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RegulationType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "organizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organizationid"
+          },
+          "suborganizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suborganizationid"
+          },
+          "generateDescription": {
+            "type": "boolean",
+            "title": "Generatedescription",
+            "default": false
+          },
+          "generateSectionSummaries": {
+            "type": "boolean",
+            "title": "Generatesectionsummaries",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "scope",
+          "name"
+        ],
+        "title": "RegulationData"
+      },
+      "RegulationDetailsData": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "RegulationDetailsData"
+      },
+      "RegulationPreparationStatus": {
+        "type": "string",
+        "enum": [
+          "NOT_STARTED",
+          "IN_PROGRESS",
+          "PREPARED",
+          "FAILED"
+        ],
+        "title": "RegulationPreparationStatus"
+      },
+      "RegulationRepresentation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Createdate"
+          },
+          "presentationName": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Presentationname"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "regulationType": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RegulationType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "preparationStatus": {
+            "$ref": "#/components/schemas/RegulationPreparationStatus",
+            "default": "NOT_STARTED"
+          },
+          "descriptionStatus": {
+            "$ref": "#/components/schemas/DescriptionStatus",
+            "default": "NOT_REQUESTED"
+          },
+          "sectionSummariesStatus": {
+            "$ref": "#/components/schemas/DescriptionStatus",
+            "default": "NOT_REQUESTED"
+          },
+          "organizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organizationid"
+          },
+          "suborganizationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suborganizationid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "createDate",
+          "presentationName",
+          "description",
+          "regulationType",
+          "preparationStatus",
+          "descriptionStatus",
+          "sectionSummariesStatus",
+          "organizationId",
+          "suborganizationId"
+        ],
+        "title": "RegulationRepresentation"
+      },
+      "RegulationScope": {
+        "type": "string",
+        "enum": [
+          "PUBLIC",
+          "PRIVATE"
+        ],
+        "title": "RegulationScope"
+      },
+      "RegulationSearchResult": {
+        "properties": {
+          "regulation": {
+            "$ref": "#/components/schemas/RegulationRepresentation"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "regulation",
+          "score"
+        ],
+        "title": "RegulationSearchResult"
+      },
+      "RegulationType": {
+        "type": "string",
+        "enum": [
+          "ACT",
+          "DECREE",
+          "STATUTE"
+        ],
+        "title": "RegulationType"
+      },
+      "RegulationUploadTarget": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "fields": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Fields"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "fields"
+        ],
+        "title": "RegulationUploadTarget"
+      },
+      "SearchOrder": {
+        "type": "string",
+        "enum": [
+          "document",
+          "score"
+        ],
+        "title": "SearchOrder"
+      },
+      "SearchResult": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "header": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Header"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/SearchResultElement"
+            },
+            "type": "array",
+            "title": "Elements"
+          },
+          "summary_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary Label"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Score"
+          },
+          "highlight": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SearchResultHighlight"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "header",
+          "text",
+          "elements",
+          "summary_label",
+          "summary",
+          "score",
+          "highlight"
+        ],
+        "title": "SearchResult"
+      },
+      "SearchResultElement": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "subsection": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subsection"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "subsection"
+        ],
+        "title": "SearchResultElement"
+      },
+      "SearchResultHighlight": {
+        "properties": {
+          "start_element": {
+            "type": "integer",
+            "title": "Start Element"
+          },
+          "end_element": {
+            "type": "integer",
+            "title": "End Element"
+          }
+        },
+        "type": "object",
+        "required": [
+          "start_element",
+          "end_element"
+        ],
+        "title": "SearchResultHighlight"
+      },
+      "SectionRepresentation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "header": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Header"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/SearchResultElement"
+            },
+            "type": "array",
+            "title": "Elements"
+          },
+          "summary_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary Label"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "header",
+          "text",
+          "elements",
+          "summary_label",
+          "summary"
+        ],
+        "title": "SectionRepresentation"
+      },
+      "SuborganizationData": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "SuborganizationData"
+      },
+      "UsageTariffData": {
+        "properties": {
+          "semanticSearchPrice": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Semanticsearchprice"
+          },
+          "applicationGenerationPrice": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Applicationgenerationprice"
+          },
+          "regulationPreparationPrice": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Regulationpreparationprice"
+          },
+          "accountDailyLimit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Accountdailylimit"
+          },
+          "anonymousIpDailyLimit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Anonymousipdailylimit"
+          },
+          "anonymousTotalDailyLimit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Anonymoustotaldailylimit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "semanticSearchPrice",
+          "applicationGenerationPrice",
+          "regulationPreparationPrice",
+          "accountDailyLimit",
+          "anonymousIpDailyLimit",
+          "anonymousTotalDailyLimit"
+        ],
+        "title": "UsageTariffData"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

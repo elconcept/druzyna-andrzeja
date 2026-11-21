@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest"],
+  "env": {
+    "browser": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+  },
+  "rules": {
+    "vitest/require-mock-type-parameters": "off",
+    "eslint/complexity": "error",
+    "eslint/max-depth": "error",
+    "eslint/max-nested-callbacks": "error"
+  }
+}

@@ -1,0 +1,35 @@
+FROM python:3.14-slim-trixie AS builder
+
+RUN pip install --no-cache-dir uv==0.13.*
+
+WORKDIR /core
+
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
+RUN uv sync --locked --no-install-project --compile-bytecode --no-cache --no-default-groups
+
+COPY src src
+RUN uv sync --locked --no-editable --compile-bytecode --no-cache --no-default-groups
+
+
+FROM python:3.14-slim-trixie
+
+RUN apt-get update && apt-get upgrade --yes && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip uninstall --yes pip
+
+RUN useradd -r -u 10001 prawobiorca_app
+
+WORKDIR /core
+
+COPY --from=builder /core/.venv .venv
+COPY alembic.ini alembic.ini
+COPY alembic alembic
+
+USER prawobiorca_app
+
+ENV PATH="/core/.venv/bin:$PATH"
+
+EXPOSE 8000
+
+CMD ["granian", "--port", "8000", "--host", "0.0.0.0", "--interface", "asgi", "core_service.main:prawobiorca"]

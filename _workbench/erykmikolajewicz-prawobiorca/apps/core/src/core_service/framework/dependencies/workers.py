@@ -1,0 +1,324 @@
+from httpx2 import AsyncClient
+from openai import AsyncOpenAI
+from taskiq import AsyncBroker, Context, TaskiqDepends, TaskiqState
+
+from core_service.application.ports.application_templates import (
+    ApplicationTemplateDescriptionWriter,
+    ApplicationTemplateInspector,
+    ApplicationTemplatesRepository,
+    ApplicationTemplatesStorage,
+)
+from core_service.application.ports.applications import (
+    ApplicationRenderer,
+    ApplicationsRepository,
+    ApplicationsStorage,
+    ApplicationWriter,
+)
+from core_service.application.ports.cases import CaseDocumentsRepository
+from core_service.application.ports.regulations import (
+    RegulationDescriptionWriter,
+    RegulationSplitter,
+    RegulationsRepository,
+    RegulationsStorage,
+    SectionSummariesWriter,
+)
+from core_service.application.ports.relational import SessionMaker
+from core_service.application.ports.sections import SectionsRepository
+from core_service.application.ports.tasks import (
+    RegulationDescriptionGenerationScheduler,
+    SectionSummariesGenerationScheduler,
+)
+from core_service.application.ports.texts import TextsEmbedder
+from core_service.application.ports.usage import UsageBudgetsRepository, UsageTariffRepository
+from core_service.application.services.embedding import SectionsEmbedder
+from core_service.application.services.regulations import RegulationPreparator
+from core_service.application.services.usage import UsageCharger
+from core_service.application.use_cases.application_templates import (
+    FailApplicationTemplateDescriptionGeneration,
+    GenerateApplicationTemplateDescription,
+)
+from core_service.application.use_cases.applications import FailApplicationGeneration, GenerateApplication
+from core_service.application.use_cases.regulations import (
+    FailRegulationDescriptionGeneration,
+    FailRegulationPreparation,
+    FailSectionSummariesGeneration,
+    GenerateRegulationDescription,
+    GenerateSectionSummaries,
+    PrepareRegulation,
+)
+from core_service.domain.services.regulation_chunking import Tokenizer
+from core_service.framework.dependencies.ai_services import create_texts_embedder
+from core_service.framework.dependencies.application_templates import (
+    get_application_template_inspector,
+    get_application_templates_repo,
+)
+from core_service.framework.dependencies.cases import get_applications_repo, get_case_documents_repo
+from core_service.framework.dependencies.file_storage import (
+    create_application_templates_storage,
+    create_applications_storage,
+    create_regulations_storage,
+)
+from core_service.framework.dependencies.regulations import get_regulation_repository, get_sections_repository
+from core_service.framework.dependencies.relational import get_session_maker
+from core_service.framework.dependencies.tokenizer import get_tokenizer
+from core_service.framework.dependencies.usage import get_usage_budgets_repo, get_usage_tariff_repo
+from core_service.infrastructure.ai_services.application_template_description_writer import (
+    LlmApplicationTemplateDescriptionWriter,
+)
+from core_service.infrastructure.ai_services.application_writer import LlmApplicationWriter
+from core_service.infrastructure.ai_services.llm_chat import LlmChat
+from core_service.infrastructure.ai_services.llm_cost_limiter import LlmCostLimiter, LlmPricing
+from core_service.infrastructure.ai_services.regulation_description_writer import (
+    LlmRegulationDescriptionWriter,
+)
+from core_service.infrastructure.ai_services.regulation_splitter import HttpRegulationSplitter
+from core_service.infrastructure.ai_services.section_summaries_writer import LlmSectionSummariesWriter
+from core_service.infrastructure.docx.docx_renderer import DocxApplicationRenderer
+from core_service.infrastructure.relational_db.connection import DatabaseSessionMaker
+from core_service.infrastructure.relational_db.repositories.llm_usage import SqlaLlmUsageRepository
+from core_service.infrastructure.tasks.regulations import (
+    PostgresRegulationDescriptionGenerationScheduler,
+    PostgresSectionSummariesGenerationScheduler,
+)
+from core_service.shared.settings.ai_services import (
+    embedding_service_settings,
+    extraction_service_settings,
+    llm_service_settings,
+)
+
+
+def get_ai_services_client(state: TaskiqState = TaskiqDepends()) -> AsyncClient:
+    return state.ai_services_client
+
+
+def get_llm_client(state: TaskiqState = TaskiqDepends()) -> AsyncOpenAI:
+    return state.llm_client
+
+
+def get_texts_embedder(client: AsyncClient = TaskiqDepends(get_ai_services_client)) -> TextsEmbedder:
+    return create_texts_embedder(client)
+
+
+def get_regulation_splitter(client: AsyncClient = TaskiqDepends(get_ai_services_client)) -> RegulationSplitter:
+    return HttpRegulationSplitter(client=client, extraction_service_url=extraction_service_settings.URL)
+
+
+def get_regulations_storage(state: TaskiqState = TaskiqDepends()) -> RegulationsStorage:
+    return create_regulations_storage(state.file_storage_client, state.file_storage_presign_client)
+
+
+def get_applications_storage(state: TaskiqState = TaskiqDepends()) -> ApplicationsStorage:
+    return create_applications_storage(state.file_storage_client, state.file_storage_presign_client)
+
+
+def get_application_templates_storage(state: TaskiqState = TaskiqDepends()) -> ApplicationTemplatesStorage:
+    return create_application_templates_storage(state.file_storage_client, state.file_storage_presign_client)
+
+
+def get_broker(context: Context = TaskiqDepends()) -> AsyncBroker:
+    return context.broker
+
+
+def get_regulation_description_generation_scheduler(
+    broker: AsyncBroker = TaskiqDepends(get_broker),
+) -> RegulationDescriptionGenerationScheduler:
+    return PostgresRegulationDescriptionGenerationScheduler(broker)
+
+
+def get_section_summaries_generation_scheduler(
+    broker: AsyncBroker = TaskiqDepends(get_broker),
+) -> SectionSummariesGenerationScheduler:
+    return PostgresSectionSummariesGenerationScheduler(broker)
+
+
+def get_llm_chat(
+    client: AsyncOpenAI = TaskiqDepends(get_llm_client),
+    session_maker: DatabaseSessionMaker = TaskiqDepends(get_session_maker),
+) -> LlmChat:
+    cost_limiter = None
+    if llm_service_settings.MONTHLY_COST_LIMIT_PLN is not None:
+        pricing = LlmPricing(
+            input_price_usd_per_million_tokens=llm_service_settings.INPUT_PRICE_USD_PER_MILLION_TOKENS,
+            output_price_usd_per_million_tokens=llm_service_settings.OUTPUT_PRICE_USD_PER_MILLION_TOKENS,
+            usd_to_pln_rate=llm_service_settings.USD_TO_PLN_RATE,
+        )
+        cost_limiter = LlmCostLimiter(
+            session_maker, SqlaLlmUsageRepository(), llm_service_settings.MONTHLY_COST_LIMIT_PLN, pricing
+        )
+    return LlmChat(
+        client=client,
+        model_name=llm_service_settings.MODEL_NAME,
+        temperature=llm_service_settings.TEMPERATURE,
+        top_p=llm_service_settings.TOP_P,
+        max_tokens=llm_service_settings.MAX_TOKENS,
+        cost_limiter=cost_limiter,
+    )
+
+
+def get_regulation_description_writer(llm_chat: LlmChat = TaskiqDepends(get_llm_chat)) -> RegulationDescriptionWriter:
+    return LlmRegulationDescriptionWriter(llm_chat)
+
+
+def get_section_summaries_writer(llm_chat: LlmChat = TaskiqDepends(get_llm_chat)) -> SectionSummariesWriter:
+    return LlmSectionSummariesWriter(llm_chat)
+
+
+def get_application_template_description_writer(
+    llm_chat: LlmChat = TaskiqDepends(get_llm_chat),
+) -> ApplicationTemplateDescriptionWriter:
+    return LlmApplicationTemplateDescriptionWriter(llm_chat)
+
+
+def get_application_writer(llm_chat: LlmChat = TaskiqDepends(get_llm_chat)) -> ApplicationWriter:
+    return LlmApplicationWriter(llm_chat)
+
+
+def get_application_renderer() -> ApplicationRenderer:
+    return DocxApplicationRenderer()
+
+
+def get_regulation_preparator(
+    regulation_splitter: RegulationSplitter = TaskiqDepends(get_regulation_splitter),
+    texts_embedder: TextsEmbedder = TaskiqDepends(get_texts_embedder),
+    tokenizer: Tokenizer = TaskiqDepends(get_tokenizer),
+) -> RegulationPreparator:
+    return RegulationPreparator(
+        regulation_splitter, SectionsEmbedder(texts_embedder, embedding_service_settings.BATCH_SIZE), tokenizer
+    )
+
+
+def get_usage_charger(
+    usage_budgets_repo: UsageBudgetsRepository = TaskiqDepends(get_usage_budgets_repo),
+    usage_tariff_repo: UsageTariffRepository = TaskiqDepends(get_usage_tariff_repo),
+) -> UsageCharger:
+    return UsageCharger(usage_budgets_repo, usage_tariff_repo)
+
+
+def get_fail_regulation_preparation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+    usage_charger: UsageCharger = TaskiqDepends(get_usage_charger),
+) -> FailRegulationPreparation:
+    return FailRegulationPreparation(session_maker, regulations_repository, usage_charger)
+
+
+def get_prepare_regulation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_storage: RegulationsStorage = TaskiqDepends(get_regulations_storage),
+    sections_repository: SectionsRepository = TaskiqDepends(get_sections_repository),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+    regulation_preparator: RegulationPreparator = TaskiqDepends(get_regulation_preparator),
+    description_generation_scheduler: RegulationDescriptionGenerationScheduler = TaskiqDepends(
+        get_regulation_description_generation_scheduler
+    ),
+    section_summaries_generation_scheduler: SectionSummariesGenerationScheduler = TaskiqDepends(
+        get_section_summaries_generation_scheduler
+    ),
+    usage_charger: UsageCharger = TaskiqDepends(get_usage_charger),
+) -> PrepareRegulation:
+    return PrepareRegulation(
+        session_maker,
+        regulations_storage,
+        sections_repository,
+        regulations_repository,
+        regulation_preparator,
+        description_generation_scheduler,
+        section_summaries_generation_scheduler,
+        usage_charger,
+    )
+
+
+def get_fail_regulation_description_generation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+) -> FailRegulationDescriptionGeneration:
+    return FailRegulationDescriptionGeneration(session_maker, regulations_repository)
+
+
+def get_generate_regulation_description(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+    sections_repository: SectionsRepository = TaskiqDepends(get_sections_repository),
+    description_writer: RegulationDescriptionWriter = TaskiqDepends(get_regulation_description_writer),
+    texts_embedder: TextsEmbedder = TaskiqDepends(get_texts_embedder),
+) -> GenerateRegulationDescription:
+    return GenerateRegulationDescription(
+        session_maker, regulations_repository, sections_repository, description_writer, texts_embedder
+    )
+
+
+def get_fail_section_summaries_generation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+) -> FailSectionSummariesGeneration:
+    return FailSectionSummariesGeneration(session_maker, regulations_repository)
+
+
+def get_generate_section_summaries(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    regulations_repository: RegulationsRepository = TaskiqDepends(get_regulation_repository),
+    sections_repository: SectionsRepository = TaskiqDepends(get_sections_repository),
+    section_summaries_writer: SectionSummariesWriter = TaskiqDepends(get_section_summaries_writer),
+) -> GenerateSectionSummaries:
+    return GenerateSectionSummaries(
+        session_maker, regulations_repository, sections_repository, section_summaries_writer
+    )
+
+
+def get_fail_application_generation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    applications_repo: ApplicationsRepository = TaskiqDepends(get_applications_repo),
+    usage_charger: UsageCharger = TaskiqDepends(get_usage_charger),
+) -> FailApplicationGeneration:
+    return FailApplicationGeneration(session_maker, applications_repo, usage_charger)
+
+
+def get_generate_application(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    case_documents_repo: CaseDocumentsRepository = TaskiqDepends(get_case_documents_repo),
+    applications_repo: ApplicationsRepository = TaskiqDepends(get_applications_repo),
+    applications_storage: ApplicationsStorage = TaskiqDepends(get_applications_storage),
+    application_templates_repo: ApplicationTemplatesRepository = TaskiqDepends(get_application_templates_repo),
+    application_templates_storage: ApplicationTemplatesStorage = TaskiqDepends(get_application_templates_storage),
+    application_writer: ApplicationWriter = TaskiqDepends(get_application_writer),
+    application_renderer: ApplicationRenderer = TaskiqDepends(get_application_renderer),
+    usage_charger: UsageCharger = TaskiqDepends(get_usage_charger),
+) -> GenerateApplication:
+    return GenerateApplication(
+        session_maker,
+        case_documents_repo,
+        applications_repo,
+        applications_storage,
+        application_templates_repo,
+        application_templates_storage,
+        application_writer,
+        application_renderer,
+        usage_charger,
+    )
+
+
+def get_fail_application_template_description_generation(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    application_templates_repo: ApplicationTemplatesRepository = TaskiqDepends(get_application_templates_repo),
+) -> FailApplicationTemplateDescriptionGeneration:
+    return FailApplicationTemplateDescriptionGeneration(session_maker, application_templates_repo)
+
+
+def get_generate_application_template_description(
+    session_maker: SessionMaker = TaskiqDepends(get_session_maker),
+    application_templates_repo: ApplicationTemplatesRepository = TaskiqDepends(get_application_templates_repo),
+    application_templates_storage: ApplicationTemplatesStorage = TaskiqDepends(get_application_templates_storage),
+    application_template_inspector: ApplicationTemplateInspector = TaskiqDepends(get_application_template_inspector),
+    description_writer: ApplicationTemplateDescriptionWriter = TaskiqDepends(
+        get_application_template_description_writer
+    ),
+    texts_embedder: TextsEmbedder = TaskiqDepends(get_texts_embedder),
+) -> GenerateApplicationTemplateDescription:
+    return GenerateApplicationTemplateDescription(
+        session_maker,
+        application_templates_repo,
+        application_templates_storage,
+        application_template_inspector,
+        description_writer,
+        texts_embedder,
+    )

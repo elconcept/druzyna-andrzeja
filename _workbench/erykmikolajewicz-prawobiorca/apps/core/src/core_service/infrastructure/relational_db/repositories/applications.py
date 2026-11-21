@@ -1,0 +1,98 @@
+from uuid import UUID
+
+from sqlalchemy import delete, insert, select
+from sqlalchemy.exc import IntegrityError
+
+from core_service.application.dtos.applications import ApplicationRepresentation
+from core_service.application.ports.relational import AsyncSession
+from core_service.domain.entities.application import Application
+from core_service.domain.exceptions.applications import ApplicationNotFound
+from core_service.domain.exceptions.cases import CaseNotFound
+from core_service.infrastructure.relational_db.repositories.cases import check_case_exists
+from core_service.infrastructure.relational_db.schemas.applications import applications_table
+from core_service.infrastructure.relational_db.session import sqla_session
+
+
+class SqlaApplicationsRepository:
+    @staticmethod
+    async def list_by_case_id(session: AsyncSession, user_id: UUID, case_id: UUID) -> list[ApplicationRepresentation]:
+        session = sqla_session(session)
+        statement = (
+            select(ApplicationRepresentation)
+            .where(applications_table.c.case_id == case_id, applications_table.c.user_id == user_id)
+            .order_by(applications_table.c.create_date.desc())
+        )
+        result = await session.scalars(statement)
+        applications = list(result.all())
+        return applications
+
+    @staticmethod
+    async def list_ids_by_case_id(session: AsyncSession, user_id: UUID, case_id: UUID) -> list[UUID]:
+        session = sqla_session(session)
+        statement = select(applications_table.c.id).where(
+            applications_table.c.case_id == case_id, applications_table.c.user_id == user_id
+        )
+        result = await session.scalars(statement)
+        application_ids = list(result.all())
+        return application_ids
+
+    @staticmethod
+    async def get(session: AsyncSession, user_id: UUID, application_id: UUID) -> ApplicationRepresentation | None:
+        session = sqla_session(session)
+        statement = select(ApplicationRepresentation).where(
+            applications_table.c.id == application_id, applications_table.c.user_id == user_id
+        )
+        result = await session.scalars(statement)
+        application = result.one_or_none()
+        return application
+
+    @staticmethod
+    async def add(session: AsyncSession, user_id: UUID, case_id: UUID, template_id: UUID, template_name: str) -> UUID:
+        session = sqla_session(session)
+        await check_case_exists(session, user_id, case_id)
+        statement = (
+            insert(applications_table)
+            .values(case_id=case_id, user_id=user_id, template_id=template_id, template_name=template_name)
+            .returning(applications_table.c.id)
+        )
+        try:
+            result = await session.execute(statement)
+        except IntegrityError:
+            raise CaseNotFound
+        application_id = result.scalar_one()
+        return application_id
+
+    @staticmethod
+    async def get_for_update(session: AsyncSession, user_id: UUID, application_id: UUID) -> Application | None:
+        session = sqla_session(session)
+        statement = (
+            select(Application)
+            .where(applications_table.c.id == application_id, applications_table.c.user_id == user_id)
+            .with_for_update()
+        )
+        result = await session.scalars(statement)
+
+        return result.one_or_none()
+
+    @staticmethod
+    async def save(session: AsyncSession, application: Application) -> None:
+        session = sqla_session(session)
+        session.add(application)
+        await session.flush()
+
+    @staticmethod
+    async def delete(session: AsyncSession, user_id: UUID, case_id: UUID, application_id: UUID) -> None:
+        session = sqla_session(session)
+        statement = (
+            delete(applications_table)
+            .where(
+                applications_table.c.id == application_id,
+                applications_table.c.case_id == case_id,
+                applications_table.c.user_id == user_id,
+            )
+            .returning(applications_table.c.id)
+        )
+        result = await session.execute(statement)
+
+        if result.scalar_one_or_none() is None:
+            raise ApplicationNotFound

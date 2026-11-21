@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core
+  labels:
+    deploy-phase: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prawobiorca
+      component: core
+  template:
+    metadata:
+      labels:
+        app: prawobiorca
+        component: core
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: core
+          image: prawobiorca/core
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+          envFrom:
+            - configMapRef:
+                name: core-config
+      volumes:
+        - name: secrets-store
+          secret:
+            secretName: prawobiorca-secrets
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: core
+spec:
+  selector:
+    app: prawobiorca
+    component: core
+  ports:
+    - port: 8000
+      targetPort: 8000

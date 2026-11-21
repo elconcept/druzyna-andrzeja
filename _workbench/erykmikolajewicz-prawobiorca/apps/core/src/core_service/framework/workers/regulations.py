@@ -1,0 +1,85 @@
+from uuid import UUID
+
+from taskiq import Context, TaskiqDepends
+
+from core_service.application.use_cases.regulations import (
+    FailRegulationDescriptionGeneration,
+    FailRegulationPreparation,
+    FailSectionSummariesGeneration,
+    GenerateRegulationDescription,
+    GenerateSectionSummaries,
+    PrepareRegulation,
+)
+from core_service.framework.dependencies.workers import (
+    get_fail_regulation_description_generation,
+    get_fail_regulation_preparation,
+    get_fail_section_summaries_generation,
+    get_generate_regulation_description,
+    get_generate_section_summaries,
+    get_prepare_regulation,
+)
+from core_service.infrastructure.tasks.broker import DELIVERY_ATTEMPT_LABEL
+from core_service.infrastructure.tasks.connection import broker, is_last_attempt
+from core_service.infrastructure.tasks.regulations import (
+    REGULATION_DESCRIPTION_GENERATION_TASK_NAME,
+    REGULATION_PREPARATION_TASK_NAME,
+    SECTION_SUMMARIES_GENERATION_TASK_NAME,
+)
+
+
+@broker.task(task_name=REGULATION_PREPARATION_TASK_NAME)
+async def prepare_regulation_task(
+    user_id: str | None,
+    regulation_id: str,
+    context: Context = TaskiqDepends(),
+    fail_regulation_preparation: FailRegulationPreparation = TaskiqDepends(get_fail_regulation_preparation),
+    prepare_regulation: PrepareRegulation = TaskiqDepends(get_prepare_regulation),
+) -> None:
+    owner_id = UUID(user_id) if user_id is not None else None
+
+    if await fail_regulation_preparation.execute(
+        owner_id, UUID(regulation_id), context.message.labels.get(DELIVERY_ATTEMPT_LABEL, 1)
+    ):
+        return
+
+    await prepare_regulation.execute(owner_id, UUID(regulation_id), is_last_attempt(context.message))
+
+
+@broker.task(task_name=REGULATION_DESCRIPTION_GENERATION_TASK_NAME)
+async def generate_regulation_description_task(
+    user_id: str | None,
+    regulation_id: str,
+    context: Context = TaskiqDepends(),
+    fail_description_generation: FailRegulationDescriptionGeneration = TaskiqDepends(
+        get_fail_regulation_description_generation
+    ),
+    generate_description: GenerateRegulationDescription = TaskiqDepends(get_generate_regulation_description),
+) -> None:
+    owner_id = UUID(user_id) if user_id is not None else None
+
+    if await fail_description_generation.execute(
+        owner_id, UUID(regulation_id), context.message.labels.get(DELIVERY_ATTEMPT_LABEL, 1)
+    ):
+        return
+
+    await generate_description.execute(owner_id, UUID(regulation_id), is_last_attempt(context.message))
+
+
+@broker.task(task_name=SECTION_SUMMARIES_GENERATION_TASK_NAME)
+async def generate_section_summaries_task(
+    user_id: str | None,
+    regulation_id: str,
+    context: Context = TaskiqDepends(),
+    fail_section_summaries_generation: FailSectionSummariesGeneration = TaskiqDepends(
+        get_fail_section_summaries_generation
+    ),
+    generate_section_summaries: GenerateSectionSummaries = TaskiqDepends(get_generate_section_summaries),
+) -> None:
+    owner_id = UUID(user_id) if user_id is not None else None
+
+    if await fail_section_summaries_generation.execute(
+        owner_id, UUID(regulation_id), context.message.labels.get(DELIVERY_ATTEMPT_LABEL, 1)
+    ):
+        return
+
+    await generate_section_summaries.execute(owner_id, UUID(regulation_id), is_last_attempt(context.message))

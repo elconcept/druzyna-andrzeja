@@ -1,0 +1,165 @@
+<script setup lang="ts">
+import { computed, ref, onBeforeMount } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { ElMessage } from 'element-plus'
+import { Memo } from '@element-plus/icons-vue'
+import { showApiError } from '@/utils/error'
+
+import AppLayout from '@/components/templates/AppLayout.vue'
+import SearchForm from '@/components/organisms/SearchForm.vue'
+import SearchResultsList from '@/components/organisms/SearchResultsList.vue'
+import SearchResultsToc from '@/components/organisms/SearchResultsToc.vue'
+import { defaultSearchLimit, useRegulationSearch } from '@/composables/useRegulationSearch'
+import { useBreakpoint } from '@/composables/useBreakpoint'
+
+import { useAuthStore } from '@/stores/auth'
+import { useCasesStore } from '@/stores/cases'
+import { addCaseDocument } from '@/api/generated/endpoints/cases/cases'
+import type {
+  SearchOrder,
+  SearchRegulationDocumentsParams,
+  SearchResultElement,
+  SearchResultHighlight,
+} from '@/api/generated/model'
+import { getRegulationById } from '@/api/generated/endpoints/regulations/regulations'
+
+const route = useRoute()
+const router = useRouter()
+const authStore = useAuthStore()
+const { isUserLogged } = storeToRefs(authStore)
+
+const regulationId = route.params.regulationId as string
+const regulationName = ref('')
+const initialOrder = (route.query.order_by as SearchOrder | undefined) || 'score'
+const searchParams = ref<SearchRegulationDocumentsParams>({
+  query: (route.query.query as string) || '',
+  threshold: route.query.threshold !== undefined ? Number(route.query.threshold) : 0.5,
+  limit: route.query.limit ? Number(route.query.limit) : defaultSearchLimit(initialOrder),
+  order_by: initialOrder,
+})
+
+const { activeCaseId, activeCase } = storeToRefs(useCasesStore())
+const { results, isSearching, search: performSearch, browse } = useRegulationSearch(regulationId)
+const { isMobile } = useBreakpoint()
+const isTocOpen = ref(false)
+
+const isTocShown = computed(
+  () =>
+    results.value.length > 0 &&
+    (!searchParams.value.query || searchParams.value.order_by === 'document'),
+)
+
+onBeforeMount(() => {
+  void loadRegulationName()
+
+  if (searchParams.value.query) {
+    void performSearch(searchParams.value)
+  } else {
+    void browse()
+  }
+})
+
+async function loadRegulationName() {
+  try {
+    const regulation = await getRegulationById(regulationId)
+    regulationName.value = regulation.presentationName
+  } catch (error) {
+    showApiError(error, { defaultMessage: 'Nie udało się pobrać regulacji.' })
+  }
+}
+
+async function handleSearch(newSearchParams: SearchRegulationDocumentsParams) {
+  searchParams.value = newSearchParams
+
+  if (!newSearchParams.query) {
+    await router.replace({ query: {} })
+    await browse()
+    return
+  }
+
+  await router.replace({
+    query: newSearchParams,
+  })
+
+  await performSearch(newSearchParams)
+}
+
+async function handleAddToCase(payload: {
+  documentContent: string
+  header: string | null
+  elements: Array<SearchResultElement>
+  highlight: SearchResultHighlight | null
+}) {
+  if (!activeCase.value) {
+    ElMessage.warning('Wybierz aktywną sprawę w panelu bocznym.')
+    return
+  }
+
+  try {
+    await addCaseDocument(activeCase.value.id, {
+      presentationName: regulationName.value,
+      content: payload.documentContent,
+      header: payload.header,
+      elements: payload.elements,
+      highlight: payload.highlight,
+    })
+    ElMessage.success(`Dodano do sprawy: ${activeCase.value.name}`)
+  } catch (error) {
+    showApiError(error, { defaultMessage: 'Wystąpił błąd podczas dodawania do sprawy.' })
+  }
+}
+</script>
+
+<template>
+  <AppLayout>
+    <div class="page-header">
+      <h1 class="page-title">Przeszukaj regulacje: {{ regulationName }}</h1>
+    </div>
+
+    <div v-loading="isSearching">
+      <SearchForm
+        :search-params="searchParams"
+        :can-use-advanced-threshold="isUserLogged"
+        @search="handleSearch"
+      />
+
+      <SearchResultsList
+        :results="results"
+        :selected-case-id="activeCaseId"
+        :can-add-to-case="isUserLogged"
+        :query="searchParams.query"
+        @add-to-case="handleAddToCase"
+      />
+    </div>
+
+    <template v-if="isTocShown && !isMobile" #aside>
+      <SearchResultsToc class="search-toc" :results="results" />
+    </template>
+
+    <template v-if="isTocShown && isMobile">
+      <el-button
+        class="toc-button"
+        type="primary"
+        circle
+        :icon="Memo"
+        aria-label="Spis treści"
+        @click="isTocOpen = true"
+      />
+      <el-drawer v-model="isTocOpen" title="Spis treści" direction="rtl" size="min(20rem, 85vw)">
+        <SearchResultsToc :results="results" @navigate="isTocOpen = false" />
+      </el-drawer>
+    </template>
+
+    <el-backtop />
+  </AppLayout>
+</template>
+
+<style scoped>
+.toc-button {
+  position: fixed;
+  right: 40px;
+  bottom: 96px;
+  z-index: 5;
+}
+</style>

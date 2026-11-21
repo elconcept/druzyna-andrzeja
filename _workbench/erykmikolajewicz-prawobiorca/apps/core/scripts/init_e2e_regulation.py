@@ -1,0 +1,86 @@
+import asyncio
+import json
+import uuid
+from collections.abc import Iterable
+from pathlib import Path
+
+import httpx2
+from sqlalchemy import insert, select
+
+from core_service.application.services.embedding import SectionsEmbedder
+from core_service.application.services.regulations import RegulationPreparator
+from core_service.domain.value_objects.legal_units import RegulationElement
+from core_service.domain.value_objects.regulations import RegulationPreparationStatus, RegulationType
+from core_service.infrastructure.ai_services.text_embedder import HttpTextsEmbedder
+from core_service.infrastructure.relational_db.connection import async_session_maker
+from core_service.infrastructure.relational_db.repositories.sections import SqlaSectionsRepository
+
+# Unused import necessary for sqlalchemy
+from core_service.infrastructure.relational_db.schemas.organizations import organizations_table  # noqa: F401
+from core_service.infrastructure.relational_db.schemas.regulations import regulations_table
+from core_service.infrastructure.relational_db.schemas.users import users_table  # noqa: F401
+from core_service.infrastructure.tokenizers.mmlw import MmlwTokenizer
+from core_service.shared.settings.ai_services import embedding_service_settings
+
+REGULATION_ELEMENTS_FILE = Path("tests/data/ustawa-nauka_slice_30-31.json")
+REGULATION_NAME = "Prawo o nauce i szkolnictwie wyższym - fragment"
+
+
+class JsonRegulationSplitter:
+    async def split(self, regulation: bytes) -> Iterable[RegulationElement]:
+        return [RegulationElement(label=item["label"], text=item["text"]) for item in json.loads(regulation)]
+
+
+async def regulation_exists() -> bool:
+    async with async_session_maker() as session:
+        result = await session.execute(
+            select(regulations_table.c.id).where(
+                regulations_table.c.presentation_name == REGULATION_NAME,
+                regulations_table.c.user_id.is_(None),
+            )
+        )
+        return result.first() is not None
+
+
+async def init_e2e_regulation():
+    if await regulation_exists():
+        print(f"Regulation already exists: {REGULATION_NAME}")
+        return
+
+    async with httpx2.AsyncClient(timeout=900) as client:
+        texts_embedder = HttpTextsEmbedder(
+            client=client,
+            embedding_service_url=embedding_service_settings.URL,
+        )
+        sections_embedder = SectionsEmbedder(texts_embedder, embedding_service_settings.BATCH_SIZE)
+        regulation_preparator = RegulationPreparator(
+            JsonRegulationSplitter(),
+            sections_embedder,
+            MmlwTokenizer(),
+        )
+
+        sections_to_embed = await regulation_preparator.prepare_regulation(REGULATION_ELEMENTS_FILE.read_bytes())
+
+    regulation_id = uuid.uuid4()
+
+    async with async_session_maker.begin() as session:
+        await session.execute(
+            insert(regulations_table),
+            [
+                {
+                    "id": regulation_id,
+                    "presentation_name": REGULATION_NAME,
+                    "preparation_status": RegulationPreparationStatus.PREPARED,
+                    "user_id": None,
+                    "regulation_type": RegulationType.ACT,
+                }
+            ],
+        )
+
+        await SqlaSectionsRepository.add_sections(session, None, regulation_id, sections_to_embed)
+
+    print(f"Saved regulation: {REGULATION_NAME}")
+
+
+if __name__ == "__main__":
+    asyncio.run(init_e2e_regulation())

@@ -1,0 +1,110 @@
+[project]
+name = "core"
+version = "0.1.0"
+description = "Law acts search engine with AI features."
+license = "MIT"
+requires-python = "==3.14.*"
+dependencies = [
+    "aiobotocore==3.10.*",
+    "alembic==1.20.*",
+    "asyncpg==0.32.*",
+    "bcrypt==5.0.*",
+    "botocore==1.43.*",
+    "email-validator==2.3.*",
+    "fastapi==0.162.*",
+    "google-auth[requests]==2.62.*",
+    "granian==2.8.*",
+    "httpx2==2.16.*",
+    "pgvector==0.5.*",
+    "pydantic==2.14.*",
+    "openai==3.42.*",
+    "pydantic-settings==2.16.*",
+    "pyjwt==2.15.*",
+    "python-multipart==0.0.33",
+    "sqlalchemy[asyncio]==2.1.*",
+    "jinja2==3.1.*",
+    "docxtpl==0.20.*",
+    "taskiq==0.13.*",
+    "tokenizers==0.23.*",
+    "regex==2026.11.*",
+]
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "core_service"
+namespace = true
+
+[dependency-groups]
+dev = [
+    "granian[reload]==2.8.*",
+    "import-linter==2.16.*",
+    "taskiq[reload]==0.13.*",
+    "ty==0.0.99",
+    "types-aiobotocore[s3]==3.10.*",
+]
+mutation = [
+    "mutmut==3.8.*",
+]
+
+test = [
+    "pytest==9.2.*",
+    "pytest-asyncio==1.4.*",
+    "pytest-cov==7.1.*",
+    "testcontainers[postgres]==4.15.*",
+]
+
+[tool.uv]
+default-groups = ["dev", "test"]
+
+[tool.importlinter]
+root_package = "core_service"
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Layers"
+type = "layers"
+layers = [
+    "core_service.framework",
+    "core_service.infrastructure",
+    "core_service.application",
+    "core_service.domain",
+    "core_service.shared",
+]
+
+[[tool.importlinter.contracts]]
+name = "Domain and application are framework independent"
+type = "forbidden"
+source_modules = ["core_service.domain", "core_service.application"]
+forbidden_modules = [
+    "aiobotocore",
+    "asyncpg",
+    "bcrypt",
+    "docxtpl",
+    "fastapi",
+    "httpx2",
+    "jinja2",
+    "jwt",
+    "openai",
+    "pgvector",
+    "sqlalchemy",
+    "taskiq",
+    "tokenizers",
+]
+ignore_imports = [
+    "core_service.application.services.accounts -> fastapi",
+    "core_service.application.services.regulations -> fastapi",
+    "core_service.application.use_cases.account -> fastapi",
+    "core_service.domain.services.security -> bcrypt",
+    "core_service.domain.services.security -> jwt",
+]
+
+[[tool.ty.overrides]]
+include = ["tests/**"]
+
+[tool.ty.overrides.rules]
+missing-argument = "ignore"
+unknown-argument = "ignore"
+pydantic-discarded-extra-argument = "ignore"

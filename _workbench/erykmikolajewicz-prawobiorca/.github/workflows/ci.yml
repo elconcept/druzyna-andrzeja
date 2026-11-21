@@ -1,0 +1,200 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  changes:
+    if: github.repository_id == '1120768327'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      python: ${{ steps.filter.outputs.python }}
+      backend: ${{ steps.filter.outputs.backend }}
+      extraction: ${{ steps.filter.outputs.extraction }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+      workflows: ${{ steps.filter.outputs.workflows }}
+      containers: ${{ steps.filter.outputs.containers }}
+      deployment: ${{ steps.filter.outputs.deployment }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 # zizmor: ignore[artipacked]
+      - id: filter
+        uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
+        with:
+          filters: |
+            python:
+              - '**/*.py'
+              - pyproject.toml
+              - uv.lock
+              - ruff.toml
+              - .github/workflows/ci.yml
+            backend:
+              - apps/core/**
+              - pyproject.toml
+              - uv.lock
+              - justfile
+              - .github/workflows/ci.yml
+              - .github/actions/setup-backend/**
+              - .github/actions/setup-tools/**
+            extraction:
+              - apps/extraction/**
+              - .trivyignore.yaml
+              - justfile
+              - .github/workflows/ci.yml
+              - .github/actions/setup-tools/**
+            frontend:
+              - apps/web/**
+              - justfile
+              - .github/workflows/ci.yml
+              - .github/actions/setup-frontend/**
+            workflows:
+              - .github/**
+              - pyproject.toml
+              - uv.lock
+              - justfile
+            containers:
+              - '**/Containerfile'
+              - .hadolint.yaml
+              - justfile
+              - .github/workflows/ci.yml
+              - .github/actions/setup-tools/**
+            deployment:
+              - deploy/**
+              - scripts/deploy.py
+              - apps/core/scripts/create_bucket.py
+              - apps/core/scripts/init_e2e_regulation.py
+              - .checkov.yaml
+              - pyproject.toml
+              - uv.lock
+              - justfile
+              - .github/workflows/ci.yml
+              - .github/actions/setup-tools/**
+
+  backend:
+    needs: changes
+    if: needs.changes.outputs.python == 'true' || needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - run: just check-backend
+
+  integration:
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DOCKER_HOST: unix:///var/run/docker.sock
+      TESTCONTAINERS_RYUK_DISABLED: "true"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - run: just cov
+
+  extraction:
+    needs: changes
+    if: needs.changes.outputs.extraction == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DOCKER_HOST: unix:///var/run/docker.sock
+      TESTCONTAINERS_RYUK_DISABLED: "true"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-tools
+      - run: just type-check-extraction
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: apps/extraction
+          file: apps/extraction/Containerfile
+          load: true
+          tags: prawobiorca/extraction:latest
+          cache-from: type=gha,scope=extraction
+          cache-to: type=gha,scope=extraction,mode=max
+      - run: docker buildx prune --all --force
+      - run: just scan-image prawobiorca/extraction docker
+      - run: just test-extraction
+
+  frontend:
+    needs: changes
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-frontend
+      - run: just check-frontend
+
+  api-types:
+    needs: changes
+    if: needs.changes.outputs.backend == 'true' || needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - uses: ./.github/actions/setup-frontend
+      - run: just api-types
+      - run: git diff --exit-code apps/core/openapi.json apps/web/src/api/generated
+
+  workflows:
+    needs: changes
+    if: needs.changes.outputs.workflows == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-tools
+      - run: just check-workflows
+
+  containers:
+    needs: changes
+    if: needs.changes.outputs.containers == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-tools
+      - run: just check-containers
+
+  deployment:
+    needs: changes
+    if: needs.changes.outputs.deployment == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-tools
+      - run: just check-deployment

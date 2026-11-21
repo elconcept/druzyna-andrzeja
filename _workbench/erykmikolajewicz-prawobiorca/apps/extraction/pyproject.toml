@@ -1,0 +1,44 @@
+[project]
+name = "extraction"
+version = "0.1.0"
+description = "Service to parse and extract text from documents."
+license = "MIT"
+requires-python = "==3.14.*"
+dependencies = [
+    "docling==2.145.*",
+    "fastapi==0.162.*",
+    "granian==2.8.*",
+    "python-multipart==0.0.33",
+    "torch==2.15.*",
+    "torchvision==0.29.*",
+]
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "extraction_service"
+
+[dependency-groups]
+dev = [
+    "ty==0.0.99",
+]
+
+test = [
+    "httpx2==2.16.*",
+    "pytest==9.2.*",
+    "testcontainers==4.15.*",
+]
+
+[tool.ty.src]
+include = ["src", "tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

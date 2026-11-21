@@ -1,0 +1,39 @@
+FROM python:3.14-slim-trixie AS builder
+
+RUN pip install --no-cache-dir uv==0.13.*
+
+WORKDIR /extraction
+
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
+
+RUN uv sync --locked --no-install-project --compile-bytecode --no-cache --no-default-groups
+
+RUN .venv/bin/docling-tools models download layout tableformer rapidocr \
+    --rapidocr-backend-lang torch:pl -o /extraction/models
+
+COPY src src
+RUN uv sync --locked --no-editable --compile-bytecode --no-cache --no-default-groups
+
+
+FROM python:3.14-slim-trixie
+
+RUN apt-get update && apt-get upgrade --yes && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip uninstall --yes pip
+
+RUN useradd -m extraction_service
+
+WORKDIR /extraction
+
+COPY --from=builder /extraction/.venv .venv
+COPY --from=builder /extraction/models models
+
+USER extraction_service
+
+ENV DOCLING_ARTIFACTS_PATH=/extraction/models
+ENV PATH="/extraction/.venv/bin:$PATH"
+
+EXPOSE 8080
+
+ENTRYPOINT ["granian", "--port", "8080", "--host", "0.0.0.0", "--interface", "asgi", "extraction_service.main:app"]

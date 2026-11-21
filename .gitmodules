@@ -1,3 +1,7 @@
 [submodule "apiotrowski-afk-legal-cite-pl"]
 	path = _vendor/apiotrowski-afk-legal-cite-pl
 	url = https://github.com/apiotrowski-afk/legal-cite-pl.git
+
+[submodule "erykmikolajewicz-prawobiorca"]
+	path = _vendor/erykmikolajewicz-prawobiorca
+	url = https://github.com/erykmikolajewicz/prawobiorca.git

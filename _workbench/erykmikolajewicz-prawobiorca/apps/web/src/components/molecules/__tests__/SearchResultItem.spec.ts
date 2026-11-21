@@ -1,0 +1,125 @@
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import ElementPlus from 'element-plus'
+import SearchResultItem from '../SearchResultItem.vue'
+import type { SearchResultElement, SearchResultHighlight } from '@/api/generated/model'
+
+function mountItem(
+  result: string,
+  elements: Array<SearchResultElement>,
+  selectedCaseId = 'case-1',
+  highlight: SearchResultHighlight | null = null,
+) {
+  return mount(SearchResultItem, {
+    props: { result, elements, score: 0.5, selectedCaseId, highlight, canAddToCase: true },
+    global: { plugins: [ElementPlus] },
+  })
+}
+
+describe('SearchResultItem', () => {
+  it('groups elements sharing a subsection into one block', () => {
+    const elements: Array<SearchResultElement> = [
+      { text: '1. Ustęp pierwszy', subsection: '1' },
+      { text: '1) punkt pierwszy', subsection: '1' },
+      { text: '2. Ustęp drugi', subsection: '2' },
+    ]
+
+    const wrapper = mountItem('1. Ustęp pierwszy\n1) punkt pierwszy\n2. Ustęp drugi', elements)
+
+    const blocks = wrapper.findAll('.result-block')
+    expect(blocks).toHaveLength(2)
+    expect(blocks[0]!.findAll('.result-line')).toHaveLength(2)
+    expect(blocks[1]!.findAll('.result-line')).toHaveLength(1)
+  })
+
+  it('marks punkt/litera lines for extra indentation', () => {
+    const elements: Array<SearchResultElement> = [
+      { text: '1. Ustęp pierwszy', subsection: '1' },
+      { text: '1) punkt pierwszy', subsection: '1' },
+      { text: 'a) litera pierwsza', subsection: '1' },
+    ]
+
+    const wrapper = mountItem('irrelevant', elements)
+
+    const lines = wrapper.findAll('.result-line')
+    expect(lines[0]!.classes()).not.toContain('is-sub')
+    expect(lines[1]!.classes()).toContain('is-sub')
+    expect(lines[2]!.classes()).toContain('is-sub')
+  })
+
+  it('emits add-to-case with the flat text, elements and highlight', async () => {
+    const elements: Array<SearchResultElement> = [{ text: '1. Ustęp pierwszy', subsection: '1' }]
+    const wrapper = mountItem('1. Ustęp pierwszy', elements)
+
+    await wrapper.find('button').trigger('click')
+
+    expect(wrapper.emitted('add-to-case')?.[0]).toEqual([
+      { documentContent: '1. Ustęp pierwszy', elements, highlight: null },
+    ])
+  })
+
+  it('does not emit add-to-case when no case is selected', async () => {
+    const elements: Array<SearchResultElement> = [{ text: '1. Ustęp pierwszy', subsection: '1' }]
+    const wrapper = mountItem('1. Ustęp pierwszy', elements, '')
+
+    await wrapper.find('button').trigger('click')
+
+    expect(wrapper.find('button').attributes('disabled')).toBeDefined()
+    expect(wrapper.emitted('add-to-case')).toBeUndefined()
+  })
+
+  it('highlights blocks containing the best chunk span', () => {
+    const elements: Array<SearchResultElement> = [
+      { text: '1. Ustęp pierwszy', subsection: '1' },
+      { text: '2. Ustęp drugi', subsection: '2' },
+      { text: '3. Ustęp trzeci', subsection: '3' },
+    ]
+    const highlight = { start_element: 0, end_element: 1 }
+
+    const wrapper = mountItem('irrelevant', elements, 'case-1', highlight)
+
+    const blocks = wrapper.findAll('.result-block')
+    expect(blocks[0]!.classes()).toContain('is-highlighted')
+    expect(blocks[1]!.classes()).toContain('is-highlighted')
+    expect(blocks[2]!.classes()).not.toContain('is-highlighted')
+  })
+
+  it('highlights a whole block when the best chunk covers only a part of it', () => {
+    const elements: Array<SearchResultElement> = [
+      { text: '1. Ustęp pierwszy', subsection: '1' },
+      { text: '1) punkt pierwszy', subsection: '1' },
+      { text: '2. Ustęp drugi', subsection: '2' },
+    ]
+
+    const wrapper = mountItem('irrelevant', elements, 'case-1', {
+      start_element: 1,
+      end_element: 1,
+    })
+
+    expect(
+      wrapper.findAll('.result-block').map((block) => block.classes('is-highlighted')),
+    ).toEqual([true, false])
+  })
+
+  it('does not highlight anything without highlight', () => {
+    const elements: Array<SearchResultElement> = [{ text: '1. Ustęp pierwszy', subsection: '1' }]
+
+    const wrapper = mountItem('irrelevant', elements)
+
+    expect(wrapper.find('.result-block.is-highlighted').exists()).toBe(false)
+    expect(wrapper.find('.result-line').text()).toBe('1. Ustęp pierwszy')
+  })
+
+  it('shows the similarity only for a scored result', () => {
+    const elements: Array<SearchResultElement> = [{ text: 'Treść', subsection: null }]
+
+    const scored = mountItem('Treść', elements)
+    const unscored = mount(SearchResultItem, {
+      props: { result: 'Treść', elements, canAddToCase: false },
+      global: { plugins: [ElementPlus] },
+    })
+
+    expect(scored.find('.score').text()).toBe('Podobieństwo: 0.500')
+    expect(unscored.find('.score').exists()).toBe(false)
+  })
+})

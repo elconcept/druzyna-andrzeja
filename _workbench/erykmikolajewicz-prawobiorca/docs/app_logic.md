@@ -1,0 +1,188 @@
+# Description of "Prawobiorca" Application Logic
+
+## 1. Introduction
+**Prawobiorca** is an application designed for intelligent searching of legal acts. The system uses Vector Search to enable users to find relevant regulations using natural language queries.
+For logged-in users, the application offers a "Cases" management function, which allows aggregating regulations from various sources and generating ready-made legal applications in DOCX format.
+---
+
+## 2. User Roles
+
+### 2.1. Guest (Unlogged User)
+- Has access only to public, predefined documents.
+- Can search documents.
+- Does not have the ability to save data.
+
+### 2.2. Logged User
+- Has all Guest permissions.
+- Can add their own documents.
+- Can create and manage "Cases."
+- Can generate DOCX applications based on gathered materials.
+
+### 2.3. Administrator
+- Has all Logged User permissions.
+- Can add, edit and delete public documents. When adding a public document, can assign it to an organization and optionally to one of its suborganizations. The assignment cannot be changed later. Private documents of users never belong to an organization.
+- Can generate document descriptions with AI, either when adding a document or after it has been prepared. Descriptions support searching for relevant legal acts on the Main Screen. Generation is selected by default when adding a document.
+- Can generate AI summaries of the articles (or `§` units) of a public document, either when adding it (selected by default) or after it has been prepared. Each unit gets a label of 2–4 words and a short description, shown in the Document Search View. Private documents do not get summaries.
+- Manages application templates used to generate DOCX applications. A template can be assigned to an organization and optionally to one of its suborganizations.
+- Manages organizations and their suborganizations.
+- Sets the prices of paid operations and the daily budgets.
+### 2.4. Usage Limits
+Operations that use AI services are paid from a daily budget, expressed in conventional złoty (the prices do not reflect real costs). The budget is renewed at midnight, Polish time. The Administrator sets the prices and budgets in the **Usage Tariff View**; the values below are the initial ones.
+
+| Operation | Price |
+| --- | --- |
+| Semantic search (regulations, sections of a regulation, AI-assisted application template search) | 0.03 zł |
+| Application generation | 0.50 zł |
+| Preparation of a private document (also when retried) | 1.00 zł |
+
+| Payer | Daily budget |
+| --- | --- |
+| Guest | 2 zł per IP address, and 50 zł shared by all guests |
+| Logged User | 5 zł per account |
+| Administrator | unlimited – never charged |
+
+- A guest who shares an address with many people (e.g. a university network) should create an account to get an own budget.
+- A failed application generation or document preparation is refunded; a failed search is not.
+- When the budget is used up, the operation is rejected and the user is told to log in (guest) or to come back the next day (logged user).
+- Regardless of the budgets, the real LLM cost of the whole system is capped monthly (`LLM_SERVICE_MONTHLY_COST_LIMIT_PLN`).
+- To protect accounts, a fixed 15-minute window allows 5 failed or pending login attempts for the same username from the same IP address. Successful logins release their reserved attempt; interrupted requests retain it until the window ends. Once the limit is reached, further attempts are blocked until capacity becomes available or the window ends. One IP address can make 20 registration attempts a day.
+
+---
+
+## 3. Views and Functionalities
+
+### 3.1. Main Screen
+
+This is the starting point of the application.
+
+**For Guest:**
+- **List of Public Documents**: The user sees a list of predefined legal acts (read-only).
+- There is no possibility to add or remove documents from this list.
+- **Search by Description**: The user describes their issue in natural language to find relevant legal acts. The search compares the query with document descriptions; documents without a description vector do not appear in the results. Clearing the query restores the full list.
+- **Search Controls**: The user can choose a relevance threshold, sort results alphabetically or by relevance, and filter the list by document type. Search results show each document's similarity score. The query, threshold and sort order are stored in the page URL.
+- **Organization filter**: The list is filtered by the organization and suborganization selected in the sidebar. The filter is a convenience only, all public documents stay accessible:
+    - No organization selected: all public documents are shown.
+    - Organization selected: documents of the organization (including all its suborganizations) are shown.
+    - Suborganization selected: documents of the suborganization and documents assigned to the whole organization (e.g. the university statute) are shown.
+    - General documents, not assigned to any organization (e.g. the Civil Code), are shown with every filter.
+- Clicking on a document redirects to the **Search View**.
+
+**For Logged User:**
+- Sees the same as the Guest plus additional sections:
+- **My Documents**:
+    - Ability to upload own files (legal acts, regulations).
+    - List of files added by themselves.
+    - Ability to edit the name and description of their own document and delete it. Saving a description makes the document available to search by description; the Main Screen search applies to both the public and private lists. The organization filter applies only to public documents.
+    - **Automatic indexing**: Once an upload is confirmed, the indexing process (creating embeddings) is queued automatically. No manual action is required.
+    - **Preparation status**: Each file shows its state (`NOT_STARTED`, `IN_PROGRESS`, `PREPARED`, `FAILED`). Only `PREPARED` files can be searched for provisions in the Document Search View.
+    - **Retry option**: A file that ends up `FAILED` (after the automatic attempts are exhausted) can be retried by the user.
+
+**Sidebar (Logged User):**
+- **My Cases**:
+    - List of created cases.
+    - Ability to create a new case.
+    - Ability to set a case as "active" (pin icon). The active case is used in the **Search View**.
+    - Ability to delete a case (with confirmation). Deleting the currently opened case redirects to the Main Screen.
+    - Clicking on a case redirects to the **Case View**.
+- **Administration** menu item, visible only for the Administrator, expands in place and contains **Application Templates** (redirects to the **Application Templates View**), **Organizations** (redirects to the **Organizations View**) and **Limits and Prices** (redirects to the **Usage Tariff View**).
+---
+
+### 3.2. Document Search View
+
+This view opens after selecting a specific document (both public and private).
+
+**Common Functions (Guest and Logged):**
+- **Whole Document**: Without a query, the view shows all editorial units of the document in its order, without similarity scores (`GET /api/regulations/{regulationId}/sections`). Clearing the query returns to this view.
+- **Semantic Search**: Search bar supporting natural language (e.g., *"Regulations regarding student rights"*).
+- **Result Order and Limit**: Search results are ordered by relevance by default and limited to the 10 best. Ordering by the document returns, by default, all units above the threshold in the document's order; a limit set by the user then keeps the first units in that order.
+- **Table of Contents**: When units are shown in the document's order, a table of contents built from their breadcrumbs is shown on the right (behind a button on mobile). Clicking an entry scrolls to the unit; a chapter scrolls to its first unit, and the entry of the visible unit is highlighted.
+- **Unit Summaries**: If the document has AI summaries, the table of contents shows the label next to each unit (e.g. *"Art. 110 · Samorząd studencki"*) and its description on hover. Results show only the text of the document. A note pinned to the bottom of the table of contents says that the description of the article/point was generated by AI. Repealed units are labelled "Uchylony".
+- **Search Scope**: Only the **current, open document** is searched.
+- **Search Results**: List of most matching articles/text fragments obtained through vector search. A result is always a whole editorial unit (an article, or a `§` in university regulations) together with its breadcrumb, for example *"Rozdział 4 Samorząd studencki i organizacje studenckie > Art. 110"*. Long units are chunked for retrieval only — the chunks are never shown, and the unit's score combines its two best-matching chunks.
+
+**Additional Functions (Only Logged):**
+- **Pinning Articles**:
+    - Next to each search result, there is an "Add to case" button.
+    - Pinning adds the article to the context of the active case, selected in the sidebar. Without an active case, the user is asked to select one.
+    - Articles from different documents can be pinned to a single case.
+---
+
+### 3.3. Case View
+
+View available exclusively for **Logged Users**, serving to finalize work on a legal issue.
+
+**Functionalities:**
+1. **List of Pinned Articles**:
+    - Displays all fragments the user pinned to this case in the Search View.
+    - Each item contains the content of the article and information about the source document (e.g., *"Art. 5, Civil Code"*), built from the structural metadata stored with every section.
+    - Ability to unpin (remove) an article from the case.
+
+2. **Context / Application Description**:
+    - Selection of the application type, from the templates published by the Administrator. The list is filtered by the organization and suborganization selected in the sidebar, by the same rules as the list of public documents on the Main Screen: general templates are always shown, a selected organization shows its templates (including all its suborganizations), a selected suborganization shows its templates and templates assigned to the whole organization.
+    - Typing in the application type selector searches template names with approximate matching. The optional "AI Search" switch also uses the meaning of template descriptions once the query contains a space after a word. Results are ordered by relevance, and a template's description is available in a tooltip. An empty query shows all published templates for the selected organization context. If search fails, an error message is shown and the selector falls back to that full list.
+    - Fields defined by the selected template (text, number, select list or date), prefilled with their default values. Required fields must be filled.
+    - Text field (Input/Textarea) where the user describes their situation or the purpose of the letter (e.g., *"I request financial aid due to the difficult situation I found myself in after the death of a parent..."*).
+
+3. **DOCX Generator**:
+    - "Generate Application" button.
+    - **Logic of operation**: The system (LLM) retrieves:
+        - The AI instructions of the selected template.
+        - The template field values marked to be passed to AI.
+        - The application description, entered by the user.
+        - The content of all pinned articles.
+    - Based on this, it generates the content of a formal document (application/letter), inserted into the template's **DOCX** file.
+    - Generation runs in the background: the user does not wait for the response, the new application appears in the list with the "Generating" status.
+
+4. **List of Generated Applications**:
+    - Displays all applications generated for this case, with their name, creation date and generation status ("Generating", "Generation failed"). The name is given by the LLM after generation; until then, the template name is shown.
+    - The list refreshes automatically while any application is being generated.
+    - Ability to download a generated application (DOCX) and to delete an application.
+    - Deleting the case deletes its applications as well.
+---
+
+### 3.4. Application Templates View
+
+View available exclusively for the **Administrator**, serving to manage templates of applications generated in the Case View.
+
+**Functionalities:**
+1. **List of Templates**:
+    - Displays all templates with their status: "Not uploaded", "Draft" or "Published".
+    - Ability to delete a template (with confirmation). Applications already generated from it are kept.
+    - Clicking on a template redirects to the **Template Editor**.
+
+2. **Adding a Template**:
+    - The Administrator uploads a DOCX file and gives the template a name (by default the file name).
+    - The DOCX file is a Jinja2 template. It must contain the `paragraphs` variable, where the generated content is inserted. The `current_date` variable is filled automatically with the current date in Polish time (`Europe/Warsaw`).
+    - Every other template variable becomes a template field. The new template gets the "Draft" status and default AI instructions.
+
+3. **Template Editor**:
+    - Editing the template name.
+    - Editing a short description of when to use the template. The description is shown during template selection and supports AI-assisted template search.
+    - Generating the description with AI from the template's name, instructions, fields and DOCX content. The current draft is saved before generation starts. While generation runs in the background, editing is disabled and the page refreshes the generation status automatically. A failed generation is shown to the administrator and can be retried.
+    - Assigning the template to an organization and optionally to one of its suborganizations. A template without an organization is general.
+    - Editing the AI instructions in a Markdown editor.
+    - Configuration of each field: label, type (text, number, select list, date), optional validation regex (text only), list options (select list only), optional default value, "Required" and "Pass to AI" flags.
+    - Download of the DOCX file and its preview.
+    - Only a draft can be edited. A published template must be unpublished first.
+
+4. **Publishing**:
+    - A draft with non-empty AI instructions can be published. Only published templates are available to users in the Case View.
+    - Unpublishing returns the template to the "Draft" status.
+---
+
+### 3.5. Organizations View
+
+View available exclusively for the **Administrator**, serving to manage organizations (e.g. Politechnika Wrocławska) and their suborganizations (e.g. faculties).
+
+**Functionalities:**
+- List of organizations (name and short name). Each organization expands to show its suborganizations.
+- Adding, editing and deleting an organization. Deleting an organization (with confirmation) deletes its suborganizations and public documents as well. Its application templates are kept and become general.
+- Adding, editing and deleting a suborganization (with confirmation). Deleting a suborganization deletes its public documents as well. Its application templates are kept and stay assigned to the whole organization.
+
+### 3.6. Usage Tariff View
+
+View available exclusively for the **Administrator**, serving to set the prices of paid operations and the daily budgets described in [Usage Limits](#24-usage-limits).
+
+**Functionalities:**
+- Form with the prices of semantic search, application generation and document preparation, and with the daily budgets of an account, of a guest IP address and of all guests together. All values are in złoty and cannot be negative.
+- Saving the form changes the values immediately for all users. A new budget applies to the amounts already spent on the current day; a refund uses the current price.

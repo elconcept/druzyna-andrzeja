@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-worker
+  labels:
+    deploy-phase: app
+  annotations:
+    checkov.io/skip1: CKV_K8S_8=The worker has no HTTP endpoint to probe
+    checkov.io/skip2: CKV_K8S_9=The worker does not receive traffic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prawobiorca
+      component: core-worker
+  template:
+    metadata:
+      labels:
+        app: prawobiorca
+        component: core-worker
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: core-worker
+          image: prawobiorca/core
+          command: ["taskiq", "worker", "core_service.framework.workers.main:broker", "core_service.framework.workers.regulations", "core_service.framework.workers.applications"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "384Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+          envFrom:
+            - configMapRef:
+                name: core-config
+      volumes:
+        - name: secrets-store
+          secret:
+            secretName: prawobiorca-secrets

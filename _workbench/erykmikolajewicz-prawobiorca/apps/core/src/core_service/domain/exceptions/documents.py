@@ -1,0 +1,2 @@
+class RegulationDocumentsNotFound(Exception):
+    pass

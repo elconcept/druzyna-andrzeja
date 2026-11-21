@@ -1,0 +1,161 @@
+import { ref } from 'vue'
+import { ElMessage } from 'element-plus'
+import { showApiError } from '@/utils/error'
+import {
+  addRegulation,
+  confirmRegulationUpload,
+} from '@/api/generated/endpoints/regulations/regulations'
+import { uploadFileToStorage } from '@/utils/storage'
+import type { RegulationScope } from '@/domain/regulations'
+import type {
+  RegulationPreparationStatus,
+  RegulationRepresentation,
+  RegulationType,
+} from '@/api/generated/model'
+
+type RegulationUploadResult = {
+  id: string
+  preparationStatus: RegulationPreparationStatus
+}
+
+async function confirmUpload(regulationId: string): Promise<RegulationUploadResult> {
+  try {
+    await confirmRegulationUpload(regulationId)
+    return { id: regulationId, preparationStatus: 'IN_PROGRESS' }
+  } catch (error) {
+    console.error('Failed to confirm regulation upload:', error)
+    return { id: regulationId, preparationStatus: 'NOT_STARTED' }
+  }
+}
+
+async function uploadRegulation(
+  target: RegulationScope,
+  regulation: File,
+  presentationName: string,
+  regulationType?: RegulationType,
+  organizationId?: string,
+  suborganizationId?: string,
+  generateDescription = false,
+  generateSectionSummaries = false,
+): Promise<RegulationUploadResult> {
+  const isPublic = target === 'PUBLIC'
+  const uploadTarget = await addRegulation({
+    scope: target,
+    name: presentationName,
+    regulationType: regulationType || null,
+    organizationId: isPublic ? organizationId || null : null,
+    suborganizationId: isPublic ? suborganizationId || null : null,
+    generateDescription,
+    generateSectionSummaries: isPublic && generateSectionSummaries,
+  })
+
+  await uploadFileToStorage(uploadTarget, regulation)
+
+  return await confirmUpload(uploadTarget.id)
+}
+
+export function useRegulationUpload() {
+  const selectedFile = ref<File | null>(null)
+  const presentationName = ref('')
+  const selectedRegulationType = ref<RegulationType | ''>('')
+  const target = ref<RegulationScope>('PRIVATE')
+  const selectedOrganizationId = ref('')
+  const selectedSuborganizationId = ref('')
+  const generateDescription = ref(false)
+  const generateSectionSummaries = ref(false)
+  const isSubmitting = ref(false)
+
+  function resetForm(isAdmin: boolean) {
+    selectedFile.value = null
+    presentationName.value = ''
+    selectedRegulationType.value = ''
+    target.value = 'PRIVATE'
+    selectedOrganizationId.value = ''
+    selectedSuborganizationId.value = ''
+    generateDescription.value = isAdmin
+    generateSectionSummaries.value = isAdmin
+  }
+
+  function setFile(file: File | null) {
+    selectedFile.value = file
+    if (file) {
+      presentationName.value = file.name
+    }
+  }
+
+  async function submit(): Promise<{
+    regulation: RegulationRepresentation
+    target: RegulationScope
+  } | null> {
+    if (!selectedFile.value) {
+      ElMessage.warning('Wybierz plik do przesłania.')
+      return null
+    }
+
+    if (!presentationName.value.trim()) {
+      ElMessage.warning('Podaj nazwę pliku.')
+      return null
+    }
+
+    isSubmitting.value = true
+    try {
+      const regulationTypeValue = selectedRegulationType.value || undefined
+      const uploadResult = await uploadRegulation(
+        target.value,
+        selectedFile.value,
+        presentationName.value.trim(),
+        regulationTypeValue,
+        selectedOrganizationId.value,
+        selectedSuborganizationId.value,
+        generateDescription.value,
+        generateSectionSummaries.value,
+      )
+
+      if (uploadResult.preparationStatus === 'IN_PROGRESS') {
+        ElMessage.success('Plik został dodany i jest przetwarzany.')
+      } else {
+        ElMessage.warning('Plik został wgrany, ale nie udało się rozpocząć przetwarzania.')
+      }
+
+      return {
+        regulation: {
+          id: uploadResult.id,
+          createDate: new Date().toISOString(),
+          presentationName: presentationName.value.trim(),
+          description: null,
+          regulationType: regulationTypeValue ?? null,
+          preparationStatus: uploadResult.preparationStatus,
+          descriptionStatus: generateDescription.value ? 'IN_PROGRESS' : 'NOT_REQUESTED',
+          sectionSummariesStatus:
+            target.value === 'PUBLIC' && generateSectionSummaries.value
+              ? 'IN_PROGRESS'
+              : 'NOT_REQUESTED',
+          organizationId: target.value === 'PUBLIC' ? selectedOrganizationId.value || null : null,
+          suborganizationId:
+            target.value === 'PUBLIC' ? selectedSuborganizationId.value || null : null,
+        },
+        target: target.value,
+      }
+    } catch (error) {
+      showApiError(error, { defaultMessage: 'Wystąpił błąd podczas dodawania pliku.' })
+      return null
+    } finally {
+      isSubmitting.value = false
+    }
+  }
+
+  return {
+    selectedFile,
+    presentationName,
+    selectedRegulationType,
+    target,
+    selectedOrganizationId,
+    selectedSuborganizationId,
+    generateDescription,
+    generateSectionSummaries,
+    isSubmitting,
+    resetForm,
+    setFile,
+    submit,
+  }
+}

@@ -1,0 +1,215 @@
+from typing import Annotated
+from uuid import UUID
+
+from fastapi import APIRouter, Depends, Form, HTTPException, Path, status
+
+from core_service.application.dtos.applications import ApplicationRepresentation, NewApplication
+from core_service.application.dtos.cases import CaseData, CaseDocument, NewCaseDocument
+from core_service.application.dtos.names import Name
+from core_service.application.use_cases.applications import (
+    AddApplication,
+    DeleteApplication,
+    GetApplicationDownloadUrl,
+    ListApplications,
+)
+from core_service.application.use_cases.cases import (
+    AddCase,
+    AddCaseDocument,
+    DeleteCase,
+    DeleteCaseDocument,
+    ListCaseDocuments,
+    ListCases,
+)
+from core_service.domain.consts import MAX_CASE_NAME_LENGTH
+from core_service.domain.exceptions.application_templates import (
+    ApplicationTemplateNotFound,
+    InvalidApplicationFieldValues,
+)
+from core_service.domain.exceptions.applications import ApplicationNotFound, ApplicationNotGenerated
+from core_service.domain.exceptions.cases import CaseDocumentNotFound, CaseNotFound
+from core_service.domain.value_objects.users import Caller
+from core_service.framework.dependencies.applications import (
+    get_add_application,
+    get_application_download_url,
+    get_delete_application,
+    get_list_applications,
+)
+from core_service.framework.dependencies.authentication import get_caller
+from core_service.framework.dependencies.cases import (
+    get_add_case_document,
+    get_add_user_case,
+    get_delete_case_document,
+    get_delete_user_case,
+    get_list_case_documents,
+    get_list_user_cases,
+)
+
+cases_router = APIRouter(tags=["cases"], prefix="/api")
+
+
+@cases_router.get(
+    "/cases",
+    response_model=list[CaseData],
+)
+async def get_cases_list(
+    list_cases: Annotated[ListCases, Depends(get_list_user_cases)],
+    caller: Annotated[Caller, Depends(get_caller)],
+) -> list[CaseData]:
+    return await list_cases.execute(caller)
+
+
+@cases_router.post("/cases")
+async def add_case(
+    caller: Annotated[Caller, Depends(get_caller)],
+    add_user_case_: Annotated[AddCase, Depends(get_add_user_case)],
+    case_name: Annotated[Name, Form(..., alias="caseName", min_length=1, max_length=MAX_CASE_NAME_LENGTH)],
+) -> UUID:
+    case_id = await add_user_case_.execute(caller, case_name)
+    return case_id
+
+
+@cases_router.delete(
+    "/cases/{caseId}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "No case with that id!"},
+    },
+)
+async def delete_user_case(
+    caller: Annotated[Caller, Depends(get_caller)],
+    delete_user_case_: Annotated[DeleteCase, Depends(get_delete_user_case)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+):
+    try:
+        await delete_user_case_.execute(caller, case_id)
+    except CaseNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No case with that id!")
+
+
+@cases_router.post(
+    "/cases/{caseId}/documents",
+    status_code=status.HTTP_201_CREATED,
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "No case with that id!"},
+    },
+)
+async def add_case_document(
+    caller: Annotated[Caller, Depends(get_caller)],
+    add_case_document_: Annotated[AddCaseDocument, Depends(get_add_case_document)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+    new_document: NewCaseDocument,
+):
+    try:
+        await add_case_document_.execute(caller, case_id, new_document)
+    except CaseNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No case with that id!")
+
+
+@cases_router.get(
+    "/cases/{caseId}/documents",
+    response_model=list[CaseDocument],
+)
+async def get_case_documents(
+    caller: Annotated[Caller, Depends(get_caller)],
+    list_case_documents: Annotated[ListCaseDocuments, Depends(get_list_case_documents)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+) -> list[CaseDocument]:
+    return await list_case_documents.execute(caller, case_id)
+
+
+@cases_router.delete(
+    "/cases/{caseId}/documents/{documentId}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "No document with that id!"},
+    },
+)
+async def delete_case_document(
+    caller: Annotated[Caller, Depends(get_caller)],
+    delete_case_document_: Annotated[DeleteCaseDocument, Depends(get_delete_case_document)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+    document_id: Annotated[UUID, Path(alias="documentId")],
+):
+    try:
+        await delete_case_document_.execute(caller, case_id, document_id)
+    except CaseDocumentNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No document with that id!")
+
+
+@cases_router.post(
+    "/cases/{caseId}/applications",
+    status_code=status.HTTP_202_ACCEPTED,
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "No case or published application template with that id!"},
+        status.HTTP_422_UNPROCESSABLE_CONTENT: {"description": "Invalid application field values!"},
+        status.HTTP_429_TOO_MANY_REQUESTS: {"description": "Usage limit exceeded!"},
+    },
+)
+async def generate_application(
+    caller: Annotated[Caller, Depends(get_caller)],
+    add_application_: Annotated[AddApplication, Depends(get_add_application)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+    new_application: NewApplication,
+) -> UUID:
+    try:
+        return await add_application_.execute(caller, case_id, new_application)
+    except CaseNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No case with that id!")
+    except ApplicationTemplateNotFound:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No published application template with that id!"
+        )
+    except InvalidApplicationFieldValues as e:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail=e.field_names)
+
+
+@cases_router.get(
+    "/cases/{caseId}/applications",
+    response_model=list[ApplicationRepresentation],
+)
+async def get_case_applications(
+    caller: Annotated[Caller, Depends(get_caller)],
+    list_applications: Annotated[ListApplications, Depends(get_list_applications)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+) -> list[ApplicationRepresentation]:
+    return await list_applications.execute(caller, case_id)
+
+
+@cases_router.get(
+    "/cases/{caseId}/applications/{applicationId}/download-url",
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "Application not found!"},
+        status.HTTP_409_CONFLICT: {"description": "Application not generated!"},
+    },
+)
+async def get_case_application_download_url(
+    caller: Annotated[Caller, Depends(get_caller)],
+    get_download_url: Annotated[GetApplicationDownloadUrl, Depends(get_application_download_url)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+    application_id: Annotated[UUID, Path(alias="applicationId")],
+) -> str:
+    try:
+        return await get_download_url.execute(caller, case_id, application_id)
+    except ApplicationNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Application not found!")
+    except ApplicationNotGenerated:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Application not generated!")
+
+
+@cases_router.delete(
+    "/cases/{caseId}/applications/{applicationId}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    responses={
+        status.HTTP_404_NOT_FOUND: {"description": "Application not found!"},
+    },
+)
+async def delete_application(
+    caller: Annotated[Caller, Depends(get_caller)],
+    delete_application_: Annotated[DeleteApplication, Depends(get_delete_application)],
+    case_id: Annotated[UUID, Path(alias="caseId")],
+    application_id: Annotated[UUID, Path(alias="applicationId")],
+):
+    try:
+        await delete_application_.execute(caller, case_id, application_id)
+    except ApplicationNotFound:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Application not found!")

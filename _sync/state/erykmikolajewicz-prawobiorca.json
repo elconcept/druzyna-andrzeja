@@ -1,0 +1,3174 @@
+{
+  "licenses": {
+    "LICENSE": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1981e5a18d78db57904a9b1789f9314ce335e974320520fd58215ceca331c07c"
+    }
+  },
+  "revision": "134547d0bdcf33af859d38a260579ae2102e7dc3",
+  "url": "https://github.com/erykmikolajewicz/prawobiorca.git",
+  "version": 1,
+  "workbench": {
+    ".checkov.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "46f87bd47c477b128b25f7698769f1df2b3fd03d69494b31bb6c6c2859767967"
+    },
+    ".githooks/pre-commit": {
+      "executable": true,
+      "kind": "file",
+      "sha256": "bbd9e16279d28ed8f74ec75d2820f4561d0197cd78d41e1f45b66a618f22f748"
+    },
+    ".github/actions/setup-backend/action.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f29f75fc8a1bd0711039b8f7fd1ee417e54f3ecfd7e5cf9a958f0c3070811009"
+    },
+    ".github/actions/setup-frontend/action.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0c70775a0296dafbcefe10afbbababedead42e5be788cce25771320cf151d286"
+    },
+    ".github/actions/setup-tools/action.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dc3a291f1beae56d3efadd7287a068dd90bcb7bfed796a93f8cca34389e1d553"
+    },
+    ".github/workflows/audit.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b0d81e9f3ee7a1b02aa909d7376a5b01c071f2be9a599ede8bb5539b917a6c12"
+    },
+    ".github/workflows/cd.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e537550a1c9c5e37c8009d2ea8501c56d4cc01271ac148464dc7b8be44f72761"
+    },
+    ".github/workflows/ci.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "28d2a0ded4406c05f5ff2ee490bb772a7bf83a2872223eaaf534325997c4412f"
+    },
+    ".github/workflows/dast.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "018a0327e8a9d9a5575d8d2bd3d9873fface17feaa6ad80fd3cadab399ea9ede"
+    },
+    ".github/workflows/docs.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a693a8a123dc67468a1833eb4fb817e77cd4ba9e315ea7c69074b92cfa6e303b"
+    },
+    ".github/workflows/e2e.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "445725e9dac4629f264059328c8844535a6d6241699adeac7e6762b33c755366"
+    },
+    ".github/workflows/mirror.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ee256bd2793ff49a6bb269839cd4cba2c1179590fb084948ae2bc81a9834c714"
+    },
+    ".github/workflows/mutation.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0242834717fa308570658fb591fe268641c2bd7741c51a04ab68959b33e515b7"
+    },
+    ".github/zizmor.yml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9b2a102289d68409e9ee071c915a9e253ba6beb1dcc5620f39595e0846d1b9f8"
+    },
+    ".hadolint.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c024614456aa1d592f80e719772b972acbd2e81b17f3f4c5f0dd2c2c69d51637"
+    },
+    ".trivyignore.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "16686022df41905ba03c9bfa8dc749849184c00048e2d4802822e72921cf8ce9"
+    },
+    "README.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e831146ddc6a033bda94d52fee7866b2161f01f23acf6e26223a63e286ebc96b"
+    },
+    "apps/core/.env.example": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f69563d2700c361a37e60b26e27a0c66a6f88a47f5ee276a5ad18aff931d9fc5"
+    },
+    "apps/core/Containerfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f021841bf2852330c1c8ff7a9190d6dda686d4e93963ec2972ae21682f04f326"
+    },
+    "apps/core/alembic.ini": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "67c95868df27737d3a531e00fe189aa12f39a6df59fe5475e61e8320d9883c90"
+    },
+    "apps/core/alembic/README": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "31595cf53626af9ed16e15c44fa43183209cc163fbc3ebcb904b22ac436a8884"
+    },
+    "apps/core/alembic/env.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "82a76f33d6ea0426f2476c8c5dd243e8bec883fd0c3802c33322a12fef03a2b7"
+    },
+    "apps/core/alembic/script.py.mako": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d38920781b4d31ae1c0a71bc09f41c2ade8feab9e5a087e3f30cb4bbf0c1c9d3"
+    },
+    "apps/core/alembic/versions/4e8a1c7d2f90_add_template_name_search_extensions.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "95abe3d650afc7de63c36c1bdd2d963fef16be612b01aa5a580b13e497b6d9a2"
+    },
+    "apps/core/alembic/versions/5f2c8e1a9b47_add_regulation_description_generation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fc26c343c1b9fcf7eb8575649435d439edd3e7690dddc06aebbf54eb15885ddc"
+    },
+    "apps/core/alembic/versions/83b092221933_initial_migration.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6c0d79872314654fb65217a0a0128b3a2328ee59e6adaf79a0c2c73b2f7a998e"
+    },
+    "apps/core/alembic/versions/9c4d7e2b1f36_add_application_template_description.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cb254df75e3f89262c1d56e5b7ff56ad3a71970d47310547997204d5760d72c5"
+    },
+    "apps/core/alembic/versions/a4bb4eea6c1e_add_regulations_sections_order_unique_constraint.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "191d440669cb5ce6730d79470a001ed3138a3abc1fb211cf03a2a2969a9977c0"
+    },
+    "apps/core/alembic/versions/b7d3e9f1a2c5_add_section_summaries.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1716913057a1df8025e37af66b6a7d6083d45a8da41b7298ecfb96359a4d5dfe"
+    },
+    "apps/core/alembic/versions/c8f1a6d4e2b3_add_usage_budgets_and_attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8e7d6c4e5185d1edfe9237332e2adf2e8d0a1596a057493bf2853aec13388f59"
+    },
+    "apps/core/alembic/versions/d9e2f7a1b6c4_update_pgvector_to_0_8_7.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "78077bf980ce0e77fe3ff8bc1f0a5e7b301457bd8f3c775973f7725120c26411"
+    },
+    "apps/core/alembic/versions/e4a7c2d9f1b8_add_usage_tariff.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4083fe56793eb0fc0137bbba94f6a2ff8bf428211fadb13716a3f7381213adc8"
+    },
+    "apps/core/coverage.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fb698fcfe44893e64a237c73844cad5c71f9d6ee3819b38434c6dbc02455930a"
+    },
+    "apps/core/openapi.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4bb3d61518a01b5b44bed4887c1fe447f01ac0778b4e2d29347ab619bd878ae0"
+    },
+    "apps/core/pyproject.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a50ddaced1ddb5fc3d15ab0db8bdb966dd23077ec4c5ee550fe32ad9793bf8d1"
+    },
+    "apps/core/pytest.ini": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a93037ecb652c03e08318dd2b48cdf70800154627badeeb5bd842cdf3ec58cda"
+    },
+    "apps/core/scripts/create_bucket.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "55784b87298a74806410d56ad85a989f22e972f9b7e83d49a9e367ef2d6eaf41"
+    },
+    "apps/core/scripts/dev.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0b37213ddedcbd1eabbe0d9fd9c4fc38e3c73c17485d125ba86a4964142d236c"
+    },
+    "apps/core/scripts/export_openapi.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dbf0070c5d2848405570bdea06fee6117a37dd646c51f6fe9c6b3f0991bfce93"
+    },
+    "apps/core/scripts/files/PWr - reguamin akademik.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dc88fd9f0edf7baaf25e007d12f7d09aea5072c6fd6d140e533fc6e344f85461"
+    },
+    "apps/core/scripts/files/PWr - regulamin studiow.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "29d7162e1b2e75ac9ae51aee3e3243266d26e98b897b7c68618db052e5fe8eee"
+    },
+    "apps/core/scripts/files/Prawo o nauce i szkolnictwie wyższym.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4f5acb720ef19cea6b2b5c8ad35005ee2cda4f56687f065c5db5eef1e42e8b88"
+    },
+    "apps/core/scripts/init_e2e_regulation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ed4cc06ecde2e0ff764c82d964deaaf1ec627f1ccca841df5a00c469359f24a6"
+    },
+    "apps/core/scripts/init_regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "319d12c830412d2aebf41df8b218b79574341ed1dfbb98f114baa33269f60916"
+    },
+    "apps/core/scripts/seed_relational_db.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3838865760319f6c0cb80a041f6bd43681adc71dc255297945b65aa1dd088ca6"
+    },
+    "apps/core/src/core_service/application/dtos/account.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cd003e932db7c122fd3f87bd786a5ba357db604e658b89953944262a4ae36122"
+    },
+    "apps/core/src/core_service/application/dtos/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "630e29ddef4f347f4c5fd0a042eadb26d0f1c316e12346d9fb7a74aae79b480e"
+    },
+    "apps/core/src/core_service/application/dtos/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "65a2c4fb17df56f411ce28f0ab929df61b4a572490b7412758e90133372acd20"
+    },
+    "apps/core/src/core_service/application/dtos/auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "383b3b8dd4417f006f723a275fedf53beb639036ffa7c8012fca7bc046586159"
+    },
+    "apps/core/src/core_service/application/dtos/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d4a7ccf8969f7cc482ee14864a4443c618e8b6105728ec5f46811104bc30a6e3"
+    },
+    "apps/core/src/core_service/application/dtos/names.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c38b128475e1e7c2134c3a9c5b923fa3752dd0c942866accd8e08fcd0fffd4d4"
+    },
+    "apps/core/src/core_service/application/dtos/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d79ef8d5552ea101df67e83d93c8866ac1f9ffcc3129f1d569b198cdf0404ecf"
+    },
+    "apps/core/src/core_service/application/dtos/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a29104a9e1e4d0985ae1308f49a3920f86f1d735ce20b3bdd7488c86c37fed25"
+    },
+    "apps/core/src/core_service/application/dtos/search.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9293c31ae0733156d88d7975d19ec3ca297e816e97648ccf7929b0de4787f891"
+    },
+    "apps/core/src/core_service/application/dtos/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8a55a6ee41ffd8eb1cb6df58b964ac54bdcc436c4168891c4ec9f0313d8bd13e"
+    },
+    "apps/core/src/core_service/application/dtos/user.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0d12fd346e808811ed4c4b6c2203c78045399eadc41e8ff4bffe5035eba45dbc"
+    },
+    "apps/core/src/core_service/application/ports/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3a9e5ae21a77b33ffe421a483306ecc9e85167589670266e0b8c16874d454dd8"
+    },
+    "apps/core/src/core_service/application/ports/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8d622bf66f7c7deb3efabb4b52fed4add8b9f64ef333527c75060a427334bbe0"
+    },
+    "apps/core/src/core_service/application/ports/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d749100e54b6aed4a1caf036de5665d9237f6f18357029d3e4ca9c30bf7f7cb8"
+    },
+    "apps/core/src/core_service/application/ports/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d10f1ceceb8b425b49ff06a2bc22d8fa1e3755c94e1d2f273a5345305d74f1b1"
+    },
+    "apps/core/src/core_service/application/ports/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fa68a4d91d3aeaa578e3f3e0a43dcbc2410681dab49be02b59a502e3aa5d1cec"
+    },
+    "apps/core/src/core_service/application/ports/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9aba9b996e91e9f2b0527e5e150ab718c128784f10912f90c9f920aac40e85cd"
+    },
+    "apps/core/src/core_service/application/ports/relational.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "350aac92a3027dcc50c7ba24d5c79514c6eb5a50ec1743564b09c1bf42210020"
+    },
+    "apps/core/src/core_service/application/ports/sections.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3db1a5e6137802d4d261ee72e47ea919f740cbc6a1bffcf01307c742d53ce00a"
+    },
+    "apps/core/src/core_service/application/ports/tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f93c659ae354cb7ccc4ac6c7086a3d9f6c062b71581984b0b7b9097d58635a16"
+    },
+    "apps/core/src/core_service/application/ports/texts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a4ce46f7b7f0bacd074421b9ee41e1ccf0d8754185fedb7f82c6d34ef58666b1"
+    },
+    "apps/core/src/core_service/application/ports/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e28e6885797fc4c2b74946ce3f2f747193ddd0a6dc0a2ebfdeeae0e8e293f88a"
+    },
+    "apps/core/src/core_service/application/ports/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a9a70ce16453ebed14408c77feef091012fe89583b231c7867efc276be8eb1ce"
+    },
+    "apps/core/src/core_service/application/services/accounts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5fb7bb1033ec3e580c4f951aad2aae03d1ee35ed6f2f170cd42c696f2228b0c1"
+    },
+    "apps/core/src/core_service/application/services/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b42b9a4b2957dfcfa3b8aa251d283bb2912d96ea342aeee5510b9a4dfd03c3e0"
+    },
+    "apps/core/src/core_service/application/services/embedding.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "70e89c00ebd5942829078678636137a23a2fd89920e6895a70b1c78921bf36e2"
+    },
+    "apps/core/src/core_service/application/services/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6f15e7f0b0f1a3a703dd322b9862a1cd638b70004093aebbb90fb11cdc2e9eca"
+    },
+    "apps/core/src/core_service/application/services/security.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "20d690076f53ca20d0b77a16780cf4ffc7d527058126e544d2d3ad054933479a"
+    },
+    "apps/core/src/core_service/application/services/tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d35cf21e0aa8f659fa77a0fa886caada5d00f70c01bd5a9467bcf77562247311"
+    },
+    "apps/core/src/core_service/application/services/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "08713b60b1e0b8eb3f585871c5202671bbabdc926d49812c192ad19cfff49d19"
+    },
+    "apps/core/src/core_service/application/use_cases/account.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "09bb62a777b57e04ae8a964359195100249ba6af119df4bf48fe3ca7f4fd5a10"
+    },
+    "apps/core/src/core_service/application/use_cases/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2bee6efba5a37c1574260150ce6fec2360856a29c497059bd7d237bf028da7d2"
+    },
+    "apps/core/src/core_service/application/use_cases/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4aab3b4dd9d09c352395672fb5b8d46010de50f147e5508059d2aa096cc836c8"
+    },
+    "apps/core/src/core_service/application/use_cases/auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d19c108e313beef19436e7f05290ac72198b9854edb2a338110df74f45f5a19a"
+    },
+    "apps/core/src/core_service/application/use_cases/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1e03f423c3e7c1327e34744d7e8f20dac26b0b0c4d862a578c6ba16782c84e40"
+    },
+    "apps/core/src/core_service/application/use_cases/limits.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9d7db63a7ba519cf584cd6494997edbcedbeab943d245e97fefbcbcfc7666893"
+    },
+    "apps/core/src/core_service/application/use_cases/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "baa51a749a93f4f6b359721a816816cda4bb89a5dffdf1c4b3501d3f58cdf907"
+    },
+    "apps/core/src/core_service/application/use_cases/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5c4df31e741737b45c9ff1956adee0250764c8af502101e7edf71252d9f2ab71"
+    },
+    "apps/core/src/core_service/application/use_cases/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a72e8e32af8fa95027f4ac305532bd1b46d0de61ca90b48a9cbdea389e90a438"
+    },
+    "apps/core/src/core_service/domain/consts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c830741ffa4c76a2f99dc4ab0083eeac6e0a8ca549d6da9988c6f9841482a38b"
+    },
+    "apps/core/src/core_service/domain/entities/application.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c1c189c7de918c4d08edc296467a477e955ee29a9f3a9c74f5f036157b89c73c"
+    },
+    "apps/core/src/core_service/domain/entities/application_template.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1bb9854b9c9337affa648f83999d83efe8a9ab7800349020b00b2e14b57be587"
+    },
+    "apps/core/src/core_service/domain/entities/describable.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "855ee9bfe4cc1495b71208349d5590600ee3599c89a967c05eba56be1cfdf359"
+    },
+    "apps/core/src/core_service/domain/entities/regulation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "03db6848032d5f9ac7707d4326c950b5b5a101748dab6388fa7479339cf8d510"
+    },
+    "apps/core/src/core_service/domain/entities/user.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5a09c6acc08aee26c16f6cf20de808387d09bda6d154d942ce895a1e1565bf38"
+    },
+    "apps/core/src/core_service/domain/exceptions/access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "98336035fbbaea198017d0be7d6234a0a19016d161cebfe0e85043c9c6ecb30a"
+    },
+    "apps/core/src/core_service/domain/exceptions/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "02f3a92865d6a50f580313dc7ae54f030ff98467becceb64e89bdae1129d088d"
+    },
+    "apps/core/src/core_service/domain/exceptions/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a402d425302c4be7cd9b9a7b0d5f13395c4acfd8f8a6b3f121a8c065307410a3"
+    },
+    "apps/core/src/core_service/domain/exceptions/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "99af671da51a63b6575345532f957961c7560e968eb7d9ff49e7939a9b723079"
+    },
+    "apps/core/src/core_service/domain/exceptions/descriptions.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4652b7278059cbab457b9b109821dd3252e242b75a6ebc478a2613048deea621"
+    },
+    "apps/core/src/core_service/domain/exceptions/documents.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e8c4fb07c2b150419b7d5f362179b8e837f1f7d82c5d240b9f78f14b089315a9"
+    },
+    "apps/core/src/core_service/domain/exceptions/limits.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4184e790c559e4ddd809954cd03fbbe65c7530fda2ed1319459335135e32fb77"
+    },
+    "apps/core/src/core_service/domain/exceptions/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2c0e8cf4ca03e5dfd8d35b4088fe80582d7f3ffc7e9059ff7ae2270314228aaf"
+    },
+    "apps/core/src/core_service/domain/exceptions/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ed78a16d2872e79440f702f69b34892129de2c910a0424d49c14e909a2f29c95"
+    },
+    "apps/core/src/core_service/domain/exceptions/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8478b05bb085ecc0f5d19058d91ddc8e60a3031cbda4fd228f1141b5013cf46d"
+    },
+    "apps/core/src/core_service/domain/services/application_template_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cb2f8876b70246af1952c433e947e6701a39d6a5e7099b570eaadcb37b73c297"
+    },
+    "apps/core/src/core_service/domain/services/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b6b074c3db45c03f30119fd61547a13af2cb86b82c61154f4c57cd4914fa12e2"
+    },
+    "apps/core/src/core_service/domain/services/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e0f3ce5e84d19df9bc97b423a182d0249cd9655af98e19f39cca97628959e21b"
+    },
+    "apps/core/src/core_service/domain/services/breadcrumbs.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "75928708201ba70fda3054d5a5c24d5c38d2d800a414c508554366d6f3b76268"
+    },
+    "apps/core/src/core_service/domain/services/case_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "38051628c64681c0d87c5f9d507a055d12d9eb85e737bae9f02ec48b2c13fb85"
+    },
+    "apps/core/src/core_service/domain/services/legal_structure_parser.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fe6fd16c6c3e7e23f98d89111dafb80c9989c3c4b1f73502adcba2e3421321a1"
+    },
+    "apps/core/src/core_service/domain/services/organization_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e03f1f2d758bc39969f0d8125e06aae9470bddb41e15c6a0f35f989bdee880b4"
+    },
+    "apps/core/src/core_service/domain/services/regulation_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "02bcae960c0f24461249a8fa6df134bb0ad66db4d2ad77726e3df4bb9e7b90ee"
+    },
+    "apps/core/src/core_service/domain/services/regulation_chunking.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c3f1127539fbd501d87f5ec76c2d216d6ff3b13814816448cb1696f32682445d"
+    },
+    "apps/core/src/core_service/domain/services/regulation_description.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f950f6c8493281fbcd64df5ae006097e355dd7d7efcf3c384660128ca71ae319"
+    },
+    "apps/core/src/core_service/domain/services/section_summaries.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bb0a9f76a56ff776513af1bef52180b305b5cc6791aafd982ba6c259251aea43"
+    },
+    "apps/core/src/core_service/domain/services/security.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a001249b6985b6c536e72bf2b034f14c36f0f202f55629daa8af03bbbbb07b4e"
+    },
+    "apps/core/src/core_service/domain/services/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f1e3b186535ad8068a1420ee0ff2164d862ac1c2464861065791ec8f5a4b322a"
+    },
+    "apps/core/src/core_service/domain/services/usage_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "98f0142025529950e4ca52b2ec4d058167b324a89eb55108d0bfacb9149cf05d"
+    },
+    "apps/core/src/core_service/domain/value_objects/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5f40b9fbf67bed9d23d64f7b7baf1a43fe48ddae02c12c322e894e8e165315d8"
+    },
+    "apps/core/src/core_service/domain/value_objects/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6fb794762d3c26279ee4c2927b57e6a77ac4718e48a081b2c6b56091805d5b11"
+    },
+    "apps/core/src/core_service/domain/value_objects/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "233d5f16306703aed0592e5e090ff61ebba9a8b8b6db47149f217e3841707ff6"
+    },
+    "apps/core/src/core_service/domain/value_objects/auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "01f73b1c5241ce3e31f0f42edccc84238d49678294738b27aa371f1eb9546c5a"
+    },
+    "apps/core/src/core_service/domain/value_objects/descriptions.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c914779aba5280f112d5b67aeace6ac410b7b1f570588ca6e2a1191fd04bf6e3"
+    },
+    "apps/core/src/core_service/domain/value_objects/legal_units.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ce0bdcfa61a9444462a53d1ab2f66cc4fd598c8d681e02ed5d5318e678fcc9ac"
+    },
+    "apps/core/src/core_service/domain/value_objects/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "00e59c84329cef52c7b31747457afeaf76a65b35c2a316ac8ab35b87d5aa6577"
+    },
+    "apps/core/src/core_service/domain/value_objects/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bb0817f644e91fef06b15ecdbba6d50aa8cf24f069c49da71e3df4b10989b2fe"
+    },
+    "apps/core/src/core_service/domain/value_objects/sections.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5433bf0b70188ec2e1723d55d6afe47a0a71f5217e8294267fded918ad315075"
+    },
+    "apps/core/src/core_service/domain/value_objects/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e0bace3a247cc848c0cdbc325270900969df58f264216034c87bb39e5e6cc3f7"
+    },
+    "apps/core/src/core_service/domain/value_objects/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "25653920be0650018656c32b59ff877b8af12c030e29c8298e32a030ae68cc36"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/accounts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5d20779ae56ba38d5bbafd51a1cc5a57451770c573c28c774c1113fc2175d09"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "023402448db87301a417d9a6978258ef00c0d1f2f65d815df29e41fea47a775a"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a0f6b06da238a5f51aaab33fceeadd1d7d5299c149c67f6a0d643c43bb0c42a0"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6b881f803a3b010805967becb32bad9971c4f387d74ef9b95d69873c217d4ddc"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/health.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "20b8c2af01a5238d90d1e2004a25cbe8ca1430c65710c1c0972e2c4f0683ec0c"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cfccdbcc5a00361d1a1f0971e02231c28779844532fe3d6553360983c7c88201"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "58a98e84c11f06f11612cf1167e7163758c7c957da13c224cbb2257862a18317"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5c48a1989283dd32fc164d1d15d9c13e3fcacd121980b537d103f896ed23fd8d"
+    },
+    "apps/core/src/core_service/framework/api/exception_handlers.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7a5c541cdbe503d69a57b3eff506e7fa303c3d46ce52ca64d9ee7d3cf17a3bdd"
+    },
+    "apps/core/src/core_service/framework/api/router.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ae5b2c72b91fff28b6d8612e835cee59600698b6b9296cf65ba6627219cbc321"
+    },
+    "apps/core/src/core_service/framework/consts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d8218110053ab3aaffcc5ff827dd10f7e1debb5d30741e37a19cafc1d736e0fc"
+    },
+    "apps/core/src/core_service/framework/dependencies/accounts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "636f4dd2b906b58e9e378723001f2a29a2903ab9bf452d2659fe2717a68f87f4"
+    },
+    "apps/core/src/core_service/framework/dependencies/ai_services.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6ce21f783b65b86d8667c4f1f9c2826e54527e290ad53d032405a457ec14027f"
+    },
+    "apps/core/src/core_service/framework/dependencies/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "42f181ac6487d24718983adcd238c2a0aa23c7e8607b199473438e3bbcc67119"
+    },
+    "apps/core/src/core_service/framework/dependencies/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e53dc4a2668c5ab1aad215b03bf16005a0b32c64d98b3cfca08ec188da4f5b01"
+    },
+    "apps/core/src/core_service/framework/dependencies/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "462a59d2bdcc95c80da01dea8c4c82800997bfadacfd4ad2e0384a7b1f25cc40"
+    },
+    "apps/core/src/core_service/framework/dependencies/authentication.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5e7c0525002feb491ffa56d7b2e2491e6e087a06a8edd99c44e786d010119fb0"
+    },
+    "apps/core/src/core_service/framework/dependencies/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9acec71ea312cee585f77171db4518742c29f45753777f1a5e150b1ae9e95519"
+    },
+    "apps/core/src/core_service/framework/dependencies/client_address.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "887a84456fc0615f5c10dac178e8e55f45a005bdbe73119b7b83eb845aee4e00"
+    },
+    "apps/core/src/core_service/framework/dependencies/file_storage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0ccabd1fb57f33d2c4156c239b1bef00a9fc7e5ea48f7661e734c71a7527ec63"
+    },
+    "apps/core/src/core_service/framework/dependencies/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "eea7e7af4864e5e3be65fb699f7d1b3ca37a618018aa33a2702696124e1b02d9"
+    },
+    "apps/core/src/core_service/framework/dependencies/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "865a3ff9e2c68be0eb4f158891634a5c26081e63748ac9b36675e2b27fef20af"
+    },
+    "apps/core/src/core_service/framework/dependencies/relational.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "54151b367a16e612d0103acc8f2fa83262196aa4a424754fa9e811084e35efe2"
+    },
+    "apps/core/src/core_service/framework/dependencies/tokenizer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "21b68259a3082d6b9df7ffea770bc2e9f1f078e149ea5fe59381c9c37504c8a0"
+    },
+    "apps/core/src/core_service/framework/dependencies/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ef2d3b2c4e8be3c427366690cf6169ae5bccab0234eb4dfb64cd37573714a61a"
+    },
+    "apps/core/src/core_service/framework/dependencies/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ceb32eaf8437462b2d66981b7f2b6bd0673e29e13a9bab61beb30deaa97d3fe9"
+    },
+    "apps/core/src/core_service/framework/dependencies/workers.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7c77309cdffd57ff50fe95c89130653bce3d0e954daa4ebc5c0d727d37d5a1d5"
+    },
+    "apps/core/src/core_service/framework/workers/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d6cba899bbc65c29f315724f7d23550e553860694feddcc60df0e0bf874db7b9"
+    },
+    "apps/core/src/core_service/framework/workers/main.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "38d5cb15867f454a166df4d540a74a38971df4603c5f8df9807873eac903b2e0"
+    },
+    "apps/core/src/core_service/framework/workers/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bcd28e315c55ed21a4cba17f10e58cc800050b88a5995f40ba43b9a8e919742f"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/application_template_description_writer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b1b455f9bcbb1edcd20857e3587f1d33b001b3eed3bafc9386831f528e621d1b"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/application_template_instructions.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "001a0dc9ccd80fa27f5c6c399dff5fdd5f4c7de79ce988b27553efc8fbaa565f"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/application_writer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "db8a1011dc9a50f8eae36379f7f04bcb367a6d90d1ddecc9648f6920383eed50"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/httpx_client/connection.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4610ae5877a6955ce612424679ed5f96690b87f3c74fcbfbb9eb155dc1494b12"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/initialization.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a5a6c676579b4a3df856d6720647a09748155db2ff8015e3a245ec32235e514b"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/llm_chat.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9168f89b16997f9d383b8f9dc7871e1e8fb7cc9fc50cc1de6dc3d4b8de674b5c"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/llm_cost_limiter.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "699af61ea1b14485a81c5b8246d51f81fe830d779cb6f9e7b5443630168d7f70"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/openai_client/connection.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f858aff52779b0721255c7b18737e2f1b9078cc84c410c3c9dc37aeb314ef1f6"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/openai_client/google_auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ec429779c19e9d865899e40c1e1731e0e316ee055182623c5f2d1247ef760d3c"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompt_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "93819b79ef1419dd853389a5c033f863aeef1df2b103174d386dabb372505a32"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/application.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "27383dae930bbd20c7b7640e364ce6ca14dbd73e565ea876c7e16f1c6b7336a1"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/application_name.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7fd970c297301bca357211dbe1fc681610c8f6eaffb31f2da3a5c22b7c944990"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/application_template_description.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6313d78dc60104c60add69b62efb105b1f967284c278b55b32c0efb8274bcf3e"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/application_template_instructions.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e676e52cf90f5204bb5e1e74cf25df9ad2944508612030fc8c94b60ede2912fa"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/regulation_description.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f6ce9d66dd1e442a10c477a63dc0a19d6417f0f1bfdbb8dff9023621d6c18f2a"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/prompts/section_summaries.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5ed9f834b5065595382970f04579a9207ff271561baa1b0a7fd591209ff5fdbd"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/regulation_description_writer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e886b36fba75d67f608b97b7053285b582b8b8a51deb486646b67786b5e28558"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/regulation_splitter.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5bd45657669dcb6bc805f3d5170be903f43aa4beb572e0a550848ac04cc5fed"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/section_summaries_writer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c2c418789b5ad27937e163a643d0b409fe516e2abe5b0e9fbe138eae656523eb"
+    },
+    "apps/core/src/core_service/infrastructure/ai_services/text_embedder.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "47692812fd74d7bcfc5245326f3761398c1f0167a9dbf7bf01da0affa6332317"
+    },
+    "apps/core/src/core_service/infrastructure/consts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "45d760227da64865d616e258768eb4ddeda9917b924355edd2bd975c7058d63e"
+    },
+    "apps/core/src/core_service/infrastructure/docx/docx_renderer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a0c952be6ac787cddfca547e2544a5a02909110cdf5504f85e8a3ec2e667df2d"
+    },
+    "apps/core/src/core_service/infrastructure/docx/template_inspector.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c0bd6f50057ea803f7eca5166885a2503b6cdc4dcfa217768a848bbc5c1d8570"
+    },
+    "apps/core/src/core_service/infrastructure/object_storage/connection.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c6307f45914901cc66a0a4386271cbc6b27bd6395ca6ed36810f107253dd6c50"
+    },
+    "apps/core/src/core_service/infrastructure/object_storage/repository.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "61085035e598a47eaf137016ce725396891254b3a2754e6485d1173f2c8f75b4"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/connection.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ef2a485edefc5d62027f068e06984c3ae05398c48b01397063b062faf0555781"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/integrity.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7874cbcc543e670dd1fca562f698156ffcfc7de6bb0a673290e4af71a79fb5de"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f5fde19d295dc9d336f3883abae7f5651c2bdb4ebe4711fd52b85ec002728f0b"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "205f92792edea8c88871239d6efdb15fdd92a326fd8ec8e7f34d765fbf840547"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9172a95841552cf87dc8b0bdc8f3ae93dfa9284c24a8ff2b4826646b7e8c6e4a"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6ad7d94b96ba53cd078da2974c88884c26a4b48cf97617d8538724548bcf31ca"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/llm_usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "12bb5e8b6d996a7422de89b4af6fb1eba6f34be4bf4e09f2511cf62386cf2350"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f4cf87a00f8328ff69c90137e46b5e7cb439e998292ef0a25ca9207257ae46bc"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7367b25053bb03decd716b125f484a0384f7b5cedf15c94cdac5168986db664f"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/sections.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "57a9bd72dfa0ffe751dd09dc2656882d04f4ebdf681b44e8ec0d7d48109feb8c"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/usage_budgets.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5825d9143b5629d13b8dd7469db22bdcc73d054e2a7aef84a7ac83f1a5212c8d"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/usage_tariff.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "51633b75ce623c6734cb2a375d6ed400e29724ce34a2da1e1e3b521a30b8c659"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a26499df51e3ac18dee27c7d3430ecc4bef192bc5747f0f4c3e12021a721b370"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/__init__.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b79f88e8a31f4b58e4a12d1d243b942b4434a786b9531d2e49a6d799605d05bd"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0f19508db3f0ada9e2387973839c86e0d74470c086416a1fb63c07a1bf3bc522"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5425dc23565138e62d7a7cbc4c91dac2f5245289d1ff78e242e10bbf6f06411c"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/attempts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "47eabc298a9c1c048b56ab70d25fd0d8e6e0eab2f67b07b3b1beb2d9439243a6"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "944841e1f61e8b956141fce203e4c186d9018fc8247609360c254f36a42af3e6"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/llm_usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "07f8d2e91a459a764d26d2f5dd97ea169cb057e8ff49f550cc0229257682c5ad"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5b0ac00dede338322d878881cef7023fe9d1a830beabb91a3a36483fc8906224"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "62773a88288047c066e4d68affa7755f46020d30a9f8aed14e6a51f5581f9391"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/sections.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d874d23834649cce035f322e2322986e21241f7bb8ecb79b1e920124a4dabeb6"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f97d51b5858fd662d41c41834e21318444765a149775c5ad6e40688b34244dbf"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/usage_budgets.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e127719d0fe8d9559045bff49ffc13dc40c426109e19863bad2cbb7516ec585b"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/usage_tariff.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dda302c3234ad272ba8d3f1242e370252f1db490f644be3ebbcaca583f5299ae"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5b66fbcd8e01f2c568ea685d53de71072afc9d056b7c8fa76939ab8251137f9"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/session.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "55d549f195536d065000f72c6d789a4f799ec585ecb615f3fb76780c94760215"
+    },
+    "apps/core/src/core_service/infrastructure/service_errors.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5d0e423f49aa17b69ebfc2b942fb0848df91a3ef24d39ca3c51c4e52f50adc05"
+    },
+    "apps/core/src/core_service/infrastructure/tasks/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c5099ff33200bdd599d69450ce69a2d01fb6f5cddc5a0d40245cfe43fccbf8d6"
+    },
+    "apps/core/src/core_service/infrastructure/tasks/applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9beb258d0d6a6b39134790ded5c8cedba3bf1228439a8a1b41e9c412173bb76b"
+    },
+    "apps/core/src/core_service/infrastructure/tasks/broker.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "094337eae9a3a7cd3c65f7fa1624685e3c3f19387c761a1539a606f927508778"
+    },
+    "apps/core/src/core_service/infrastructure/tasks/connection.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a326ffe0565fb2c4290dacdca02522f3c8b8f571b3db40e38a74c9dad370cafe"
+    },
+    "apps/core/src/core_service/infrastructure/tasks/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "308f94f176932385da448bf16a26c8815721dbea53f312ae9b18c5950bdecb8e"
+    },
+    "apps/core/src/core_service/infrastructure/tokenizers/mmlw.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "13e0427bc764fed741eed346763029881c5f45b8abe0678e7c6580bbcf585a35"
+    },
+    "apps/core/src/core_service/infrastructure/tokenizers/tokenizer.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "849de96f34310ed4179ba0505b3c11247e4222649e5bf35b78e43151b85914a1"
+    },
+    "apps/core/src/core_service/main.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5704c3c5475a75b5e0a772b02a72c6443f8c0a3d22be92e892f93054bb4ca60"
+    },
+    "apps/core/src/core_service/shared/exceptions.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3cfc188fa2dcafff20b70d7a71fb44ff0db0db7d7bfa1f0ac6f2da473a75514a"
+    },
+    "apps/core/src/core_service/shared/logging_config.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "26ba5f2027625b198a81386aabf23505ea0ec818a5988ed6071bf4a026672826"
+    },
+    "apps/core/src/core_service/shared/settings/ai_services.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f0395f1bfabee0fc1874d17a5df3f4dd9066348cf4b4c2d5408a1ba3914b5baa"
+    },
+    "apps/core/src/core_service/shared/settings/application.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6d419228031d165fb59c427a360fb5f45d0884043772157442cefd289f74c490"
+    },
+    "apps/core/src/core_service/shared/settings/httpx_client.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dd2897887a1435105db36b95955fc4a0a5bc7605a20413d9ef01b31eb6ad458d"
+    },
+    "apps/core/src/core_service/shared/settings/object_storage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0f9b46fb274c542b51b652a48d850a3c4fb929ef689c577e0c3486e14d556ffc"
+    },
+    "apps/core/src/core_service/shared/settings/relational_database.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e70c9e1eb5c38d8bfdd7beb7d2b75afd7b20d70043b38ea8065c2d4a3b7710f5"
+    },
+    "apps/core/tests/conftest.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0be2a36f5b5acb7123cb8addc2d485cd73139facc6f27742bbda9990240c52a1"
+    },
+    "apps/core/tests/consts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f51e2950be15b7ceb78e3b74c9f16a66c8de3d03cb7bdd861143c9ce96f7c5d1"
+    },
+    "apps/core/tests/data/pwr-regulamin_2025_slice_5-6.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4ac04697220919b690fa2e7a009e8f61a2066feb30eb0d28243d11e86300f3a5"
+    },
+    "apps/core/tests/data/pwr-regulamin_2025_slice_7-9.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0caceb0107b3286ca3779ced42bc2fc35ac87d374b3909fb56534598fea3430f"
+    },
+    "apps/core/tests/data/rozporzadzenie-studia_slice_11-12.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6bcfb2d762837418929d36b5a1d2906337f60a533b4c1928f763d199324e7a1e"
+    },
+    "apps/core/tests/data/ustawa-nauka_slice_12-13.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c9b23081cdf873313b7bfcc7e5d975195799c1b0def392c93a213753604de0e6"
+    },
+    "apps/core/tests/data/ustawa-nauka_slice_209-210.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "39a0f851b3ac6a1d35a91b6c49886353067ab6f329d33f4be07f6641bffe7e5a"
+    },
+    "apps/core/tests/data/ustawa-nauka_slice_30-31.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "05f3dc994716d0351fe18fd3af6d6386f8a0bb2b2d643305485da4296f9985a9"
+    },
+    "apps/core/tests/fixtures/clients.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "95ac28286cfbde18f73f9bd66c44d9519f5f471b548840f7044ded8c4e741810"
+    },
+    "apps/core/tests/fixtures/dependencies.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0df83f6ab27f17928c00726f3734689db867a310d809d443cb97f46660616ada"
+    },
+    "apps/core/tests/fixtures/regulation_elements.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "26c9045f3cbf56cabec8ad0bfb710c7d7a500e4ad6e058b96e888f5dff2db347"
+    },
+    "apps/core/tests/integration/conftest.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "60350ca88dd4fdebef3fc72fca1e0ba25e575d00f7209a57328ddd71cfd2a9ca"
+    },
+    "apps/core/tests/integration/fixtures/ai_services.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "89d419549900e7ab42f0c0ae3a6c8776ecb6507b1509b7d3beca33f47da0d247"
+    },
+    "apps/core/tests/integration/fixtures/application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f92d55c58f17978cf01928ae262653255d23899b2ad7f2e467f997a89b0d4f02"
+    },
+    "apps/core/tests/integration/fixtures/cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "19f5b6778d3a5ea96a1cc7dfcac90fe1be892091dbc00d2155da8aad3e36c6e4"
+    },
+    "apps/core/tests/integration/fixtures/organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "83cd74dc96c7f045fd87e3c78d3b7429d445eae2032e2801ee12e8de224dd281"
+    },
+    "apps/core/tests/integration/fixtures/regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3987409c1bab24b617594523551fec962568c5d6697dd506e0859acfbde21fa9"
+    },
+    "apps/core/tests/integration/fixtures/tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d699785306b07fda896606df0b24087c826e8a971c7a60e7d23729245073acc4"
+    },
+    "apps/core/tests/integration/fixtures/usage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "20d058c9dfba353bb8d3bd96ad70470d006e62985da7c2be59d24ec9f6a10755"
+    },
+    "apps/core/tests/integration/fixtures/users.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "281ca3605c5c2c775f82a1cd645668551e5c7f5cfd8b9cb80bb1f5c067b5a84e"
+    },
+    "apps/core/tests/integration/test_account.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c089c1675ffd2d94eb7b7dda9ad1dfadf24aea5a9eb0ac29205257d25354591e"
+    },
+    "apps/core/tests/integration/test_application_tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2572f93a03d5a3cbcae55bb3b04ab0b0177f1f948a0bd7b0206d312ead97d999"
+    },
+    "apps/core/tests/integration/test_application_templates.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "403604cbaedd7e5c684a514545676ccd1e4515dad1e6ae56535f64f14eaa3f4e"
+    },
+    "apps/core/tests/integration/test_applications.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f86834c4da6f86dcd3e2e2099b8747d7758bc43c1a2126b5e21b9d55aaa902ec"
+    },
+    "apps/core/tests/integration/test_attempt_limits.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d0e50712bec4733423d9642e2d46b2d9697d61097ffa9aed8cbbb6c92945e12e"
+    },
+    "apps/core/tests/integration/test_auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "59961dc9855a4b739ff4b9e42854ea8fcc1a1ba8dfd5e530ef592822bf8cc181"
+    },
+    "apps/core/tests/integration/test_case_documents.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7359a321f09ee07f3e444b03b4ed6799f28f5b656ac07d7dc3c1783dfbd83321"
+    },
+    "apps/core/tests/integration/test_cases.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d27abe3e13d0d50a2c501434a98588b4ecc7032c5e41de25eeccdb740444b0c4"
+    },
+    "apps/core/tests/integration/test_llm_cost_limiter.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a0d80b9a9808f2e2546a4392b0cd147827782bb90e8e613151316bd7c7c356d9"
+    },
+    "apps/core/tests/integration/test_migrations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a5d7bef43abc5404e80989e44060595b9162fb296bf74cb788526edde77dfaf4"
+    },
+    "apps/core/tests/integration/test_organizations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3395712cb39dc965e589085f0239899ffbe8edb3425bc9d0816c8f22e0cb9616"
+    },
+    "apps/core/tests/integration/test_private_regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "42ede6e43c168ec47fe7c9105ccc48ef7b977d8be05b76fdbb884f48ad5dcd20"
+    },
+    "apps/core/tests/integration/test_public_regulations.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5ab5d11d226c8194d964b1b51d55b672c1615e4450a6a87e5fe4c3709e809f8a"
+    },
+    "apps/core/tests/integration/test_regulation_tasks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "54c4f4128a3b1669fa1fbc89f2a4e6bccff267747ad1e1c1a8282e2ca017917a"
+    },
+    "apps/core/tests/integration/test_sections_repository.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9a5aa208fb092e0ac3109d7a9dd51d704caa911f5710cb5cf80547cff53ec0f5"
+    },
+    "apps/core/tests/integration/test_task_broker.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "34e7c5512c93840cef086f588666935b60ead3b1827dcb362a8642d3b0bfc84a"
+    },
+    "apps/core/tests/integration/test_usage_limits.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b469cb3bf3d30530680101739ad278f39b0d80a374b5d2cb93c1a482fc86babf"
+    },
+    "apps/core/tests/integration/test_usage_tariff.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5b1cbac72572af2a3d82bfa7326d095a7e9a2f0736bc413c7771a535835da8ef"
+    },
+    "apps/core/tests/mocks.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2ab7c3f2275ca45afe4796c17e829a7f4590855668117c7788ee2823733409a4"
+    },
+    "apps/core/tests/unit/application/services/test_attempt_limiter.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d0f9b190a70629b8de9af5fc823d1b17c032cdd989dce4c53e6ab5e469561c91"
+    },
+    "apps/core/tests/unit/application/services/test_timing_attack.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2815e4f27ed093b86093cca2fffab34b8759d9b06b9c7defeb6ee1b6f147cc00"
+    },
+    "apps/core/tests/unit/application/services/test_usage_charger.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5406a238215c9ea4ab57ce3e4fa61f694d61e7434aac8de83f324dd4bb7fd3b9"
+    },
+    "apps/core/tests/unit/conftest.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4d64eea0054eb603bc538d0ad73758c04676fcebdbcfa5aab9eacb63c71cf16a"
+    },
+    "apps/core/tests/unit/domain/entities/test_application.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b72d2d5c04401545e11370c09927b2a698943a6930a0120ef7ddd24cf1499e4a"
+    },
+    "apps/core/tests/unit/domain/entities/test_application_template.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8475b3c4244f86df8d1e3ce7237f895001e75fc83658802842aa2ee8f77989bc"
+    },
+    "apps/core/tests/unit/domain/entities/test_regulation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "73b4128b20b2ea1e0ba142812ee369d93770f7d3a13b4b2b11a9febb2e072871"
+    },
+    "apps/core/tests/unit/domain/services/test_application_template_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b4c4808b5b1b83fb1b6b9ae3a6f77ec69be9b5aefe4e7bcb719b6138b9a4c5b2"
+    },
+    "apps/core/tests/unit/domain/services/test_application_templates_service.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "57cea259a74a3f352fc8469c1a834c355804fa98571abdccc877763df753a77e"
+    },
+    "apps/core/tests/unit/domain/services/test_attempts_keys.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "82c74b25b7b6654ad044a47e24e30143f1dc09e5fdfa03f3acd542b75399f6ac"
+    },
+    "apps/core/tests/unit/domain/services/test_case_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "31a5ffc610a55d78072e6855eddfb87139f26ae977170576b9e5895b5c8736d6"
+    },
+    "apps/core/tests/unit/domain/services/test_legal_structure_parser.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a69c8da7496f45d51350b48834402e2f2a737505e3caaeab1392531a7e787585"
+    },
+    "apps/core/tests/unit/domain/services/test_organization_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6fe921baa684726bf8ceebbb713839e3dcdcf12f3d07de49aeb8c0f80f588672"
+    },
+    "apps/core/tests/unit/domain/services/test_regulation_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b0847dc34d1cc78c771bbc5e3274d0c6a8c2e9baabd667e020cf2ff46d255451"
+    },
+    "apps/core/tests/unit/domain/services/test_regulation_chunking.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9d6db2637e7a7e4d2e615ecd4baddf6ec4b226b0da8b8edc5259abe325c6856a"
+    },
+    "apps/core/tests/unit/domain/services/test_regulation_description.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b818c2a22b20ff8dab6974d537f95db13da33c2ed18b673e00a80ac2c56b974b"
+    },
+    "apps/core/tests/unit/domain/services/test_section_summaries.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "df04e51c55a6445a1ba0293fb5cf81ce9c68f2136fedcfce6aba236dbaf585ff"
+    },
+    "apps/core/tests/unit/domain/services/test_security.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "06f5673878c0c3977d573d7b6f79b99758d832125bd3244d26749ccfc81051ff"
+    },
+    "apps/core/tests/unit/domain/services/test_usage_budgets.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0c881f6446103479a4b542168c8d23bd3315dd2782e054050fd2a38d21b9e862"
+    },
+    "apps/core/tests/unit/domain/value_objects/test_application_template_field.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "087240fa1b8b24b44480f4c11c479184602c6584ccef86bd5d1d20687997a779"
+    },
+    "apps/core/tests/unit/domain/value_objects/test_attempt_limit.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0df57f9f5c40b5ae948e6500214931325cb81e565a47a85c0b41e24118479e1a"
+    },
+    "apps/core/tests/unit/domain/value_objects/test_sections.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "eac249f303df24c1d68a5653bd5347104eecfabfc0709ba2c5b0f4343b95294f"
+    },
+    "apps/core/tests/unit/framework/test_client_address.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e1d6bf0d6c5e41da3fbbf6c15140d2d1d223be27887b239734d0a2425fc14880"
+    },
+    "apps/core/tests/unit/infrastructure/test_docx_renderer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5eb18f2e67ef3d19185a5f74cfe8bb13941d105b15597f018f73bcb36023a721"
+    },
+    "apps/core/tests/unit/infrastructure/test_llm_chat.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "33dd707ef84964c38900e09de61dabb32426713484353c4d6d61be2ac86f64db"
+    },
+    "apps/core/tests/unit/infrastructure/test_llm_writers.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7b6546c7df4e2893c192b4b6322e8d0ca331e2e7f3ea0b8acd720ce00ab48968"
+    },
+    "apps/core/tests/unit/infrastructure/test_object_storage.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f18dd2ecc77e416b9d6c7c1f2dcf599af95f74e42d67606a13f11cc415dd6e86"
+    },
+    "apps/core/tests/unit/infrastructure/test_regulation_splitter.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fe699f4a87ed55bc2fcb432044044c78d92872e1cad75ef807e96791138780eb"
+    },
+    "apps/core/tests/unit/infrastructure/test_relational_schemas.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3eb1d73d940273ea7065500e29a3d95d7f7671e849fc453c70b4a71a5ba07504"
+    },
+    "apps/core/tests/unit/infrastructure/test_service_errors.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "405eff3ae77231becad57b9b9cc884226c479406206d95cea774182c16b54f98"
+    },
+    "apps/core/tests/unit/infrastructure/test_template_inspector.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4b1a163b779334ecdecdefd2df80dbd16b327cfcac1f13f356a1e8887394b924"
+    },
+    "apps/core/tests/unit/infrastructure/test_text_embedder.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3d86eab6e5908ccee5ce7ec848d6aeaa52ce755f7960bd247d9cc62459e17396"
+    },
+    "apps/core/tests/unit/infrastructure/test_tokenizer.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1f9a5d19dfc40b30248ad8aaa0ed22b969933a898e2a35dcb771c91bdf7fc8d0"
+    },
+    "apps/core/tests/unit/input_validation/test_accounts_validation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2fe6a1bb7a64ba9b1876ea707910c89d73867a0703a9d36aa84915dca0c2fb18"
+    },
+    "apps/core/tests/unit/input_validation/test_names_validation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "93f333d85947962cc39c56411f8e239bc966d9cd4c67046859c9df4d5cc4badd"
+    },
+    "apps/core/tests/unit/input_validation/test_regulations_validation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "36246d8a43a0f9bba59ae9ab9bb59df9380b38c94b1cfc28db70c9705a63d0f3"
+    },
+    "apps/core/tests/unit/use_cases/test_account_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c79f03d5cfeed6c44eae972deb516d009382ff38c7329ea051a1ea3b3602ab23"
+    },
+    "apps/core/tests/unit/use_cases/test_application_templates_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9028d1156f2f006e9b3fa57c49eda3757a651ad00991ee7c35c707915f985f8e"
+    },
+    "apps/core/tests/unit/use_cases/test_applications_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c27212330d1395e101c65c1ecda37b25a4e59f34744667cb987b9dbc57cba6b5"
+    },
+    "apps/core/tests/unit/use_cases/test_auth_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "54c6aa2d081afb1af13580698d7f6671672f5472ad932eb905d13f6ceb6db77d"
+    },
+    "apps/core/tests/unit/use_cases/test_cases_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0426a70d76df5f630c5dbd99ea8da7b48fa68974ee06e2badc11aad29a48139c"
+    },
+    "apps/core/tests/unit/use_cases/test_regulations_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "333a1214f7df362a4ed2dbe9aa77912998b2f458e9f4eed24703a690e794e34d"
+    },
+    "apps/core/uv.lock": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "baaf4c7c49274c401f5d1c6b50c63d3abf06d8000371dfe84ea23bf5b97e8073"
+    },
+    "apps/embedding/Containerfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "99780233751fda1b3df1e40ce4c073c358ceef77268bdbf20c4c03fbb9e66eb3"
+    },
+    "apps/extraction/Containerfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "00011302c223902c438f93a4873135416e822ccd519a6ffd1d49148fffeeb59f"
+    },
+    "apps/extraction/pyproject.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5bd284e1193392c11f4cab526b675a01c81becd395571c7cadefc1a200c4d121"
+    },
+    "apps/extraction/pytest.ini": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "07e12af78809b103a9e003b9bf24f9718928fa263046b37bf3ebc9ebbf802ceb"
+    },
+    "apps/extraction/scripts/benchmark_docling.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0d48f1ee19a4c393357c6f6d97799f7600ee273367967f25cf589d255621d30f"
+    },
+    "apps/extraction/src/extraction_service/__init__.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "apps/extraction/src/extraction_service/main.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8dd8e24729d66cf332d93e6f6f2d358eb160e315331b32f6072248b4d60d94ea"
+    },
+    "apps/extraction/src/extraction_service/models.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "50f89e4f55c61c9730c42d6d54bda000b1313699027d5ee116e37b415886b03e"
+    },
+    "apps/extraction/src/extraction_service/services.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9be404b2c9e37e9428c9631be4498120614aa477867d307d1a31216066eaf70b"
+    },
+    "apps/extraction/tests/conftest.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8cc9b14aaa39e5a8bd8aa816e73885f2935b27ea4c8e3208e429bbef5a5ad737"
+    },
+    "apps/extraction/tests/consts.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d7421ca34d28f5f851a5e3ed3f3b8a26fd6ab51c55af71b90300c196f78ea3b6"
+    },
+    "apps/extraction/tests/data/polish-scan.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "968e3c7766fccb61ec826e531e48ff42710538341dc0fc4c2df12d8caba043a5"
+    },
+    "apps/extraction/tests/data/pwr-regulamin_2025_slice_7-9.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0caceb0107b3286ca3779ced42bc2fc35ac87d374b3909fb56534598fea3430f"
+    },
+    "apps/extraction/tests/data/pwr-regulamin_2025_slice_7-9.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c7cd57bdf4b030fdc9d940c7636c52a1a07a989922636bf4beb62efface76fbd"
+    },
+    "apps/extraction/tests/data/ustawa-nauka_slice_30-31.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "05f3dc994716d0351fe18fd3af6d6386f8a0bb2b2d643305485da4296f9985a9"
+    },
+    "apps/extraction/tests/data/ustawa-nauka_slice_30-31.pdf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "986484fd1e4be3e9238546af76cd3f1d433162081c07aa92c40fa5a8e06f6b7d"
+    },
+    "apps/extraction/tests/integration/test_parse_regulation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "782f3742dcb187cc9f01f9c347138a3d2ca51b849c7997a8fa82e747ed449438"
+    },
+    "apps/extraction/uv.lock": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5bc3ac0c20e667df93fb6fc5d1e5d8f8f7c2057242e026e671fa4e2e8a2b5216"
+    },
+    "apps/web/.editorconfig": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "140a3af47b162217409f8e635fc70d0b01caf0ee81612d8904412366e83a1063"
+    },
+    "apps/web/.env.development": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f0aa9c5dc4f1281a00c882e8ee2cbb8df5d8080f149d87214a14df155c5057b7"
+    },
+    "apps/web/.nvmrc": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6e775beae185bb3f5837d2f6d3fbe910e6f60e18fa507e661e312e84d707a92f"
+    },
+    "apps/web/.oxfmtrc.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b0301bca2957387428d46fb8e31dbb1688453c9d80903564665a2e6f00bdad99"
+    },
+    "apps/web/.oxlintrc.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1030bc24a1f637800a1e016f4f8c19a3411a4ddde79acc4eb2fe59a6edb086ab"
+    },
+    "apps/web/Containerfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "699f81f8442120ccdbf6609e59ef87881705c9010f5caacf4b5ab74f7bd750d5"
+    },
+    "apps/web/README.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c7f6c950fb6a53815ecba617b38b4e9e0073cb1f338cdbaa37ed99cded4088d3"
+    },
+    "apps/web/e2e/search.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6e65897402ffad53a95aad47a43bd70e70049dd2859ed3e66ba22eba3bca01ed"
+    },
+    "apps/web/env.d.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6738f5bc2dc8c0738108e2d21174630dd34740e2095bb71c7441fa7105a97197"
+    },
+    "apps/web/eslint.config.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7c5d91e97a6fd828c07722c029345a4a24e31101725e9d3f4de90d061d733d69"
+    },
+    "apps/web/index.html": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6bcfed64959352b47a4095448f555aea676e003f8d51f193cdf6e248525f97bc"
+    },
+    "apps/web/knip.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "520300dbbf36c316d7ad8bf71bcf5cdf21d64b25a40b46823d4c82a4a897e095"
+    },
+    "apps/web/nginx.conf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "37f9b94441b5bdd9f012a19b80c9d689821febbe0d0d11db5176044c864c39f1"
+    },
+    "apps/web/orval.config.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "345184852d293e0b84304a6bd4c843e41dbd272eecc4b8c24a77128b393540fd"
+    },
+    "apps/web/package.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f4e7c1b348cb35d154fdbb2b8357f3536f5687351e30fbba4d058d976c78a7ba"
+    },
+    "apps/web/playwright.config.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ee1e89bcf663d7e649da07fca47224befc3b7660b2f38337929517e48becef03"
+    },
+    "apps/web/pnpm-lock.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "57fe7ad4db6653efa05bcd44c97eca8a9fa4b66c825145c2c84fe12e0f03240d"
+    },
+    "apps/web/pnpm-workspace.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353"
+    },
+    "apps/web/public/robots.txt": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "43da1494690d30889f2fe4aa7ad50d35f5eb33ce57651128138557db047c7482"
+    },
+    "apps/web/public/sitemap.xml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b31f0636c2697ada53b0a0322c142ca6b8e97f06674cbffb41df9abffa3f5da5"
+    },
+    "apps/web/scripts/mutation-report.mjs": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7a5279077f11c55acf5b084cf8c2bfc8f0ec04bdcc78c61fa4fd931dacbf42f8"
+    },
+    "apps/web/scripts/stryker-vue-ignorer.mjs": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5e0ad1e2314a989da551d10805ce6e6007102b53333152ff4f7bf22e80683c37"
+    },
+    "apps/web/src/App.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a4bd7c1a4ae8b7993fdfd074b619836283e248ad8b732c8b78eebc0e7d3873d7"
+    },
+    "apps/web/src/__tests__/App.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b919cd0399fe56458b7d7c2d388ee72b02106ef26e2abd138deb9a48c0d1e85f"
+    },
+    "apps/web/src/__tests__/app.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2ee7c19959473cd4428d4f80264390cc2491e4b32e604354c1d25f7dacd696f7"
+    },
+    "apps/web/src/__tests__/dom.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "08807ee58829fae91e3b8ce283e0abcd6c354ffc6b4dd63d6c6f2103ed49c7d2"
+    },
+    "apps/web/src/__tests__/factories.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "91597a47be19e0864892d80452ccc1f09023e17c63b2381171db58a0e292542c"
+    },
+    "apps/web/src/__tests__/main.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "abf179b62ef03388dbb75e365ad60063f8f71f4fd60099c42f036f06aa20514f"
+    },
+    "apps/web/src/__tests__/setup.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9da3b8a29206d222d8b04736f989d4f8142d36a27ec579ae7288895a07fbb189"
+    },
+    "apps/web/src/api/__tests__/axios.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d8eb09d3ec4de9249c46ff3b4e9fb49cd388070f7689914f3c3fcbd198c09bac"
+    },
+    "apps/web/src/api/applicationTemplates.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fe47b7e557d32cc35654955e3261b0c34c53c2f7f39f12d3e75cda738d24b2fd"
+    },
+    "apps/web/src/api/axios.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d56d77a323ad8aa811b7da4364b16038c9da33ec0526f23740746c0485e8f760"
+    },
+    "apps/web/src/api/cases.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6fd14c74b5c1e5b1267294dc19bb650b382ad8b897b811160b32e9fb1fa6c5ec"
+    },
+    "apps/web/src/api/generated/endpoints/account/account.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ba028bb2c60bdd7f732389eed2bb7aa4adab7c40c8f0b3f76fa07c1f33adc6a7"
+    },
+    "apps/web/src/api/generated/endpoints/application-templates/application-templates.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "982d5029f472ac8c97a6107e8af0bf533739b914d4c74b2eab084fb1a2ca6439"
+    },
+    "apps/web/src/api/generated/endpoints/auth/auth.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5373e0977eba7c5270ba543e00573adf9a088407400c29dcda222233f7850527"
+    },
+    "apps/web/src/api/generated/endpoints/cases/cases.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bb1097b0bb7bc58d3165003408a643bc82078b7c95c609dd08ef4eaa966c5b7b"
+    },
+    "apps/web/src/api/generated/endpoints/index.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "44883f2dafcb30c91a258168c351bb910ae4e400063380b797323392d8c98c5b"
+    },
+    "apps/web/src/api/generated/endpoints/organizations/organizations.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cbeb33ef142fd3f26706abd08de2fc83b6e8a1fc8ead65bcc4f1f3d3ad0df682"
+    },
+    "apps/web/src/api/generated/endpoints/regulations/regulations.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8c0628329a50e9aeb8e32c05725f8fd302aeb10ff103d1b009afa3819228115e"
+    },
+    "apps/web/src/api/generated/endpoints/usage/usage.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c1e1bb64673b9634de19f2d286729102ea9e6f8990d8b5eb43c6be51d81b1641"
+    },
+    "apps/web/src/api/generated/model/applicationFieldType.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "51a7388f52033ecc591c45b19d9f7a60f59a959af3b90891184cbb3255fbf033"
+    },
+    "apps/web/src/api/generated/model/applicationGenerationStatus.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "77f98f649eb547b455a6cfa9e5aceefbd77bb52c1898f8d5179a995070a972e5"
+    },
+    "apps/web/src/api/generated/model/applicationRepresentation.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d843db30692f432510428e2bffe4af709282072fd661fd2ad0cef49196fb053c"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "315a1178392fb5a31926bd6634d2a389ab5e5ff4da29029342ed345e23506cd3"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateDetailsData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c402eb55b0c3bd35d108e6b9189e72439f4ad8e178724679dd3b226fb23db46e"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateFieldInput.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5052dceba45912fc6a423249b2522a0f6a730ab5e65ea2a9ba039e41b66b5ff3"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateFieldOutput.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "84091b02dd0a2042d1725e0154b434bb61e0d495bb34319654cb12879b20c3c2"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateRepresentation.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7342429ba780651870fe6caea92154adb5c511bae7641d6ed2e0b1d1cee6414e"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateStatus.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "aebc8e5e48776b0ea8103e15778ef396cc9eb2ec8052f3f80b152bb191fb1b82"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateUploadTarget.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "be58d55577696220dc7f0dfa325c38b397f7472e2586b63a34c88cad18c15eb1"
+    },
+    "apps/web/src/api/generated/model/applicationTemplateUploadTargetFields.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a214107611e02863d2a2a49673cfb310de706606fd8d972bba9eb3201412ce83"
+    },
+    "apps/web/src/api/generated/model/bodyAddCase.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "501ae5145424216541c5842df7b4f6f6ed54b1e69d17f5234ad9d86bf2eeeac4"
+    },
+    "apps/web/src/api/generated/model/bodyLogUser.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "098637a0e9a8542958b86d71821dc248a59f9a5383e7709dc51e17680f8b2b80"
+    },
+    "apps/web/src/api/generated/model/caseData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "59d0299e23177dc8c16f7e57c54ecfc3445c8d2742be3ea0c66e8d9a2521919c"
+    },
+    "apps/web/src/api/generated/model/caseDocument.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "83ccc6980072742fa2e9277806fa055b88da29c854fe8d2b37dbbc2e1d284e39"
+    },
+    "apps/web/src/api/generated/model/currentUser.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b6cb4f15992771a7c8f8b7647748d4ec3b2c3be13cbbc2d89c8e1dbe74f983b7"
+    },
+    "apps/web/src/api/generated/model/descriptionStatus.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "00a435a6ce44d6df2eb8354eebac1f83d8ae37b5c0567694b79d3b9a48cb33f5"
+    },
+    "apps/web/src/api/generated/model/getPublishedApplicationTemplatesParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "97865fabafe0ad0a79325a9204d21d7cd0a4680865941ffc6311cfe6711c882c"
+    },
+    "apps/web/src/api/generated/model/getRegulationsParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d62220a5e21638cf0ee99f43d438bb09f3a1381d8c1b0e5cda2c5bbba0daba72"
+    },
+    "apps/web/src/api/generated/model/hTTPValidationError.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c6fffe8e30218c910a4c6fa27e4da2eb5a338b1e6abbbc97223381bbf0ab624a"
+    },
+    "apps/web/src/api/generated/model/index.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ca0c79170a57ab03d7b68e40c7e33844eee38a4f630b1aa12bd351a24b5d3351"
+    },
+    "apps/web/src/api/generated/model/newApplication.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f8e6331f42e5e85eeb43270ff4a007a30e5216679a2e6db30e9f3b5de66bf068"
+    },
+    "apps/web/src/api/generated/model/newApplicationFieldValues.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "197f4944c80a23e76e32aa3098e2fb1b495366638de948d295ecabbc9911f259"
+    },
+    "apps/web/src/api/generated/model/newCaseDocument.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cd2609158bbc545a5f4192ffb0ee60789c221b6ab594b9a64e3c32df91f00cd0"
+    },
+    "apps/web/src/api/generated/model/newOrganization.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1fc7b1600052bf7a0b8cc542a661cc66a72da0e01fa770fc5f9eeac93316aab1"
+    },
+    "apps/web/src/api/generated/model/newSuborganization.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2cd19fe178fa8cb3edaa5a665468a4aaa878ceed318d62be550e592551854b09"
+    },
+    "apps/web/src/api/generated/model/organizationData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "402793d5980af831e2656caaa530dc159aefc05d2c25405eaafc511ccccc1ca4"
+    },
+    "apps/web/src/api/generated/model/publishedApplicationField.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "977a99a5e95630d8832600b2bff220d265cbc240b9854f4a6d2f80b6cfdff857"
+    },
+    "apps/web/src/api/generated/model/publishedApplicationTemplate.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a02d97bb30f7b539e0d5bec5c62d38f1a4d48ac7b92ca5bab771a7f2af8cccaa"
+    },
+    "apps/web/src/api/generated/model/registrationData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e259cc0749188cc839f32ff4711edf958ae53482adc2bc22fbf077277b105285"
+    },
+    "apps/web/src/api/generated/model/regulationData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "44089d43cf35f4d73748830dd0acfcb056c0ab51613fe2fd7ed28e1cb98626c5"
+    },
+    "apps/web/src/api/generated/model/regulationDetailsData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ba9694b9e1842f3fe04633c469fbbf1d972dd0e4ca7a500f1121faacab92e61b"
+    },
+    "apps/web/src/api/generated/model/regulationPreparationStatus.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fdcb9d70bf1870ae944ec17597d768c825456f1fa1ee1dea6af8eb19ea9ff591"
+    },
+    "apps/web/src/api/generated/model/regulationRepresentation.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e2e801d2cf05fb572540e81bd9d78f0c6f1fa254814bfb0a206a471122102ee6"
+    },
+    "apps/web/src/api/generated/model/regulationScope.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "058b448340e3e2316e6ff3050be022c57df4f1ea85daf7349ad169bf3676a8ae"
+    },
+    "apps/web/src/api/generated/model/regulationSearchResult.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5e905cf27df09cdd240ab371a4ce816a43651cab0b5bbe6fe3a0a035e1e4bfbc"
+    },
+    "apps/web/src/api/generated/model/regulationType.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8765380da9e942529703c3b736b1af57d48f19ef8553aa12bc40797b77334ea0"
+    },
+    "apps/web/src/api/generated/model/regulationUploadTarget.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d42fa0897a983e1e79ef416ee2ff610ff99508af5aaf647f4a6a0dd90f5cb445"
+    },
+    "apps/web/src/api/generated/model/regulationUploadTargetFields.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b028d3d53f4f7ca3c858a9b842a2a7c8fb1aba000e98bc431eb542ace7b9b525"
+    },
+    "apps/web/src/api/generated/model/searchOrder.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "95ae35ed63edf0be5bae3fab0626e9e325906b8ff2c9464a63c4cf77067162fc"
+    },
+    "apps/web/src/api/generated/model/searchPublishedApplicationTemplatesParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3aef0d5dca12f73e35a87f60339adf24db61c1f2a3e4e9f1ede25212c00928c2"
+    },
+    "apps/web/src/api/generated/model/searchRegulationDocumentsParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "158693c898315a40e12ce651281c1a65331ecb7d1197aeec4af6a26a3245bffd"
+    },
+    "apps/web/src/api/generated/model/searchRegulationsParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "75ce90fca14bab2cc4dedd2405217c1a862c6111555d9e361480bf260881c250"
+    },
+    "apps/web/src/api/generated/model/searchResult.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8e2fc29250d5e134f536ac54e9ec344b5d8dd91076e36c1cb2c33feb5d773c61"
+    },
+    "apps/web/src/api/generated/model/searchResultElement.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4cd780e5778fa154fd4194286bde2890106230ca06cb5a9f6b4341610e9dbd18"
+    },
+    "apps/web/src/api/generated/model/searchResultHighlight.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c451ae14b4c0639f865a512b6b79ca7e5d52e37a553c23d789d80c6601977955"
+    },
+    "apps/web/src/api/generated/model/sectionRepresentation.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5e6296d028cff4bf85608e66a0f2978ca2eb7e1c8b93a1627b80a398b178eb81"
+    },
+    "apps/web/src/api/generated/model/suborganizationData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b48bf0da5153490766dc497bc8f2fe50d0969fdc7e21b2a5349870459b480837"
+    },
+    "apps/web/src/api/generated/model/usageTariffData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f1c2e789e4f5d636b489eba884f85ca1e38f85cbfd286fb01a735e5a923bcc5b"
+    },
+    "apps/web/src/api/generated/model/validationError.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "990e244734a71aa0224f42b951fce9b490de596159869a4789c3ba70896a947d"
+    },
+    "apps/web/src/api/generated/model/validationErrorCtx.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d7bdb19be24890138925dc79472cd30ba4e7b37ff13ef1d9ee3e93e2e5ffbe2f"
+    },
+    "apps/web/src/api/sessionExpiry.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "30abff7d0b694bb5187bf56d2d66c216d5952dcdb3a47d744a84152a38e7e2f8"
+    },
+    "apps/web/src/assets/styles/base.css": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ac320ae6636dd3e47df6e30cf336e1c7a7e9cde9aa69bd469ceebf0341406b42"
+    },
+    "apps/web/src/assets/styles/components.css": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "46882e911c923b95af9a9b3defcb358ceddea078868bd23aa347e27aa5b08f19"
+    },
+    "apps/web/src/assets/styles/index.css": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5b23670f9b5fa2f00071356dbf9b86592d1185474662976df47935057c06277e"
+    },
+    "apps/web/src/assets/styles/overrides.css": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "34b40ac0a903fc9ca89739bc8c6853b269d3202a45f7793d00eee4da20d46cf9"
+    },
+    "apps/web/src/assets/styles/tokens.css": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a944572ae31c389c3b97f6ac923c2fdf9ca22826a88671e49c87fb0011423982"
+    },
+    "apps/web/src/components/atoms/ApplicationStatusBadge.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e97f1c867c91c860eb3f43452134cfd178d17927bf2b1146afcf0085e50a0e5c"
+    },
+    "apps/web/src/components/atoms/ApplicationTemplateStatusBadge.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7c9d743afe659886f41714205fbaa2d01fca1533b7128bb624d27e442ac69e13"
+    },
+    "apps/web/src/components/atoms/FileSelectButton.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c644f1f25324b4b92f05d4c2d5ed3651a42e9422b41804ecf7dddd55263e6a27"
+    },
+    "apps/web/src/components/atoms/IconMotion.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6b87edcceb2d2e4c1f1f630de4e8e58cc5ff76b0a4c27140243dbce55a9c16fe"
+    },
+    "apps/web/src/components/atoms/RegulationStatusBadge.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9766a2a3e85a35588e1f4095b2574a8641a320592d5a41e2ce34c02d76704a80"
+    },
+    "apps/web/src/components/atoms/RegulationTypeBadge.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5952a13fc779316dc7f61471cc4a7da0051b8669a71d1420565db75eef84b03"
+    },
+    "apps/web/src/components/atoms/TemplateFieldDefaultValueInput.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7602da8755dfb3d52af0bb7b9a6499fe1552b556bda4ee311db64684ff7d93fb"
+    },
+    "apps/web/src/components/atoms/TemplateFieldTypeSettings.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e8de429fd15136c0fdc29bb454bb13da699fdd0fffd36ba82d9ab1bddf1a3d24"
+    },
+    "apps/web/src/components/atoms/__tests__/FileSelectButton.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ea69cf8243d14f5b728023c4df835f79ec044c49972f4e28b806ad23934d4673"
+    },
+    "apps/web/src/components/molecules/ApplicationTemplateFieldEditor.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e4ff3797d29ebeaacad4926ffa696dd7a14b2e2ff9414511a3da341b1d2c7207"
+    },
+    "apps/web/src/components/molecules/ApplicationTemplatePreviewDialog.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "01043f4ba2d613d0faa3db643171d57d2c9394532ddcec1e194f8259fd8736f0"
+    },
+    "apps/web/src/components/molecules/ApplicationTemplateUploadDialog.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f5ee66082ace89698f3957c4e603450b5fcb2fdaf3d333cb62a0c6ceb10ef83d"
+    },
+    "apps/web/src/components/molecules/AuthControls.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "68bf1e1ed6daa2105837d97de4802adf4edcedb4ef5e7a390d80ab22447da48e"
+    },
+    "apps/web/src/components/molecules/CaseCreationCard.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "78f6f4ae31cbcfd0903d2df5399bc54f646d72e8da4b05e8d978933b1df3e7f0"
+    },
+    "apps/web/src/components/molecules/DarkModeToggle.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fb0641e5276f2a0f01c70952d908c4a4292ed9115da7c44d8e0bba72a0f2296b"
+    },
+    "apps/web/src/components/molecules/FeatureItem.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3955cfa5b3189ca85f99d78c95c82dfcd6711d1256530e05e0875352eb7dfb0f"
+    },
+    "apps/web/src/components/molecules/GeneratedApplication.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1f5236f42f054870502185ee5c2548004cd1e752b80a0f5e05d3d38f7fb9ba46"
+    },
+    "apps/web/src/components/molecules/HowItWorks.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "816228412d492705438aac66abf6401b4cfa711fc2e023eb9f8733b81268b2b0"
+    },
+    "apps/web/src/components/molecules/LoginCtaBanner.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7a581859bc747f97bbe5907051679ae64bd630013ff731a86336bd60f7774f45"
+    },
+    "apps/web/src/components/molecules/OrganizationFormDialog.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "422f2939a70ec69075c38050e09f2298eadd55377708bfd584a4063ae4373636"
+    },
+    "apps/web/src/components/molecules/OrganizationScopeSelect.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cabcf452691494355b1e8028ec199ac52f41ff9391932b654f6b689cf9ba4597"
+    },
+    "apps/web/src/components/molecules/PinnedDocument.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ee8d3b534109d198d982b1c065cf78e09ba4463c05d7a32958e5cefb8ef86f2e"
+    },
+    "apps/web/src/components/molecules/PinnedDocumentDrawer.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "050398e13a5fe02ba0a512603b850e8190534bd8637a932dc826a2d39ac11ade"
+    },
+    "apps/web/src/components/molecules/RegulationDetailsDialog.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "18f76e40ca030a4c5cbf79f7180f24b4c9712b8c862a43cb1693ab17d4f4e842"
+    },
+    "apps/web/src/components/molecules/RegulationElements.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3944e8934df18f148ee26584358cdd51930c010958a0a270213ba2fa8dd2564c"
+    },
+    "apps/web/src/components/molecules/RegulationItem.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "972e8c192e1288c5e98fbd2f2ee06be309a081644df91f5bb5b486a149bcc0e5"
+    },
+    "apps/web/src/components/molecules/RegulationOrganizationFilter.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d20fc01e23fc9540cf18844956f9915759cfb846af0b3f685e16f27ef4f46745"
+    },
+    "apps/web/src/components/molecules/RegulationTypeFilter.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7306754329318b4d65aba99f16e431f65b784b278011e7e64bda55c393316310"
+    },
+    "apps/web/src/components/molecules/RegulationUploadDialog.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5f38e93f9ccd2ac89e8e834c5d739739114db55bc3f5731dbe04f816032bd357"
+    },
+    "apps/web/src/components/molecules/SearchResultItem.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f59f1cdb580eeacb37e2fc7c8951e74eb3baff3ca8200c75147e18885ede2d38"
+    },
+    "apps/web/src/components/molecules/SearchResultsTocNode.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ddf457c30814b3bde3096f0a0fd8137c934864d8bb740c5faf53fa1059341b6b"
+    },
+    "apps/web/src/components/molecules/SearchThresholdControl.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c4b8bb451b9b24dbf3f010803340203c583a832942511832387693e9f3e47528"
+    },
+    "apps/web/src/components/molecules/SidebarCaseItem.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2d7fc71036f58692f375af19c0282787309d649eb5af0ca1ad650027b75c4687"
+    },
+    "apps/web/src/components/molecules/SidebarContextMenu.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8d153f89999069c27ad1c91b6aa293c72795d80dad75219888f08567a7990d61"
+    },
+    "apps/web/src/components/molecules/__tests__/ApplicationTemplatePreviewDialog.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cf4e7ac45661bbcdc6959550b267d7ff994a1ad8239c600163384a84e4072dd1"
+    },
+    "apps/web/src/components/molecules/__tests__/RegulationDetailsDialog.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "896b9fef429ca5d7d43a370c2332eddf0503d79d2ec318794a930a731550a7f0"
+    },
+    "apps/web/src/components/molecules/__tests__/RegulationItem.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c5ee310549e845ec0a6abed11f9be3339ae1d7732c872506ac537e5e33c0f430"
+    },
+    "apps/web/src/components/molecules/__tests__/RegulationUploadDialog.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b059300b1e8988e2fb9b3071d7c05de6596fc28c6c425a46d045b17be415b82d"
+    },
+    "apps/web/src/components/molecules/__tests__/SearchResultItem.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a6e2bbe12eb500610794da5d78b10ae7a1771423dbe28ae15fc81fa0930f38cb"
+    },
+    "apps/web/src/components/molecules/__tests__/SearchThresholdControl.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1628823223406d38e872cb5980c55c707ba72c5bfd1a455db32856796006309e"
+    },
+    "apps/web/src/components/organisms/AppFooter.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f17dc6b73b597d22b2cee1c26fc2688f687b05d218e0e99e8866116bd124bca3"
+    },
+    "apps/web/src/components/organisms/AppSidebar.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0a9ba0326501e175cc26499778f90caee7f3571b3d64bf1ae94d6d1eb5e7d6bd"
+    },
+    "apps/web/src/components/organisms/AppTopBar.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d35784e71a81fe93fbb1e48751b7fb653fbbb19dba6fac1c8a48e6f3034d4e19"
+    },
+    "apps/web/src/components/organisms/ApplicationTemplateEditor.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e602cbfb17212dc19847a9752ae48909f358a8b237d32dcbedcaba2ec32a5995"
+    },
+    "apps/web/src/components/organisms/ApplicationTemplatesList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8b52e78dbed1c4ff8bdfaa1ce45e102df76fdb234e9760c00be716cf5434f380"
+    },
+    "apps/web/src/components/organisms/AuthForm.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4a8460442e963d0922b2e3916c9cc9b57e47727fcbad614def5bc00a65d37e96"
+    },
+    "apps/web/src/components/organisms/GeneratePdfForm.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3a9bc4dc0bf8c49702f301d2b3944eb123c2b1534641b6a68ac96ebba16b8527"
+    },
+    "apps/web/src/components/organisms/GeneratedApplicationsList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "605b86ec2a1b7cf0af12005bbd224a1e313a90929fffee10c80cf7764081e479"
+    },
+    "apps/web/src/components/organisms/OrganizationsList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "68e62f9dc69a728903023375ee059562b43c3df68e3a9d29edfba9857f14de9f"
+    },
+    "apps/web/src/components/organisms/PinnedDocumentsList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1bfe2e9eddd0395ef0c2d4f0d320e8bc417c37c7414fdd07b27ae1a7de902aba"
+    },
+    "apps/web/src/components/organisms/RegulationsList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2e9a95625c2e17d8f6eb7955fd3276250e12069a492f347e939ed4a5c0c536fe"
+    },
+    "apps/web/src/components/organisms/RegulationsSearchForm.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c0c5bf69c97f1f18bffcdf7890ba225c57c5df41d695430c57c2636e3438a3ac"
+    },
+    "apps/web/src/components/organisms/SearchForm.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "096edafd2c3320e3e38cf7ad01cca353f0bf903a1ca3fbf43224036eaf7a1b6f"
+    },
+    "apps/web/src/components/organisms/SearchResultsList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "414ee1563b71287a02423be334aee9e53096fc5060e808e1aa9ab7f4c244c7f8"
+    },
+    "apps/web/src/components/organisms/SearchResultsToc.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f521fd99d44b30960067303d81ff1067c4807c43324ff39753fcc43adbd845dd"
+    },
+    "apps/web/src/components/organisms/SidebarCasesList.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "31929e9335dec134ba8709de6a535d388e93868f6ae663ff556c90f9649e3d02"
+    },
+    "apps/web/src/components/organisms/SidebarContent.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f6c08d2de978a9bb100c49f7be9b68c08c6695e5ef907634dada9cf73184e209"
+    },
+    "apps/web/src/components/organisms/__tests__/ApplicationTemplateEditor.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4f1e8223f1ccfeb57ba9c8889cd12cb693bbdeea9fe46fb2895389fb2039ab2e"
+    },
+    "apps/web/src/components/organisms/__tests__/GeneratePdfForm.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b5c2e305a4f18657f388cadb4fcc1f48684269c6c2e8bad01678a5ddf71d9ec8"
+    },
+    "apps/web/src/components/organisms/__tests__/PinnedDocumentsList.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4518af391bd479a6dafa284a06864d14dbe55c37eb25f724d474ff5a3449304e"
+    },
+    "apps/web/src/components/organisms/__tests__/RegulationsList.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9e44d80f081de6ce8632dfdffc91c15ee0eb32c2992b6fd5ffda010cd1ed2682"
+    },
+    "apps/web/src/components/organisms/__tests__/RegulationsSearchForm.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "687bc5b5d6e18f394a3967346ec65e3cbb3aa4d09cdeb859826c8b3f885f7109"
+    },
+    "apps/web/src/components/organisms/__tests__/SearchResultsList.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3d5fdcf2fac8cca9ccb39e7cff9114991b1798bab8e70741f32ef1c51f746953"
+    },
+    "apps/web/src/components/organisms/__tests__/SidebarContent.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "36ea223a5c194f72a10ee68fb68a1915780ef541cd1499729cd9979ed718c41b"
+    },
+    "apps/web/src/components/templates/AppLayout.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5934a0698bb997850348597118a743f36d0a252d12c27ac890eba36cbe956e03"
+    },
+    "apps/web/src/components/templates/__tests__/AppLayout.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "22a486f89a0b46b6a4eb21f383c80e732473a1bb065165aa83a95ccaf6346a34"
+    },
+    "apps/web/src/composables/__tests__/useApplicationTemplateUpload.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6da0cfb0480f9fa6eb3ca1da8663f1298a1b7eda7da58191bd3b5b9dfc59eca3"
+    },
+    "apps/web/src/composables/__tests__/useDarkMode.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9dcff9333b9cbdc4e4e3505178e1fec04e87bc7a1025ff6a223be87b0037bc13"
+    },
+    "apps/web/src/composables/__tests__/usePendingPolling.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0591d432a3028bfbf06cd0cbc1c63833fb0eb4af52a2bbbc80c9b789b0cd2796"
+    },
+    "apps/web/src/composables/__tests__/usePublishedTemplates.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2dc7475f007b02f68c69ac39c692e502a72575a9196543013c83ccfc6786f746"
+    },
+    "apps/web/src/composables/__tests__/useRegulationSearch.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ca213576aa43337987eba784d7471f2113b8fecbaf3671fa87db2ade5cc80348"
+    },
+    "apps/web/src/composables/__tests__/useRegulationUpload.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "456f45a6a10ea3a1626d29ce6d91ea7876404be95481a625b0a06b9deeee4519"
+    },
+    "apps/web/src/composables/__tests__/useRegulations.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "70d3f879cb37988b5cbd151d7fdc1d35efcfa2e9b054024bc721c144a4fc6fd4"
+    },
+    "apps/web/src/composables/__tests__/useSidebar.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7aa813a55b434f2d152a9b0f620f3ad38e6ec4767e4348cd64d9f108d9d5a01b"
+    },
+    "apps/web/src/composables/useApplicationTemplateEditor.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "591f16e38f84cf5335b12eb4ef5238056a36ca4eb4cd32cd3f7050463c7be436"
+    },
+    "apps/web/src/composables/useApplicationTemplateUpload.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4f3651c06f0d78e6737fe4035fba713cfc8a20ea77cf055a2b241646b0d104da"
+    },
+    "apps/web/src/composables/useBreakpoint.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d662db1f7dccd4cdaec9cef84b55d5192e2b4637ef6c582b8661814e80f62475"
+    },
+    "apps/web/src/composables/useCaseApplications.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3bbe51b3ad675197fb738bc1998eec21e59a03c73544d9e3a998e68431b450d2"
+    },
+    "apps/web/src/composables/useCaseDocuments.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a251f56c2c4ab0d6f178428afa9b8f8fb8af6de7eed4f1092f0cd8e986c53ce3"
+    },
+    "apps/web/src/composables/useDarkMode.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f1da767b7cb522b23fd55e39b01708e460b9f2a3fcfbb79f276631caab5d6d66"
+    },
+    "apps/web/src/composables/usePendingPolling.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5bfde487d466ebb54295f2b2ef2d3c6822d70ce950ad77eb1aece0fe543426e5"
+    },
+    "apps/web/src/composables/usePublishedTemplates.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5b08e9b3564dc22fa7cc79e1ff490dd46b54db2748b27bfbdb9fc0140b3dbe53"
+    },
+    "apps/web/src/composables/useRegulationDetails.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "550b2d4eeb93c4d8d9cd3b43578b6ac2caceab323a3e428954666788d48a39d9"
+    },
+    "apps/web/src/composables/useRegulationPreparation.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fabf38d17760236c3fff90db78a7a790f681c5ad566b872acacb21a2b00a2df4"
+    },
+    "apps/web/src/composables/useRegulationSearch.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4cd30acb90bfbd450313a941a2de19f3e7b1e9444d63e9099e10f9f78eabbf69"
+    },
+    "apps/web/src/composables/useRegulationUpload.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "af0cc81267816e0f18629d1c88adee454343cf4bb1d82807423d55cf5a6b253d"
+    },
+    "apps/web/src/composables/useRegulations.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2692852d2c1834962a7578201da582c2f41acef651ce068848e6f31463ea22f6"
+    },
+    "apps/web/src/composables/useSidebar.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2908a28e482bd48fb93a70abc0eb07504a22633b60c3a4a8b49975ca305d11c5"
+    },
+    "apps/web/src/domain/__tests__/applicationTemplates.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e22df118de72f03c7b90f987a3b9ee55f381e694e6fddf7bfe0af3bcdc4cf455"
+    },
+    "apps/web/src/domain/applicationTemplates.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7aca763971633f66659ca050a85fbf6220a0c30d044b1c9426a5c5607dfc1a1b"
+    },
+    "apps/web/src/domain/applications.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8a0b0f65bf9f1ff328214fa14c6d9bc37667ecec9887528d4c50e3159abda73f"
+    },
+    "apps/web/src/domain/descriptions.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "854ca6f8559e5870a847544ddfa1792767c1b21f910b108da81b105ff20081a2"
+    },
+    "apps/web/src/domain/regulations.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8e500641243d7d27e949b3b37c6621ed267f722e546b686dec7463c4360a7c88"
+    },
+    "apps/web/src/domain/search.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "72e7de8047a8ce93df6accb06278cc36bd004d31a0b4567a9e01fd73e35d5726"
+    },
+    "apps/web/src/main.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "23cb341c21196784a236eade10858bf702fe9d5912cf351cca6acb45a968c6d6"
+    },
+    "apps/web/src/pages/ApplicationTemplatePage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bc3246deb28768dea5ada9948f35d4167940db771b09a99f4fcae117f10560ad"
+    },
+    "apps/web/src/pages/ApplicationTemplatesPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3ddfb91fc14af936120a01b477af5a05455282e99a5320ad7129172653835cbe"
+    },
+    "apps/web/src/pages/CasePage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "07bb9b986a48a54cb68bf61934d2a3e0daac664d283a25224cfed3a358cb3d8e"
+    },
+    "apps/web/src/pages/FeaturesPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "71aa2991c905b040edfe43c64d39ccffad1d176fc525ef1e48b1d15895ee8dbc"
+    },
+    "apps/web/src/pages/LoginPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9794718925a3e1846d01e6167d5e6e83920be3b886a427695e543b318848eecb"
+    },
+    "apps/web/src/pages/MainPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a51b1cb67856c7f767f5419bfffba24f832452aa46704a7f7961d43b1acec715"
+    },
+    "apps/web/src/pages/OrganizationsPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "425cb4a2a426ef0de8fd05824afd310e2e307d5daa9399cf1e49701f6f4339e0"
+    },
+    "apps/web/src/pages/RegisterPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "727ed5db7fe5cf011a3a809e07504a9879015828ba16160cbb318c97ae3821ae"
+    },
+    "apps/web/src/pages/SearchPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "db9be473c3302a30fe917b596758eac4e9939577b74dd6bb9be492c904563593"
+    },
+    "apps/web/src/pages/UsageTariffPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7baec346456fd492e388748f659d4f62da0b8062e03fe14ebac7f5f095be543f"
+    },
+    "apps/web/src/pages/__tests__/ApplicationTemplatePage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "87678d796c0c1b718326c21cd17e73298ed09df36226ac49f368e92748e870f5"
+    },
+    "apps/web/src/pages/__tests__/ApplicationTemplatesPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "925758616a54c0d50f06c39c2136d4cc0198b7b951d52f3cb9c5c6e885f92a15"
+    },
+    "apps/web/src/pages/__tests__/CasePage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "11da554bff75321372fa88d627944562b986fda2f4c05edababa08fdde0c4563"
+    },
+    "apps/web/src/pages/__tests__/FeaturesPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "967989098c6cc3794565f92b8ea522cda1ca4512564d444493a6cc3adf90835a"
+    },
+    "apps/web/src/pages/__tests__/LoginPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "12104e45c9bb64761f79e8e6fc26c5a7b327a78429950825b970d0510476d474"
+    },
+    "apps/web/src/pages/__tests__/MainPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e04e1eb7e5d7c763654c54fa93b1e4d1f4890dc5a733facb60366a35e59740c4"
+    },
+    "apps/web/src/pages/__tests__/OrganizationsPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2881a86fd2dc68bb9a08052d91815fd9c0c427aa7af54474b8a6aa97ba8940d0"
+    },
+    "apps/web/src/pages/__tests__/RegisterPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8b466f63e569edb22fb1377503a1c53cd901d11678f405a61adf0f73ed45a33a"
+    },
+    "apps/web/src/pages/__tests__/SearchPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fba95cd7e11e70b524d7d33366a303d5e7c7f2710a10cb55c1fe48f9391402c5"
+    },
+    "apps/web/src/pages/__tests__/UsageTariffPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b2bb4ac8a924942d026c545279cf439201c1bdd81d856c9037a048d26fb6c69b"
+    },
+    "apps/web/src/router/__tests__/index.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7548c5e314eb6d7be479d20b2a68a3571b57aa0af58458a379e6a9e1cf3a233e"
+    },
+    "apps/web/src/router/index.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "82c801a0db2bf601be9a5a544efa66437aaaedddf36391eda05011691bfcda21"
+    },
+    "apps/web/src/stores/__tests__/auth.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cd7a83e9012655201c47c423927dd86878f546b05a5b251eb97810387127e4b2"
+    },
+    "apps/web/src/stores/__tests__/cases.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5958bbe9833f6ed9773452c7017e1ac6816e7bdc70e8ae9477f0481b1305173c"
+    },
+    "apps/web/src/stores/__tests__/organizations.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f3c213112f959cc01278137c461da345c851850664ff75eba4333b8cfcffa594"
+    },
+    "apps/web/src/stores/auth.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3d44f84adb15951d91b609fa746f7721c36a8adc1b540cd0f3e05b0c80ee0bb9"
+    },
+    "apps/web/src/stores/cases.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "423ac89ecc38d33b955bffdd1e13af548835cb235dc81c39edd12fb41487f49e"
+    },
+    "apps/web/src/stores/organizations.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9a6323ca69a878ffe90f6b3fbe1ff5a746e480d25f7956461deadddfcccdad9f"
+    },
+    "apps/web/src/utils/__tests__/error.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6ba64feb342faf169e914c896209e84ef9ffd7d07290b97b248c89bbb43cae18"
+    },
+    "apps/web/src/utils/__tests__/pageMeta.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3fd91eb6fdd9d5278b7a7ea62ab4a1192ced1eaab47dc33550a4c84ed8cba40b"
+    },
+    "apps/web/src/utils/__tests__/searchResults.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e799f7cb0cd568a2ee88eef0c6e82f9fe5408d2c3f90b6de1002365bae798202"
+    },
+    "apps/web/src/utils/__tests__/storage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "af3918ce0181fc935ed2e2cff8e229b4e7d0a1915968670e08b2d9810d05b6d4"
+    },
+    "apps/web/src/utils/error.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6bf8d748c85bc37b585dc09b58c50c8656ab538b926a97ef1ccc2b15ddffe2f8"
+    },
+    "apps/web/src/utils/pageMeta.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5f72d817c27d301ec4ac3666625480c9ae6ddd975fe2b7590da9bf00e96d625a"
+    },
+    "apps/web/src/utils/searchResults.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "05a24c8c6a35a166c7064fc5f4f950c283e85206cc22da85ab7550a78ccb20dc"
+    },
+    "apps/web/src/utils/storage.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "aead34977a36a3b195987611e85af6fb1bd443f518a5b00cab6dc426e0fa8afb"
+    },
+    "apps/web/stryker.config.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "57e6085be7f4180bf0b4ae1ed787dab4d4adc9264833f0d69113c6545ffcd403"
+    },
+    "apps/web/stylelint.config.mjs": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "34badd14309117939fd2a71fefa0c7fa45e8c895ef19b918951c47264a5b4baf"
+    },
+    "apps/web/tsconfig.app.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8b86cf4eaab67fbf4e01a8004435a70d8fd6e2b0fac4e573a17618581e0ef5b0"
+    },
+    "apps/web/tsconfig.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9c4d36d79809ab9835a9e674b60dd208f3c15958eb9f2dea1afb218f6d0e483b"
+    },
+    "apps/web/tsconfig.node.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "07dd94b23a9453d6bb51409203b73b97f93740a1d89b355b5bd2003a03fc0313"
+    },
+    "apps/web/tsconfig.vitest.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6aed91cc02f169d58a4757b98c7a69c4c80ba55c5692f62eba97335de0059302"
+    },
+    "apps/web/vite.config.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7359a78e884b819bdefc0887e0ab5946cbd17d2b48853396ad10a0b69ce212ff"
+    },
+    "apps/web/vitest.config.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "352ed7eee7445eec9201583791961fcbf35590719f0b44a4931abf8ff19c6de9"
+    },
+    "deploy/base/config.env": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dfda3b0c346981b71a80f8814552dffa9f50f7078e1a44bf6b9855354b632692"
+    },
+    "deploy/base/core-migrations.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b6b2af2096b29cdeb3df7d9c71bcfeb23d1abc631f9f2652afdd85d8cfdf14e6"
+    },
+    "deploy/base/core-worker.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "84c97ae0698ecd5ae3113ebcacca55097a14dff0786abd6833a6d42c363f8fd7"
+    },
+    "deploy/base/core.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3e535756e9c88be058eb65eaa3eee5c5588b0af0a9d58bd120be54a9ce900222"
+    },
+    "deploy/base/kustomization.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e1b60d50d9f8eaed2683df7c6a690bca4ad1df246bb7b25f986abd6546294657"
+    },
+    "deploy/base/postgres.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f9e6e3caf663c35581eb637a9b37ec75d46800a598907e362a50cc1c3b42b6dc"
+    },
+    "deploy/base/web.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "75124704aab9ae6e6b9452a4f704739df790ef33d18241fbb1fefcc269e1ddee"
+    },
+    "deploy/gcp/artifact-registry-cleanup-policy.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1a548ba840f6ca87de4236aa3a18c65dd11ddf09698f2586c94ef7f2e467213f"
+    },
+    "deploy/gcp/bucket-cors.json": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "049ceb7279555c302f280193d63168b1d7b0403bb9c3f72c5c335207cdf50574"
+    },
+    "deploy/kind/cluster.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6567d1d2bd6e77e3810aa1c72c5a7969202ec3e920f0f19b6f8a962586b72b62"
+    },
+    "deploy/overlays/e2e/core-e2e-seed.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3557191ffbbdb702030a69d377079051d33deb4d118f678e866d8fabc7f7f254"
+    },
+    "deploy/overlays/e2e/kustomization.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "de67b85043c8a9bb66c60b0de8d4de35d50972d09adaad3578d4dff15da82c36"
+    },
+    "deploy/overlays/gcp/config.env": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9a4f3b4022b96c4820ace5ca8b18408e0b9ccf35273cd0ccecf1a19af0087475"
+    },
+    "deploy/overlays/gcp/ingress.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "99c940bd12c75a335b7b7219142f09e9a18588d2c7d00e8208665a65fba0a0ae"
+    },
+    "deploy/overlays/gcp/kustomization.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c6a9c8d1be8747ae1402b8da7d3f33b6dfde9eab4751cf9e63fe25b6f767a84a"
+    },
+    "deploy/overlays/gcp/patches/gke-backend.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e9252a55917fc8cbb70f224487f02c5eecd587721783baa56ecb17de9543a8a5"
+    },
+    "deploy/overlays/gcp/patches/secrets-store-csi.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d3c21e11b318d5ca6c8be91459472c6670301755272c3a5f96dfdbbce61a8ee9"
+    },
+    "deploy/overlays/gcp/patches/spot.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "39245a0000e2d4c3f63a7ab4f5877b61625dd6d56d16672aabca92c6467ec057"
+    },
+    "deploy/overlays/gcp/patches/worker-embedding-batch.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "958cc8a586d9cebb39577970535711958e90c935cca5c8d1da2ac2d665394e9a"
+    },
+    "deploy/overlays/gcp/rbac.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f6ab3b48b3ef3cea5ac906c1a289c8200e248df876a4551cd04d850ccb4d70e2"
+    },
+    "deploy/overlays/gcp/secrets.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "704531d144293db9b7ba45f6ca8b3257301ae95bfde12645d752bdd4837e9589"
+    },
+    "deploy/overlays/kind/config.env": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f6f6ffd89f20c2cc7d146ce1ed03b6720f86816d78c3ceee4f7f0c750bceb77a"
+    },
+    "deploy/overlays/kind/embedding.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b751e7552498722f496dcce9531a06da516b0b3a88b9622bd826a5c5006fa8c9"
+    },
+    "deploy/overlays/kind/extraction.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6c8d783c6bbb323fb099dc96f09d474971871e82d1c4c2ab74852cd4294d5160"
+    },
+    "deploy/overlays/kind/gateway.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4d9c6bde0004117c3c7de91688958ce646d8e82ff3bcd7901927bfb8e268019a"
+    },
+    "deploy/overlays/kind/kustomization.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "94d9d60a7688bed102f1c9638f46c4fd5d046821191874ff3da3334d29a69bf1"
+    },
+    "deploy/overlays/kind/llm.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "eb29664f02b370c1c82e065954429ca825a78ab7ffb6e0a47045d9afa36a0cf9"
+    },
+    "deploy/overlays/kind/nginx.conf": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f4fa2165bbf03685da92c0be6bc3c87e2868ccba6510959444b71240321afa2b"
+    },
+    "deploy/overlays/kind/rustfs.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "eaad45b3dc03967e5687c90f838741a4739bcac11482cea496aeecf9470c4d3a"
+    },
+    "deploy/overlays/local/dev-volume-claims.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ce89b3b8338d67525d8f216e5c460a31be748a9f1023a6433f53c0a83ccabb67"
+    },
+    "deploy/overlays/local/dev-volumes.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "27865b9de14c9b423fb7415c1141932225784dffa768eabc9b15592a2d049a86"
+    },
+    "deploy/overlays/local/kustomization.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5725b7847d515ce63de80145c22ecaa2305b5e714499a3409564172880290a3f"
+    },
+    "docs/ai.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "75453645a8927254ae84e28179bc365961b5f20d03bdd958d3895b60b141b56c"
+    },
+    "docs/app_logic.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0350b02f2d917c9e8a9c47a9744cff983614bf859f68e693f39ea8c06b76e426"
+    },
+    "docs/architecture/architecture.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a4bb9e648718110ec667159c0afcd2f2131ea109d0de1142c394b1232ec17ab1"
+    },
+    "docs/architecture/backend.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b25936c6bc5a21360e81fdf41098a8aed95e899e78284156fd639a0a8bc402fd"
+    },
+    "docs/architecture/coding_rules.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "71b94102aecd1ffc5dd77fdc7e4167f3a8630ec6043659b534e5be8f8ceb0370"
+    },
+    "docs/architecture/external_services.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d323f3abc1f99cc3a455f98503f04f947e57f555c67f210278c94d5e94b0a361"
+    },
+    "docs/architecture/extraction_followups.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6ad4e544e2de3c98d9386ec58c24f0b80e1a84206208e9dd739785b94e0f1b9c"
+    },
+    "docs/architecture/extraction_tuning.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "378cc1e7b689d421dd8790326d45aaa075bf66c4ceb4c7e1044c60cf45661c17"
+    },
+    "docs/architecture/frontend.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "03155b7e1b2b6e285341ad75a4c36bf2e691dd50f71e2e19f41c46d84cf8a5e3"
+    },
+    "docs/architecture/legal_documents_parsing.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "153bfad1066b1309404b92e06b21fa1484467b089693fc9fce4e477052619f32"
+    },
+    "docs/architecture/libraries.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3516b39c133cf931ed73518a57a7baff32f94d556ecca13f7fa157e287d5c242"
+    },
+    "docs/ci_cd.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e038de0a2b546a2e341671ddc488d0fc16661e6ae8d7ead4de4e494fe7a22fdc"
+    },
+    "docs/index.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "74d7249d54a19c8fc7ef18d41adca4da3f0306ff22b2301cecf07c0f20a05fa6"
+    },
+    "docs/tests/backend_unit.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3f5b591c6ceb2b223b29b7afa669b0a5e41f2eaa8a5455f8eb8b437a31fa2b19"
+    },
+    "docs/tests/e2e.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2aaf130e362cb481c8c5a8c7e5818d3e50b49ee757fa3dab35f0eab449fae341"
+    },
+    "docs/tests/frontend.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "1152bcbdd5c6a60aa30c1307218ab2173c8ae7d35efac8d242116f68f1d02e9b"
+    },
+    "docs/tests/integration.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "408685c98290e405d3cae17509b6015d5a6006eddefa062b4c5401333172aef5"
+    },
+    "docs/tests/manual_e2e_test.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8d20d38124a39bd381a184b4c0baca1eabab2a3ba903b7ee42f7cb32d7da8067"
+    },
+    "docs/tests/mutation.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cd96da78327fde125e6dc095a7990254e9d00f8616943f2a3ffff2a22e1776f1"
+    },
+    "docs/tests/tests.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c06eaa305889bf1cc843f0d4109872be3f5172eecfe5b3ba578ccac4a6b2834d"
+    },
+    "docs/workflow.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4a7733f77670d4ed952c1cec76c0633dd453e7e018fd121c56aecd71363faba5"
+    },
+    "justfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d986564fc5232702e764350107cca50649971fee34b98f40cb38775b197261bc"
+    },
+    "plan/kustomize_kind_final.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5b4403b8492dfa58c26cb060ceab0a011ca2eee1c5d66f9d6c9118325e232ba4"
+    },
+    "plans/rate-limiting-cloudflare-gcp-podsumowanie.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d6627cfdfd3601718407234ae7d854b4841aec1c212ee8bb2e650fb0ddab0583"
+    },
+    "pyproject.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c7eb50cc90b7b43940944dfd8ee93f92382cc9d55a292ec0e326bf4b37c6b4fa"
+    },
+    "ruff.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4f64182496a4ebfd70cddd9d8e92ef7fad21d89e1e52f5eca42956c461b6d9f1"
+    },
+    "scripts/check_licenses.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e9a4fdc1d0a7452642a06149c7c4fdfa6edca01d69295aad39737389bcb1ee17"
+    },
+    "scripts/cloud/cloud_inith.sh": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6d7150a206794ec448f46eb60eaebb43c6e57079d29cfcc4ab21baf9f58f1b3a"
+    },
+    "scripts/cloud/deploy_embedding.sh": {
+      "executable": true,
+      "kind": "file",
+      "sha256": "0940ac94e8189f9fc4785c171a5c1b0649eae37c220d7bd49785a86e45185dde"
+    },
+    "scripts/cloud/deploy_embedding_batch.sh": {
+      "executable": true,
+      "kind": "file",
+      "sha256": "f630f412d0c44cfd3f6a7daf0b66fe192808cc6b310720b3c88c159dd5de6d6e"
+    },
+    "scripts/cloud/deploy_extraction.sh": {
+      "executable": true,
+      "kind": "file",
+      "sha256": "51791d72ce5db1aa7217b10b389b4d75203e9c3a8e5fb1722003658b30290691"
+    },
+    "scripts/cloud/github_cicd_init.sh": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0eaf7606aa9bc5f6ecf0e0cae5bdf1354ad7869b958e8b20372121db92db4d34"
+    },
+    "scripts/cloud/push_image.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "bc30e06dfb26790ac9602ecf1a7519dce4355666f8412202275da59b1e6b607a"
+    },
+    "scripts/dast/plan.yaml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "71ac7561f137cf5cf6612221d93d771a7db353500f97930e9c0bb9535bed60c2"
+    },
+    "scripts/dast/run.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6ee46569d75c0791ef1ddf3619500017fa85fd1239ae68955d5e334777d25c02"
+    },
+    "scripts/deploy.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d33c568ad93ff32cc20a74124ff8b6015255c5cceca269d47ed1c0d9ae4f30a2"
+    },
+    "scripts/local/run.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "54e704f7264ca0d183323211b4be547989cad351ec7c26aedb0e36d198bbe34c"
+    },
+    "scripts/mutation.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ff1e087f7bc962be937040caf9577efe28d92b5efe82aa7cd89c82e5bcbc4eba"
+    },
+    "uv.lock": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d73022b5375cd84c35c9b64c2e72213fb702386d6f0ccd4a40f6d23f81f941c2"
+    },
+    "zensical.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "37cfc4ecddb0269ae3a70d519356971e0d356ad0a5fcd3756ef684b5334cd987"
+    }
+  }
+}

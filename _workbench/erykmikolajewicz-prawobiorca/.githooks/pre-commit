@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACMR)
+
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+changed() {
+  echo "$staged_files" | grep -qE "$1"
+}
+
+if changed '\.py$|ruff\.toml$|pyproject\.toml$'; then
+  uv run ruff check . --fix
+  uv run ruff format
+  uv run complexipy .
+fi
+
+if changed '^apps/core/'; then
+  just lint-imports-backend
+  just type-check-backend
+fi
+
+if changed '^scripts/|^pyproject\.toml$'; then
+  just type-check-scripts
+fi
+
+if changed '^apps/extraction/'; then
+  just type-check-extraction
+fi
+
+if changed '^apps/core/src/'; then
+  just api-types
+  git add apps/core/openapi.json apps/web/src/api/generated
+fi
+
+if changed '^apps/web/'; then
+  (cd apps/web && pnpm format && pnpm exec run-s check:oxlint check:stylelint check:knip)
+fi
+
+if changed '^\.github/'; then
+  just check-workflows
+fi
+
+if changed 'Containerfile$|^\.hadolint\.yaml$'; then
+  just check-containers
+fi
+
+if changed '^deploy/|^scripts/deploy\.py$|^\.checkov\.yaml$'; then
+  just check-deployment
+fi
+
+echo "$staged_files" | xargs git add --

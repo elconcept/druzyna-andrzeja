@@ -1,0 +1,105 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import axios from 'axios'
+import { downloadFromStorage, uploadFileToStorage } from '@/utils/storage'
+
+vi.mock('axios', () => ({
+  default: {
+    post: vi.fn(),
+  },
+}))
+
+describe('storage utils', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  afterEach(() => {
+    vi.unstubAllEnvs()
+  })
+
+  it('uploadFileToStorage posts FormData to target url', async () => {
+    vi.mocked(axios.post).mockResolvedValueOnce({ status: 204 })
+    const target = {
+      id: 'uuid-123',
+      url: 'https://storage.example.com/upload',
+      fields: { 'X-Amz-Signature': 'sig', key: 'reg.pdf' },
+    }
+    const file = new File(['content'], 'test.pdf', { type: 'application/pdf' })
+    await uploadFileToStorage(target, file)
+
+    expect(axios.post).toHaveBeenCalledTimes(1)
+    const [url, formData] = vi.mocked(axios.post).mock.calls[0] ?? []
+    expect(url).toBe('https://storage.example.com/upload')
+    expect(formData).toBeInstanceOf(FormData)
+    expect((formData as FormData).get('key')).toBe('reg.pdf')
+    expect((formData as FormData).get('X-Amz-Signature')).toBe('sig')
+    expect((formData as FormData).get('file')).toEqual(file)
+  })
+
+  it('uploadFileToStorage limits upload time and forwards the abort signal', async () => {
+    vi.mocked(axios.post).mockResolvedValueOnce({ status: 204 })
+    const target = { id: 'uuid-123', url: 'https://storage.example.com/upload', fields: {} }
+    const { signal } = new AbortController()
+
+    await uploadFileToStorage(target, new File(['content'], 'test.pdf'), signal)
+
+    const [, , config] = vi.mocked(axios.post).mock.calls[0] ?? []
+    expect(config).toEqual({ timeout: 300_000, signal })
+  })
+
+  it('uploadFileToStorage rewrites the dev storage origin to /storage', async () => {
+    vi.stubEnv('VITE_DEV_STORAGE_ORIGIN', 'http://localhost:9000')
+    vi.mocked(axios.post).mockResolvedValueOnce({ status: 204 })
+    const target = {
+      id: 'uuid-123',
+      url: 'http://localhost:9000/regulations',
+      fields: { 'X-Amz-Signature': 'sig', key: 'reg.pdf' },
+    }
+    const file = new File(['content'], 'test.pdf', { type: 'application/pdf' })
+    await uploadFileToStorage(target, file)
+
+    expect(axios.post).toHaveBeenCalledTimes(1)
+    const [url] = vi.mocked(axios.post).mock.calls[0] ?? []
+    expect(url).toBe('/storage/regulations')
+  })
+
+  it('uploadFileToStorage keeps the url when dev storage origin is not set', async () => {
+    vi.stubEnv('VITE_DEV_STORAGE_ORIGIN', '')
+    vi.mocked(axios.post).mockResolvedValueOnce({ status: 204 })
+    const target = {
+      id: 'uuid-123',
+      url: 'http://localhost:9000/regulations',
+      fields: {},
+    }
+    await uploadFileToStorage(target, new File(['content'], 'test.pdf'))
+
+    const [url] = vi.mocked(axios.post).mock.calls[0] ?? []
+    expect(url).toBe('http://localhost:9000/regulations')
+  })
+
+  it('uploadFileToStorage keeps a url from another origin than dev storage', async () => {
+    vi.stubEnv('VITE_DEV_STORAGE_ORIGIN', 'http://localhost:9000')
+    vi.mocked(axios.post).mockResolvedValueOnce({ status: 204 })
+    const target = { id: 'uuid-123', url: 'https://storage.example.com/upload', fields: {} }
+
+    await uploadFileToStorage(target, new File(['content'], 'test.pdf'))
+
+    const [url] = vi.mocked(axios.post).mock.calls[0] ?? []
+    expect(url).toBe('https://storage.example.com/upload')
+  })
+
+  it('downloadFromStorage opens the file url and leaves no link in the document', () => {
+    vi.stubEnv('VITE_DEV_STORAGE_ORIGIN', 'http://localhost:9000')
+    const clickedUrls: Array<string> = []
+    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementationOnce(function (
+      this: HTMLAnchorElement,
+    ) {
+      clickedUrls.push(this.getAttribute('href') ?? '')
+    })
+
+    downloadFromStorage('http://localhost:9000/applications/wniosek.docx')
+
+    expect(clickedUrls).toEqual(['/storage/applications/wniosek.docx'])
+    expect(document.querySelector('a')).toBeNull()
+  })
+})

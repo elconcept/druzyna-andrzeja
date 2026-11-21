@@ -1,0 +1,68 @@
+[project]
+site_name = "Prawobiorca developer documentation"
+site_description = "Basic information about the architecture of the Prawobiorca application, its tests, and CI/CD"
+site_author = "Eryk Antoni Mikołajewicz"
+nav = [
+    {"Home" = "index.md"},
+    {"Application logic" = "app_logic.md"},
+    {"Workflow" = "workflow.md"},
+    {"CI/CD" = "ci_cd.md"},
+    {"Application architecture" = [
+        {"General information" = "architecture/architecture.md"},
+        {"Backend" = [
+            {"General information" = "architecture/backend.md"},
+            {"AI / LLM Service" = "ai.md"},
+            {"Library Overview" = "architecture/libraries.md"},
+            {"Legal documents parsing" = "architecture/legal_documents_parsing.md"}
+        ]},
+        {"Frontend" = "architecture/frontend.md"},
+        {"Coding Rules" = "architecture/coding_rules.md"},
+        {"External services" = "architecture/external_services.md"}
+    ]},
+  {"Tests" = [
+    {"General information" = "tests/tests.md"},
+    {"Backend unit tests" = "tests/backend_unit.md"},
+    {"Integration tests" = "tests/integration.md"},
+    {"Frontend tests" = "tests/frontend.md"},
+    {"Mutation tests" = "tests/mutation.md"},
+    {"E2E tests" = "tests/e2e.md"},
+    {"Manual E2E test" = "tests/manual_e2e_test.md"}
+  ]}
+]
+
+[project.plugins.search]
+
+
+[project.theme.classic]
+[project.theme]
+variant = "classic"
+name = "material"
+language = "en"
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "indigo"
+accent = "indigo"
+media = "(prefers-color-scheme: light)"
+
+[project.theme.palette.toggle]
+icon = "material/weather-night"
+name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "blue"
+accent = "orange"
+media = "(prefers-color-scheme: dark)"
+
+[project.theme.palette.toggle]
+icon = "material/weather-sunny"
+name = "Switch to light mode"
+
+
+[project.markdown_extensions.attr_list]
+
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+    { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
