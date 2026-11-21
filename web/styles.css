@@ -131,3 +131,15 @@ footer a{text-decoration:underline}
 .code-view pre{padding:18px;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;white-space:pre;overflow:auto;flex:1;margin:0;color:#284052;tab-size:2}
 .code-empty{padding:15px;color:#637f8a;font-size:12px}
 @media(max-width:760px){.code-dialog{padding:0}.code-panel{height:100dvh;border-radius:0}.code-content{grid-template-columns:1fr;grid-template-rows:minmax(190px,38%) minmax(0,62%)}.code-sidebar{border-right:0;border-bottom:1px solid #d6e1e5}.code-top{padding:13px 17px}.code-actions{gap:12px;padding:8px 13px}}
+
+
+/* Benchmarks: real readiness, no fabricated scores */
+.benchmarks-strip{max-width:1540px;margin:0 auto;padding:45px clamp(18px,5vw,80px) 0}
+.benchmark-panel{margin-top:14px;padding:25px;background:#fff;border:1px solid #dde7e9;border-radius:14px;display:flex;justify-content:space-between;gap:28px;align-items:center;box-shadow:0 2px 14px #132c4010}
+.benchmark-panel h2{font-size:clamp(22px,2.2vw,30px);margin:0 0 9px}
+.benchmark-panel p{color:#5a6c7a;font-size:13px;max-width:740px;line-height:1.7}
+.bench-labels{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.bench-labels span{background:#f1f5f7;border:1px solid #e3e9ec;color:#53717e;padding:5px 9px;font-size:11px;border-radius:6px;font-weight:650}
+.bench-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:235px}
+.bench-actions a{color:#17766c;font-weight:800;font-size:12px}
+@media(max-width:760px){.benchmark-panel{flex-direction:column;align-items:flex-start;padding:20px}.bench-actions{min-width:0}}
