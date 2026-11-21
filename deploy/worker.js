@@ -4,13 +4,14 @@
  * An explicit path allowlist prevents an open proxy.
  */
 const ORIGIN = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/main";
-const REVISION = "pl-20261121-r4";
+const REVISION = "pl-20261121-r5";
 const MIN_PL_CATALOG_DATE = "2026-11-21T03:02:13Z";
 const LAST_GOOD_CATALOG = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/723ea9b67379eac7f6e8718aa1bcf53cdc51f4ef/catalog/proposals.json";
 const ASSETS = Object.freeze({
   "/": ["/web/index.html", "text/html; charset=utf-8"],
   "/index.html": ["/web/index.html", "text/html; charset=utf-8"],
   "/app.js": ["/web/app.js", "application/javascript; charset=utf-8"],
+  "/browser.js": ["/web/browser.js", "application/javascript; charset=utf-8"],
   "/styles.css": ["/web/styles.css", "text/css; charset=utf-8"],
   "/data/proposals.json": ["/catalog/proposals.json", "application/json; charset=utf-8"],
 });
