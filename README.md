@@ -26,3 +26,18 @@ Lokalnie: `./bootstrap.sh` odtwarza wersje przypięte w submodułach, a `./boots
 Zmiany w `_workbench/` są zachowywane: synchronizator zmienia tylko pliki identyczne z poprzednią wersją upstream. Zachowuje także lokalne usunięcia i nie nadpisuje kolizji. Konflikty są wypisywane w `_sync/last-run.md`. Aktualizacje nie dokonują automatycznych merge'y.
 
 Usunięcie repozytorium z listy przestaje je synchronizować, usuwa submoduł `_vendor/` i **pozostawia `_workbench/`**, aby nie utracić pracy. Upstream może mieć dodatkowe wymagania licencyjne; przed publiczną redystrybucją trzeba je uwzględnić.
+
+
+## Katalog propozycji — dan.xlap.pl
+
+- **catalog/feeds.toml** — lista katalogów zewnętrznych w TOML. Aktualnie importuje Vaquill-AI/awesome-legaltech. Zmiana tej listy nie dodaje submodułów.
+- **scripts/catalog.py** — import pozycji z README, łączenie powtórzonych URL i pobieranie metryk GitHub: gwiazdek, contributorów, otwartych PR, ostatnich commitów, forków i stanu archiwizacji.
+- **catalog/proposals.json** — automatycznie generowany snapshot. Nie edytować ręcznie.
+- **web/** — interfejs do wyszukiwania, tagowania, filtrowania i sortowania propozycji.
+- **.github/workflows/catalog.yml** — automatyczne odświeżanie co sześć godzin, testy, zapis snapshotu i publikacja w GitHub Pages.
+
+**Zatwierdzanie:** wybierz przy repozytorium GitHub „Kopiuj wpis TOML”, wklej do [sources.toml](https://github.com/elconcept/druzyna-andrzeja/edit/main/sources.toml) i zatwierdź commit. Dopiero istniejący workflow sync.yml doda je do katalogów _vendor i _workbench. Strona publiczna nie może modyfikować sources.toml i nie ma dostępu do tokenu GitHub. Linki spoza GitHub pozostają propozycjami informacyjnymi, nie są automatycznie submodułami.
+
+**Publikacja:** workflow próbuje włączyć GitHub Pages i ustawić domenę dan.xlap.pl przez Pages API. W DNS potrzebny jest CNAME dan → elconcept.github.io. Jeżeli domena nie zostanie ustawiona automatycznie, sprawdź Settings → Pages → Custom domain w repozytorium. W publikacji przez Actions plik CNAME sam nie ustawia domeny.
+
+**Test parsera:** python3 -m unittest discover -s tests -p 'test_catalog.py' -v.
