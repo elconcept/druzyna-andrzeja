@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "jurisdiction": "PL",
-  "generated_at": "2026-11-21T03:30:56Z",
+  "generated_at": "2026-11-21T03:34:33Z",
   "feeds": [
     {
       "name": "polskie-legaltech-otwarte",
@@ -18,7 +18,7 @@
   ],
   "count": 250,
   "github_count": 98,
-  "approved_count": 0,
+  "approved_count": 1,
   "proposals": [
     {
       "category": "Narzędzia i skille prawnicze",
@@ -745,7 +745,7 @@
       "github": true,
       "source": "polskie-legaltech-otwarte",
       "source_line": 71,
-      "approved": false,
+      "approved": true,
       "metrics": {
         "stars": 8,
         "forks": 8,
