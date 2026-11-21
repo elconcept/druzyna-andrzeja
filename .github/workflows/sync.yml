@@ -1,0 +1,55 @@
+name: Synchronizacja upstream
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - sources.toml
+      - bootstrap.sh
+      - scripts/**
+      - .github/workflows/sync.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upstream-sync-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sprawdź konfigurację i zaktualizuj źródła oraz kopie robocze
+        env:
+          GIT_TERMINAL_PROMPT: '0'
+        run: ./bootstrap.sh --refresh
+      - name: Zapisz raport w podsumowaniu zadania
+        if: always()
+        run: |
+          if [ -f _sync/last-run.md ]; then cat _sync/last-run.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - name: Commit i push, jeżeli upstream się zmienił
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- .gitmodules _vendor _sync
+          for folder in _workbench _licenses; do
+            if [ -d "$folder" ]; then git add -A -- "$folder"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: sync upstream sources and workbench'
+            git push origin HEAD:main
+          else
+            echo 'Brak zmian.'
+          fi

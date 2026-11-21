@@ -1,0 +1,16 @@
+# Jedyna lista źródeł. Jeden blok [[repo]] = jedno repozytorium upstream.
+# Nazwa określa katalogi _vendor/<name> i _workbench/<name>.
+# Źródła muszą być publicznymi repozytoriami HTTPS (bez tokenów w URL).
+# Pole branch jest opcjonalne: bez niego śledzona jest domyślna gałąź upstream.
+#
+# [[repo]]
+# name = "patron"
+# url = "https://github.com/matematicsolutions/patron.git"
+# branch = "main"
+#
+# [[repo]]
+# name = "repertorium"
+# url = "https://github.com/matematicsolutions/repertorium.git"
+# branch = "main"
+
+version = 1
