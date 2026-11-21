@@ -1,0 +1,229 @@
+{
+  "licenses": {
+    "LICENSE": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "04ee82abf039fe5787d0f76cdadb478b16c462aaa015d7c97e39d19f32eb0da9"
+    }
+  },
+  "revision": "b6113a56d0cf8ea97f1a490bdd5494bd65fd1cba",
+  "url": "https://github.com/apiotrowski-afk/legal-cite-pl.git",
+  "version": 1,
+  "workbench": {
+    "Dockerfile": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9b3db09d0ece0ac0b2a3df05312f72ee78367e76c9d97f11bb7db6a144b89658"
+    },
+    "README.md": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "cdf4e5c15e20055360bcdb84851cee4e7db6c5b183f185283678ce2ba908289e"
+    },
+    "legal_cite/__init__.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ae97f72b51b722f3ed5c0c53a2cb53b70577eac36c65a14b4f3796b816cf4750"
+    },
+    "legal_cite/core.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6a5308ad9d9c34cf8ece7e5ca26d994f96177f4cf1e3b6fc9d37cbf80fa87fb7"
+    },
+    "legal_cite/na_dzien.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "62b32613cf2744b4ed1ec11725e73b6ecf3d7a62e35be179ba38ffd4400e1c4d"
+    },
+    "legal_cite/pdf_tj.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5520bbe881c7e04f7aa47ee84fb3cc112365edb40b548913d42321eaab8d1aae"
+    },
+    "legal_cite/rozgrzewka.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4188ce37284444400be49e4df846045c16a51b141f557304cbd96dbf1b3c25f5"
+    },
+    "legal_cite/server.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5d6ba61429b5ca38a97168daaec023ffa67bb86d6df00d3fdc73ef24b117f969"
+    },
+    "pyproject.toml": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4deb8b023f6be62b770fde8b3f52ba066aedd66465d202233ef5daae40b2e608"
+    },
+    "testy/adres_dzu.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3742d9dba27a577a3cfa9f30991b4c3d6f636930540c1cd5c60d43030afdaaab"
+    },
+    "testy/akt_jednorazowy.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e04a97d0d1492a88bda9202b7aef2c4fadd2a84f276b2f9a79287ae968d362b4"
+    },
+    "testy/awaria_api.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8f991483a18aa4e57908ffac17a9031cc1b97909cbcae60976d529ae6cf5ddf0"
+    },
+    "testy/awaria_html_pdf.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "0bb51887e545501c1093a938b2dd3e3b0d7fe404f1c504e7ebda4dbb21df50c2"
+    },
+    "testy/daty.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4c324352fb4f279243b7660d41d3dbc3c7baf779cef5aa0a600cdff077f2772b"
+    },
+    "testy/eu_skonsolidowane.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c529c97dc1f6c7a370e652ae44fbb22e6ad37fd8abb4e361c932f97f6d03d995"
+    },
+    "testy/gcs_cache.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a97c646cf09c8299a4c126066c4faad7e26401d86453ebe2aec49e18b94e8212"
+    },
+    "testy/granica_artykulu.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "560d9e4ee1ba2c1e9446758cceef75219908c2bd4952edb2f2821f7e94148f2a"
+    },
+    "testy/indeks_litera.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "31ea068e9b2ff488602a7554d3ac8ceca45a7051c078d38699d4ea882e7cf3e3"
+    },
+    "testy/indeks_paragrafu.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5418775a003ca2acd182a787bbeedbe82ae90b41319802d9caf0a2d3cc3a8783"
+    },
+    "testy/konstytucja.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e65da812b8b93e99dc89bf46e3bad2e5a7847b949194bd192e33b38201bf2ba0"
+    },
+    "testy/krzyzowa.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "9945f2c20eefd256e1c5d857c7a7e9421006e9fcdd2129f2db17dfe0ee6f0b1e"
+    },
+    "testy/monitor_polski.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f76cdc81f7214edd32e2dc70cd57b6ee62af19a5e88d739ddec04c8fbd5f8ab9"
+    },
+    "testy/na_dzien.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "caaf7ac87187f043cb9097c6f272fa439292f229114faaffa87168f86ec6ef11"
+    },
+    "testy/naglowek_oddzialu.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "109a7b66292fd77b2fb5b85510fe86c6dbad1ffdf467b3728cc61ddc438662b5"
+    },
+    "testy/nowelizacje.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d16a5fd56e1f2e8ab21145b54280b1fc3ea1827862ab936938f562438151883b"
+    },
+    "testy/numery.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fcc35ea991960c5443eb7c8e2341b851a99c55b38c8f5f1eb56d15e9abd2d7a9"
+    },
+    "testy/odeslanie_na_koncu.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2e80ca00cebdf053d735fd3c1ed399c6d187f6e3fe1084beed1a92ad4ad131c0"
+    },
+    "testy/pdf_wiernosc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "39237b7e01c61c1d35cf3205ddadd461330cb2de15d8ff326ec1d2be7f2ee3c4"
+    },
+    "testy/podjednostki.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "70a3d2850a5be56a61db7fbeb192e6f1c13523c59908be25857091b9977069a3"
+    },
+    "testy/pokrycie.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d9aa7be7ba8d5f1e85cfbd92a6ebe0d1c56e93f02b354a662bb2ef34234da53d"
+    },
+    "testy/pokrycie_proba.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "95970944766d7c99893ba222d59ab55b09b8e1c4b0af82e65c1260d75e084fff"
+    },
+    "testy/pokrycie_ue.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3235f9562f0b1a49d9590c9c874275d4351414bca16d672ba38597dc79d9ae11"
+    },
+    "testy/przeglad_astra.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f52eaf4e377c85e3ecaf6660b177bc0e8af11b7ea155a82a1d86d05b4cab179e"
+    },
+    "testy/przyszle.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e7bd2fe564c012f70d8b3b2f22be4557aa1104e2f610297be51539e68530ce18"
+    },
+    "testy/rozporzadzenie_tytul.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "be53d0dee22d651ec5edeca454a4a3cc93b46ac94a862b53addd38877f9d1d29"
+    },
+    "testy/stres_astra.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "38d61948035ddd3a027141f8e7c7755e36896289f09fc654764bd2865238da7a"
+    },
+    "testy/uchylenie_jednostki.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f07bed1b9a913fecfa3ac0762ef8d10d3ca53a8a1c54c51c81a0a7adf61af1b8"
+    },
+    "testy/ue_dowolny_akt.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3ae6e379012a6495ee7bd51f8c1d9eaac39f0cf7b48826c8a1244fda21faeee0"
+    },
+    "testy/ue_na_dzien.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "28b1cebff9863a0a09fe12c18c1ec13eed2e2e71274cea7f5cccb6dbf2f53838"
+    },
+    "testy/unnc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c8c9c4be3677a020e7a18317b70e5331a3b05c437787b65186971a538495014c"
+    },
+    "testy/wady_html_eli.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "515b427164fdb2ce2bf648843c96b1dd4895300a9fa901a92950198682eab54d"
+    },
+    "testy/wiernosc_warstwy.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "271aaaa5b830f5311f617e64579673278135e2799f3ce038e1cd77ec9f521abf"
+    },
+    "testy/zdania_dwa_brzmienia.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "976fff786aef4f24dd96167d77f6ce335190547c5543897fb58113a61ff3e357"
+    }
+  }
+}

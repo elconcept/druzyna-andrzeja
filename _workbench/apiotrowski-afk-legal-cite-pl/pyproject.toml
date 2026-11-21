@@ -1,0 +1,28 @@
+[project]
+name = "legal-cite"
+version = "0.1.0"
+description = "MCP server: weryfikacja brzmienia przepisu PL/UE z oficjalnego źródła (api.sejm.gov.pl, EUR-Lex)"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2,<2",
+    "httpx>=0.27",
+    # konwerter PDF→Markdown dla tekstów jednolitych bez HTML; wersja PRZYPIĘTA,
+    # bo od niej zależy powtarzalność odczytu (klucz cache = sha PDF + wersja)
+    "eli2md @ git+https://github.com/PolskiAgentW/eli2md@v0.6.70",
+]
+
+[project.optional-dependencies]
+# trwały cache konwersji PDF w Cloud Storage (LEGAL_CITE_GCS_BUCKET); bez niego
+# narzędzie działa tak samo, tylko konwertuje od nowa na każdej nowej instancji
+gcs = ["google-cloud-storage>=2.10"]
+
+[project.scripts]
+legal-cite = "legal_cite.server:main"
+legal-cite-rozgrzewka = "legal_cite.rozgrzewka:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["legal_cite"]

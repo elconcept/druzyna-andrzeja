@@ -1,0 +1,827 @@
+"""Teksty jednolite dostępne tylko w PDF — nieurzędowy odczyt z urzędowego PDF.
+
+Od 2025 r. API ELI Sejmu nie publikuje HTML dla aktów Dziennika Ustaw, więc
+najnowsze teksty jednolite kodeksów są wyłącznie w PDF. Ten moduł pobiera
+urzędowy PDF, konwertuje go u siebie konwerterem eli2md (przypięta wersja,
+pdfplumber) i wycina artykuł z drzewa jednostek redakcyjnych. Wynik jest
+NIEURZĘDOWYM odczytem: wiążący pozostaje PDF, a odczyt przechodzi kontrole,
+zanim narzędzie go odda — przy wątpliwości wolimy odmówić niż podać treść.
+
+Kontrole wierności odczytu (czy konwersja oddaje dokument):
+  1. struktura — nagłówki artykułów idą w kolejności rosnącej, artykuł jest
+     węzłem drzewa, a nie tekstem cytowanym w przepisie przejściowym;
+  2. warstwa tekstowa PDF — tekst artykułu musi być uporządkowanym podciągiem
+     słów odczytanych z tego samego PDF drugim, niezależnym czytnikiem
+     (poppler/pdftotext; eli2md czyta przez pdfminer), a słowa pominięte przez
+     konwerter w obrębie artykułu muszą w tym miejscu tworzyć nagłówek strony
+     albo cały przypis;
+  3. starszy tekst jednolity w HTML — źródło urzędowe i niezależne od PDF:
+     artykuł identyczny potwierdza odczyt; różny musi mieć wytłumaczenie
+     (odnośnik przy jednostce albo nowelizacja między datami obu tekstów).
+
+Aktualność prawna to osobna ocena od wierności: poprawnie odczytany tekst
+jednolity może już wymagać uwzględnienia nowelizacji ogłoszonych po nim.
+"""
+from __future__ import annotations
+
+import asyncio
+import bisect
+import dataclasses
+import datetime as _dt
+import hashlib
+import logging
+import os
+import pathlib
+import re
+import shutil
+import subprocess
+import tempfile
+import unicodedata
+
+import httpx
+
+logger = logging.getLogger(__name__)
+
+BASE = "https://api.sejm.gov.pl/eli/acts"
+_HEADERS = {"User-Agent": "legal-cite/0.1 (+https://github.com/apiotrowski-afk/legal-cite-pl)"}
+
+# Katalog na pobrane PDF-y i wyniki konwersji. Konwersja kodeksu trwa od 30 s
+# (k.c.) do ponad minuty (k.p.c.), więc wynik trzymamy na dysku, pod kluczem
+# z sumy PDF i wersji konwertera — zmiana jednego lub drugiego unieważnia cache.
+CACHE_DIR = pathlib.Path(os.environ.get("LEGAL_CITE_CACHE")
+                         or pathlib.Path(tempfile.gettempdir()) / "legal-cite")
+
+# Największa dopuszczalna przerwa (w słowach) między kolejnymi słowami artykułu
+# w warstwie tekstowej PDF: nagłówek strony i przypisy u jej dołu rozdzielają
+# treść artykułu, ale nie o więcej niż kilkaset słów (długie przypisy
+# z adresami Dz.Urz. UE sięgają kilkuset).
+_MAX_PRZERWA = 1500
+# Słowa warstwy tekstowej pominięte przez konwerter w obrębie artykułu, których
+# nie tłumaczą nagłówki stron, przypisy ani numery odnośników.
+_MAX_NIEWYJASNIONE = 0
+
+
+def wersja_konwertera() -> str:
+    try:
+        from importlib.metadata import version
+        return f"eli2md {version('eli2md')} / pdfplumber {version('pdfplumber')}"
+    except Exception:
+        return "eli2md (wersja nieznana)"
+
+
+def wersja_pdftotext() -> str | None:
+    if not shutil.which("pdftotext"):
+        return None
+    try:
+        out = subprocess.run(["pdftotext", "-v"], capture_output=True, text=True, timeout=10)
+        m = re.search(r"pdftotext version (\S+)", out.stderr + out.stdout)
+        return f"pdftotext {m.group(1)}" if m else "pdftotext"
+    except Exception:
+        return "pdftotext"
+
+
+def konwerter_dostepny() -> bool:
+    try:
+        import eli2md.pdf  # noqa: F401
+        import eli2md.tree  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+
+# --- normalizacja tekstu do porównań --------------------------------------
+
+def _indeks(ch: str) -> bool:
+    """Czy znak jest cyfrą lub literą w indeksie górnym (²,ᵃ)."""
+    if ch.isascii():
+        return False
+    n = unicodedata.normalize("NFKC", ch)
+    return n != ch and n.isalnum()
+
+
+OPC = "\x01"  # znacznik słowa opcjonalnego (indeks górny numeru jednostki)
+
+
+def _rozdziel_indeksy(s: str) -> str:
+    """„22¹ᵃ” → „22 \x011a”: indeks staje się osobnym słowem (w druku 2026 r.
+    „22[1a]”), oznaczonym jako opcjonalne — pdftotext gubi indeks złożony
+    prawdziwym pismem górnym („Art. 18 .” zamiast „Art. 18⁴.”), więc jego brak
+    w warstwie tekstowej nie może przesądzać o odmowie."""
+    out, poprzedni = [], False
+    for ch in s:
+        jest = _indeks(ch)
+        if jest and not poprzedni:
+            out.append(" " + OPC)
+        out.append(unicodedata.normalize("NFKC", ch) if jest else ch)
+        poprzedni = jest
+    return "".join(out)
+
+
+_PRZYPIS_RE = re.compile(r"\[\^([^\]\s]+)\]")
+_NOTKA_RE = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+⁾")
+# etykieta odnośnika redakcyjnego „I)” (t.j.: „1)I) Niniejsza ustawa…”, „I) Odnośnik dodany
+# przez…”): pdftotext wypisuje ją osobno, a jako słowo „i” nie była pomijana przy porównaniu
+# z warstwą — odmowa dla artykułów ze strony z tym odnośnikiem (O.p. art. 3; #6, propozycja
+# @PolskiAgentW: 491 t.j. 2025–2026 bez HTML, odmów 341 → 313, nowych 0)
+# Tylko w pozycji etykiety — po numerze odnośnika („1)I)”), po „⁾”, na początku wiersza
+# albo przypisu („[^1]: I) Niniejsza…”, „…2023). I) Odnośnik…”) i przed wielką literą lub
+# cyfrą; w treści („załącznik I) rozporządzenia”) liczba rzymska zostaje, bo inaczej
+# zmiana „I” → „II” przechodziłaby porównanie jako identyczna (przegląd Astry).
+_RZYMSKA_ETYKIETA_RE = re.compile(
+    r"(?:(?<=\d\))|(?<=⁾)|(?<=[.:)]\s)|^)[ \t]*[IVX]{1,4}\)(?=\s+[A-ZĄĆĘŁŃÓŚŹŻ\d])", re.M)
+_SLOWO_RE = re.compile(r"\x01?[^\W_]+", re.UNICODE)
+_LITERA_CYFRA_RE = re.compile(r"(?<=[^\W\d_])(?=\d)", re.UNICODE)
+
+
+def tokeny(s: str, opcjonalne: bool = False) -> list[str]:
+    """Słowa do porównań: bez odnośników, NFKC, małe litery, same znaki
+    alfanumeryczne. Cyfra doklejona do litery („zdrowotnej44” — numer
+    odnośnika bez odstępu) to osobne słowo. Z opcjonalne=True słowa z indeksu
+    górnego zaczynają się znacznikiem OPC."""
+    s = _PRZYPIS_RE.sub(" ", s)
+    s = _NOTKA_RE.sub(" ", s)
+    s = _RZYMSKA_ETYKIETA_RE.sub(" ", s)
+    s = _rozdziel_indeksy(s)
+    s = unicodedata.normalize("NFKC", s).lower()
+    s = _LITERA_CYFRA_RE.sub(" ", s)
+    # „\x01§ 1” → znacznik przechodzi na słowo „1”, znak § i tak wypada
+    s = re.sub(r"\x01([\W_]+)", lambda m: m.group(1) + OPC, s)
+    out = _SLOWO_RE.findall(s)
+    return out if opcjonalne else [t.lstrip(OPC) for t in out]
+
+
+def _tokeny_pdftotext(raw: str) -> list[str]:
+    # łamanie wyrazu na końcu wiersza: „wynagro-\ndzenia” → „wynagrodzenia”
+    raw = re.sub(r"(\w)-\n(?=[a-ząćęłńóśźż])", r"\1", raw)
+    return tokeny(raw)
+
+
+# --- drzewo jednostek z Markdown eli2md -----------------------------------
+
+@dataclasses.dataclass
+class Jednostka:
+    num: str                 # numer w zapisie źródła: „18³ᵈ”, „36a”
+    klucz: str               # zapis kanoniczny jak w data-id HTML: „18_3d”, „36a”
+    tekst: str               # tekst artykułu: tylko obowiązujące brzmienia podjednostek (ze znacznikami OPC)
+    odnosniki: list[str]     # numery przypisów przy tej jednostce
+    data: _dt.date | None    # od kiedy obowiązuje to brzmienie (z odnośnika), gdy znana
+    pelny: str = ""          # tekst ze WSZYSTKIMI wydrukowanymi brzmieniami — do kontroli wierności
+    uwagi: list = dataclasses.field(default_factory=list)  # wybór brzmień podjednostek
+    niejednoznaczne: bool = False  # kilka brzmień podjednostki bez czytelnej daty
+    wlasny_odnosnik: str | None = None  # odnośnik przy samym oznaczeniu artykułu
+
+    def czysty(self) -> str:
+        """Tekst do pokazania: bez znaczników opcjonalności."""
+        return self.tekst.replace(OPC, "")
+
+
+def kanon_md(num: str) -> str | None:
+    """„18³ᵈ” → „18_3d”, „5[1q]” → „5_1q”, „36a” → „36a”, „59aa” → „59aa”,
+    „22” → „22”."""
+    m = re.match(r"^(\d+)([a-ząćęłńóśźż]*)(.*)$", num.strip())
+    if not m:
+        return None
+    reszta = m.group(3).replace("[", "").replace("]", "").strip(". ")
+    idx = unicodedata.normalize("NFKC", reszta).lower()
+    if idx and not re.fullmatch(r"\d+[a-ząćęłńóśźż]*", idx):
+        return None
+    return m.group(1) + m.group(2) + (f"_{idx}" if idx else "")
+
+
+# Etykiety jednostek niższych niż artykuł są w tekście do porównań opcjonalne
+# (znacznik OPC): pdftotext wypisuje numery punktów osobno od ich treści, więc
+# w warstwie tekstowej stoją w innym miejscu niż w odczycie.
+_ETYKIETY = {"art": "Art. {n}.", "par": OPC + "§ {n}.", "ust": OPC + "{n}.",
+             "pkt": OPC + "{n})", "lit": OPC + "{n})", "tir": "–"}
+# Nagłówek jednostki systematyzującej („DZIAŁ PIĄTY”, „CZĘŚĆ PIERWSZA POSTĘPOWANIE
+# ROZPOZNAWCZE”, „Rozdział I”), który konwerter potrafi przypisać jako tekst do
+# poprzedzającego go artykułu — zwłaszcza po „(uchylony)”. Od niego w dół nic
+# już nie należy do artykułu.
+_NAGLOWEK_RE = re.compile(
+    r"^(?:(?:DZIAŁ|ROZDZIAŁ|ODDZIAŁ|TYTUŁ|KSIĘGA|CZĘŚĆ)\s+[A-ZĄĆĘŁŃÓŚŹŻIVXLC\d]+\b"
+    r"|(?:Dział|Rozdział|Oddział|Tytuł|Księga|Część)\s+(?:[IVXLC]+|\d+[a-z]?)\b\.?\s*$)")
+
+
+_PODJEDNOSTKI = {"par": "§", "ust": "ust.", "pkt": "pkt", "lit": "lit."}
+_WLASNY_RE = re.compile(r"\s*(?:\(\s*\w+(?:\s+\w+)?\s*\)\s*)?\[\^([^\]\s]+)\]")
+
+
+def _wlasny_odnosnik(node: dict) -> str | None:
+    """Numer odnośnika stojącego przy samym oznaczeniu jednostki („2c)[^27]
+    przeciwdziałać…”, „(uchylony)[^68]”) — a nie gdziekolwiek w jej treści ani
+    w podjednostkach."""
+    m = _WLASNY_RE.match(node.get("text") or "")
+    return m.group(1).split("_")[0] if m else None
+
+
+def _wybierz_dzieci(dzieci: list[dict], wyb: dict) -> list[dict]:
+    """Zostawia obowiązujące brzmienie podjednostki drukowanej kilka razy.
+
+    Tekst jednolity drukuje czasem dwa brzmienia tego samego paragrafu albo
+    ustępu: dotychczasowe (odnośnik „obowiązuje do wejścia w życie zmiany…”) i
+    nowe („wejdzie w życie z dniem…”). Art. 131¹ᵃ § 1 k.p.c. w t.j. 2026: do
+    31.05.2026 i od 1.06.2026. Rozstrzyga data z odnośnika przy jednostce.
+
+    Pomija też podjednostkę wydrukowaną raz, ale dodaną nowelizacją, która
+    jeszcze nie weszła w życie (art. 94 pkt 2c k.p. w t.j. 2026: od 5.11.2026)."""
+    from legal_cite.core import (_data_wejscia, _jeszcze_nie, _uwaga_pominieta,
+                                 _wybierz_brzmienie)
+
+    # brzmienia tej samej jednostki stoją bezpośrednio po sobie
+    grupy: list[tuple[tuple, list[int]]] = []
+    for i, ch in enumerate(dzieci):
+        if ch.get("type") not in _PODJEDNOSTKI:
+            continue
+        k = (ch["type"], str(ch.get("num")))
+        if grupy and grupy[-1][0] == k and grupy[-1][1][-1] == i - 1:
+            grupy[-1][1].append(i)
+        else:
+            grupy.append((k, [i]))
+    pomin: set[int] = set()
+    for (typ, num), idx in grupy:
+        if len(idx) < 2:
+            stan = _jeszcze_nie(wyb["przypisy"], _wlasny_odnosnik(dzieci[idx[0]]), wyb["dzis"])
+            if stan and stan[1]:
+                pomin.add(idx[0])
+                wyb["uwagi"].append(_uwaga_pominieta(f"{_PODJEDNOSTKI[typ]} {num}", stan[0]))
+            elif stan:
+                wyb["niejednoznaczne"] = True
+                wyb["uwagi"].append(f"{_PODJEDNOSTKI[typ]} {num}: jedyne wydrukowane brzmienie "
+                                    f"obowiązuje dopiero od {stan[0]:%d.%m.%Y}")
+            continue
+        daty = []
+        for i in idx:
+            m = _PRZYPIS_RE.search(dzieci[i].get("text") or "")
+            daty.append(_data_wejscia(wyb["przypisy"], m.group(1).split("_")[0]) if m else None)
+        wybor, nieznane = _wybierz_brzmienie(daty, wyb["dzis"])
+        opis = f"{_PODJEDNOSTKI[typ]} {num}"
+        if nieznane:
+            wyb["niejednoznaczne"] = True
+            wyb["uwagi"].append(f"{opis}: {len(idx)} brzmienia bez czytelnej daty wejścia w życie")
+            continue
+        pomin.update(i for j, i in enumerate(idx) if j != wybor)
+        d = daty[wybor]
+        wyb["uwagi"].append(
+            f"⚠ Tekst jednolity drukuje {len(idx)} brzmienia {opis}. "
+            + (f"Powyżej brzmienie obowiązujące od {d:%d.%m.%Y}." if d else
+               "Powyżej brzmienie obowiązujące w dniu tego tekstu jednolitego.")
+            + "".join(f" Kolejne wchodzi w życie {x:%d.%m.%Y}." for x in daty if x and x > wyb["dzis"]))
+    return [ch for i, ch in enumerate(dzieci) if i not in pomin]
+
+
+def _wybierz_zdania(tekst: str, wyb: dict) -> str:
+    """Zdanie wydrukowane w dwóch brzmieniach jedno po drugim: „stare.[^A] nowe.[^B]”,
+    gdzie odnośnik A mówi „Zdanie … w tym brzmieniu obowiązuje do wejścia w życie
+    zmiany, o której mowa w odnośniku B”, a B podaje datę nowego brzmienia (art. 505
+    k.p.k., t.j. 2026: od 1.10.2029). Gdy nowe brzmienie jeszcze nie obowiązuje,
+    wycinamy je (od A do B włącznie) — początek nowego zdania wyznacza odnośnik A.
+    Gdy już obowiązuje, początku STAREGO zdania nie da się pewnie wyznaczyć, więc
+    para zostaje i jednostka będzie niejednoznaczna (odmowa)."""
+    from legal_cite.core import _ZDANIE_DO_ZMIANY_RE, _data_wejscia
+    for m in list(_PRZYPIS_RE.finditer(tekst))[::-1]:  # od końca: wycięcia nie przesuwają wcześniejszych
+        z = _ZDANIE_DO_ZMIANY_RE.search(wyb["przypisy"].get(m.group(1)) or "")
+        if not z:
+            continue
+        nast = _PRZYPIS_RE.search(tekst, m.end())
+        if not nast or nast.group(1) != z.group(2):
+            continue
+        d = _data_wejscia(wyb["przypisy"], z.group(2))
+        if d is None or d <= wyb["dzis"]:
+            continue
+        tekst = tekst[:m.start()] + tekst[nast.end():]
+        wyb["zdania_ok"].add(m.group(1))
+        wyb["uwagi"].append(f"⚠ Zdanie {z.group(1)}: tekst jednolity drukuje dwa brzmienia; powyżej "
+                            f"obowiązujące, nowe wchodzi w życie {d:%d.%m.%Y}.")
+    return tekst
+
+
+def _tekst_wezla(node: dict, odn: list[str], stop: list[bool], wyb: dict | None = None) -> str:
+    typ = node.get("type")
+    czesci = []
+    if typ in _ETYKIETY:
+        czesci.append(_ETYKIETY[typ].format(n=node.get("num", "")))
+    if node.get("text"):
+        czesci.append(_wybierz_zdania(node["text"], wyb) if wyb is not None else node["text"])
+    dzieci = node.get("children") or []
+    if wyb is not None:
+        dzieci = _wybierz_dzieci(dzieci, wyb)
+    for ch in dzieci:
+        if stop[0]:
+            break
+        if ch.get("type") in ("heading", "signature", "note"):
+            stop[0] = True
+            break
+        if ch.get("type") == "text" and _NAGLOWEK_RE.match(_PRZYPIS_RE.sub("", ch.get("text") or "")):
+            stop[0] = True
+            break
+        czesci.append(_tekst_wezla(ch, odn, stop, wyb))
+    s = " ".join(c for c in czesci if c)
+    odn.extend(_PRZYPIS_RE.findall(s))
+    s = _PRZYPIS_RE.sub("", s)
+    s = re.sub(r"(?m)^\\(?=[>#])", "", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def jednostki_md(md: str, przypisy: dict[str, str],
+                 dzis: _dt.date | None = None) -> tuple[list[Jednostka], bool]:
+    """Artykuły z drzewa eli2md w kolejności dokumentu oraz flaga, czy ich
+    numery rosną monotonicznie (drugie brzmienie tego samego artykułu jest
+    dozwolone — stoi obok pierwszego). dzis — dzień, na który wybierane są
+    obowiązujące brzmienia (domyślnie dzisiejszy)."""
+    from eli2md.tree import md_to_tree
+    from legal_cite.core import _data_wejscia, _zdania_dwa_brzmienia
+
+    drzewo = md_to_tree(md)
+    # Tekst jednolity jest załącznikiem do obwieszczenia Marszałka Sejmu, więc
+    # artykuły ustawy stoją w załączniku, a nie w treści głównej. Bierzemy ten
+    # blok dokumentu, w którym jest najwięcej artykułów.
+    bloki = [drzewo.get("body") or []] + [a.get("body") or [] for a in drzewo.get("annexes") or []]
+    # rozporządzenie nie ma artykułów — jednostką główną są paragrafy („par”)
+    glowna = "art" if any(n.get("type") == "art" for b in bloki for n in b) else "par"
+    wezly = max(bloki, key=lambda b: sum(1 for n in b if n.get("type") == glowna))
+    out: list[Jednostka] = []
+    monotonicznie, poprzedni = True, -1
+    for node in wezly:
+        if node.get("type") != glowna:
+            continue
+        num = str(node.get("num", ""))
+        klucz = kanon_md(num)
+        if not klucz:
+            continue
+        baza = int(re.match(r"\d+", klucz).group(0))
+        if baza < poprzedni:
+            monotonicznie = False
+        poprzedni = baza
+        odn: list[str] = []
+        pelny = _tekst_wezla(node, odn, [False])
+        wyb = {"przypisy": przypisy, "dzis": dzis or _dt.date.today(), "uwagi": [],
+               "niejednoznaczne": False, "zdania_ok": set()}
+        odn_wyb: list[str] = []
+        tekst = _tekst_wezla(node, odn_wyb, [False], wyb)
+        # data brzmienia artykułu: z odnośnika przy jego oznaczeniu, a nie z
+        # pierwszego odnośnika w treści — ten bywa odnośnikiem paragrafu
+        # (art. 860 k.c.: „Dodany…” przy § 3 nie datuje całego artykułu)
+        wlasny = _wlasny_odnosnik(node)
+        data = _data_wejscia(przypisy, wlasny) if wlasny else None
+        zdania = _zdania_dwa_brzmienia(przypisy, odn_wyb)  # tylko nierozstrzygnięte wystąpienia (#13)
+        if zdania:
+            wyb["niejednoznaczne"] = True
+            wyb["uwagi"] += zdania
+        out.append(Jednostka(num, klucz, tekst, odn, data, pelny=pelny,
+                             uwagi=wyb["uwagi"], niejednoznaczne=wyb["niejednoznaczne"],
+                             wlasny_odnosnik=wlasny))
+    return out, monotonicznie
+
+
+# Definicja przypisu z kolejnymi akapitami: eli2md zapisuje je po pustym
+# wierszu z wcięciem 4 spacji (składnia przypisów Markdown) — przypis 1 u.p.k.
+# to lista wdrażanych dyrektyw, po jednej w akapicie.
+_PRZYPIS_DEF_RE = re.compile(
+    r"(?m)^\[\^([^\]\s]+)\]:\s*(.*(?:\n(?!\[\^|\n).*|\n(?:[ \t]*\n)+ {4}.*)*)")
+
+
+def przypisy_md(md: str) -> dict[str, str]:
+    mapa: dict[str, str] = {}
+    for m in _PRZYPIS_DEF_RE.finditer(md):
+        mapa.setdefault(m.group(1), re.sub(r"\s+", " ", m.group(2)).strip())
+        # odesłania w przypisach używają numeru bez przyrostka strony
+        mapa.setdefault(m.group(1).split("_")[0], mapa[m.group(1)])
+    return mapa
+
+
+# --- kontrola wierności: warstwa tekstowa PDF (pdftotext) -----------------
+
+@dataclasses.dataclass
+class WynikWiernosci:
+    ok: bool
+    powod: str = ""
+    niewyjasnione: list[str] = dataclasses.field(default_factory=list)
+
+
+def _dopasuj(md_tok: list[str], raw_tok: list[str], start: int, max_przerwa: int,
+             pomin: bytearray | None = None) -> tuple[int, int, list[int]] | None:
+    """Dopasowuje słowa artykułu jako uporządkowany podciąg warstwy tekstowej
+    od pozycji start. Zwraca (pierwsza, za_ostatnią, pozycje_dopasowane) albo
+    None. Toleruje wyraz złamany na końcu wiersza (dwa słowa warstwy = jedno
+    słowo artykułu) i odwrotnie (słowo warstwy = dwa słowa artykułu). Słowo
+    opcjonalne (indeks górny) może w warstwie nie wystąpić. Pozycje oznaczone
+    w pomin (nagłówki stron, przypisy) nie są treścią: słowo artykułu nie może
+    się do nich dopasować („w” z przypisu zamiast „W sprawach…” za nim)."""
+    i, j = start, 0
+    pozycje: list[int] = []
+    pierwsza = -1
+    n_md, n_raw = len(md_tok), len(raw_tok)
+    while j < n_md:
+        t = md_tok[j]
+        opcjonalne = t.startswith(OPC)
+        t = t.lstrip(OPC)
+        nast = md_tok[j + 1].lstrip(OPC) if j + 1 < n_md else None
+        # warstwa gubi indeks („art. 6¹ ust. 1” → „art 6 ust 1”), a następne
+        # słowo odczytu stoi w niej od razu: indeks pomijamy, zamiast dopasować
+        # go do takiej samej cyfry o kilka słów dalej (tu: „1” z „ust. 1”)
+        if opcjonalne and nast is not None and i < n_raw and raw_tok[i] == nast and t != nast:
+            j += 1
+            continue
+        k, limit = i, min(n_raw, i + (3 if opcjonalne else max_przerwa) + 1)
+        trafiony = None
+        while k < limit:
+            if pomin is not None and pomin[k]:
+                k += 1
+                limit = min(n_raw, limit + 1)
+                continue
+            r = raw_tok[k]
+            if r == t:
+                trafiony = (k + 1, 1)
+                break
+            if k + 1 < n_raw and raw_tok[k] + raw_tok[k + 1] == t:
+                trafiony = (k + 2, 1)
+                pozycje.append(k)
+                break
+            if nast is not None and r == t + nast:
+                trafiony = (k + 1, 2)
+                break
+            # numer odnośnika doklejony do liczby bez odstępu („pkt 10–20⁵” → „205”):
+            # liczba + 1–2 cyfry, a tuż za nią następne słowo artykułu
+            if (t.isdigit() and r.startswith(t) and r[len(t):].isdigit()
+                    and len(r) - len(t) <= 2 and nast is not None
+                    and k + 1 < n_raw and raw_tok[k + 1] == nast):
+                trafiony = (k + 1, 1)
+                break
+            k += 1
+        if trafiony is None:
+            if opcjonalne:
+                j += 1
+                continue
+            return None
+        if pierwsza < 0:
+            pierwsza = k
+        pozycje.append(k)
+        i, skok = trafiony
+        j += skok
+    if pierwsza < 0:
+        return None
+    return pierwsza, i, pozycje
+
+
+# Nagłówek strony „Dziennik Ustaw – 77 – Poz. 795” pdftotext wypisuje różnie:
+# numer strony bywa przed nim albo za nim, a „Poz. 795” dopiero po pierwszym
+# wierszu treści („Dziennik Ustaw – 77 – n – okres spłaty… Poz. 795”). Tyle
+# słów może dzielić „Dziennik Ustaw” od „Poz. N”.
+_MAX_ROZSUNIECIE = 80
+
+
+def _ciag_przypisu(raw_tok: list[str], q: int, cel: str, stop: bytearray) -> tuple[int, int]:
+    """Od pozycji q zbiera słowa warstwy, dopóki składają się na cel (słowa
+    przypisu zlepione w jeden napis; liczby pomijane po obu stronach, bo
+    pdftotext wypisuje numerację wyliczeń osobno od treści). Zwraca (pozycja
+    za ostatnim zebranym słowem, liczba dopasowanych znaków)."""
+    zebrane, n = 0, len(raw_tok)
+    while q < n and zebrane < len(cel) and not stop[q]:
+        t = raw_tok[q]
+        if not t.isdigit():
+            if not cel.startswith(t, zebrane):
+                break
+            zebrane += len(t)
+        q += 1
+    return q, zebrane
+
+
+def wyjasnienia_warstwy(raw_tok: list[str], przypisy: dict[str, str], pos: str) -> bytearray:
+    """Dla każdego słowa warstwy tekstowej: czy należy do nagłówka strony albo
+    do przypisu wydrukowanego u dołu strony (1), czy do treści (0).
+
+    Słowo warstwy pominięte w odczycie artykułu jest wytłumaczone tylko wtedy,
+    gdy stoi w takim miejscu — nie wystarcza, że to samo słowo występuje
+    w którymś przypisie aktu. Inaczej kontrola przepuszczała odczyt art. 80
+    k.k. bez słowa „kary”, bo „kary” jest w innym przypisie tego kodeksu.
+
+    Przypis to pełna treść któregoś przypisu aktu, słowo po słowie, w bloku
+    przypisów sięgającym końca strony (za nim kolejny przypis albo nagłówek
+    następnej strony; numery przypisów pdftotext wypisuje osobno, więc nie są
+    wymagane). Przypis przeniesiony na następną stronę: początek kończy się
+    nagłówkiem strony, a reszta stoi na następnej stronie w takim samym bloku
+    — bez tej reszty ostatnie słowa treści przed końcem strony („…wskazany w”)
+    uchodziłyby za początek przypisu „W brzmieniu…”."""
+    n = len(raw_tok)
+    maska = bytearray(n)
+    naglowki = bytearray(n)
+    poczatek_bloku = bytearray(n + 1)   # tu zaczyna się nagłówek strony albo przypis z bloku
+    poczatek_bloku[n] = 1
+    strony: list[int] = []              # pozycje nagłówków stron
+    for k in range(n - 3):
+        # nagłówek strony: „Dziennik Ustaw – 3 – Poz. 795” albo „Monitor Polski – 3 – Poz. 573”
+        if (raw_tok[k], raw_tok[k + 1]) in (("dziennik", "ustaw"), ("monitor", "polski")):
+            for q in range(k + 2, min(n - 1, k + 3 + _MAX_ROZSUNIECIE)):
+                if raw_tok[q] == "poz" and raw_tok[q + 1] == pos:
+                    for x in (k, k + 1, q, q + 1):
+                        maska[x] = naglowki[x] = 1
+                    if raw_tok[k + 2].isdigit() and k + 2 < q:   # numer strony
+                        maska[k + 2] = naglowki[k + 2] = 1
+                    poczatek_bloku[k] = 1
+                    strony.append(k)
+                    break
+    strony.append(n)
+
+    def za_liczbami(q: int) -> int:
+        while q < n and raw_tok[q].isdigit() and not naglowki[q]:
+            q += 1
+        return q
+
+    po_slowie: dict[str, list[str]] = {}   # pierwsze słowo przypisu → treści zlepione w napis
+    for tresc in przypisy.values():
+        slowa = [t for t in tokeny(tresc) if not t.isdigit()]
+        if slowa and "".join(slowa) not in po_slowie.setdefault(slowa[0], []):
+            po_slowie[slowa[0]].append("".join(slowa))
+
+    def reszta_na_stronie(naglowek: int, reszta: str) -> tuple[int, int] | None:
+        """Reszta przeniesionego przypisu na stronie zaczynającej się nagłówkiem
+        na pozycji naglowek: (początek, koniec) albo None."""
+        koniec = strony[bisect.bisect_right(strony, naglowek)]
+        for k in range(naglowek + 2, koniec):
+            if maska[k] or raw_tok[k].isdigit() or not reszta.startswith(raw_tok[k]):
+                continue
+            q, zebrane = _ciag_przypisu(raw_tok, k, reszta, naglowki)
+            if zebrane == len(reszta) and poczatek_bloku[za_liczbami(q)]:
+                return k, q
+        return None
+
+    for k in range(n - 1, -1, -1):             # od końca: blok buduje się od nagłówka w górę
+        if naglowki[k]:
+            continue
+        for cel in po_slowie.get(raw_tok[k], ()):
+            q, zebrane = _ciag_przypisu(raw_tok, k, cel, naglowki)
+            if zebrane == len(cel) and poczatek_bloku[za_liczbami(q)]:
+                maska[k:q] = b"\x01" * (q - k)
+                poczatek_bloku[k] = 1
+                break
+            if 0 < zebrane < len(cel) and q < n and poczatek_bloku[q] and naglowki[q]:
+                dalej = reszta_na_stronie(q, cel[zebrane:])
+                if dalej:
+                    maska[k:q] = b"\x01" * (q - k)
+                    maska[dalej[0]:dalej[1]] = b"\x01" * (dalej[1] - dalej[0])
+                    poczatek_bloku[k] = poczatek_bloku[dalej[0]] = 1
+                    break
+    return maska
+
+
+def wiernosc_pdftotext(jedn: Jednostka, raw_tok: list[str], wyjasnione: bytearray,
+                       max_przerwa: int = _MAX_PRZERWA) -> WynikWiernosci:
+    """wyjasnione — wynik wyjasnienia_warstwy() dla tej samej warstwy."""
+    if len(wyjasnione) != len(raw_tok):
+        raise TypeError("wyjasnione: oczekiwano wyniku wyjasnienia_warstwy(raw_tok, …)")
+    # pełny tekst ze wszystkimi wydrukowanymi brzmieniami: wybór brzmienia nie
+    # może wyglądać jak utrata słów
+    md_tok = tokeny(jedn.pelny or jedn.tekst, opcjonalne=True)
+    if len(md_tok) < 2:
+        return WynikWiernosci(False, "pusty odczyt artykułu")
+    # kandydaci na początek: wystąpienia „Art. N” w warstwie (także z numerem
+    # zlepionym z indeksem: „15110”), od których pierwsze słowa artykułu
+    # dopasowują się ciasno — odesłania „art. N” w zdaniach odpadają, bo po
+    # nich nie następuje treść tego artykułu
+    t0, t1 = md_tok[0].lstrip(OPC), md_tok[1].lstrip(OPC)
+    t2 = md_tok[2].lstrip(OPC) if len(md_tok) > 2 else ""
+    kandydaci = [k for k in range(len(raw_tok) - 1)
+                 if raw_tok[k] == t0 and raw_tok[k + 1] in (t1, t1 + t2)]
+    if not kandydaci:
+        return WynikWiernosci(False, "nagłówka artykułu nie ma w warstwie tekstowej PDF")
+    # głowa: ~10 pierwszych słów, wydłużona o słowo opcjonalne, które by ucięła
+    # (indeks górny sklejony w warstwie z numerem: „art. 35¹⁹” → „3519”)
+    n_glowy = min(10, len(md_tok))
+    while n_glowy < len(md_tok) and md_tok[n_glowy].startswith(OPC):
+        n_glowy += 1
+    glowa = md_tok[:n_glowy]
+    najlepszy: WynikWiernosci | None = None
+    for k in kandydaci:
+        if _dopasuj(glowa, raw_tok, k, 3, wyjasnione) is None:
+            continue
+        wynik = _dopasuj(md_tok, raw_tok, k, max_przerwa, wyjasnione)
+        if wynik is None:
+            najlepszy = najlepszy or WynikWiernosci(
+                False, "słowa odczytu nie układają się w kolejności warstwy tekstowej PDF")
+            continue
+        pierwsza, za, pozycje = wynik
+        uzyte = set(pozycje)
+        # etykiety punktów i liter („9a”, „g”) pdftotext wypisuje w innym miejscu
+        # niż treść, więc pominięte przy dopasowaniu nie świadczą o utracie tekstu
+        etykiety = {t.lstrip(OPC) for t in md_tok if t.startswith(OPC)}
+        niewyjasnione = [raw_tok[p] for p in range(pierwsza, za)
+                         if p not in uzyte and not wyjasnione[p]
+                         and raw_tok[p] not in etykiety and not raw_tok[p].isdigit()]
+        if len(niewyjasnione) <= _MAX_NIEWYJASNIONE:
+            return WynikWiernosci(True)
+        # drugie brzmienie tego samego artykułu stoi tuż za pierwszym: dopasowanie
+        # od pierwszego „przeskakuje” jego treść — próbujemy od kolejnego kandydata
+        if najlepszy is None or len(niewyjasnione) < len(najlepszy.niewyjasnione):
+            najlepszy = WynikWiernosci(
+                False, "warstwa tekstowa PDF zawiera w obrębie artykułu słowa, których nie ma "
+                f"w odczycie: {niewyjasnione[:6]}", niewyjasnione)
+    return najlepszy or WynikWiernosci(
+        False, "słowa odczytu nie układają się w kolejności warstwy tekstowej PDF")
+
+
+# --- pobranie, konwersja, cache -------------------------------------------
+
+@dataclasses.dataclass
+class OdczytPDF:
+    ident: str                       # DU/2026/1245
+    url_pdf: str
+    sha256: str
+    data_tj: str                     # announcementDate tekstu jednolitego
+    adres: str                       # „Dz.U. 2026 poz. 1245”
+    konwerter: str
+    pdftotext: str | None
+    jednostki: list[Jednostka]
+    przypisy: dict[str, str]
+    monotoniczne: bool
+    raw_tok: list[str]
+    wyjasnienia: bytearray           # które słowa warstwy to nagłówki stron i przypisy
+    md: str = ""                     # drzewo eli2md — do wyboru brzmień na inny dzień (na_dzien)
+
+    def znajdz(self, klucz: str) -> list[Jednostka]:
+        return [j for j in self.jednostki if j.klucz == klucz]
+
+
+_odczyty: dict[str, OdczytPDF] = {}
+_blokady: dict[str, asyncio.Lock] = {}
+# Konwersja eli2md to minuta CPU i setki MB; przy dowolnych ustawach (adres Dz.U.,
+# katalog) seria zapytań o różne akty uruchamiała je równolegle — jedna naraz.
+_KONWERSJE = asyncio.Semaphore(1)
+
+
+# --- trwały cache w Cloud Storage (opcjonalny) ------------------------------
+#
+# Katalog CACHE_DIR jest per instancja: po wygaszeniu instancji Cloud Run
+# pierwsze zapytanie o kodeks znów konwertuje PDF (do ~2,5 min dla k.p.c.).
+# Gdy ustawiono LEGAL_CITE_GCS_BUCKET, gotowe konwersje i warstwa tekstowa są
+# trzymane także w zasobniku, pod tą samą nazwą co lokalnie — w nazwie jest
+# suma PDF (i wersja konwertera dla Markdown), więc plik z zasobnika odpowiada
+# dokładnie temu PDF i tej wersji konwertera. Kontrole wierności biegną na
+# pobranym pliku tak samo jak na świeżej konwersji. Każdy błąd zasobnika jest
+# tylko logowany: narzędzie wraca wtedy do konwersji, nigdy nie odmawia z jego
+# powodu. Bez zmiennej (domyślnie, np. instalacja lokalna) zasobnik nie jest używany.
+
+GCS_BUCKET = os.environ.get("LEGAL_CITE_GCS_BUCKET") or None
+GCS_PREFIX = "pdf-tj/"
+_gcs_bucket_obj = None
+
+
+def _gcs():
+    """Obiekt zasobnika albo None (brak zmiennej, brak biblioteki, błąd)."""
+    global _gcs_bucket_obj
+    if not GCS_BUCKET:
+        return None
+    if _gcs_bucket_obj is None:
+        try:
+            from google.cloud import storage
+            _gcs_bucket_obj = storage.Client().bucket(GCS_BUCKET)
+        except Exception as e:
+            logger.warning("gcs niedostepny bucket=%s blad=%s", GCS_BUCKET, type(e).__name__)
+            return None
+    return _gcs_bucket_obj
+
+
+def _gcs_pobierz(path: pathlib.Path) -> bool:
+    b = _gcs()
+    if b is None:
+        return False
+    try:
+        blob = b.blob(GCS_PREFIX + path.name)
+        if not blob.exists():
+            return False
+        blob.download_to_filename(str(path))
+        logger.info("gcs pobrano %s", path.name)
+        return True
+    except Exception as e:
+        logger.warning("gcs pobranie %s blad=%s", path.name, type(e).__name__)
+        path.unlink(missing_ok=True)
+        return False
+
+
+def _gcs_zapisz(path: pathlib.Path) -> None:
+    b = _gcs()
+    if b is None:
+        return
+    try:
+        b.blob(GCS_PREFIX + path.name).upload_from_filename(str(path))
+        logger.info("gcs zapisano %s", path.name)
+    except Exception as e:
+        logger.warning("gcs zapis %s blad=%s", path.name, type(e).__name__)
+
+
+def _konwertuj(pdf_path: pathlib.Path, md_path: pathlib.Path) -> str:
+    if md_path.exists() or _gcs_pobierz(md_path):
+        return md_path.read_text(encoding="utf-8")
+    from eli2md.pdf import convert, to_markdown
+    md = to_markdown(convert(str(pdf_path)))
+    md_path.write_text(md, encoding="utf-8")
+    _gcs_zapisz(md_path)
+    return md
+
+
+def _warstwa(pdf_path: pathlib.Path, txt_path: pathlib.Path) -> str | None:
+    if txt_path.exists() or _gcs_pobierz(txt_path):
+        return txt_path.read_text(encoding="utf-8")
+    if not shutil.which("pdftotext"):
+        return None
+    subprocess.run(["pdftotext", "-enc", "UTF-8", str(pdf_path), str(txt_path)],
+                   check=True, timeout=120, capture_output=True)
+    _gcs_zapisz(txt_path)
+    return txt_path.read_text(encoding="utf-8")
+
+
+async def odczyt(ident: str, meta_tj: dict | None = None, plik_u: str | None = None) -> OdczytPDF:
+    """Pobiera PDF tekstu jednolitego ident (np. DU/2026/1245), konwertuje go
+    (w wątku, bo trwa to do ponad minuty) i przygotowuje dane do kontroli.
+    Wynik trzymany w pamięci procesu i na dysku. plik_u — zamiast tekstu
+    z Dz.U. plik typu „U” z ELI (tekst ujednolicony Kancelarii Sejmu, np.
+    Konstytucja: D19970483Lj.pdf); pamięć podręczna osobna."""
+    klucz = ident + ("#U" if plik_u else "")
+    if klucz in _odczyty:
+        return _odczyty[klucz]
+    lock = _blokady.setdefault(klucz, asyncio.Lock())
+    async with lock:
+        if klucz in _odczyty:
+            return _odczyty[klucz]
+        pub, year, pos = ident.split("/")
+        url_pdf = (f"{BASE}/{pub}/{year}/{pos}/text/U/{plik_u}" if plik_u
+                   else f"{BASE}/{pub}/{year}/{pos}/text.pdf")
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        pos = pos + ("U" if plik_u else "")  # nazwy plików w pamięci podręcznej
+        pdf_path = CACHE_DIR / f"{pub}_{year}_{pos}.pdf"
+        async with httpx.AsyncClient(follow_redirects=True, timeout=60, headers=_HEADERS) as c:
+            if meta_tj is None:
+                meta_tj = (await c.get(f"{BASE}/{ident}")).json()
+            if not pdf_path.exists() or pdf_path.stat().st_size == 0:
+                resp = await c.get(url_pdf)
+                resp.raise_for_status()
+                if not resp.content.startswith(b"%PDF"):
+                    raise RuntimeError(f"{ident}: odpowiedź API nie jest plikiem PDF")
+                pdf_path.write_bytes(resp.content)
+        sha = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
+        wersja = wersja_konwertera()
+        stempel = hashlib.sha256((sha + wersja).encode()).hexdigest()[:16]
+        md_path = CACHE_DIR / f"{pub}_{year}_{pos}_{stempel}.md"
+        txt_path = CACHE_DIR / f"{pub}_{year}_{pos}_{sha[:16]}.txt"
+        async with _KONWERSJE:
+            md, raw = await asyncio.gather(
+                asyncio.to_thread(_konwertuj, pdf_path, md_path),
+                asyncio.to_thread(_warstwa, pdf_path, txt_path))
+        przypisy = przypisy_md(md)
+        jednostki, monotoniczne = jednostki_md(md, przypisy)
+        raw_tok = _tokeny_pdftotext(raw) if raw else []
+        wyjasnienia = wyjasnienia_warstwy(raw_tok, przypisy, pos.rstrip("U"))
+        wynik = OdczytPDF(ident=ident, url_pdf=url_pdf, sha256=sha,
+                          data_tj=meta_tj.get("announcementDate") or "",
+                          adres=meta_tj.get("displayAddress") or ident,
+                          konwerter=wersja, pdftotext=wersja_pdftotext() if raw else None,
+                          jednostki=jednostki, przypisy=przypisy, monotoniczne=monotoniczne,
+                          raw_tok=raw_tok, wyjasnienia=wyjasnienia, md=md)
+        logger.info("odczyt pdf %s: artykulow=%d monotonicznie=%s pdftotext=%s",
+                    ident, len(jednostki), monotoniczne, bool(raw))
+        _odczyty[klucz] = wynik
+        return wynik
+
+
+# --- kontrola względem starszego tekstu jednolitego w HTML ------------------
+
+def porownaj_z_html(jedn: Jednostka, html_teksty: list[str]) -> str:
+    """'identyczny' — te same słowa co w starszym t.j. HTML (także gdy warstwa
+    PDF skleja wyrazy: „niewięcej”); 'rozny' — inna treść; 'brak' — artykułu
+    nie ma w starszym tekście (dodany później)."""
+    if not html_teksty:
+        return "brak"
+    moje = "".join(tokeny(jedn.tekst))
+    for h in html_teksty:
+        if "".join(tokeny(h)) == moje:
+            return "identyczny"
+    return "rozny"
+
+
+def slownik_html(html_teksty) -> set[str]:
+    """Słowa starszego tekstu jednolitego w HTML — słownik do naprawy sklejek."""
+    out: set[str] = set()
+    for t in html_teksty:
+        out.update(tokeny(t))
+    return out
+
+
+_NIE_RE = re.compile(r"\b([Nn]ie)([a-ząćęłńóśźż]{3,})\b")
+
+
+def napraw_sklejki(tekst: str, slownik: set[str]) -> tuple[str, int]:
+    """Warstwa tekstowa PDF-ów Dz.U. nie ma odstępu po „nie” przed niektórymi
+    wyrazami („niewięcej”, „niepóźniej”) — tak czytają ją oba czytniki, więc
+    nie jest to błąd konwertera, tylko druku. Rozdzielamy wyłącznie wtedy, gdy
+    sklejki nie ma w słowniku słów tego aktu (HTML), a jej reszta w nim jest."""
+    if not slownik:
+        return tekst, 0
+    ile = 0
+
+    def _f(m):
+        nonlocal ile
+        calosc, reszta = m.group(0), m.group(2)
+        if calosc.lower() not in slownik and reszta.lower() in slownik:
+            ile += 1
+            return f"{m.group(1)} {reszta}"
+        return calosc
+    return _NIE_RE.sub(_f, tekst), ile

@@ -1,0 +1,102 @@
+"""legal-cite — samodzielny serwer MCP (weryfikacja przepisu PL/UE).
+
+Transport:
+  - Cloud Run (env K_SERVICE lub PORT): streamable-http na 0.0.0.0:$PORT,
+    endpoint MCP = `/mcp` → podłączasz w Claude jako custom connector (URL).
+  - lokalnie (brak PORT): stdio (Claude Desktop / Claude Code).
+
+Publiczny, bez auth — serwuje wyłącznie publiczne teksty aktów prawnych.
+"""
+from __future__ import annotations
+
+import logging
+import os
+import sys
+
+from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
+
+from legal_cite import core
+
+logging.basicConfig(level=logging.INFO, stream=sys.stderr,
+                    format="[legal-cite] %(message)s")
+logger = logging.getLogger(__name__)
+
+mcp = FastMCP("legal-cite")
+
+
+@mcp.tool()
+async def verify_article(citation: str, na_dzien: str | None = None) -> str:
+    """Dokładne brzmienie cytowanego przepisu z OFICJALNEGO źródła
+    (api.sejm.gov.pl dla PL, EUR-Lex/CELLAR dla UE) — zwraca tylko ten
+    artykuł, nie cały akt, z NAJNOWSZEGO tekstu jednolitego.
+    Anti-halucynacja: weryfikacja cytatu wprost ze źródła.
+    Wynik mówi, czym jest: 📜 tekst urzędowy (HTML) albo 📄 NIEURZĘDOWY
+    odczyt z urzędowego PDF (gdy API ELI daje najnowszy t.j. tylko w PDF),
+    po kontroli drugim czytnikiem i starszym t.j.; osobno ocena aktualności
+    (nowelizacje po dacie t.j.). Linia „[dla modelu]” podaje te oceny jako
+    pola — nie nazywaj odczytu PDF tekstem urzędowym. Przy wątpliwości
+    narzędzie ODMAWIA zamiast podać starsze brzmienie.
+    Format: 'art. N [ust. M] KOD'. Przykłady: 'art. 45 u.k.k.',
+    'art. 385¹ KC', 'art. 18[3d] KP', 'art. 28 ust. 3 RODO'. Kody: list_acts().
+    Ustawę spoza listy wskaż adresem Dz.U. (także tekstu jednolitego):
+    'art. 5 Dz.U. 2024 poz. 1061', 'art. 2 Dz. U. z 2025 r. poz. 644', 'art. 1 DU/2018/723'.
+    Ustawę można też wskazać tytułem ('art. 9 ustawy o ochronie konkurencji i konsumentów').
+    Rozporządzenie — paragrafem i adresem Dz.U.: '§ 2 ust. 1 Dz.U. 2025 poz. 1899'.
+    Albo tytułem: '§ 2 rozporządzenia Ministra Sprawiedliwości z dnia 22 października 2015 r.
+    w sprawie opłat za czynności adwokackie' (organ i data opcjonalne).
+    Monitor Polski (uchwały, zarządzenia) — adresem: 'art. 6 M.P. 2022 poz. 990';
+    'art. 7 ust. 1 Regulaminu Sejmu'. Umowy międzynarodowe (EKPCz itp.) — odmowa:
+    PDF dwujęzyczny w dwóch kolumnach, odczyt niewiarygodny.
+    Dowolny akt UE — rodzajem i numerem albo CELEX-em: 'art. 6 ust. 1 dyrektywy 93/13/EWG',
+    'art. 4 rozporządzenia (WE) nr 593/2008', 'art. 5 rozporządzenia 2016/679',
+    'art. 2 decyzji 2011/753/UE', 'art. 1 CELEX 32019L0770'; traktaty i Karta:
+    'art. 267 TFUE', 'art. 4 ust. 3 TUE', 'art. 47 Karty praw podstawowych'.
+    Akt UE niejednoznaczny, nieobowiązujący albo bez wersji polskiej — odmowa.
+    na_dzien (RRRR-MM-DD): brzmienie obowiązujące w tym dniu. Akty UE — wersja
+    skonsolidowana obowiązująca w tym dniu (także akt już uchylony). Akty PL —
+    z tekstu jednolitego sprzed tego dnia i kolejnego, z wykazem nowelizacji;
+    „Ustalenie:” mówi, czy brzmienie jest potwierdzone, ustalone z treści
+    nowelizacji, czy nieustalone (wtedy oba brzmienia). Także data przyszła."""
+    try:
+        if na_dzien:
+            from legal_cite import na_dzien as nd
+            return await nd.verify_article_na_dzien(citation, na_dzien)
+        return await core.verify_article(citation)
+    except Exception as e:
+        logger.warning("verify_article blad=%s", type(e).__name__)
+        return f"❌ Błąd weryfikacji: {type(e).__name__}: {e}"
+
+
+@mcp.tool()
+def list_acts() -> str:
+    """Lista obsługiwanych kodów aktów (PL + UE) dla verify_article."""
+    return core.list_acts()
+
+
+def main() -> None:
+    port = os.getenv("PORT")
+    if os.getenv("K_SERVICE") or port:
+        mcp.settings.host = "0.0.0.0"
+        mcp.settings.port = int(port or "8080")
+        # Za proxy Cloud Run Host = domena *.run.app (nie localhost). Ochrona
+        # DNS-rebinding jest dla serwerów LOKALNYCH (atak z przeglądarki na
+        # localhost) — publiczny serwis z publicznymi przepisami jej nie potrzebuje.
+        mcp.settings.transport_security = TransportSecuritySettings(
+            enable_dns_rebinding_protection=False)
+        # Bez sesji: Cloud Run potrafi dostawić drugą instancję w trakcie długiego
+        # żądania (konwersja PDF k.p.c. trwa ponad minutę), a sesja streamable-http
+        # żyje w pamięci jednej instancji — kolejne żądania trafiały „obok” niej
+        # (404 „Session terminated”). Narzędzia są bezstanowe, więc sesja nie jest
+        # do niczego potrzebna.
+        mcp.settings.stateless_http = True
+        logger.info("legal-cite start: streamable-http na %s:%s (/mcp)",
+                    mcp.settings.host, mcp.settings.port)
+        mcp.run(transport="streamable-http")
+    else:
+        logger.info("legal-cite start: stdio (lokalnie)")
+        mcp.run()
+
+
+if __name__ == "__main__":
+    main()

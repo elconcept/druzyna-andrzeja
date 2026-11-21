@@ -1,0 +1,3 @@
+[submodule "apiotrowski-afk-legal-cite-pl"]
+	path = _vendor/apiotrowski-afk-legal-cite-pl
+	url = https://github.com/apiotrowski-afk/legal-cite-pl.git
