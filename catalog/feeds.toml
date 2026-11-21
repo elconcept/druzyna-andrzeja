@@ -1,7 +1,18 @@
-# Źródła PROPOZYCJI. Nie są klonowane ani dodawane do sources.toml.
-# Jeden wpis = jedna lista awesome. Kategorie z Markdown stają się tagami.
+# Katalog propozycji: WYŁĄCZNIE PRAWO POLSKIE.
+# Źródła weryfikowane redakcyjnie pod kątem polskiej jurysdykcji.
+# Lista płaska, kategorie źródła pozostają tagami.
+# Te wpisy NIE są klonowane i NIE trafiają do sources.toml.
 version = 1
+jurisdiction = "PL"
 
 [[feed]]
-name = "awesome-legaltech"
-url = "https://raw.githubusercontent.com/Vaquill-AI/awesome-legaltech/main/README.md"
+name = "polskie-legaltech-otwarte"
+url = "https://raw.githubusercontent.com/apiotrowski-afk/awesome-legaltech-pl/main/README.md"
+
+[[feed]]
+name = "polskie-legaltech-komercyjne"
+url = "https://raw.githubusercontent.com/apiotrowski-afk/awesome-legaltech-pl/main/KOMERCYJNE.md"
+
+[[feed]]
+name = "polskie-legaltech-archiwum"
+url = "https://raw.githubusercontent.com/apiotrowski-afk/awesome-legaltech-pl/main/ARCHIWUM.md"
