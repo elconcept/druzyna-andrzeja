@@ -4,7 +4,7 @@
  * An explicit path allowlist prevents an open proxy.
  */
 const ORIGIN = "https://raw.githubusercontent.com/elconcept/druzyna-andrzeja/main";
-const REVISION = "pl-20261121-r2";
+const REVISION = "pl-20261121-r3";
 const ASSETS = Object.freeze({
   "/": ["/web/index.html", "text/html; charset=utf-8"],
   "/index.html": ["/web/index.html", "text/html; charset=utf-8"],
@@ -24,8 +24,8 @@ async function serve(request) {
   try {
     upstream = await fetch(ORIGIN + asset[0] + "?revision=" + REVISION, {
       method: "GET",
-      headers: { "User-Agent": "druzyna-andrzeja-public-catalog" },
-      cf: { cacheEverything: true, cacheTtl: 120 },
+      headers: { "User-Agent": "druzyna-andrzeja-public-catalog", "Cache-Control": "no-cache" },
+      cf: asset[0].endsWith(".json") ? { cacheEverything: false, cacheTtl: 0 } : { cacheEverything: true, cacheTtl: 120 },
     });
   } catch (error) {
     return new Response("Repository source temporarily unavailable", { status: 502 });
@@ -33,7 +33,8 @@ async function serve(request) {
   if (!upstream.ok) return new Response("Catalog source unavailable", { status: 502 });
   const headers = new Headers({
     "Content-Type": asset[1],
-    "Cache-Control": "public, max-age=120, s-maxage=300",
+    "Cache-Control": asset[0].endsWith(".json") ? "no-store, max-age=0" : "public, max-age=120, s-maxage=120",
+    "X-Druzyna-Revision": REVISION,
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "X-Frame-Options": "DENY",
