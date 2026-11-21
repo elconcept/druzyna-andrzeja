@@ -88,6 +88,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/sync.yml/dispatches" -f ref=main
+          gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/catalog.yml/dispatches" -f ref=main
       - name: Zapisz wynik na GitHub Issues
         if: always()
         env:
