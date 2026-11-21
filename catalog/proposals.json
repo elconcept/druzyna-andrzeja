@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-21T02:26:28Z",
+  "generated_at": "2026-11-21T02:41:13Z",
   "feeds": [
     {
       "name": "awesome-legaltech",
@@ -11402,8 +11402,8 @@
       "source_line": 1437,
       "approved": false,
       "metrics": {
-        "stars": 540057,
-        "forks": 38558,
+        "stars": 540064,
+        "forks": 38559,
         "open_prs": 88,
         "last_commit": "2026-09-02T02:10:45Z",
         "last_commit_sha": "bc98e517ddca672f55f9857d714fc3ea3c3540b2",
