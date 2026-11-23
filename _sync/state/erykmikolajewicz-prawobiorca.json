@@ -6,7 +6,7 @@
       "sha256": "1981e5a18d78db57904a9b1789f9314ce335e974320520fd58215ceca331c07c"
     }
   },
-  "revision": "134547d0bdcf33af859d38a260579ae2102e7dc3",
+  "revision": "212e18c64cd8a22cd021fd3f0ee7ecbe74c2c75e",
   "url": "https://github.com/erykmikolajewicz/prawobiorca.git",
   "version": 1,
   "workbench": {
@@ -73,7 +73,7 @@
     ".github/workflows/mutation.yml": {
       "executable": false,
       "kind": "file",
-      "sha256": "0242834717fa308570658fb591fe268641c2bd7741c51a04ab68959b33e515b7"
+      "sha256": "43d58e265ef00dc882481fbb9efe710a6e34430903bc52a48e020a9df879dc22"
     },
     ".github/zizmor.yml": {
       "executable": false,
@@ -88,7 +88,7 @@
     ".trivyignore.yaml": {
       "executable": false,
       "kind": "file",
-      "sha256": "16686022df41905ba03c9bfa8dc749849184c00048e2d4802822e72921cf8ce9"
+      "sha256": "81e0f723468d957589ef34e163e04b854d2e87517d83e3cf1904e6fed47d7f8e"
     },
     "README.md": {
       "executable": false,
@@ -150,10 +150,20 @@
       "kind": "file",
       "sha256": "191d440669cb5ce6730d79470a001ed3138a3abc1fb211cf03a2a2969a9977c0"
     },
+    "apps/core/alembic/versions/a6d2e8c4f9b1_add_oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7e42d6a5ff995398d94539747f1d3daf61767a05a83777b5bd8b71d7d7282310"
+    },
     "apps/core/alembic/versions/b7d3e9f1a2c5_add_section_summaries.py": {
       "executable": false,
       "kind": "file",
       "sha256": "1716913057a1df8025e37af66b6a7d6083d45a8da41b7298ecfb96359a4d5dfe"
+    },
+    "apps/core/alembic/versions/b8e209c3f704_bind_oauth_resource.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "117963a2c01494073f344c0fd8134e92f0ede8eb5adcdcb9446325b058160186"
     },
     "apps/core/alembic/versions/c8f1a6d4e2b3_add_usage_budgets_and_attempts.py": {
       "executable": false,
@@ -170,6 +180,11 @@
       "kind": "file",
       "sha256": "4083fe56793eb0fc0137bbba94f6a2ff8bf428211fadb13716a3f7381213adc8"
     },
+    "apps/core/alembic/versions/f1c3a8e5b2d7_add_mcp_monthly_limit.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4c41893d4080727184af4c5a98ce724ce1ce84907333e7e516805245b7ba3dea"
+    },
     "apps/core/coverage.toml": {
       "executable": false,
       "kind": "file",
@@ -178,12 +193,12 @@
     "apps/core/openapi.json": {
       "executable": false,
       "kind": "file",
-      "sha256": "4bb3d61518a01b5b44bed4887c1fe447f01ac0778b4e2d29347ab619bd878ae0"
+      "sha256": "cc95526c45b4cac4035fc406e567945439960b048e197e8c3718c6e47a0104dd"
     },
     "apps/core/pyproject.toml": {
       "executable": false,
       "kind": "file",
-      "sha256": "a50ddaced1ddb5fc3d15ab0db8bdb966dd23077ec4c5ee550fe32ad9793bf8d1"
+      "sha256": "a34af167e79fa3fbdb231dc35ad0b85a897111c65cd8551eac0471bc3b335ba9"
     },
     "apps/core/pytest.ini": {
       "executable": false,
@@ -265,6 +280,11 @@
       "kind": "file",
       "sha256": "c38b128475e1e7c2134c3a9c5b923fa3752dd0c942866accd8e08fcd0fffd4d4"
     },
+    "apps/core/src/core_service/application/dtos/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "53ab92eb8453bfa303f248875c3b667aa440ca1c4db1b0f0a36a6281d286595a"
+    },
     "apps/core/src/core_service/application/dtos/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -283,7 +303,7 @@
     "apps/core/src/core_service/application/dtos/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "8a55a6ee41ffd8eb1cb6df58b964ac54bdcc436c4168891c4ec9f0313d8bd13e"
+      "sha256": "f31f51c580831e09a3e04cab19f548985ff66d56b56bc899dd8d00065e19ee65"
     },
     "apps/core/src/core_service/application/dtos/user.py": {
       "executable": false,
@@ -309,6 +329,11 @@
       "executable": false,
       "kind": "file",
       "sha256": "d10f1ceceb8b425b49ff06a2bc22d8fa1e3755c94e1d2f273a5345305d74f1b1"
+    },
+    "apps/core/src/core_service/application/ports/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7e936f28cfd65b19f49fd6cecffe14f2c4ce86f5cd53da2ea4aeeda81ceaf18c"
     },
     "apps/core/src/core_service/application/ports/organizations.py": {
       "executable": false,
@@ -343,7 +368,7 @@
     "apps/core/src/core_service/application/ports/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "e28e6885797fc4c2b74946ce3f2f747193ddd0a6dc0a2ebfdeeae0e8e293f88a"
+      "sha256": "42723134143c316f87877bf32ebf206d2ea57543dabd78d40d0b5e17e35bcf44"
     },
     "apps/core/src/core_service/application/ports/users.py": {
       "executable": false,
@@ -383,7 +408,7 @@
     "apps/core/src/core_service/application/services/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "08713b60b1e0b8eb3f585871c5202671bbabdc926d49812c192ad19cfff49d19"
+      "sha256": "8ae743224754ebe62aaa4c113d292eea4603eae5377b67c49c012e728a0fc736"
     },
     "apps/core/src/core_service/application/use_cases/account.py": {
       "executable": false,
@@ -403,7 +428,7 @@
     "apps/core/src/core_service/application/use_cases/auth.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "d19c108e313beef19436e7f05290ac72198b9854edb2a338110df74f45f5a19a"
+      "sha256": "338bef66f6d396d14158728c4908ed2c651d4d7c2e98c1b91d5de2219eb4989d"
     },
     "apps/core/src/core_service/application/use_cases/cases.py": {
       "executable": false,
@@ -413,7 +438,12 @@
     "apps/core/src/core_service/application/use_cases/limits.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "9d7db63a7ba519cf584cd6494997edbcedbeab943d245e97fefbcbcfc7666893"
+      "sha256": "80c0c22a7f8f03838d8875b63253d8c1835575575cca703bcdabe1625e4805c4"
+    },
+    "apps/core/src/core_service/application/use_cases/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f030a6e1d217449cc2108d99938f89626c817b27cc8e94f8d0eac093b3ed51f2"
     },
     "apps/core/src/core_service/application/use_cases/organizations.py": {
       "executable": false,
@@ -433,7 +463,7 @@
     "apps/core/src/core_service/domain/consts.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "c830741ffa4c76a2f99dc4ab0083eeac6e0a8ca549d6da9988c6f9841482a38b"
+      "sha256": "e5b0b494906daa775b647a2dec52ca8f2f8c4c92f7ef22d249a20c019861a484"
     },
     "apps/core/src/core_service/domain/entities/application.py": {
       "executable": false,
@@ -495,6 +525,11 @@
       "kind": "file",
       "sha256": "4184e790c559e4ddd809954cd03fbbe65c7530fda2ed1319459335135e32fb77"
     },
+    "apps/core/src/core_service/domain/exceptions/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "57355e02a5cc72265e8c3bfd6092163546a822ab4c2e5e04d21d47110f2e49ee"
+    },
     "apps/core/src/core_service/domain/exceptions/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -540,6 +575,16 @@
       "kind": "file",
       "sha256": "fe6fd16c6c3e7e23f98d89111dafb80c9989c3c4b1f73502adcba2e3421321a1"
     },
+    "apps/core/src/core_service/domain/services/mcp_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fa9cbe83d933b3304d923bdc69be3c39154029e89bbeaa3bec6a93f0ef4c0986"
+    },
+    "apps/core/src/core_service/domain/services/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "34e840da6291d5120a14396cc940ef3404ddf1803b22977398447b007a8ce85e"
+    },
     "apps/core/src/core_service/domain/services/organization_access.py": {
       "executable": false,
       "kind": "file",
@@ -553,7 +598,7 @@
     "apps/core/src/core_service/domain/services/regulation_chunking.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "c3f1127539fbd501d87f5ec76c2d216d6ff3b13814816448cb1696f32682445d"
+      "sha256": "c2774b2d193c498188d4cd1c7ad25cf88673f78a4fea198d994f0aa6dcedf2ea"
     },
     "apps/core/src/core_service/domain/services/regulation_description.py": {
       "executable": false,
@@ -568,12 +613,12 @@
     "apps/core/src/core_service/domain/services/security.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "a001249b6985b6c536e72bf2b034f14c36f0f202f55629daa8af03bbbbb07b4e"
+      "sha256": "eca4aa997654862e05f0acad33f13302885a54d9550164bb6ba21cc6c65d56b0"
     },
     "apps/core/src/core_service/domain/services/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "f1e3b186535ad8068a1420ee0ff2164d862ac1c2464861065791ec8f5a4b322a"
+      "sha256": "c835e4ded3fe1408826c9902713d805b4aa5a7dc80505b1395a7aa3a493eb8cb"
     },
     "apps/core/src/core_service/domain/services/usage_access.py": {
       "executable": false,
@@ -610,6 +655,11 @@
       "kind": "file",
       "sha256": "ce0bdcfa61a9444462a53d1ab2f66cc4fd598c8d681e02ed5d5318e678fcc9ac"
     },
+    "apps/core/src/core_service/domain/value_objects/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "50807ca5ee0504c434dfae49a15e05640969020b5af73fb1bc51f6f7e95186fd"
+    },
     "apps/core/src/core_service/domain/value_objects/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -628,12 +678,12 @@
     "apps/core/src/core_service/domain/value_objects/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "e0bace3a247cc848c0cdbc325270900969df58f264216034c87bb39e5e6cc3f7"
+      "sha256": "8e55dc28f5d72265ba15f498c07b025729fd6b18a64e37c2c084d9ea8fa586a7"
     },
     "apps/core/src/core_service/domain/value_objects/users.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "25653920be0650018656c32b59ff877b8af12c030e29c8298e32a030ae68cc36"
+      "sha256": "af6ad3b657b97edc5c9ef9fea187d519dd4ac21d5ae89ca31c4e70da17efb82e"
     },
     "apps/core/src/core_service/framework/api/endpoints/accounts.py": {
       "executable": false,
@@ -660,6 +710,16 @@
       "kind": "file",
       "sha256": "20b8c2af01a5238d90d1e2004a25cbe8ca1430c65710c1c0972e2c4f0683ec0c"
     },
+    "apps/core/src/core_service/framework/api/endpoints/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6d5d57d5c93e25a292c4e710986bb18f9c6f4eebcd072cbad1d2f48f6422a5c7"
+    },
+    "apps/core/src/core_service/framework/api/endpoints/oauth_clients.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "7d3ae050091bb80429dc701b2561d8ad51b30f183d318511c9f44d6aae3a8280"
+    },
     "apps/core/src/core_service/framework/api/endpoints/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -675,6 +735,11 @@
       "kind": "file",
       "sha256": "5c48a1989283dd32fc164d1d15d9c13e3fcacd121980b537d103f896ed23fd8d"
     },
+    "apps/core/src/core_service/framework/api/endpoints/well_known.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3d85c43d71e47c2e6f3ce6052eda1385f9ccca582d4c9ebe91223d7f745ad50f"
+    },
     "apps/core/src/core_service/framework/api/exception_handlers.py": {
       "executable": false,
       "kind": "file",
@@ -683,12 +748,12 @@
     "apps/core/src/core_service/framework/api/router.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "ae5b2c72b91fff28b6d8612e835cee59600698b6b9296cf65ba6627219cbc321"
+      "sha256": "0f2c6a5c39a56298f6f65701b023512c6c1674425600b1374fc269a05be33a40"
     },
     "apps/core/src/core_service/framework/consts.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "d8218110053ab3aaffcc5ff827dd10f7e1debb5d30741e37a19cafc1d736e0fc"
+      "sha256": "f9096acdd94ed0ae4eb9b555dd781ba4f6da947c4214847ab04bf476fd94978a"
     },
     "apps/core/src/core_service/framework/dependencies/accounts.py": {
       "executable": false,
@@ -735,6 +800,11 @@
       "kind": "file",
       "sha256": "0ccabd1fb57f33d2c4156c239b1bef00a9fc7e5ea48f7661e734c71a7527ec63"
     },
+    "apps/core/src/core_service/framework/dependencies/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e2bdb78044d9f4815ab972c780c1660edafc2403aaa1bf1da5cd527385161b6d"
+    },
     "apps/core/src/core_service/framework/dependencies/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -770,6 +840,21 @@
       "kind": "file",
       "sha256": "7c77309cdffd57ff50fe95c89130653bce3d0e954daa4ebc5c0d727d37d5a1d5"
     },
+    "apps/core/src/core_service/framework/mcp/auth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b74ba709f606c50e35602828d1f3580fbdcdfdfd2349dc512e5bc320a0ded680"
+    },
+    "apps/core/src/core_service/framework/mcp/dependencies.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "45dbc3f52e7718862ea12fecd726485331c0f6e3d2ad68c34e1c045d90c2d905"
+    },
+    "apps/core/src/core_service/framework/mcp/server.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "ef0be2cde4fd7961dc7b7f1da154951f6f59758a4e0867390b7b210265c8c809"
+    },
     "apps/core/src/core_service/framework/workers/applications.py": {
       "executable": false,
       "kind": "file",
@@ -778,7 +863,7 @@
     "apps/core/src/core_service/framework/workers/main.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "38d5cb15867f454a166df4d540a74a38971df4603c5f8df9807873eac903b2e0"
+      "sha256": "3802813e1a23d5f91bf33486330c1b183d4d4941f5f6284712f7dec6c5738ba7"
     },
     "apps/core/src/core_service/framework/workers/regulations.py": {
       "executable": false,
@@ -945,6 +1030,11 @@
       "kind": "file",
       "sha256": "12bb5e8b6d996a7422de89b4af6fb1eba6f34be4bf4e09f2511cf62386cf2350"
     },
+    "apps/core/src/core_service/infrastructure/relational_db/repositories/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e48135cb3e51a487a9bb02cd2fd4b529ec68f18011f7a93de223cf910e62817c"
+    },
     "apps/core/src/core_service/infrastructure/relational_db/repositories/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -963,12 +1053,12 @@
     "apps/core/src/core_service/infrastructure/relational_db/repositories/usage_budgets.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "5825d9143b5629d13b8dd7469db22bdcc73d054e2a7aef84a7ac83f1a5212c8d"
+      "sha256": "7e1a4bd7d31c4a41915a1f54d9b3025b254e2fc7c05e4ddb56897ade39c05e71"
     },
     "apps/core/src/core_service/infrastructure/relational_db/repositories/usage_tariff.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "51633b75ce623c6734cb2a375d6ed400e29724ce34a2da1e1e3b521a30b8c659"
+      "sha256": "3dce5729efd1b026f129cef5131379346c33df64a0242e4aa3decb94f5e854e2"
     },
     "apps/core/src/core_service/infrastructure/relational_db/repositories/users.py": {
       "executable": false,
@@ -978,7 +1068,7 @@
     "apps/core/src/core_service/infrastructure/relational_db/schemas/__init__.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "b79f88e8a31f4b58e4a12d1d243b942b4434a786b9531d2e49a6d799605d05bd"
+      "sha256": "307236f6dddfaae5801892d19e2d1e8f485b29014f8b24468397a45ca819e52e"
     },
     "apps/core/src/core_service/infrastructure/relational_db/schemas/application_templates.py": {
       "executable": false,
@@ -1004,6 +1094,11 @@
       "executable": false,
       "kind": "file",
       "sha256": "07f8d2e91a459a764d26d2f5dd97ea169cb057e8ff49f550cc0229257682c5ad"
+    },
+    "apps/core/src/core_service/infrastructure/relational_db/schemas/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d4532a781dc47c89342e01544599f9eb751dc897db573affa0f461824cfb97ec"
     },
     "apps/core/src/core_service/infrastructure/relational_db/schemas/organizations.py": {
       "executable": false,
@@ -1033,7 +1128,7 @@
     "apps/core/src/core_service/infrastructure/relational_db/schemas/usage_tariff.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "dda302c3234ad272ba8d3f1242e370252f1db490f644be3ebbcaca583f5299ae"
+      "sha256": "8cbfe5b38d45effa173ab9eb19cf2d224bc930d830dd0744268d1f708d87f531"
     },
     "apps/core/src/core_service/infrastructure/relational_db/schemas/users.py": {
       "executable": false,
@@ -1088,7 +1183,7 @@
     "apps/core/src/core_service/main.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "b5704c3c5475a75b5e0a772b02a72c6443f8c0a3d22be92e892f93054bb4ca60"
+      "sha256": "2947bf9d8a674deb8460c5a6ddecb7b5f3049c5137884fb0f96a88f95d7165c3"
     },
     "apps/core/src/core_service/shared/exceptions.py": {
       "executable": false,
@@ -1115,6 +1210,11 @@
       "kind": "file",
       "sha256": "dd2897887a1435105db36b95955fc4a0a5bc7605a20413d9ef01b31eb6ad458d"
     },
+    "apps/core/src/core_service/shared/settings/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "f8a56ea5939a0bb42b15410808e9d7eb4bf28f136cc8aec30ad70444c9cb3a4c"
+    },
     "apps/core/src/core_service/shared/settings/object_storage.py": {
       "executable": false,
       "kind": "file",
@@ -1128,12 +1228,12 @@
     "apps/core/tests/conftest.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "0be2a36f5b5acb7123cb8addc2d485cd73139facc6f27742bbda9990240c52a1"
+      "sha256": "2f1e87065fee16decdd87032995c3a46a1437b2e7bd4b2638e9d5909af859b73"
     },
     "apps/core/tests/consts.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "f51e2950be15b7ceb78e3b74c9f16a66c8de3d03cb7bdd861143c9ce96f7c5d1"
+      "sha256": "cc79d0f7303cf877b9be59834bba05d45d808d235613b84c6fbb9acd7a070073"
     },
     "apps/core/tests/data/pwr-regulamin_2025_slice_5-6.json": {
       "executable": false,
@@ -1200,6 +1300,11 @@
       "kind": "file",
       "sha256": "19f5b6778d3a5ea96a1cc7dfcac90fe1be892091dbc00d2155da8aad3e36c6e4"
     },
+    "apps/core/tests/integration/fixtures/oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fe3825ed354cc2f1f4c6bb9e3bde838a02060675ea31b8cab43969e36c01c4cb"
+    },
     "apps/core/tests/integration/fixtures/organizations.py": {
       "executable": false,
       "kind": "file",
@@ -1218,7 +1323,7 @@
     "apps/core/tests/integration/fixtures/usage.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "20d058c9dfba353bb8d3bd96ad70470d006e62985da7c2be59d24ec9f6a10755"
+      "sha256": "659c5db209e583da3242eb273da1806518b7b4651fe8b2b44852daf97fb9e20c"
     },
     "apps/core/tests/integration/fixtures/users.py": {
       "executable": false,
@@ -1253,7 +1358,7 @@
     "apps/core/tests/integration/test_auth.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "59961dc9855a4b739ff4b9e42854ea8fcc1a1ba8dfd5e530ef592822bf8cc181"
+      "sha256": "c26fb8a7fe9417dc29183899bc84b56755d3c0f87792069dd84d469755bcb63a"
     },
     "apps/core/tests/integration/test_case_documents.py": {
       "executable": false,
@@ -1270,10 +1375,20 @@
       "kind": "file",
       "sha256": "a0d80b9a9808f2e2546a4392b0cd147827782bb90e8e613151316bd7c7c356d9"
     },
+    "apps/core/tests/integration/test_mcp.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "eece2ce43515c2d1cec6ba56faa546cf325aec111e14698d9d359edf75abfecd"
+    },
     "apps/core/tests/integration/test_migrations.py": {
       "executable": false,
       "kind": "file",
       "sha256": "a5d7bef43abc5404e80989e44060595b9162fb296bf74cb788526edde77dfaf4"
+    },
+    "apps/core/tests/integration/test_oauth_flow.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "e39b789e59f8dc5041fc15614d9c4c42b77988bbc8f9e96e9103f5851a1899b2"
     },
     "apps/core/tests/integration/test_organizations.py": {
       "executable": false,
@@ -1313,7 +1428,7 @@
     "apps/core/tests/integration/test_usage_tariff.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "5b1cbac72572af2a3d82bfa7326d095a7e9a2f0736bc413c7771a535835da8ef"
+      "sha256": "92d7927cf7e4410ce30311789d32ef29074f597253df0eb230fdcf0301840f6d"
     },
     "apps/core/tests/mocks.py": {
       "executable": false,
@@ -1333,7 +1448,7 @@
     "apps/core/tests/unit/application/services/test_usage_charger.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "5406a238215c9ea4ab57ce3e4fa61f694d61e7434aac8de83f324dd4bb7fd3b9"
+      "sha256": "cf11f5a39f3f1495b9592191665734c6e97e99ea32ea61cb90036382b7918e69"
     },
     "apps/core/tests/unit/conftest.py": {
       "executable": false,
@@ -1380,6 +1495,16 @@
       "kind": "file",
       "sha256": "a69c8da7496f45d51350b48834402e2f2a737505e3caaeab1392531a7e787585"
     },
+    "apps/core/tests/unit/domain/services/test_mcp_access.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "41a092d73f54b8f548c30eabc50bde1723e3bbc3eb7f8cb37c8b1f9344a5e7c6"
+    },
+    "apps/core/tests/unit/domain/services/test_oauth.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "5e8e9494552449dfbfcdc9ef275d143590423d571152e5cbb6f79a3693b9c47b"
+    },
     "apps/core/tests/unit/domain/services/test_organization_access.py": {
       "executable": false,
       "kind": "file",
@@ -1393,7 +1518,7 @@
     "apps/core/tests/unit/domain/services/test_regulation_chunking.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "9d6db2637e7a7e4d2e615ecd4baddf6ec4b226b0da8b8edc5259abe325c6856a"
+      "sha256": "c1be07d68b86a0e570c1f33c40911b910c96e504265d3e542a97562aa8a11532"
     },
     "apps/core/tests/unit/domain/services/test_regulation_description.py": {
       "executable": false,
@@ -1408,12 +1533,12 @@
     "apps/core/tests/unit/domain/services/test_security.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "06f5673878c0c3977d573d7b6f79b99758d832125bd3244d26749ccfc81051ff"
+      "sha256": "8cd7b8f6be4d0e640eb37eba63ba6c830cde72524cb7472b597206c3f632bd35"
     },
     "apps/core/tests/unit/domain/services/test_usage_budgets.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "0c881f6446103479a4b542168c8d23bd3315dd2782e054050fd2a38d21b9e862"
+      "sha256": "675231ad242a604ef938ad559a5569c18fba4ba4b7695915edf6ed6344ff5f09"
     },
     "apps/core/tests/unit/domain/value_objects/test_application_template_field.py": {
       "executable": false,
@@ -1508,7 +1633,7 @@
     "apps/core/tests/unit/use_cases/test_application_templates_uc.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "9028d1156f2f006e9b3fa57c49eda3757a651ad00991ee7c35c707915f985f8e"
+      "sha256": "0f4b60c0124670c65b5143feb72423df84f8546186ee76f712343ddbd2523c1e"
     },
     "apps/core/tests/unit/use_cases/test_applications_uc.py": {
       "executable": false,
@@ -1518,12 +1643,17 @@
     "apps/core/tests/unit/use_cases/test_auth_uc.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "54c6aa2d081afb1af13580698d7f6671672f5472ad932eb905d13f6ceb6db77d"
+      "sha256": "603f56219ba018bbecf48ba7ed714757aa12d6960395cabd2392beee95feeb54"
     },
     "apps/core/tests/unit/use_cases/test_cases_uc.py": {
       "executable": false,
       "kind": "file",
       "sha256": "0426a70d76df5f630c5dbd99ea8da7b48fa68974ee06e2badc11aad29a48139c"
+    },
+    "apps/core/tests/unit/use_cases/test_limits_uc.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "fc4b4eeb86688238af819748fcf8ad0102acd555359fdfca8ec8e67f55e66b6b"
     },
     "apps/core/tests/unit/use_cases/test_regulations_uc.py": {
       "executable": false,
@@ -1533,7 +1663,7 @@
     "apps/core/uv.lock": {
       "executable": false,
       "kind": "file",
-      "sha256": "baaf4c7c49274c401f5d1c6b50c63d3abf06d8000371dfe84ea23bf5b97e8073"
+      "sha256": "9b4aeca3f4bcf17f04da826180767d84c294f93a31b486187212da54003b071c"
     },
     "apps/embedding/Containerfile": {
       "executable": false,
@@ -1773,7 +1903,7 @@
     "apps/web/src/api/__tests__/axios.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "d8eb09d3ec4de9249c46ff3b4e9fb49cd388070f7689914f3c3fcbd198c09bac"
+      "sha256": "634d1e7197b364cc731779c730541b87e3134f851f90bbb412f6f940187166d1"
     },
     "apps/web/src/api/applicationTemplates.ts": {
       "executable": false,
@@ -1813,7 +1943,17 @@
     "apps/web/src/api/generated/endpoints/index.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "44883f2dafcb30c91a258168c351bb910ae4e400063380b797323392d8c98c5b"
+      "sha256": "a54add2aadc451d39d16c4ef33db38698cae3c351e05ca01330cd82479612a65"
+    },
+    "apps/web/src/api/generated/endpoints/oauth-clients/oauth-clients.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "4c8d188da48e6fdff78184ea40e0acbce0467ca17993590ee1ba49456c4032c2"
+    },
+    "apps/web/src/api/generated/endpoints/oauth/oauth.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "a4b8a10819fb65a7eabedf4dc66d25e4c7f537971de12c355e1a9570840ec259"
     },
     "apps/web/src/api/generated/endpoints/organizations/organizations.ts": {
       "executable": false,
@@ -1885,6 +2025,21 @@
       "kind": "file",
       "sha256": "a214107611e02863d2a2a49673cfb310de706606fd8d972bba9eb3201412ce83"
     },
+    "apps/web/src/api/generated/model/authorizationRedirect.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "20f7a4cd59ee4374ffaa821733a548a8a799cf690de612e65044e8619df7990e"
+    },
+    "apps/web/src/api/generated/model/authorizationRequest.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "301ddbd852ab909c1acd97cfc8864e6cb367a43a3a56843d7e0c1630ba86bdd1"
+    },
+    "apps/web/src/api/generated/model/authorizationRequestDetails.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "553f54fd1a05feacd7495b19464fa07ae4f5e9f871e0c0c2afe175484f8daafe"
+    },
     "apps/web/src/api/generated/model/bodyAddCase.ts": {
       "executable": false,
       "kind": "file",
@@ -1905,6 +2060,11 @@
       "kind": "file",
       "sha256": "83ccc6980072742fa2e9277806fa055b88da29c854fe8d2b37dbbc2e1d284e39"
     },
+    "apps/web/src/api/generated/model/createdOAuthClient.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "b841ba47ab811ef7a81080cab357d3fd07509ce864bac3d2e7851cff932aa304"
+    },
     "apps/web/src/api/generated/model/currentUser.ts": {
       "executable": false,
       "kind": "file",
@@ -1914,6 +2074,11 @@
       "executable": false,
       "kind": "file",
       "sha256": "00a435a6ce44d6df2eb8354eebac1f83d8ae37b5c0567694b79d3b9a48cb33f5"
+    },
+    "apps/web/src/api/generated/model/getConsentDetailsParams.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3e165fe7a6fb65375caceb3f1da9951baa2cee1a0d62ed674b381e3bfbb2e31a"
     },
     "apps/web/src/api/generated/model/getPublishedApplicationTemplatesParams.ts": {
       "executable": false,
@@ -1933,7 +2098,7 @@
     "apps/web/src/api/generated/model/index.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "ca0c79170a57ab03d7b68e40c7e33844eee38a4f630b1aa12bd351a24b5d3351"
+      "sha256": "391cfc21045e4d088a3f01662c3658d76243121e5375b71fbdbb5d880e94eb75"
     },
     "apps/web/src/api/generated/model/newApplication.ts": {
       "executable": false,
@@ -1950,6 +2115,11 @@
       "kind": "file",
       "sha256": "cd2609158bbc545a5f4192ffb0ee60789c221b6ab594b9a64e3c32df91f00cd0"
     },
+    "apps/web/src/api/generated/model/newOAuthClient.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "09eb8eb0a5355269d46b5a3a436c8d804f323ac11b8ec799d2163e9f353e6667"
+    },
     "apps/web/src/api/generated/model/newOrganization.ts": {
       "executable": false,
       "kind": "file",
@@ -1959,6 +2129,11 @@
       "executable": false,
       "kind": "file",
       "sha256": "2cd19fe178fa8cb3edaa5a665468a4aaa878ceed318d62be550e592551854b09"
+    },
+    "apps/web/src/api/generated/model/oAuthClientData.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "964367e0ff3d8ac5f0b73453f4ca6bf25e2d2e7a283a11658adf29d10a1cb289"
     },
     "apps/web/src/api/generated/model/organizationData.ts": {
       "executable": false,
@@ -2073,7 +2248,7 @@
     "apps/web/src/api/generated/model/usageTariffData.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "f1c2e789e4f5d636b489eba884f85ca1e38f85cbfd286fb01a735e5a923bcc5b"
+      "sha256": "2d3273d776cafb401d04e36e1246cfebce9945c825c8105f877d406dabd041b4"
     },
     "apps/web/src/api/generated/model/validationError.ts": {
       "executable": false,
@@ -2233,7 +2408,7 @@
     "apps/web/src/components/molecules/RegulationDetailsDialog.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "18f76e40ca030a4c5cbf79f7180f24b4c9712b8c862a43cb1693ab17d4f4e842"
+      "sha256": "d88a27766bedde455b0f065ad3637d8eb7895d0ff9833ca2340c39ba93d680a4"
     },
     "apps/web/src/components/molecules/RegulationElements.vue": {
       "executable": false,
@@ -2293,22 +2468,22 @@
     "apps/web/src/components/molecules/__tests__/RegulationDetailsDialog.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "896b9fef429ca5d7d43a370c2332eddf0503d79d2ec318794a930a731550a7f0"
+      "sha256": "8fa56f837c9e120e950a9c0fe5b2c0893597daa15f0d096f69f16bf4f4b95873"
     },
     "apps/web/src/components/molecules/__tests__/RegulationItem.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "c5ee310549e845ec0a6abed11f9be3339ae1d7732c872506ac537e5e33c0f430"
+      "sha256": "2e08d2f22e548f854b15c99c7c77114d522a7ed6952297e722e2d3cc06e5894e"
     },
     "apps/web/src/components/molecules/__tests__/RegulationUploadDialog.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "b059300b1e8988e2fb9b3071d7c05de6596fc28c6c425a46d045b17be415b82d"
+      "sha256": "ac1ff2134ea77efc08c024c0f11e0c72cf267342cb1482dedd6671a6c396efb5"
     },
     "apps/web/src/components/molecules/__tests__/SearchResultItem.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "a6e2bbe12eb500610794da5d78b10ae7a1771423dbe28ae15fc81fa0930f38cb"
+      "sha256": "4a91732a0785ba6cbfd37b470f22a3d34683bf5b030a442745959190e6afc7a5"
     },
     "apps/web/src/components/molecules/__tests__/SearchThresholdControl.spec.ts": {
       "executable": false,
@@ -2398,7 +2573,7 @@
     "apps/web/src/components/organisms/SidebarContent.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "f6c08d2de978a9bb100c49f7be9b68c08c6695e5ef907634dada9cf73184e209"
+      "sha256": "b965fcb936fb0b62c029a7658ea14f56d21f2a45f7f6b9fd75b42e1ff1bf3ee1"
     },
     "apps/web/src/components/organisms/__tests__/ApplicationTemplateEditor.spec.ts": {
       "executable": false,
@@ -2478,7 +2653,7 @@
     "apps/web/src/composables/__tests__/useRegulations.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "70d3f879cb37988b5cbd151d7fdc1d35efcfa2e9b054024bc721c144a4fc6fd4"
+      "sha256": "a5bbbf58c932338d2e9e53568934613c6eede7b4107218da65a630fe2026b432"
     },
     "apps/web/src/composables/__tests__/useSidebar.spec.ts": {
       "executable": false,
@@ -2620,6 +2795,16 @@
       "kind": "file",
       "sha256": "a51b1cb67856c7f767f5419bfffba24f832452aa46704a7f7961d43b1acec715"
     },
+    "apps/web/src/pages/McpClientsPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8a985de64e2cbb066feb24b12d7ac3a1a9aba3f78ccd2db2a1e440ef2e25f638"
+    },
+    "apps/web/src/pages/OAuthConsentPage.vue": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "d12793de5ef9c5eaac293f0998b156ddfc3d3944912c69e0a6a678b5d51b9878"
+    },
     "apps/web/src/pages/OrganizationsPage.vue": {
       "executable": false,
       "kind": "file",
@@ -2638,7 +2823,7 @@
     "apps/web/src/pages/UsageTariffPage.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "7baec346456fd492e388748f659d4f62da0b8062e03fe14ebac7f5f095be543f"
+      "sha256": "f56b610e946266f979682edbbbe4f08a39a14f4131e22ce2ebac4d52c730f30b"
     },
     "apps/web/src/pages/__tests__/ApplicationTemplatePage.spec.ts": {
       "executable": false,
@@ -2663,12 +2848,22 @@
     "apps/web/src/pages/__tests__/LoginPage.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "12104e45c9bb64761f79e8e6fc26c5a7b327a78429950825b970d0510476d474"
+      "sha256": "a70ac9fd8e9f07e035266d3c64555faa937299caf12441204d48b6ea25aa5b36"
     },
     "apps/web/src/pages/__tests__/MainPage.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "e04e1eb7e5d7c763654c54fa93b1e4d1f4890dc5a733facb60366a35e59740c4"
+      "sha256": "73795bffcda40d8ac4d1e71f5ba098bb6764f9b57f169b70eb8058af2dc5dfa8"
+    },
+    "apps/web/src/pages/__tests__/McpClientsPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "3de2113f27bc62bdd8382db91b66ac86ec055c6ebdb17429a25024f2e1647b4f"
+    },
+    "apps/web/src/pages/__tests__/OAuthConsentPage.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "6523102262104eab04e905e2aec7dbaeefce55195233aa02043c8469a429a26b"
     },
     "apps/web/src/pages/__tests__/OrganizationsPage.spec.ts": {
       "executable": false,
@@ -2688,7 +2883,7 @@
     "apps/web/src/pages/__tests__/UsageTariffPage.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "b2bb4ac8a924942d026c545279cf439201c1bdd81d856c9037a048d26fb6c69b"
+      "sha256": "0606b4bcee4d5c769749f004543f48c7650cd61131f2e7835c216ed72c7b9ae9"
     },
     "apps/web/src/router/__tests__/index.spec.ts": {
       "executable": false,
@@ -2698,7 +2893,7 @@
     "apps/web/src/router/index.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "82c801a0db2bf601be9a5a544efa66437aaaedddf36391eda05011691bfcda21"
+      "sha256": "b71d86961ef87fd6da0968c26a00c77914cd28bbb134ca36405c7c885279ec2d"
     },
     "apps/web/src/stores/__tests__/auth.spec.ts": {
       "executable": false,
@@ -2873,12 +3068,12 @@
     "deploy/overlays/gcp/config.env": {
       "executable": false,
       "kind": "file",
-      "sha256": "9a4f3b4022b96c4820ace5ca8b18408e0b9ccf35273cd0ccecf1a19af0087475"
+      "sha256": "d0e1f1b50ff2799a108942ef57b6311a039e156003f7b5fa26fe4bf00232c6fa"
     },
     "deploy/overlays/gcp/ingress.yaml": {
       "executable": false,
       "kind": "file",
-      "sha256": "99c940bd12c75a335b7b7219142f09e9a18588d2c7d00e8208665a65fba0a0ae"
+      "sha256": "fbc400b638841b2313d0fc43c2151df2e0392e12f51555baa49da058d280d9ea"
     },
     "deploy/overlays/gcp/kustomization.yaml": {
       "executable": false,
@@ -2918,7 +3113,7 @@
     "deploy/overlays/kind/config.env": {
       "executable": false,
       "kind": "file",
-      "sha256": "f6f6ffd89f20c2cc7d146ce1ed03b6720f86816d78c3ceee4f7f0c750bceb77a"
+      "sha256": "46c369ad436445c70107b7129cdc3c4a59010b9577aa6cd30e6baadf841c7110"
     },
     "deploy/overlays/kind/embedding.yaml": {
       "executable": false,
@@ -2948,7 +3143,7 @@
     "deploy/overlays/kind/nginx.conf": {
       "executable": false,
       "kind": "file",
-      "sha256": "f4fa2165bbf03685da92c0be6bc3c87e2868ccba6510959444b71240321afa2b"
+      "sha256": "6a9f7268bcab795e6db522021f9f7640503f64764e01cf6ad114a0d8745e33ca"
     },
     "deploy/overlays/kind/rustfs.yaml": {
       "executable": false,
@@ -2978,17 +3173,17 @@
     "docs/app_logic.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "0350b02f2d917c9e8a9c47a9744cff983614bf859f68e693f39ea8c06b76e426"
+      "sha256": "f18dcccbc5ce35b00644ea13fd1c5ace0b36acf4f6486ce14ce953862163e112"
     },
     "docs/architecture/architecture.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "a4bb9e648718110ec667159c0afcd2f2131ea109d0de1142c394b1232ec17ab1"
+      "sha256": "d982bd6c248ec67286d9f575f1101af4029f5dd24b2a296d4f1f66397a3a96e9"
     },
     "docs/architecture/backend.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "b25936c6bc5a21360e81fdf41098a8aed95e899e78284156fd639a0a8bc402fd"
+      "sha256": "ec91fd25ea284a8c19520bd962bfb6bafb8ee35969da69cdb30425965c5de093"
     },
     "docs/architecture/coding_rules.md": {
       "executable": false,
@@ -3079,16 +3274,6 @@
       "executable": false,
       "kind": "file",
       "sha256": "d986564fc5232702e764350107cca50649971fee34b98f40cb38775b197261bc"
-    },
-    "plan/kustomize_kind_final.md": {
-      "executable": false,
-      "kind": "file",
-      "sha256": "5b4403b8492dfa58c26cb060ceab0a011ca2eee1c5d66f9d6c9118325e232ba4"
-    },
-    "plans/rate-limiting-cloudflare-gcp-podsumowanie.md": {
-      "executable": false,
-      "kind": "file",
-      "sha256": "d6627cfdfd3601718407234ae7d854b4841aec1c212ee8bb2e650fb0ddab0583"
     },
     "pyproject.toml": {
       "executable": false,
