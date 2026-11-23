@@ -6,7 +6,7 @@
       "sha256": "1981e5a18d78db57904a9b1789f9314ce335e974320520fd58215ceca331c07c"
     }
   },
-  "revision": "212e18c64cd8a22cd021fd3f0ee7ecbe74c2c75e",
+  "revision": "d937ebfd58b67975926fdcc7e6c72521335b6dc4",
   "url": "https://github.com/erykmikolajewicz/prawobiorca.git",
   "version": 1,
   "workbench": {
@@ -88,7 +88,7 @@
     ".trivyignore.yaml": {
       "executable": false,
       "kind": "file",
-      "sha256": "81e0f723468d957589ef34e163e04b854d2e87517d83e3cf1904e6fed47d7f8e"
+      "sha256": "a729fda62f43997b85404e22108201bd42daff084ff352b2ff77b6c2166b7578"
     },
     "README.md": {
       "executable": false,
@@ -175,6 +175,11 @@
       "kind": "file",
       "sha256": "78077bf980ce0e77fe3ff8bc1f0a5e7b301457bd8f3c775973f7725120c26411"
     },
+    "apps/core/alembic/versions/dcf9a3b48110_add_regulation_preparation_failure_reason.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "37cce2b30861733d175219bbd40c8741d706dbdfba566ce7f48997646c6dac1a"
+    },
     "apps/core/alembic/versions/e4a7c2d9f1b8_add_usage_tariff.py": {
       "executable": false,
       "kind": "file",
@@ -193,7 +198,7 @@
     "apps/core/openapi.json": {
       "executable": false,
       "kind": "file",
-      "sha256": "cc95526c45b4cac4035fc406e567945439960b048e197e8c3718c6e47a0104dd"
+      "sha256": "3382197028703ea74fc6a78c6aae2f34bf4270148c29040b831b5c7dc5dc5bce"
     },
     "apps/core/pyproject.toml": {
       "executable": false,
@@ -293,12 +298,12 @@
     "apps/core/src/core_service/application/dtos/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "a29104a9e1e4d0985ae1308f49a3920f86f1d735ce20b3bdd7488c86c37fed25"
+      "sha256": "655ea6f6801cc0d5a19ee5ea79ea625e23b2d2879e855082e462143fe0dc89ff"
     },
     "apps/core/src/core_service/application/dtos/search.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "9293c31ae0733156d88d7975d19ec3ca297e816e97648ccf7929b0de4787f891"
+      "sha256": "69d762addd50c731e87cb4e587f41aa41a19f15415bb38fa9cf8e8d827ad4560"
     },
     "apps/core/src/core_service/application/dtos/usage.py": {
       "executable": false,
@@ -353,7 +358,7 @@
     "apps/core/src/core_service/application/ports/sections.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "3db1a5e6137802d4d261ee72e47ea919f740cbc6a1bffcf01307c742d53ce00a"
+      "sha256": "aec72d9022d5d9e5d50f81453d74421b97a1074a6eca8b2dca565b4379432992"
     },
     "apps/core/src/core_service/application/ports/tasks.py": {
       "executable": false,
@@ -453,7 +458,7 @@
     "apps/core/src/core_service/application/use_cases/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "5c4df31e741737b45c9ff1956adee0250764c8af502101e7edf71252d9f2ab71"
+      "sha256": "44aa30573b67c79b071e2fd2f9eeb61868d3161d1ba69710f219c64d80493df5"
     },
     "apps/core/src/core_service/application/use_cases/usage.py": {
       "executable": false,
@@ -483,7 +488,7 @@
     "apps/core/src/core_service/domain/entities/regulation.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "03db6848032d5f9ac7707d4326c950b5b5a101748dab6388fa7479339cf8d510"
+      "sha256": "73c9899d9802f7ee5bec9804a0bf8880b0fddff029ed52cc95a20c59049205b5"
     },
     "apps/core/src/core_service/domain/entities/user.py": {
       "executable": false,
@@ -538,7 +543,7 @@
     "apps/core/src/core_service/domain/exceptions/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "ed78a16d2872e79440f702f69b34892129de2c910a0424d49c14e909a2f29c95"
+      "sha256": "29d375afd8b38504287f28da7285918e90bd0c5315ce1197c1166c9bd3bf5fb1"
     },
     "apps/core/src/core_service/domain/exceptions/users.py": {
       "executable": false,
@@ -668,7 +673,7 @@
     "apps/core/src/core_service/domain/value_objects/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "bb0817f644e91fef06b15ecdbba6d50aa8cf24f069c49da71e3df4b10989b2fe"
+      "sha256": "fc72b196079aa3fc00b7d1c31b6565f92e2165e73e2d1e1971b40f8c586e74e8"
     },
     "apps/core/src/core_service/domain/value_objects/sections.py": {
       "executable": false,
@@ -853,7 +858,7 @@
     "apps/core/src/core_service/framework/mcp/server.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "ef0be2cde4fd7961dc7b7f1da154951f6f59758a4e0867390b7b210265c8c809"
+      "sha256": "1e2457adcc7c706da3c6408ffa61d5508b260672fe0f2d1181f7f81a41aa8b90"
     },
     "apps/core/src/core_service/framework/workers/applications.py": {
       "executable": false,
@@ -958,7 +963,7 @@
     "apps/core/src/core_service/infrastructure/ai_services/regulation_splitter.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "b5bd45657669dcb6bc805f3d5170be903f43aa4beb572e0a550848ac04cc5fed"
+      "sha256": "162cd4fbc2b2d5dc3bc994184f87ac55edb00f7127999c054c8625e03f9938c4"
     },
     "apps/core/src/core_service/infrastructure/ai_services/section_summaries_writer.py": {
       "executable": false,
@@ -1048,7 +1053,7 @@
     "apps/core/src/core_service/infrastructure/relational_db/repositories/sections.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "57a9bd72dfa0ffe751dd09dc2656882d04f4ebdf681b44e8ec0d7d48109feb8c"
+      "sha256": "5921a65f8632444b696a500bdc842dcfb51dcb0f749b114ce38d1fb110379f40"
     },
     "apps/core/src/core_service/infrastructure/relational_db/repositories/usage_budgets.py": {
       "executable": false,
@@ -1108,7 +1113,7 @@
     "apps/core/src/core_service/infrastructure/relational_db/schemas/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "62773a88288047c066e4d68affa7755f46020d30a9f8aed14e6a51f5581f9391"
+      "sha256": "a8d47468a0c9bf4b681be4919c19661faa8412dd62d094e07c8ebaf82fddf802"
     },
     "apps/core/src/core_service/infrastructure/relational_db/schemas/sections.py": {
       "executable": false,
@@ -1313,7 +1318,7 @@
     "apps/core/tests/integration/fixtures/regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "3987409c1bab24b617594523551fec962568c5d6697dd506e0859acfbde21fa9"
+      "sha256": "5735ba0d5738daf8478c3f92c2dc368e99f443c2a6323e2d7c8872b84e900d3a"
     },
     "apps/core/tests/integration/fixtures/tasks.py": {
       "executable": false,
@@ -1378,7 +1383,7 @@
     "apps/core/tests/integration/test_mcp.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "eece2ce43515c2d1cec6ba56faa546cf325aec111e14698d9d359edf75abfecd"
+      "sha256": "bf0e890c2713574533b2375d9696abbd813c96492b97bb0e301b7e7a46fcc990"
     },
     "apps/core/tests/integration/test_migrations.py": {
       "executable": false,
@@ -1403,12 +1408,12 @@
     "apps/core/tests/integration/test_public_regulations.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "5ab5d11d226c8194d964b1b51d55b672c1615e4450a6a87e5fe4c3709e809f8a"
+      "sha256": "cc4321123af46de0deecd9b6e168a8f2bd1bffc598a072036ba1a96df40a0571"
     },
     "apps/core/tests/integration/test_regulation_tasks.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "54c4f4128a3b1669fa1fbc89f2a4e6bccff267747ad1e1c1a8282e2ca017917a"
+      "sha256": "c34e960b31a8315672999c751d0e9717a7f2cb2d6a77d08236ecc5076c5b8b3e"
     },
     "apps/core/tests/integration/test_sections_repository.py": {
       "executable": false,
@@ -1433,7 +1438,7 @@
     "apps/core/tests/mocks.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "2ab7c3f2275ca45afe4796c17e829a7f4590855668117c7788ee2823733409a4"
+      "sha256": "4f3049fa22417519c4a7b85e347cda0ba2ca2e7b882f3a0838bb03e9e7740abb"
     },
     "apps/core/tests/unit/application/services/test_attempt_limiter.py": {
       "executable": false,
@@ -1468,7 +1473,7 @@
     "apps/core/tests/unit/domain/entities/test_regulation.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "73b4128b20b2ea1e0ba142812ee369d93770f7d3a13b4b2b11a9febb2e072871"
+      "sha256": "fae175db28729fe2624bc387d5aacb54e41749ccb2ec68116aae743cfa4f868a"
     },
     "apps/core/tests/unit/domain/services/test_application_template_access.py": {
       "executable": false,
@@ -1583,7 +1588,7 @@
     "apps/core/tests/unit/infrastructure/test_regulation_splitter.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "fe699f4a87ed55bc2fcb432044044c78d92872e1cad75ef807e96791138780eb"
+      "sha256": "70d385152349541a0241b5a98b7287d460294c2dc1188b0d3d1afffd76afc531"
     },
     "apps/core/tests/unit/infrastructure/test_relational_schemas.py": {
       "executable": false,
@@ -1658,7 +1663,7 @@
     "apps/core/tests/unit/use_cases/test_regulations_uc.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "333a1214f7df362a4ed2dbe9aa77912998b2f458e9f4eed24703a690e794e34d"
+      "sha256": "334cfb06f5b340a6e270897d313a049cbfbcdc2edb0840f0a4c5449db60b746f"
     },
     "apps/core/uv.lock": {
       "executable": false,
@@ -1698,7 +1703,7 @@
     "apps/extraction/src/extraction_service/main.py": {
       "executable": false,
       "kind": "file",
-      "sha256": "8dd8e24729d66cf332d93e6f6f2d358eb160e315331b32f6072248b4d60d94ea"
+      "sha256": "b3e073b63639514b20a7b5d7fefb0f8f1b6a7b21d96711ce4169309b5e3a8a14"
     },
     "apps/extraction/src/extraction_service/models.py": {
       "executable": false,
@@ -1709,11 +1714,6 @@
       "executable": false,
       "kind": "file",
       "sha256": "9be404b2c9e37e9428c9631be4498120614aa477867d307d1a31216066eaf70b"
-    },
-    "apps/extraction/tests/conftest.py": {
-      "executable": false,
-      "kind": "file",
-      "sha256": "8cc9b14aaa39e5a8bd8aa816e73885f2935b27ea4c8e3208e429bbef5a5ad737"
     },
     "apps/extraction/tests/consts.py": {
       "executable": false,
@@ -1745,10 +1745,20 @@
       "kind": "file",
       "sha256": "986484fd1e4be3e9238546af76cd3f1d433162081c07aa92c40fa5a8e06f6b7d"
     },
+    "apps/extraction/tests/integration/conftest.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "8cc9b14aaa39e5a8bd8aa816e73885f2935b27ea4c8e3208e429bbef5a5ad737"
+    },
     "apps/extraction/tests/integration/test_parse_regulation.py": {
       "executable": false,
       "kind": "file",
       "sha256": "782f3742dcb187cc9f01f9c347138a3d2ca51b849c7997a8fa82e747ed449438"
+    },
+    "apps/extraction/tests/unit/test_conversion_status.py": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "dcda19260367fbb628edb8ca8e5998e71b982c1b8bb01a96747f2feb5be03ba2"
     },
     "apps/extraction/uv.lock": {
       "executable": false,
@@ -1888,7 +1898,7 @@
     "apps/web/src/__tests__/factories.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "91597a47be19e0864892d80452ccc1f09023e17c63b2381171db58a0e292542c"
+      "sha256": "396b6db6cdfa76da58183bb3a7c9df491a3b963e55641288629e0c0e939beaf9"
     },
     "apps/web/src/__tests__/main.spec.ts": {
       "executable": false,
@@ -2098,7 +2108,7 @@
     "apps/web/src/api/generated/model/index.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "391cfc21045e4d088a3f01662c3658d76243121e5375b71fbdbb5d880e94eb75"
+      "sha256": "28d77160d7cc894d07df74239e27bee4fe69454b4f5b9a73d5f45b0c3cf68353"
     },
     "apps/web/src/api/generated/model/newApplication.ts": {
       "executable": false,
@@ -2165,6 +2175,11 @@
       "kind": "file",
       "sha256": "ba9694b9e1842f3fe04633c469fbbf1d972dd0e4ca7a500f1121faacab92e61b"
     },
+    "apps/web/src/api/generated/model/regulationPreparationFailureReason.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "c4b26babc604a54403a8276bce9c6e9994550f6111787ad726a79195f8845308"
+    },
     "apps/web/src/api/generated/model/regulationPreparationStatus.ts": {
       "executable": false,
       "kind": "file",
@@ -2173,7 +2188,7 @@
     "apps/web/src/api/generated/model/regulationRepresentation.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "e2e801d2cf05fb572540e81bd9d78f0c6f1fa254814bfb0a206a471122102ee6"
+      "sha256": "acbb0ea5cc88f155e74b87ff22d77ddddca82d72634ce6f866e62deca9e20832"
     },
     "apps/web/src/api/generated/model/regulationScope.ts": {
       "executable": false,
@@ -2313,7 +2328,7 @@
     "apps/web/src/components/atoms/RegulationStatusBadge.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "9766a2a3e85a35588e1f4095b2574a8641a320592d5a41e2ce34c02d76704a80"
+      "sha256": "fc269ae145c04d5500f827a3be8402782178704e1efc1bd24a35b502efe83dba"
     },
     "apps/web/src/components/atoms/RegulationTypeBadge.vue": {
       "executable": false,
@@ -2334,6 +2349,11 @@
       "executable": false,
       "kind": "file",
       "sha256": "ea69cf8243d14f5b728023c4df835f79ec044c49972f4e28b806ad23934d4673"
+    },
+    "apps/web/src/components/atoms/__tests__/RegulationStatusBadge.spec.ts": {
+      "executable": false,
+      "kind": "file",
+      "sha256": "2633e05712dc75a3cbe42a793d08d7deb2b5a7a397a9519432130aa09fa8fcb0"
     },
     "apps/web/src/components/molecules/ApplicationTemplateFieldEditor.vue": {
       "executable": false,
@@ -2408,7 +2428,7 @@
     "apps/web/src/components/molecules/RegulationDetailsDialog.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "d88a27766bedde455b0f065ad3637d8eb7895d0ff9833ca2340c39ba93d680a4"
+      "sha256": "633510b93f157613960143e45a572124dc0355fa0f1f404907c1745e4ab7d6b8"
     },
     "apps/web/src/components/molecules/RegulationElements.vue": {
       "executable": false,
@@ -2418,7 +2438,7 @@
     "apps/web/src/components/molecules/RegulationItem.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "972e8c192e1288c5e98fbd2f2ee06be309a081644df91f5bb5b486a149bcc0e5"
+      "sha256": "1736c0406aea29f3bd3e63be405411ed42a1bb054d8cc5e49edba9716a1a6bcd"
     },
     "apps/web/src/components/molecules/RegulationOrganizationFilter.vue": {
       "executable": false,
@@ -2468,12 +2488,12 @@
     "apps/web/src/components/molecules/__tests__/RegulationDetailsDialog.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "8fa56f837c9e120e950a9c0fe5b2c0893597daa15f0d096f69f16bf4f4b95873"
+      "sha256": "62a3e8756211582415428329d9229f51b8d51e1c739d87bb68f870e3ffd13d38"
     },
     "apps/web/src/components/molecules/__tests__/RegulationItem.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "2e08d2f22e548f854b15c99c7c77114d522a7ed6952297e722e2d3cc06e5894e"
+      "sha256": "ccaf48e167b8aab9b6deb7ea663773be81125261a729160ace1b02cfb2b2b03c"
     },
     "apps/web/src/components/molecules/__tests__/RegulationUploadDialog.spec.ts": {
       "executable": false,
@@ -2523,7 +2543,7 @@
     "apps/web/src/components/organisms/GeneratePdfForm.vue": {
       "executable": false,
       "kind": "file",
-      "sha256": "3a9bc4dc0bf8c49702f301d2b3944eb123c2b1534641b6a68ac96ebba16b8527"
+      "sha256": "c06628e85a6753d047593cb63979e35968f6bbcd460d334033c914c423d05aa5"
     },
     "apps/web/src/components/organisms/GeneratedApplicationsList.vue": {
       "executable": false,
@@ -2583,7 +2603,7 @@
     "apps/web/src/components/organisms/__tests__/GeneratePdfForm.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "b5c2e305a4f18657f388cadb4fcc1f48684269c6c2e8bad01678a5ddf71d9ec8"
+      "sha256": "eba55e0d4b5db1d37a9561f174844a5f18189cd2234fd30f9eff0769b0714f71"
     },
     "apps/web/src/components/organisms/__tests__/PinnedDocumentsList.spec.ts": {
       "executable": false,
@@ -2648,12 +2668,12 @@
     "apps/web/src/composables/__tests__/useRegulationUpload.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "456f45a6a10ea3a1626d29ce6d91ea7876404be95481a625b0a06b9deeee4519"
+      "sha256": "577b5780c088161d8e10d5505cd703ed4dec24b27969cc17e2c2a1fb387721d7"
     },
     "apps/web/src/composables/__tests__/useRegulations.spec.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "a5bbbf58c932338d2e9e53568934613c6eede7b4107218da65a630fe2026b432"
+      "sha256": "c309e635264034a8b656c27bdb58c1ae12bdccde9562ddadd4e5b694248255e0"
     },
     "apps/web/src/composables/__tests__/useSidebar.spec.ts": {
       "executable": false,
@@ -2718,7 +2738,7 @@
     "apps/web/src/composables/useRegulationUpload.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "af0cc81267816e0f18629d1c88adee454343cf4bb1d82807423d55cf5a6b253d"
+      "sha256": "5ed2502fe728b24e0b48b2fdb94042cca60c17105f598aabbf56f3a7cf2fb3d8"
     },
     "apps/web/src/composables/useRegulations.ts": {
       "executable": false,
@@ -2753,7 +2773,7 @@
     "apps/web/src/domain/regulations.ts": {
       "executable": false,
       "kind": "file",
-      "sha256": "8e500641243d7d27e949b3b37c6621ed267f722e546b686dec7463c4360a7c88"
+      "sha256": "487b031ce281cf9a2a179e814fa790a4febe1be006ffa529fbc66dcd8180c267"
     },
     "apps/web/src/domain/search.ts": {
       "executable": false,
@@ -3173,7 +3193,7 @@
     "docs/app_logic.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "f18dcccbc5ce35b00644ea13fd1c5ace0b36acf4f6486ce14ce953862163e112"
+      "sha256": "19682d9bdff5e2b7fa94018bf7817f89047ec7697275d696c39439af7ff7075d"
     },
     "docs/architecture/architecture.md": {
       "executable": false,
@@ -3183,7 +3203,7 @@
     "docs/architecture/backend.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "ec91fd25ea284a8c19520bd962bfb6bafb8ee35969da69cdb30425965c5de093"
+      "sha256": "56b725b189c37b67b2312727f2875dd94d8369358d55ed2c4b61063b0e748e90"
     },
     "docs/architecture/coding_rules.md": {
       "executable": false,
@@ -3193,12 +3213,12 @@
     "docs/architecture/external_services.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "d323f3abc1f99cc3a455f98503f04f947e57f555c67f210278c94d5e94b0a361"
+      "sha256": "8becc1a674156d5730aa4c8613e74f916342ba6efbf94a7ee5a97e91af20881d"
     },
     "docs/architecture/extraction_followups.md": {
       "executable": false,
       "kind": "file",
-      "sha256": "6ad4e544e2de3c98d9386ec58c24f0b80e1a84206208e9dd739785b94e0f1b9c"
+      "sha256": "d0bbf893c33be6d22be6b5c0fcf711cba04f6a27dcd5cc761b864389036e57ed"
     },
     "docs/architecture/extraction_tuning.md": {
       "executable": false,
@@ -3273,7 +3293,7 @@
     "justfile": {
       "executable": false,
       "kind": "file",
-      "sha256": "d986564fc5232702e764350107cca50649971fee34b98f40cb38775b197261bc"
+      "sha256": "6909247407cc646d99b99b74962144a5b4989e2f81307a39edd8cffe3dcb74c4"
     },
     "pyproject.toml": {
       "executable": false,
