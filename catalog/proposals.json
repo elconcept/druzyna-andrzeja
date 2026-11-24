@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "jurisdiction": "PL",
-  "generated_at": "2026-11-23T08:07:03Z",
+  "generated_at": "2026-11-24T00:17:35Z",
   "feeds": [
     {
       "name": "polskie-legaltech-otwarte",
@@ -72,11 +72,11 @@
         "value": 47,
         "parts": {
           "popularność": 1.3,
-          "aktualność": 39.9,
+          "aktualność": 39.8,
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 0,
+        "commit_age_days": 1,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -190,11 +190,11 @@
         "value": 39,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 35.0,
+          "aktualność": 34.9,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 34,
+        "commit_age_days": 35,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -237,7 +237,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 2001,
+        "commit_age_days": 2002,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -354,14 +354,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 49,
+        "value": 48,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.9,
+          "aktualność": 39.8,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 0,
+        "commit_age_days": 1,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -403,7 +403,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 87,
+        "commit_age_days": 88,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -542,11 +542,11 @@
         "value": 39,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 28.5,
+          "aktualność": 28.4,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 88,
+        "commit_age_days": 89,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -620,7 +620,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 151,
+        "commit_age_days": 152,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -641,7 +641,7 @@
       "source_line": 119,
       "approved": false,
       "metrics": {
-        "stars": 195,
+        "stars": 196,
         "forks": 25,
         "open_prs": 0,
         "last_commit": "2026-11-16T22:45:48Z",
@@ -670,12 +670,12 @@
       "health": {
         "value": 73,
         "parts": {
-          "popularność": 25.2,
-          "aktualność": 39.0,
+          "popularność": 25.3,
+          "aktualność": 38.9,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 6,
+        "commit_age_days": 7,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -725,7 +725,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 151,
+        "commit_age_days": 152,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -747,7 +747,7 @@
       "source_line": 71,
       "approved": true,
       "metrics": {
-        "stars": 8,
+        "stars": 9,
         "forks": 8,
         "open_prs": 0,
         "last_commit": "2026-11-12T15:34:00Z",
@@ -776,12 +776,12 @@
       "health": {
         "value": 63,
         "parts": {
-          "popularność": 12.1,
-          "aktualność": 38.4,
+          "popularność": 12.5,
+          "aktualność": 38.3,
           "społeczność": 7.5,
           "licencja": 5
         },
-        "commit_age_days": 10,
+        "commit_age_days": 11,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -826,11 +826,11 @@
         "value": 50,
         "parts": {
           "popularność": 4.0,
-          "aktualność": 37.2,
+          "aktualność": 37.1,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 18,
+        "commit_age_days": 19,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -872,7 +872,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 33,
+        "commit_age_days": 34,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -934,7 +934,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 301,
+        "commit_age_days": 302,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1023,11 +1023,11 @@
         "value": 45,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 37.2,
+          "aktualność": 37.1,
           "społeczność": 0.0,
           "licencja": 5
         },
-        "commit_age_days": 18,
+        "commit_age_days": 19,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1075,11 +1075,11 @@
         "value": 46,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 34.4,
+          "aktualność": 34.3,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 39,
+        "commit_age_days": 40,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1130,7 +1130,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 42,
+        "commit_age_days": 43,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1182,7 +1182,7 @@
           "społeczność": 0.0,
           "licencja": 0
         },
-        "commit_age_days": 158,
+        "commit_age_days": 159,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1230,11 +1230,11 @@
         "value": 0,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 21.4,
+          "aktualność": 21.3,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 162,
+        "commit_age_days": 163,
         "method": "repo-health-v1",
         "archived_penalty": true
       }
@@ -1272,11 +1272,11 @@
         "value": 48,
         "parts": {
           "popularność": 1.3,
-          "aktualność": 38.1,
+          "aktualność": 38.0,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 12,
+        "commit_age_days": 13,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1395,7 +1395,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 608,
+        "commit_age_days": 609,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1420,8 +1420,8 @@
         "stars": 0,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-22T10:27:17Z",
-        "last_commit_sha": "ddd7ab75154d13e5bcece696cdcdd080dd754f94",
+        "last_commit": "2026-11-23T11:26:52Z",
+        "last_commit_sha": "0ac740e65d8cbf3b02b15ac1500208e98b478e0c",
         "archived": false,
         "language": "Python",
         "github_topics": [],
@@ -1492,14 +1492,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 28,
+        "value": 27,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 23.8,
+          "aktualność": 23.7,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 135,
+        "commit_age_days": 136,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1594,11 +1594,11 @@
         "value": 25,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 16.6,
+          "aktualność": 16.5,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 228,
+        "commit_age_days": 229,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1636,11 +1636,11 @@
         "value": 37,
         "parts": {
           "popularność": 7.8,
-          "aktualność": 20.5,
+          "aktualność": 20.4,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 173,
+        "commit_age_days": 174,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1721,7 +1721,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 110,
+        "commit_age_days": 111,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1759,11 +1759,11 @@
         "value": 42,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 38.0,
+          "aktualność": 37.9,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 13,
+        "commit_age_days": 14,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -1829,8 +1829,8 @@
         "stars": 0,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-23T08:00:09Z",
-        "last_commit_sha": "f67076c7788b9342c462c213c9b50558b6337cb4",
+        "last_commit": "2026-11-23T08:11:47Z",
+        "last_commit_sha": "532fcf781f279fee991042bc7849a6673dc781df",
         "archived": false,
         "language": "Python",
         "github_topics": [
@@ -1852,7 +1852,7 @@
         "value": 49,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 40.0,
+          "aktualność": 39.9,
           "społeczność": 3.7,
           "licencja": 5
         },
@@ -1913,11 +1913,11 @@
         "value": 18,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 14.4,
+          "aktualność": 14.3,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 266,
+        "commit_age_days": 267,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2034,14 +2034,14 @@
         "default_branch": "master"
       },
       "health": {
-        "value": 54,
+        "value": 53,
         "parts": {
           "popularność": 9.1,
-          "aktualność": 35.7,
+          "aktualność": 35.6,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 29,
+        "commit_age_days": 30,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2122,25 +2122,25 @@
         "stars": 1,
         "forks": 0,
         "open_prs": 9,
-        "last_commit": "2026-11-20T14:42:53Z",
-        "last_commit_sha": "0a08ac16ff57a43ec39d978709cbe1874d9d6491",
+        "last_commit": "2026-11-23T15:02:44Z",
+        "last_commit_sha": "e99bd0da91f5452c854ee6b84769b7452156c7df",
         "archived": false,
         "language": "Python",
         "github_topics": [],
-        "contributors": 5,
+        "contributors": 6,
         "open_issues": 0,
         "license": null,
         "default_branch": "main"
       },
       "health": {
-        "value": 52,
+        "value": 53,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 39.6,
-          "społeczność": 9.6,
+          "aktualność": 39.9,
+          "społeczność": 10.5,
           "licencja": 0
         },
-        "commit_age_days": 2,
+        "commit_age_days": 0,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2198,11 +2198,11 @@
         "value": 46,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 37.1,
+          "aktualność": 37.0,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 19,
+        "commit_age_days": 20,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2253,11 +2253,11 @@
         "value": 22,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 18.8,
+          "aktualność": 18.7,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 196,
+        "commit_age_days": 197,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2299,8 +2299,8 @@
         "stars": 0,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-22T23:02:23Z",
-        "last_commit_sha": "212e18c64cd8a22cd021fd3f0ee7ecbe74c2c75e",
+        "last_commit": "2026-11-23T18:25:12Z",
+        "last_commit_sha": "d937ebfd58b67975926fdcc7e6c72521335b6dc4",
         "archived": false,
         "language": "Python",
         "github_topics": [],
@@ -2313,7 +2313,7 @@
         "value": 52,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.9,
+          "aktualność": 40.0,
           "społeczność": 7.5,
           "licencja": 5
         },
@@ -2393,11 +2393,11 @@
         "value": 47,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 38.3,
+          "aktualność": 38.2,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 11,
+        "commit_age_days": 12,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2473,11 +2473,11 @@
         "value": 50,
         "parts": {
           "popularność": 7.5,
-          "aktualność": 34.2,
+          "aktualność": 34.1,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 40,
+        "commit_age_days": 41,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2746,11 +2746,11 @@
         "value": 50,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 38.8,
+          "aktualność": 38.7,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 7,
+        "commit_age_days": 8,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2788,11 +2788,11 @@
         "value": 25,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 21.6,
+          "aktualność": 21.5,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 160,
+        "commit_age_days": 161,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2844,11 +2844,11 @@
         "value": 70,
         "parts": {
           "popularność": 15.7,
-          "aktualność": 39.5,
+          "aktualność": 39.4,
           "społeczność": 9.6,
           "licencja": 5
         },
-        "commit_age_days": 3,
+        "commit_age_days": 4,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -2897,7 +2897,7 @@
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 209,
+        "commit_age_days": 210,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3043,11 +3043,11 @@
         "value": 47,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 38.2,
+          "aktualność": 38.1,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 11,
+        "commit_age_days": 12,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3135,7 +3135,7 @@
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 164,
+        "commit_age_days": 165,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3254,8 +3254,8 @@
         "stars": 0,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-16T11:14:21Z",
-        "last_commit_sha": "4ca29d0ff6b1038266febc4820befde773613db4",
+        "last_commit": "2026-11-23T12:24:36Z",
+        "last_commit_sha": "2d5cdfabbbe4c6e3c481a3b74e025e52e94304f4",
         "archived": false,
         "language": "Python",
         "github_topics": [],
@@ -3265,14 +3265,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 45,
+        "value": 46,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.0,
+          "aktualność": 39.9,
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 6,
+        "commit_age_days": 0,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3334,7 +3334,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 4055,
+        "commit_age_days": 4056,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3391,7 +3391,7 @@
         "value": 14,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 10.4,
+          "aktualność": 10.3,
           "społeczność": 3.7,
           "licencja": 0
         },
@@ -3439,11 +3439,11 @@
         "value": 38,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 34.0,
+          "aktualność": 33.9,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 42,
+        "commit_age_days": 43,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3489,11 +3489,11 @@
         "value": 34,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 30.7,
+          "aktualność": 30.6,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 68,
+        "commit_age_days": 69,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3595,7 +3595,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 152,
+        "commit_age_days": 153,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -3755,7 +3755,7 @@
         "value": 47,
         "parts": {
           "popularność": 4.0,
-          "aktualność": 34.0,
+          "aktualność": 33.9,
           "społeczność": 3.7,
           "licencja": 5
         },
@@ -3950,11 +3950,11 @@
         "value": 44,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 35.7,
+          "aktualność": 35.6,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 29,
+        "commit_age_days": 30,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4052,11 +4052,11 @@
       "source_line": 62,
       "approved": false,
       "metrics": {
-        "stars": 7,
+        "stars": 8,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-23T00:44:27Z",
-        "last_commit_sha": "ed3c0d0c7674656e1518a1a34bc00416c0c5139c",
+        "last_commit": "2026-11-23T12:45:10Z",
+        "last_commit_sha": "e0d48a2de46e0afd79431150e9e7b9feedecb391",
         "archived": false,
         "language": "Python",
         "github_topics": [
@@ -4075,8 +4075,8 @@
       "health": {
         "value": 48,
         "parts": {
-          "popularność": 7.5,
-          "aktualność": 40.0,
+          "popularność": 8.0,
+          "aktualność": 39.9,
           "społeczność": 0.0,
           "licencja": 0
         },
@@ -4233,11 +4233,11 @@
         "value": 45,
         "parts": {
           "popularność": 5.0,
-          "aktualność": 35.4,
+          "aktualność": 35.3,
           "społeczność": 0.0,
           "licencja": 5
         },
-        "commit_age_days": 31,
+        "commit_age_days": 32,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4295,11 +4295,11 @@
         "value": 22,
         "parts": {
           "popularność": 1.3,
-          "aktualność": 16.7,
+          "aktualność": 16.6,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 227,
+        "commit_age_days": 228,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4341,7 +4341,7 @@
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 31,
+        "commit_age_days": 32,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4379,11 +4379,11 @@
         "value": 48,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.2,
+          "aktualność": 39.1,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 5,
+        "commit_age_days": 6,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4429,14 +4429,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 37,
+        "value": 36,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 32.9,
+          "aktualność": 32.8,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 50,
+        "commit_age_days": 51,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4510,7 +4510,7 @@
           "społeczność": 9.6,
           "licencja": 5
         },
-        "commit_age_days": 13,
+        "commit_age_days": 14,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4548,11 +4548,11 @@
         "value": 39,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 35.4,
+          "aktualność": 35.3,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 31,
+        "commit_age_days": 32,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4588,14 +4588,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 40,
+        "value": 39,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 35.8,
+          "aktualność": 35.7,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 28,
+        "commit_age_days": 29,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4703,11 +4703,11 @@
         "value": 50,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 37.0,
+          "aktualność": 36.9,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 20,
+        "commit_age_days": 21,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4758,11 +4758,11 @@
         "value": 81,
         "parts": {
           "popularność": 28.7,
-          "aktualność": 39.6,
+          "aktualność": 39.5,
           "społeczność": 7.5,
           "licencja": 5
         },
-        "commit_age_days": 2,
+        "commit_age_days": 3,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4805,10 +4805,10 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 56,
+        "value": 55,
         "parts": {
           "popularność": 5.3,
-          "aktualność": 35.6,
+          "aktualność": 35.5,
           "społeczność": 9.6,
           "licencja": 5
         },
@@ -4899,7 +4899,7 @@
           "społeczność": 7.5,
           "licencja": 0
         },
-        "commit_age_days": 592,
+        "commit_age_days": 593,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -4949,11 +4949,11 @@
         "value": 45,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 39.0,
+          "aktualność": 38.9,
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 6,
+        "commit_age_days": 7,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5015,7 +5015,7 @@
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 132,
+        "commit_age_days": 133,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5053,7 +5053,7 @@
         "value": 47,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 35.9,
+          "aktualność": 35.8,
           "społeczność": 5.9,
           "licencja": 5
         },
@@ -5096,7 +5096,7 @@
         "value": 69,
         "parts": {
           "popularność": 15.2,
-          "aktualność": 40.0,
+          "aktualność": 39.9,
           "społeczność": 8.7,
           "licencja": 5
         },
@@ -5150,7 +5150,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 79,
+        "commit_age_days": 80,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5250,7 +5250,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 347,
+        "commit_age_days": 348,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5308,7 +5308,7 @@
         "value": 47,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 38.3,
+          "aktualność": 38.2,
           "społeczność": 3.7,
           "licencja": 5
         },
@@ -5415,7 +5415,7 @@
         "value": 48,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.0,
+          "aktualność": 38.9,
           "społeczność": 3.7,
           "licencja": 5
         },
@@ -5458,11 +5458,11 @@
         "value": 36,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 27.3,
+          "aktualność": 27.2,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 99,
+        "commit_age_days": 100,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5548,11 +5548,11 @@
         "value": 48,
         "parts": {
           "popularność": 4.6,
-          "aktualność": 35.0,
+          "aktualność": 34.9,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 34,
+        "commit_age_days": 35,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5595,7 +5595,7 @@
           "społeczność": 0.0,
           "licencja": 5
         },
-        "commit_age_days": 138,
+        "commit_age_days": 139,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5674,7 +5674,7 @@
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 301,
+        "commit_age_days": 302,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5713,11 +5713,11 @@
         "value": 56,
         "parts": {
           "popularność": 5.8,
-          "aktualność": 39.6,
+          "aktualność": 39.5,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 2,
+        "commit_age_days": 3,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5913,11 +5913,11 @@
         "value": 41,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 32.5,
+          "aktualność": 32.4,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 53,
+        "commit_age_days": 54,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -5960,14 +5960,14 @@
         "default_branch": "master"
       },
       "health": {
-        "value": 52,
+        "value": 51,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 37.8,
+          "aktualność": 37.7,
           "społeczność": 8.7,
           "licencja": 5
         },
-        "commit_age_days": 14,
+        "commit_age_days": 15,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6009,7 +6009,7 @@
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 41,
+        "commit_age_days": 42,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6065,7 +6065,7 @@
           "społeczność": 7.5,
           "licencja": 5
         },
-        "commit_age_days": 57,
+        "commit_age_days": 58,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6089,8 +6089,8 @@
         "stars": 1,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-22T22:17:36Z",
-        "last_commit_sha": "a971f29eab44cc730e42c1614967c3ae0f3c1b0a",
+        "last_commit": "2026-11-23T21:59:16Z",
+        "last_commit_sha": "010c31511f98439c8cadf11caae852c43a8359ff",
         "archived": false,
         "language": "Python",
         "github_topics": [],
@@ -6103,7 +6103,7 @@
         "value": 51,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 39.9,
+          "aktualność": 40.0,
           "społeczność": 3.7,
           "licencja": 5
         },
@@ -6302,8 +6302,8 @@
         "stars": 31,
         "forks": 3,
         "open_prs": 0,
-        "last_commit": "2026-11-22T22:42:34Z",
-        "last_commit_sha": "88bf209a761fddf5f9424eaa874deeba1455ab22",
+        "last_commit": "2026-11-23T23:52:17Z",
+        "last_commit_sha": "327e2132a5769cb2ad5abc8cfb37f70bb2735c0c",
         "archived": false,
         "language": "TypeScript",
         "github_topics": [
@@ -6319,7 +6319,7 @@
           "poland"
         ],
         "contributors": 3,
-        "open_issues": 0,
+        "open_issues": 11,
         "license": "AGPL-3.0",
         "default_branch": "master"
       },
@@ -6327,7 +6327,7 @@
         "value": 68,
         "parts": {
           "popularność": 15.2,
-          "aktualność": 39.9,
+          "aktualność": 40.0,
           "społeczność": 7.5,
           "licencja": 5
         },
@@ -6416,11 +6416,11 @@
         "value": 56,
         "parts": {
           "popularność": 4.0,
-          "aktualność": 39.1,
+          "aktualność": 39.0,
           "społeczność": 7.5,
           "licencja": 5
         },
-        "commit_age_days": 5,
+        "commit_age_days": 6,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6445,8 +6445,8 @@
         "stars": 1,
         "forks": 0,
         "open_prs": 0,
-        "last_commit": "2026-11-21T23:12:48Z",
-        "last_commit_sha": "ab72596b9fee35f8639458ffbf9d733542acf85d",
+        "last_commit": "2026-11-23T11:37:19Z",
+        "last_commit_sha": "ffc6d620901c8139448a9fb8b54f5d8fe669ada1",
         "archived": false,
         "language": "Python",
         "github_topics": [],
@@ -6459,11 +6459,11 @@
         "value": 56,
         "parts": {
           "popularność": 2.5,
-          "aktualność": 39.8,
+          "aktualność": 39.9,
           "społeczność": 8.7,
           "licencja": 5
         },
-        "commit_age_days": 1,
+        "commit_age_days": 0,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6607,11 +6607,11 @@
         "value": 46,
         "parts": {
           "popularność": 5.1,
-          "aktualność": 29.7,
+          "aktualność": 29.6,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 77,
+        "commit_age_days": 78,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6821,11 +6821,11 @@
         "value": 52,
         "parts": {
           "popularność": 1.3,
-          "aktualność": 39.7,
+          "aktualność": 39.6,
           "społeczność": 5.9,
           "licencja": 5
         },
-        "commit_age_days": 1,
+        "commit_age_days": 2,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6849,8 +6849,8 @@
         "stars": 0,
         "forks": 0,
         "open_prs": 2,
-        "last_commit": "2026-11-17T20:47:32Z",
-        "last_commit_sha": "79a94c3d58c101840083d8ce201da66fab0993b9",
+        "last_commit": "2026-11-23T10:17:35Z",
+        "last_commit_sha": "bc14f0a858b853e14aca6871beef87cc16fe1249",
         "archived": false,
         "language": "HTML",
         "github_topics": [],
@@ -6863,11 +6863,11 @@
         "value": 52,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.2,
+          "aktualność": 39.9,
           "społeczność": 7.5,
           "licencja": 5
         },
-        "commit_age_days": 5,
+        "commit_age_days": 0,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6909,7 +6909,7 @@
           "społeczność": 7.5,
           "licencja": 0
         },
-        "commit_age_days": 25,
+        "commit_age_days": 26,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -6970,7 +6970,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 86,
+        "commit_age_days": 87,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -7088,14 +7088,14 @@
         "default_branch": "main"
       },
       "health": {
-        "value": 34,
+        "value": 33,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 33.5,
+          "aktualność": 33.4,
           "społeczność": 0.0,
           "licencja": 0
         },
-        "commit_age_days": 45,
+        "commit_age_days": 46,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -7190,11 +7190,11 @@
         "value": 45,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 36.4,
+          "aktualność": 36.3,
           "społeczność": 3.7,
           "licencja": 5
         },
-        "commit_age_days": 24,
+        "commit_age_days": 25,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -7357,11 +7357,11 @@
         "value": 46,
         "parts": {
           "popularność": 0.0,
-          "aktualność": 39.8,
+          "aktualność": 39.7,
           "społeczność": 5.9,
           "licencja": 0
         },
-        "commit_age_days": 1,
+        "commit_age_days": 2,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
@@ -7423,7 +7423,7 @@
           "społeczność": 3.7,
           "licencja": 0
         },
-        "commit_age_days": 1020,
+        "commit_age_days": 1021,
         "method": "repo-health-v1",
         "archived_penalty": false
       }
